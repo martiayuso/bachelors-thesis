@@ -1,8 +1,35 @@
 \begin{thebibliography}{}
 
-\bibitem[{Applied Technology Council}, 1985]{atc13}
-{Applied Technology Council} (1985).
-\newblock {E}arthquake damage evaluation data for {C}alifornia.
-\newblock Technical report, Seismic Safety Commission, Applied Technology Council (\textsc{atc}), California.
+\bibitem[Binney and Tremaine, 2008]{binney2008galactic}
+Binney, J. and Tremaine, S. (2008).
+\newblock {\em Galactic Dynamics}.
+\newblock Princeton University Press, Princeton, NJ, 2nd edition.
+
+\bibitem[Hopkins et~al., 2023]{hopkins2023novel}
+Hopkins, P.~F., Nadler, E.~O., Grudi\'{c}, M.~Y., Shen, X., Sands, I., and Jiang, F. (2023).
+\newblock Novel conservative methods for adaptive force softening in collisionless and multi-species {N}-body simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}.
+\newblock arXiv:2212.06851v2.
+
+\bibitem[Power et~al., 2003]{power2003inner}
+Power, C., Navarro, J.~F., Jenkins, A., Frenk, C.~S., White, S. D.~M., Springel, V., Stadel, J., and Quinn, T. (2003).
+\newblock The inner structure of $\lambda${CDM} haloes -- {I}. {A} numerical convergence study.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 338(1):14--34.
+
+\bibitem[Price and Monaghan, 2007]{price2007energy}
+Price, D.~J. and Monaghan, J.~J. (2007).
+\newblock An energy-conserving formalism for adaptive gravitational force softening in {SPH} and {N}-body codes.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, pages 1--13.
+\newblock arXiv:astro-ph/0610872.
+
+\bibitem[Salamin, 2026]{salamin2026origin}
+Salamin, G. G.~H. (2026).
+\newblock The origin of size growth in ultra-faint dwarf galaxies: a comparison of cold and warm dark matter zoom-in {N}-body simulations.
+\newblock Master's thesis, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne (EPFL), Lausanne, Switzerland.
+
+\bibitem[Zhang et~al., 2019]{zhang2019optimal}
+Zhang, T., Liao, S., Li, M., and Gao, L. (2019).
+\newblock The optimal gravitational softening length for cosmological {N}-body simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 487(1):1227--1243.
 
 \end{thebibliography}
