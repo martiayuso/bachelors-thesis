@@ -1,0 +1,9 @@
+Density evolution plots.
+Study of shell contribution to velocity dispersion of central particle.
+Gravitational softening length has been ruled out as a possible cause of the problem: outer shell particles play an important role, and changing the softening length won't have an impact on these shells, as the particles within them are spaced out.
+Possible solution: inner shells regular simulation, outer shells use theoretical potential.
+Core vs cusp test. Problem still persistent with core, even though less emphasized.
+Study of box size, larger box size seems to yield better results, but not by much (.6 initial density for 100 box vs .75 initial density for 500 box, after 10 Gyrs).
+Possible problems to study: centering of the galaxy when plotting, study of the mass distribution and central angular momentum of halo.
+In density profile plots, we can see a slight increase of relative density before it decreases, for this reason I will study the cumulative mass of the halo.
+Cumulative mass of halo test, expected: a steep increase of mass as mass from the center has migrated to other shells. Actual results: no increase of mass, it only ever decreases.
