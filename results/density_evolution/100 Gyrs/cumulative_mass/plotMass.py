@@ -3,7 +3,7 @@
 Compute and plot enclosed (cumulative) mass profile M(<R) from SWIFT snapshots.
 
 Usage examples:
-python3 plotMass.py ../snapshot_0000.hdf5 ../snapshot_0100.hdf5 --rmin 0.01 --rmax 10 --nbins 100 --log xy --types dm --center-mode shrinking --mass-scale 1e10
+python3 plotMass.py ../snapshot_0000.hdf5 ../snapshot_0100.hdf5 --rmin 0.01 --rmax 10 --nbins 100 --log xy --types dm --center-mode shrinking -o mass_plot.png
 
 """
 
