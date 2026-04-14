@@ -8,3 +8,6 @@ Possible problems to study: centering of the galaxy when plotting, study of the 
 In density profile plots, we can see a slight increase of relative density before it decreases, for this reason I will study the cumulative mass of the halo.
 Cumulative mass of halo test, expected: a steep increase of mass as mass from the center has migrated to other shells. Results: 
 
+Center and concatenate a 100 Gyr simulation with eps = 0.01kpc, chunks of 10 snapshots (100 Myrs per file). I will also test chunks of 50 (500 Myrs per file).
+Chunks of 10 present a slight improvement (maybe due to the reduction of noise of single snapshots). Still it is not a solution to the numerical heating problem. Chunks of 50 might be too much, I suppose they will also reduce the noise (maybe even further) but the main problem will persist.
+
