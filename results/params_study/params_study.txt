@@ -1,0 +1,45 @@
+PARAMS STUDY (self-gravity)
+
+timestep (eta)
+	Change ate least 10x
+	Original: 0.002
+	Test 1: 0.02
+	Test 2: 0.0002
+	
+MAC
+	Original: geometric
+	Test: adaptive
+
+theta_cr
+	With MAC set to geometric, decrease to gain more accuracy
+	Original: 0.7
+	Test 1: 0.5
+	Test 2: 0.3 - need to increase tasks_per_cell 
+	test 3: 0.1 - need to increase tasks_per_cell 
+
+epsilon_fmm
+	Change at least 10x
+	Original: 0.001
+	Test 1: 0.01
+	Test 2: 0.0001
+	Test 3: 0.1
+	
+	
+
+# Parameters for the self-gravity scheme
+Gravity:
+  eta:                           0.025     # Constant dimensionless multiplier for time integration.
+  MAC:                           adaptive  # Choice of mulitpole acceptance criterion: 'adaptive' OR 'geometric'.
+  epsilon_fmm:                   0.001     # Tolerance parameter for the adaptive multipole acceptance criterion.
+  theta_cr:                      0.7       # Opening angle for the purely gemoetric criterion.
+
+# Parameters for the time integration scheme
+  dt_min:              1e-6  # The minimal time-step size of the simulation (in internal units).
+  dt_max:              1e-2  # The maximal time-step size of the simulation (in internal units).
+
+
+
+
+OBVS 1
+eta, mac, eps --> no changes except for test_1 of epsilon_fmm
+
