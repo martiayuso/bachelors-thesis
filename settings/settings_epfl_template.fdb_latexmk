@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1773311854.88728 "/home/marti-ayuso/uni/bachelors_thesis/report/bachelors-thesis/settings/settings_epfl_template.tex" "settings_epfl_template.pdf" "settings_epfl_template" 1773311856.90487 2
+["pdflatex"] 1777280144.04406 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/settings/settings_epfl_template.tex" "settings_epfl_template.pdf" "settings_epfl_template" 1777280146.2153 2
   "/etc/texmf/web2c/texmf.cnf" 1770803612.9779 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/marti-ayuso/uni/bachelors_thesis/report/bachelors-thesis/settings/settings_epfl_template.tex" 1773311854.07039 7538 266309625a685ce9514e834c016c6f1d ""
+  "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/settings/settings_epfl_template.tex" 1773311854.07039 7538 266309625a685ce9514e834c016c6f1d ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1095.tfm" 1136768653 3584 929cdff2b7a8c11bd4d49fd68cb0ae70 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
@@ -169,7 +169,7 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1770803750 8213494 1601c7fe5a1845281692149c2557de05 ""
-  "settings_epfl_template.aux" 1773311854.88006 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "settings_epfl_template.aux" 1777280144.04219 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   "settings_epfl_template.tex" 1773311854.07039 7538 266309625a685ce9514e834c016c6f1d ""
   (generated)
   "settings_epfl_template.aux"

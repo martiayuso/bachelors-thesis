@@ -1,0 +1,21 @@
+PARAMETERS STUDY
+timestep (eta)
+	Original: 0.002
+	Test 1: 0.02
+	Test 2: 0.0002
+	
+MAC
+	Original: geometric
+	Test: adaptive
+
+theta_cr
+	Original: 0.7
+	Test 1: 0.5
+
+epsilon_fmm
+	Original: 0.001
+	Test 1: 0.01
+	Test 2: 0.0001
+	Test 3: 0.1
+	
+

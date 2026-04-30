@@ -57,7 +57,7 @@ def plot(ic_file, sim_files, labels):
     # Formatting Bottom Panel
     ax2.set_ylabel(r'$\rho / \rho_{\rm init}$')
     ax2.set_xlabel(r'$r\ [\rm{kpc}]$')
-    ax2.set_ylim(0.4, 1.2)
+    ax2.set_ylim(0.2, 1.2)
     ax2.grid(alpha=0.2)
 
     # Add vertical lines for softening
@@ -79,7 +79,10 @@ if __name__ == "__main__":
         "orig_9999.hdf5.npz",
         "test_9999.hdf5.npz"
     ]
-    labels = ["orig 10", "test 10", "orig 100", "test 100"]
+    labels = [r"$\theta_{cr}$ = 0.7, 10 Gyrs",
+              r"$\theta_{cr}$ = 0.5, 10 Gyrs",
+              r"$\theta_{cr}$ = 0.7, 100 Gyrs",
+              r"$\theta_{cr}$ = 0.5, 100 Gyrs"]
 
     
     plot(ic, sims, labels)

@@ -1,9 +1,9 @@
-PWD /home/marti-ayuso/uni/bachelors_thesis/report/bachelors-thesis/settings
+PWD /home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/settings
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/marti-ayuso/uni/bachelors_thesis/report/bachelors-thesis/settings/settings_epfl_template.tex
+INPUT /home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/settings/settings_epfl_template.tex
 OUTPUT settings_epfl_template.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/book.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/book.cls

@@ -1,11 +1,175 @@
-\chapter{Simulation and analysis framework}
+\chapter{Simulation setup, framework and implementation}
 
-\lipsum[7]
+This chapter describes the numerical setup and analysis pipeline used to investigate the persistent central density decline identified in the previous chapters. The focus is on reproducibility: each subsection documents the simulation code configuration, initial-condition choices, diagnostic definitions, and implementation details used to test competing numerical and physical explanations.
 
-\section{One section}
+The workflow combines (i) controlled collisionless $N$-body runs in SWIFT, (ii) systematic parameter variations of the self-gravity solver, (iii) profile and cumulative-mass diagnostics extracted from snapshots, and (iv) shell-based analyses designed to quantify non-local contributions to the dynamics of the innermost region.
 
-\lipsum[3]
+\section{SWIFT simulation setup}
+\label{sec:framework_swift_setup}
 
-\subsection{One subsection}
+All simulations in this thesis are dark-matter-only and non-periodic, evolved with SWIFT in self-gravity mode (and external gravity when required by specific tests). In the working setup, runs are launched through
+\begin{verbatim}
+swift --self-gravity [--external-gravity] params.yml
+\end{verbatim}
+with outputs consisting of snapshots, global statistics, and timestep logs.
 
-\lipsum[3]
+The internal unit system is chosen so that
+\begin{equation}
+1\ \mathrm{length\ unit} = 1\ \mathrm{kpc}, \qquad
+1\ \mathrm{velocity\ unit} = 1\ \mathrm{km\ s^{-1}}, \qquad
+1\ \mathrm{mass\ unit} \approx 10^{10}\ M_{\odot},
+\end{equation}
+which allows straightforward interpretation of profile radii (kpc), velocity dispersions (km/s), and enclosed masses in solar units after post-processing conversion.
+
+\subsection{Baseline gravity and time integration choices}
+
+The parameter-study baseline adopts the self-gravity configuration
+\begin{equation}
+\eta = 0.002, \qquad \mathrm{MAC}=\mathrm{geometric}, \qquad
+\theta_{\mathrm{cr}}=0.7, \qquad \epsilon_{\mathrm{fmm}}=10^{-3},
+\end{equation}
+with minimum and maximum timesteps typically constrained in the interval
+\begin{equation}
+\Delta t_{\min}=10^{-6}, \qquad \Delta t_{\max}=10^{-2}
+\end{equation}
+for the long-run campaign, and tighter values used in dedicated tests.
+
+To probe solver sensitivity, each of the following was varied while keeping the others fixed: timestep factor $\eta$, MAC choice (geometric/adaptive), geometric opening threshold $\theta_{\mathrm{cr}}$, and $\epsilon_{\mathrm{fmm}}$. These controlled perturbations define the backbone of the numerical-robustness analysis presented in the results chapter.
+
+\subsection{Output cadence and bookkeeping}
+
+The production analysis relies on regular snapshot dumps that allow profile reconstruction at multiple times (e.g. 0, 20, 40, 60, 80, and 100 Gyr in the long runs). In parallel, SWIFT writes:
+\begin{itemize}
+\item global conservation and bulk quantities in \texttt{statistics.txt},
+\item timestep activity in \texttt{timesteps.txt}.
+\end{itemize}
+These files are used as consistency checks (mass budget, energy trends, and global angular momentum evolution) when interpreting local density changes.
+
+\section{Halo initial conditions and parameter choices}
+\label{sec:framework_ic_params}
+
+The halo models are generated as collisionless particle realizations with controlled inner slopes to enable cusp/core comparisons under otherwise matched numerical conditions.
+
+For dedicated truncated-NFW tests, initial conditions are produced with
+\begin{verbatim}
+ic_gen_2_slopes --alpha 1 --beta 3 --Rmin 1e-3 --Rmax 50 --r_cutoff 50 \
+				--rho0 0.0027658297046461644 --rs 0.828177997155062 \
+				--ptype 1 --mass 61664.060524 -t swift -o halo.hdf5
+\end{verbatim}
+which corresponds to a two-slope halo with tunable inner structure and an outer truncation radius.
+
+Across the broader thesis campaign, the most relevant controlled parameters are:
+\begin{itemize}
+\item halo type: cusp and core initial conditions,
+\item box-size variants for finite-volume sensitivity checks,
+\item gravitational softening variants (with a commonly used reference value $\epsilon=0.01\,$kpc),
+\item self-gravity solver parameters ($\eta$, MAC, $\theta_{\mathrm{cr}}$, $\epsilon_{\mathrm{fmm}}$).
+\end{itemize}
+
+The practical philosophy is to keep one baseline run and modify one parameter family at a time, so each subsection in the results can be interpreted as a direct hypothesis test rather than a multi-parameter confounded comparison.
+
+\section{Density, shell, and mass diagnostics}
+\label{sec:framework_diagnostics}
+
+This section defines the observables used throughout the thesis.
+
+\subsection{Spherically averaged density profiles}
+
+Density profiles are extracted from snapshots with a radial grid up to a user-defined $r_{\max}$ and $N_r$ bins. In practice, the analysis scripts use both moderate and high radial resolutions, including $N_r=500$ in the inner-region-focused runs.
+
+For shell $i$ with mass $\Delta M_i$ and boundaries $(r_{i,\mathrm{in}},r_{i,\mathrm{out}})$, the estimator is
+\begin{equation}
+\rho_i = \frac{\Delta M_i}{\frac{4\pi}{3}\left(r_{i,\mathrm{out}}^3-r_{i,\mathrm{in}}^3\right)}.
+\end{equation}
+Profiles are then compared to the initial state using ratio curves $\rho(r,t)/\rho(r,t_0)$, which makes secular flattening or depletion immediately visible.
+
+\subsection{Softening-scale marker in profile plots}
+
+To separate physically interpretable radii from numerically delicate scales, profile plots include a vertical reference at
+\begin{equation}
+r_{\mathrm{ref}} = 2.8\,\epsilon,
+\end{equation}
+with $\epsilon$ the run softening length. This marker is not used as a hard cutoff, but as a visual guide when discussing central profile evolution.
+
+\subsection{Cumulative mass profiles}
+
+Cumulative mass diagnostics are computed via
+\begin{equation}
+M(<r) = \sum_{r_j < r} m_j,
+\end{equation}
+including optional decomposition by particle type when needed. The implementation supports multiple centering modes (center of mass, median, manual center, and shrinking-sphere center), with shrinking-sphere used in the dedicated cumulative-mass tests because of its robustness to asymmetries and mild off-centering.
+
+\subsection{Velocity and anisotropy diagnostics}
+
+Using the same radial binning, the analysis computes velocity moments and anisotropy indicators, including
+\begin{equation}
+\beta(r) = 1 - \frac{\sigma_t^2}{2\sigma_r^2},
+\end{equation}
+as complementary diagnostics for identifying orbital heating and redistribution mechanisms.
+
+\section{Shell-based analysis framework}
+\label{sec:framework_shells}
+
+To test whether the central evolution is driven purely by local inner-halo physics or by non-local coupling, the halo is decomposed into radial shells and each shell's contribution to central perturbations is quantified.
+
+The shell study scripts use logarithmically spaced shells between inner and outer radii and evaluate a proxy for the velocity-perturbation contribution,
+\begin{equation}
+\Delta V_{\mathrm{shell}}^2 \propto
+\frac{16\pi G^2 m_p}{v_{\mathrm{rel}}^2}
+\int_{r_{\mathrm{in}}}^{r_{\mathrm{out}}} \rho(r)\,\mathrm{d}r,
+\end{equation}
+with $m_p$ the particle mass and $v_{\mathrm{rel}}$ a characteristic relative velocity scale in the model.
+
+For an NFW-like profile, this integral is evaluated analytically in the implementation, enabling direct shell-by-shell comparisons without introducing numerical integration noise at this stage.
+
+The practical output is a radial contribution spectrum that indicates how much outer shells can influence central kinematics. This framework is central to the thesis logic because it directly tests the hypothesis that central decline may be maintained by global halo coupling even when local numerical parameters are modified.
+
+\section{Numerical implementation of the hybrid model}
+\label{sec:framework_hybrid}
+
+Motivated by the shell results, a dedicated hybrid gravity model was implemented and tested on a custom SWIFT branch (\texttt{truncated-NFW}). The model enforces a hard radial split at a cutoff radius $R_{\mathrm{cut}}$:
+\begin{itemize}
+\item inner region ($r \le R_{\mathrm{cut}}$): standard self-gravity, no external NFW acceleration,
+\item outer region ($r > R_{\mathrm{cut}}$): external NFW acceleration applied, with optional masking of dark-matter self-gravity sourcing outside the cutoff.
+\end{itemize}
+
+In test runs, the backend is selected at compile time using
+\begin{verbatim}
+--with-ext-potential=truncated-nfw
+\end{verbatim}
+and runtime control is provided through the \texttt{NFWPotential} block, including
+\begin{equation}
+R_{\mathrm{cut}} = 10\ \mathrm{kpc}, \qquad
+\texttt{dm\_mask\_outside\_cutoff}=1
+\end{equation}
+in the reference validation setup.
+
+The design goal is not to claim a final physical model, but to construct a targeted numerical experiment: if outer-halo coupling is a major driver of central evolution, changing how the outer region sources gravity should produce a measurable response in inner-density trends.
+
+\section{Centering, snapshot concatenation, and noise control}
+\label{sec:framework_centering_chunking}
+
+Because the central-density signal is subtle and cumulative, robust post-processing is essential. Three practical steps are applied:
+\begin{itemize}
+\item explicit centering checks (including histogram/peak and shrinking-sphere based workflows),
+\item consistent recentering in profile extraction scripts,
+\item snapshot concatenation to reduce shot noise in long-run diagnostics.
+\end{itemize}
+
+For the 100 Gyr campaign, concatenated datasets were built in windows of 10 snapshots (100 Myr effective spacing) and 50 snapshots (500 Myr windows). This improves visual stability of profile curves and helps distinguish persistent trends from per-snapshot noise fluctuations.
+
+Importantly, chunking is treated as a representation-control tool rather than a physical correction: reductions in noise do not by themselves resolve secular central-density decline, so interpretations remain anchored to the full diagnostic set.
+
+\section{Chapter summary}
+\label{sec:framework_summary}
+
+The methodological framework of this thesis combines controlled simulation design and targeted diagnostics:
+\begin{itemize}
+\item controlled SWIFT parameter studies of softening and gravity-solver settings,
+\item matched cusp/core and box-size comparisons,
+\item profile, cumulative-mass, and kinematic diagnostics under consistent centering,
+\item shell-based non-local coupling analysis,
+\item and a dedicated truncated-NFW hybrid implementation test.
+\end{itemize}
+
+This setup is designed so that each result in the next chapter can be interpreted as a specific mechanism test, progressively ruling out or supporting candidate explanations for the observed central-density evolution.

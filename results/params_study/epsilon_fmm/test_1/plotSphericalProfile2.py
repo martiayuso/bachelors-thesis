@@ -37,7 +37,7 @@ Examples:
 --------
 
 # density profile
-python3 plotSphericalProfile2.py -y density --xmin 0.01 --xmax 10 --rmax 10 --nr 500 --log xy snapshot_0000.hdf5
+python3 plotSphericalProfile2.py -y density --xmin 0.01 --xmax 10 --rmax 10 --nr 200 --log xy snapshot_0000.hdf5
 
 
 plotSphericalProfile -y density  --xmax 10 --rmax 10 --nr 64  --log xy  snapshot.hdf5  

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  12 MAR 2026 11:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  27 APR 2026 10:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/marti-ayuso/uni/bachelors_thesis/report/bachelors-thesis/settings/settings_epfl_template.tex
-(/home/marti-ayuso/uni/bachelors_thesis/report/bachelors-thesis/settings/settings_epfl_template.tex
+**/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/settings/settings_epfl_template.tex
+(/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/settings/settings_epfl_template.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
@@ -846,10 +846,10 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
  
 Here is how much of TeX's memory you used:
  29191 strings out of 474222
- 527149 string characters out of 5748733
+ 527128 string characters out of 5748733
  1922975 words of memory out of 5000000
  50994 multiletter control sequences out of 15000+600000
  563360 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,0n,93p,670b,428s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,0n,93p,663b,428s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

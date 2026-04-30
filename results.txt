@@ -1,0 +1,113 @@
+---RESULTS AND DISCUSSION---
+
+BASELINE BEHAVIOUR
+Start with the main density evolution plot for the reference run.
+Here you establish:
+    • the cusp-to-core transition, 
+    • the fact that the density keeps decreasing, 
+    • the fact that the core does not stabilize in your simulation. 
+This subsection should answer: What is the phenomenon?
+
+errani paper 2021 (errani and peñarrubia), plot from cusp to core (4.1)
+errani says core stays stable, we see the opposite.
+
+[reference plot of the situation, density vs radius, for different times. One plot up until 10 Gyrs, another plot up until 100 Gyrs]
+
+ANALYSIS PIPELINE
+We need to make sure that the behaviour is not caused by trivial things, such as the centering of the halo, or noise.
+
+To make sure is is not caused by the centering, a modification of the analysis code (pNbody) has been made to center each snapshot using the shrinking sphere method. We see the same behaviour. Additionnally, pNbody provides us with a module that lets us plot histograms to determine the center (show the plots), we can see that centering is no problem. nb.histocenter(), creates 3 different histograms in 3 directions, center is at peak.
+
+To check wether the noise might be contributing to this behaviour, we can concatenate the snaphsots. Two tests have been made: 10-snapshot chunks (100Myrs) and 50-snapshot chunks (500Myrs). [Show both plots]. As expected the plots show reduced noise, but the cusp-to-core transition is still present. 
+Center and concatenate a 100 Gyr simulation with eps = 0.01kpc, chunks of 10 snapshots (100 Myrs per file). I will also test chunks of 50 (500 Myrs per file).
+Chunks of 10 present a slight improvement (maybe due to the reduction of noise of single snapshots). Still it is not a solution to the numerical heating problem. Chunks of 50 might be too much, I suppose they will also reduce the noise (maybe even further) but the main problem will persist. As expected, noise is reduced, which is actually nice for representation, but the same problem is still persistent.
+
+BOX SIZE DEPENDENCE
+    • larger box size seems to yield a slower decrease, 
+    • but the effect is modest, 
+    • therefore box size may influence the rate, but does not eliminate the phenomenon. 
+[plot of some examples, changing the box size to show the effect]
+[plot of box size vs density at a radious, to better determine the effect of the box size, and check that it reduces over each box size, meaning that there's a limit to how much it is worth it]
+Study of box size, larger box size seems to yield better results, but not by much (.6 initial density for 100 box vs .75 initial density for 500 box, after 10 Gyrs).
+
+INITIAL HALO STRUCTURE
+Test of starting with a cusp vs starting with core. the problem persists even in the core case, though less strongly. That is a strong result because it suggests the behaviour is not simply a cusp-specific instability.
+Suggested framing:
+    • the effect is not limited to cuspy initial conditions, 
+    • the core case may reduce the amplitude, but the trend remains, 
+    • this suggests the mechanism is more general. 
+[Plot of simulation with initial conditions being core, to show that density still decreases]
+
+GRAVITATIONAL SOFTENING
+State the hypothesis first:
+    • if softening were the cause, changing it should alter the rate or existence of the central decline. 
+Then present:
+    • your softening-length comparisons, 
+    • the fact that outer shell particles remain important, 
+    • the argument that changing softening does not materially affect their spacing in the same way. 
+Your conclusion here seems strong:
+    • softening is not the main driver. 
+Suggested figures:
+    • density evolution for multiple softening lengths, 
+    • central density decline rate vs softening, 
+    
+Gravitational softening length has been ruled out as a possible cause of the problem: outer shell particles play an important role, and changing the softening length won't have an impact on these shells, as the particles within them are spaced out (hypothesis that will be tested in shell study section).
+
+SELF-GRAVITY SETTINGS
+You can group together:
+    • timestep parameter η, 
+    • MAC choice, 
+    • θ_cr, 
+    • ε_fmm. 
+You do not need to give each parameter equal weight. Instead, you can present them as one subsection on self-gravity scheme sensitivity.
+Within that subsection, write:
+    • what you expected, 
+    • what changed, 
+    • what did not change, 
+    • what that implies. 
+Suggested structure inside:
+    • timestep study 
+    • MAC study 
+    • geometric criterion study 
+    • ε_fmm study 
+    • summary of solver sensitivity 
+[plot: one panel per parameter showing central density evolution]
+
+timestep (eta)
+	Change ate least 10x
+	Original: 0.002
+	Test 1: 0.02
+	Test 2: 0.0002
+	
+MAC
+	Original: geometric
+	Test: adaptive
+
+theta_cr
+	With MAC set to geometric, decrease to gain more accuracy
+	Original: 0.7
+	Test 1: 0.5
+
+epsilon_fmm
+	Change at least 10x
+	Original: 0.001
+	Test 1: 0.01
+	Test 2: 0.0001
+	Test 3: 0.1
+	
+# Parameters for the self-gravity scheme
+Gravity:
+  eta:                           0.025     # Constant dimensionless multiplier for time integration.
+  MAC:                           adaptive  # Choice of mulitpole acceptance criterion: 'adaptive' OR 'geometric'.
+  epsilon_fmm:                   0.001     # Tolerance parameter for the adaptive multipole acceptance criterion.
+  theta_cr:                      0.7       # Opening angle for the purely gemoetric criterion.
+
+None of the params have an important impact on the reduction of density. Some of them, like epsilon_fmm, havea positive impact at low timeframes, but it is not the solution of the problem that is being studied.
+
+CUMULATIVE MASS AND ANGULAR MOMENTUM
+
+
+SHELL STUDY
+
+
+TRUNCATED NFW
