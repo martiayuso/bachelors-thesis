@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  29 APR 2026 11:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  30 APR 2026 10:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -935,42 +935,6 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )) (./content/head/titlepage.tex
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 6.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
-File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmss' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for FML+futmi on input line 14.
- (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutmi.fd
-File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
-)
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 14.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 14.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 14.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 14.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 14.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 14.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
 Package epstopdf Info: Source file: <assets/epfl.eps>
 (epstopdf)                    date: 2026-02-17 14:22:46
 (epstopdf)                    size: 13206 bytes
@@ -978,90 +942,136 @@ Package epstopdf Info: Source file: <assets/epfl.eps>
 (epstopdf)                    date: 2026-03-12 11:36:19
 (epstopdf)                    size: 3046 bytes
 (epstopdf)             Command: <repstopdf --outfile=assets/epfl-eps-converted-to.pdf assets/epfl.eps>
-(epstopdf)             \includegraphics on input line 15.
+(epstopdf)             \includegraphics on input line 9.
 Package epstopdf Info: Output file is already uptodate.
 <assets/epfl-eps-converted-to.pdf, id=7, 612.2875pt x 265.99374pt>
 File: assets/epfl-eps-converted-to.pdf Graphic file (type pdf)
 <use assets/epfl-eps-converted-to.pdf>
-Package pdftex.def Info: assets/epfl-eps-converted-to.pdf  used on input line 15.
-(pdftex.def)             Requested size: 113.81102pt x 49.4394pt.
+Package pdftex.def Info: assets/epfl-eps-converted-to.pdf  used on input line 9.
+(pdftex.def)             Requested size: 99.58464pt x 43.26202pt.
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 14.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmss' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [1
 
-Overfull \hbox (24.00002pt too wide) in paragraph at lines 14--41
- [][] 
- []
-
-[1
 
 
 
 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc} <./assets/epfl-eps-converted-to.pdf>]) (./content/head/dedication.tex [2
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./assets/epfl-eps-converted-to.pdf>]) (./content/head/dedication.tex [2
-
-]) (./content/head/acknowledgements.tex [0]
+]) (./content/head/abstracts.tex [0]
+LaTeX Font Info:    Trying to load font information for FML+futmi on input line 7.
+ (/usr/share/texlive/texmf-dist/tex/latex/fourier/fmlfutmi.fd
+File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
+)
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 22.88956pt on input line 1.
+(Font)              scaled to size 22.88956pt on input line 7.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 1.
+(Font)              scaled to size 15.89755pt on input line 7.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 1.
+(Font)              scaled to size 11.03998pt on input line 7.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 22.88956pt on input line 1.
+(Font)              scaled to size 22.88956pt on input line 7.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 1.
+(Font)              scaled to size 15.89755pt on input line 7.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 11.03998pt on input line 1.
-) (./content/head/preface.tex
+(Font)              scaled to size 11.03998pt on input line 7.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 7.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 7.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \cleardoublepage
-                     [1
+l.16 \cleardoublepage
+                      [1
 
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}]
+
+]
 pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \cleardoublepage
-                     [2
+l.16 \cleardoublepage
+                      [2
 
-]) (./content/head/abstracts.tex [3
+]) [3
 
 ] [4
 
-] [5
-
-] [6
-
-] [7
-
-] [8
-
-]) [9
-
-] [10
-
-] (./my_thesis.toc [11
+] (./my_thesis.toc
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 10.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 7.63599pt on input line 10.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 10.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 10.07397pt on input line 10.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.63599pt on input line 10.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 10.
+ [5
 
 ])
 \tf@toc=\write4
 \openout4 = `my_thesis.toc'.
 
- [12] (./content/ch1/introduction.tex) [1
+ [6] (./my_thesis.lof
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 11.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Overfull \hbox (9.22998pt too wide) in paragraph at lines 14--14
+ [][] [][][]\T1/futs/b/n/10.95 (-20) [PLACEHOLDER FIG-URE] \T1/futs/m/n/10.95 (-20) Com-par-i-son of cen-ter-ing meth-ods, in-clud-ing shrinking- 
+ []
+
+)
+\tf@lof=\write5
+\openout5 = `my_thesis.lof'.
+
+ [7
 
 
+] [8
 
-] [2
-
-] (./content/ch2/aim.tex
-Chapter 1.
-) (./content/ch3/background.tex
+] (./content/ch1/introduction.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3
+ [1
 
-] [4]
-Chapter 2.
+
+] [2]
+Overfull \hbox (7.56029pt too wide) in paragraph at lines 52--53
+[]\T1/futs/b/n/10.95 (-20) Rule out triv-ial nu-mer-i-cal ex-pla-na-tions\T1/futs/m/n/10.95 (-20) : Test whether changes to nu-mer-i-cal parameters---
+ []
+
+
+Overfull \hbox (10.12086pt too wide) in paragraph at lines 52--53
+\T1/futs/m/n/10.95 (-20) gravitational soft-en-ing length, timestep fac-tor, force-solver ac-cu-racy settings---significantly
+ []
+
+[3]) [4] (./content/ch3/background.tex
+Chapter 1.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 10.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8.3> not available
@@ -1072,6 +1082,7 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5
+
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1105,7 +1116,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9]) (./content/ch4/framework.tex [10]
-Chapter 3.
+Chapter 2.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17.28> not available
@@ -1117,14 +1128,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 1--1
 [][][]\T1/futs/b/n/24.88 (+20) Simulation setup, frame-work and
  []
 
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 11.
-(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1143,7 +1146,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14] [15]) (./content/ch5/results.tex [16]
-Chapter 4.
+Chapter 3.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1167,7 +1170,7 @@ Underfull \vbox (badness 2837) has occurred while \output is active []
  [26]) (./content/ch6/conclusions.tex [27] [28
 
 ]
-Chapter 5.
+Chapter 4.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1188,18 +1191,18 @@ L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 31467 strings out of 474222
- 567247 string characters out of 5748733
+ 31523 strings out of 474222
+ 567635 string characters out of 5748733
  1938975 words of memory out of 5000000
- 52585 multiletter control sequences out of 15000+600000
- 720541 words of font info for 409 fonts, out of 8000000 for 9000
+ 52577 multiletter control sequences out of 15000+600000
+ 737741 words of font info for 456 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,13n,96p,1062b,1347s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on my_thesis.pdf (48 pages, 240626 bytes).
+ 89i,13n,96p,1062b,1345s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on my_thesis.pdf (44 pages, 291507 bytes).
 PDF statistics:
- 658 PDF objects out of 1000 (max. 8388607)
- 579 compressed objects within 6 object streams
- 135 named destinations out of 1000 (max. 500000)
- 96178 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 673 PDF objects out of 1000 (max. 8388607)
+ 590 compressed objects within 6 object streams
+ 134 named destinations out of 1000 (max. 500000)
+ 116626 words of extra memory for PDF output out of 128383 (max. 10000000)
 

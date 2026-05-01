@@ -1,59 +1,53 @@
 \babel@toc {english}{}\relax 
 \babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{Acknowledgements}{i}{chapter*.1}%
-\contentsline {chapter}{Preface}{iii}{chapter*.2}%
-\contentsline {chapter}{Abstract (English/Français)}{v}{chapter*.3}%
-\babel@toc {german}{}\relax 
-\babel@toc {english}{}\relax 
+\contentsline {chapter}{Abstract}{i}{chapter*.1}%
 \babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{Introduction}{1}{chapter*.7}%
-\contentsline {chapter}{\numberline {1}Aim and scope}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}One section}{3}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}One subsection}{3}{subsection.1.1.1}%
-\contentsline {chapter}{\numberline {2}Theoretical background}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Dark matter halos and density profiles}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Cusp-core behaviour in ultra-faint dwarf galaxies}{6}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Numerical heating and relaxation effects in $N$-body systems}{7}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Gravitational softening: fixed and adaptive formulations}{7}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Gravity solver controls in SWIFT: Tree/FMM context}{8}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Why shell structure and mass redistribution matter}{9}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Chapter summary}{10}{section.2.7}%
-\contentsline {chapter}{\numberline {3}Simulation setup, framework and implementation}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}SWIFT simulation setup}{11}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Baseline gravity and time integration choices}{12}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Output cadence and bookkeeping}{12}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Halo initial conditions and parameter choices}{12}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Density, shell, and mass diagnostics}{13}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Spherically averaged density profiles}{13}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Softening-scale marker in profile plots}{13}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Cumulative mass profiles}{13}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Velocity and anisotropy diagnostics}{14}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Shell-based analysis framework}{14}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Numerical implementation of the hybrid model}{14}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Centering, snapshot concatenation, and noise control}{15}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Chapter summary}{15}{section.3.7}%
-\contentsline {chapter}{\numberline {4}Results and discussion}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Baseline behaviour}{17}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Analysis pipeline}{19}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Box size}{20}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Initial halo structure}{20}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Gravitational softening}{22}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Self-gravity settings}{23}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Timestep study}{24}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Multipole Acceptance Criterion study}{24}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Geometric opening angle study}{25}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}FMM tolerance study}{25}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Summary table of self-gravity parameter variations}{25}{subsection.4.6.5}%
-\contentsline {subsection}{\numberline {4.6.6}Overall interpretation of solver sensitivity}{25}{subsection.4.6.6}%
-\contentsline {section}{\numberline {4.7}Cumulative mass and angular momentum}{26}{section.4.7}%
-\contentsline {section}{\numberline {4.8}Shell study}{27}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Truncated NFW}{27}{section.4.9}%
-\contentsline {section}{\numberline {4.10}Synthesis}{27}{section.4.10}%
-\contentsline {chapter}{\numberline {5}Conclusions}{29}{chapter.5}%
-\contentsline {section}{\numberline {5.1}One section}{29}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}One subsection}{29}{subsection.5.1.1}%
+\contentsline {chapter}{List of Figures}{vii}{section*.4}%
+\contentsline {chapter}{Introduction}{1}{chapter*.6}%
+\contentsline {chapter}{\numberline {1}Theoretical background}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Dark matter halos and density profiles}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Cusp-core behaviour in ultra-faint dwarf galaxies}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Numerical heating and relaxation effects in $N$-body systems}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Gravitational softening: fixed and adaptive formulations}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Gravity solver controls in SWIFT: Tree/FMM context}{8}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Why shell structure and mass redistribution matter}{9}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Chapter summary}{10}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Simulation setup, framework and implementation}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}SWIFT simulation setup}{11}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Baseline gravity and time integration choices}{12}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Output cadence and bookkeeping}{12}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Halo initial conditions and parameter choices}{12}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Density, shell, and mass diagnostics}{13}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Spherically averaged density profiles}{13}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Softening-scale marker in profile plots}{13}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Cumulative mass profiles}{13}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Velocity and anisotropy diagnostics}{14}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Shell-based analysis framework}{14}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Numerical implementation of the hybrid model}{14}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Centering, snapshot concatenation, and noise control}{15}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Chapter summary}{15}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Results and discussion}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Baseline behaviour}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Analysis pipeline}{19}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Box size}{20}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Initial halo structure}{20}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Gravitational softening}{22}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Self-gravity settings}{23}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Timestep study}{24}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Multipole Acceptance Criterion study}{24}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Geometric opening angle study}{25}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}FMM tolerance study}{25}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.5}Summary table of self-gravity parameter variations}{25}{subsection.3.6.5}%
+\contentsline {subsection}{\numberline {3.6.6}Overall interpretation of solver sensitivity}{25}{subsection.3.6.6}%
+\contentsline {section}{\numberline {3.7}Cumulative mass and angular momentum}{26}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Shell study}{27}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Truncated NFW}{27}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Synthesis}{27}{section.3.10}%
+\contentsline {chapter}{\numberline {4}Conclusions}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}One section}{29}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}One subsection}{29}{subsection.4.1.1}%
 \vspace {\normalbaselineskip }
 \contentsline {chapter}{\numberline {A}An appendix}{31}{appendix.A}%
-\contentsline {chapter}{Bibliography}{33}{appendix*.19}%
+\contentsline {chapter}{Bibliography}{33}{appendix*.20}%

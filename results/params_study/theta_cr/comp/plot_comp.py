@@ -79,10 +79,10 @@ if __name__ == "__main__":
         "orig_9999.hdf5.npz",
         "test_9999.hdf5.npz"
     ]
-    labels = [r"$\theta_{cr}$ = 0.7, 10 Gyrs",
-              r"$\theta_{cr}$ = 0.5, 10 Gyrs",
-              r"$\theta_{cr}$ = 0.7, 100 Gyrs",
-              r"$\theta_{cr}$ = 0.5, 100 Gyrs"]
+    labels = [r"$\theta_{cr}$ = 0.7, 10 Gyr",
+              r"$\theta_{cr}$ = 0.5, 10 Gyr",
+              r"$\theta_{cr}$ = 0.7, 100 Gyr",
+              r"$\theta_{cr}$ = 0.5, 100 Gyr"]
 
     
     plot(ic, sims, labels)

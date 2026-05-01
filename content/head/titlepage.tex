@@ -1,46 +1,73 @@
 \begin{titlepage}
-\begin{otherlanguage}{french}
-\begin{center}
-%\large
-\sffamily
-
-
-\null\vspace{2cm}
-{\huge FIRST LINE OF TITLE \\[12pt] SECOND LINE OF TITLE} \\[24pt] 
-\textcolor{gray}{\small{THIS IS A TEMPORARY TITLE PAGE \\ It will be replaced for the final print by a version \\ provided by the registrar's office.}}
-    
-\vfill
-
-\begin{tabular} {cc}
-\parbox{0.3\textwidth}{\includegraphics[width=4cm]{assets/epfl}}
-&
-\parbox{0.7\textwidth}{%
-	Thèse n. 1234 \the\year\\
-	présentée le \today\\
-	à la Faculté des sciences de base\\
-	laboratoire SuperScience\\
-	programme doctoral en SuperScience\\
-%
-%	ÉCOLE POLYTECHNIQUE FÉDÉRALE DE LAUSANNE\\
-	École polytechnique fédérale de Lausanne\\[6pt]
-	pour l'obtention du grade de Docteur ès Sciences\\
-	par\\ [4pt]
-	\null \hspace{3em} Paolino Paperino\\[9pt]
-%
-\small
-acceptée sur proposition du jury:\\[4pt]
-%
-    Prof Name Surname, président du jury\\
-    Prof Name Surname, directeur de thèse\\
-    Prof Name Surname, rapporteur\\
-    Prof Name Surname, rapporteur\\
-    Prof Name Surname, rapporteur\\[12pt]
-%
-Lausanne, EPFL, \the\year}
-\end{tabular}
-\end{center}
-\vspace{2cm}
-\end{otherlanguage}
+	\setlength{\parindent}{0pt}
+	\begin{otherlanguage}{french}
+	
+	% Top bar with EPFL logo and institution info
+	\begin{minipage}[t][2.5cm][t]{\textwidth}
+		\begin{minipage}[t]{0.25\textwidth}
+			\vspace{-10pt}
+			\includegraphics[width=3.5cm]{assets/epfl}
+		\end{minipage}%
+		\hfill%
+		\begin{minipage}[t]{0.65\textwidth}
+			\vspace{0.3cm}
+			{\small \sffamily \textbf{ÉCOLE POLYTECHNIQUE FÉDÉRALE DE LAUSANNE}}\\[3pt]
+			{\footnotesize \sffamily School of Basic Sciences \\ Department of Physics}
+		\end{minipage}
+	\end{minipage}
+	
+	\vspace{1.0cm}
+	
+	% Main title area with decorative line
+	\noindent\rule{\textwidth}{2pt}
+	
+	% Main title - make it prominent and readable
+	\begin{center}
+		\vspace{1.0cm}
+		{\fontsize{28}{32}\selectfont \bfseries
+		Impact of an adaptive gravitational softening length on the inner density profile of dark matter halos in collisionless simulations}
+	\end{center}
+	
+	\vspace{1.0cm}
+	
+	% Decorative line
+	\noindent\rule{\textwidth}{2pt}
+	
+	\vfill
+	
+	% Author and metadata section
+	\begin{center}
+		\vspace{1cm}
+		
+		{\large \sffamily \textbf{Bachelor's Thesis}}\\[10pt]
+		
+		{\normalsize \sffamily by}\\[8pt]
+		
+		{\Large \sffamily \textbf{Martí Ayuso Maldonado}}\\[12pt]
+		
+		{\small \sffamily Supervised by}\\[6pt]
+		{\normalsize \sffamily \textbf{Dr. Yves Revaz}}\\[20pt]
+		
+		% Thesis number and date
+		{\small \sffamily 
+		Submitted on \today\\[2pt]
+		}
+	\end{center}
+	
+	\vfill
+	
+	% Bottom info bar
+	\begin{center}
+		{\footnotesize \sffamily \textcolor{gray}{
+		\rule{\textwidth}{1pt}\\[10pt]
+		Lausanne, Switzerland -- \the\year\\
+		Laboratory of Astrophysics\\
+		}}
+	\end{center}
+	
+	\vspace{1.5cm}
+	
+	\end{otherlanguage}
 \end{titlepage}
 
 
