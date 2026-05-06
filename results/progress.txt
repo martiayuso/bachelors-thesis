@@ -13,3 +13,7 @@ Chunks of 10 present a slight improvement (maybe due to the reduction of noise o
 
 
 
+
+
+
+Although the outer halo contributes significantly to the gravitational potential, its contribution is spatially smooth and does not affect the local gravitational forces within the inner region. Therefore, it can be safely replaced by an analytic potential without impacting the dynamics.
