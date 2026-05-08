@@ -13,9 +13,8 @@ MAC
 theta_cr
 	With MAC set to geometric, decrease to gain more accuracy
 	Original: 0.7
-	Test 1: 0.5
-	Test 2: 0.3 - need to increase tasks_per_cell 
-	test 3: 0.1 - need to increase tasks_per_cell 
+	Test 1: 0.6
+	Test 2: 0.5
 
 epsilon_fmm
 	Change at least 10x
