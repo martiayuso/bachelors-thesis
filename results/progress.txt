@@ -17,3 +17,9 @@ Chunks of 10 present a slight improvement (maybe due to the reduction of noise o
 
 
 Although the outer halo contributes significantly to the gravitational potential, its contribution is spatially smooth and does not affect the local gravitational forces within the inner region. Therefore, it can be safely replaced by an analytic potential without impacting the dynamics.
+
+
+
+After testing the truncated module (1st test), the center colapses from cusp to core (expected, erani and peñarrubia). However, does it keep getting worse? I have to extend the simulation to 100 Gyrs. I am testing with soft = 100 pc, as for some reason the module makes the simulation go significantly slower. Makint the cutoff radius larger seems to speed up the simulation A LOT. Curioso: at rcut 95 kpc, only the center behaviour changes, will extend to 100 Gyrs to see if its better. I have tried modifying the epsilon and timestep mult values, not a lot of change, main difference in speed up is the cutoff radius.
+
+When setting an rcut for the truncated model, particles dont go through this radius, they all stay inside.

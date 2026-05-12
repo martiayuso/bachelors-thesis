@@ -1,0 +1,235 @@
+## Plan: Hybrid Inner Self-Gravity + Outer NFW
+
+Implement a hybrid gravity model where DM particles inside R_cut evolve with normal SWIFT self-gravity and no external field, while DM particles outside R_cut become gravitationally massless for self-gravity and feel only an NFW external potential. This requires changes beyond truncated_nfw/potential.h because particle mass enters tree/p2p kernels outside the external-potential backend.
+
+**Steps**
+1. Phase 1: Wire a selectable backend for truncated NFW + cutoff parameters.
+2. Add a new configure option for this backend in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/configure.ac so it defines EXTERNAL_POTENTIAL_TRUNCATED_NFW (depends on 1).
+3. Add the corresponding include branch in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential.h so the backend is selectable at compile time (depends on 2).
+4. Extend /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential/truncated_nfw/potential.h with new runtime parameters: cutoff radius R_cut, optional cutoff center (default to potential center), and booleans/flags needed for strict inner-no-external behavior (depends on 3).
+5. Update external_gravity_acceleration, external_gravity_timestep, and external_gravity_get_potential_energy in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential/truncated_nfw/potential.h to apply NFW only for r > R_cut and return zero external contribution for r <= R_cut (depends on 4).
+
+6. Phase 2: Make outer DM particles truly massless for self-gravity.
+7. Introduce a gravitational mass-weight field on gparts (for example grav_mass_factor) in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/gravity/Default/gravity_part.h and define it as 1 for normal particles and 0 for masked particles (depends on 1).
+8. Ensure this factor is initialized and refreshed from position for local DM particles (type swift_type_dark_matter) before gravity interactions each step/rebuild; use existing synchronization/update points in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/space.c and gravity update pipeline entry points (depends on 7).
+9. Apply factor in particle-particle gravity source mass usage in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/runner_doiact_grav.c so source mass_j becomes mass_j * grav_mass_factor for local and foreign particle paths (depends on 8).
+10. Apply factor in multipole construction by replacing raw gparts[k].mass usage in gravity_P2M within /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/multipole.h so tree moments exclude masked outer DM mass (depends on 8).
+11. Ensure foreign/remote interaction data carries the same effective factor semantics (either by storing effective mass directly when packing foreign gparts, or by adding factor to foreign struct and applying it where mass is consumed) to avoid MPI asymmetry (depends on 9 and 10).
+
+12. Phase 3: Couple mask logic to truncated NFW settings and DM-only scope.
+13. Centralize a helper predicate for cutoff membership (distance to cutoff center > R_cut) and apply it only to swift_type_dark_matter; leave gas/stars/BH/sinks unchanged (depends on 4 and 8).
+14. Keep the outer-region force model physically consistent: outer DM receives external NFW acceleration, while its self-gravity source mass is zero; inner DM receives normal self-gravity and no external field (depends on 5 and 13).
+15. Decide and document behavior exactly at r = R_cut (hard step): recommended convention is inner region for r <= R_cut and outer region for r > R_cut to avoid ambiguity (depends on 13).
+
+16. Phase 4: Parameterization, restart safety, and diagnostics.
+17. Add new YAML keys under NFWPotential (for example cutoff_radius and optional cutoff_position/useabspos reuse) in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential/truncated_nfw/potential.h parser reads and printed diagnostics (depends on 4).
+18. Verify restart serialization remains valid for new external_potential fields through existing generic dump/restore in /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential.c (depends on 17).
+19. Add runtime messages in potential_print_backend to display R_cut and active DM-only masking mode so misconfiguration is immediately visible (depends on 17).
+
+20. Phase 5: Validation and regression checks.
+21. Build with --with-ext-potential=truncated-nfw (new option) and run a small DM-only test where particles are seeded on both sides of R_cut; confirm outer DM acceleration is NFW-only and inner DM has no external acceleration (depends on 5 and 14).
+22. Verify mass accounting and gravity behavior by checking that outer DM does not contribute to tree/p2p attraction (force symmetry spot checks, multipole mass checks, and energy diagnostics) (depends on 10 and 11).
+23. Run an MPI test with particles across rank boundaries to confirm identical behavior to single-rank runs and no foreign-particle inconsistencies (depends on 11).
+24. Run baseline regression with plain nfw backend to ensure no behavior changes outside the new backend path (parallel with 21-23 once compile passes).
+
+**Relevant files**
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/configure.ac — add new ext-potential switch value and define macro.
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential.h — add macro branch for truncated NFW backend include.
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential/truncated_nfw/potential.h — implement cutoff-region external force logic and parameter parsing/printing.
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/gravity/Default/gravity_part.h — add per-gpart gravitational mass factor.
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/runner_doiact_grav.c — apply effective source mass in local/foreign p2p paths.
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/multipole.h — apply effective mass in gravity_P2M tree moment construction.
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/space.c — initialize/update DM cutoff mass-factor state for gparts.
+- /home/marti-ayuso/uni/bachelors_thesis/software/swiftsim/src/potential.c — verify serialization compatibility and restart behavior for expanded external_potential.
+
+**Verification**
+1. Configure/build check: confirm truncated-nfw backend compiles and is selected by configure output.
+2. Unit-style physics check: evaluate one particle inside and one outside R_cut and compare accelerations to expected inner/outer model.
+3. Self-gravity exclusion check: inspect force contributions from outer DM sources in p2p and multipole paths (single rank).
+4. MPI consistency check: same ICs on 1 rank and multiple ranks produce consistent trajectories/accelerations around cutoff shell.
+5. Restart check: run, restart from snapshot/checkpoint, and confirm mask/external behavior is unchanged.
+6. Non-regression check: run a standard NFW case and verify unchanged results versus pre-change baseline.
+
+**Decisions**
+- Confirmed with user: hard cutoff step, DM-only scope, and strict split: inner self-gravity only; outer NFW-only with DM massless for self-gravity.
+- Included scope: gravity dynamics and external potential behavior; required compile-time backend wiring.
+- Excluded scope: modifying gas/star/BH/sink gravitational treatment and introducing smooth transition shells.
+
+**Further Considerations**
+1. Numerical stability at hard boundary: monitor for orbit discontinuities near R_cut; if needed later, add optional smoothing shell as a separate enhancement.
+2. Performance: recomputing mask every interaction is expensive; keep mask update at per-step/per-rebuild cadence and consume precomputed grav_mass_factor in kernels.
+3. Conservation interpretation: with position-dependent masking, global energy conservation diagnostics may show expected non-conservative behavior across boundary crossings; document this explicitly in run notes.
+
+
+
+
+
+
+
+DOCUMENTATION
+
+Hybrid Truncated NFW External Potential
+=======================================
+
+Overview
+--------
+
+This mode combines two regimes around a user-defined cutoff radius :math:`R_{cut}`:
+
+1. Inner region (:math:`r \le R_{cut}`):
+   - No external NFW acceleration is applied.
+   - Particles evolve with normal SWIFT self-gravity.
+
+2. Outer region (:math:`r > R_{cut}`):
+   - External NFW acceleration is applied.
+   - Dark matter particles can be made massless for self-gravity (DM-only mask).
+
+This backend is selected with:
+
+- configure option: --with-ext-potential=truncated-nfw
+- macro path in code: configure.ac, potential.h
+
+Physical interpretation
+-----------------------
+
+This setup is designed for hybrid experiments where the inner halo is evolved self-consistently, while the outer region is represented by an imposed NFW field and (optionally) DM particles outside :math:`R_{cut}` do not source self-gravity.
+
+Important: the center used for both the external potential and the DM mask is the same center read from NFWPotential:position. It is not auto-detected from the halo particle distribution.
+
+How the center is defined
+-------------------------
+
+The potential center is read from:
+
+- NFWPotential:position in potential.h
+- NFWPotential:useabspos in potential.h
+
+Interpretation:
+
+1. useabspos = 1:
+   - position is absolute simulation coordinates.
+
+2. useabspos = 0:
+   - position is interpreted relative to box center and shifted by half-box size in each axis.
+
+The same center is propagated to DM masking globals in potential.c.
+
+How the cutoff is defined
+-------------------------
+
+The cutoff is user-defined in the parameter file:
+
+- required: NFWPotential:cutoff_radius in potential.h
+- optional: NFWPotential:dm_mask_outside_cutoff (default 1) in potential.h
+
+Region classification uses:
+
+- :math:`r^2 > R_{cut}^2` as outer region in potential.h
+
+Behavior implemented
+--------------------
+
+External potential behavior:
+
+- Inner region:
+  - no external acceleration in potential.h
+  - no external potential energy term in potential.h
+  - no extra external timestep constraint in potential.h
+
+- Outer region:
+  - standard NFW external acceleration and potential term.
+
+DM-only mass masking behavior:
+
+- Applied only to particle type swift_type_dark_matter in gravity.h
+- Effective mass is set to zero outside cutoff when enabled.
+- Effective mass is used in:
+  - local and foreign packed masses gravity.h
+  - gravity caches gravity_cache.h
+  - multipole construction multipole.h
+  - no-cache pair loops runner_doiact_grav.c
+
+Build and run
+-------------
+
+1. Configure SWIFT with this backend:
+
+   ./configure --with-ext-potential=truncated-nfw [other options]
+
+2. Build as usual.
+
+3. Provide an NFWPotential block in the YAML parameter file.
+
+Parameter file example
+----------------------
+
+Use the NFWPotential section (same family of keys as NFW, plus cutoff keys):
+
+::
+
+    NFWPotential:
+      useabspos: 0
+      position: [0.0, 0.0, 0.0]
+      timestep_mult: 0.01
+      concentration: 9.0
+      M_200: 137.0
+      h: 0.704
+      epsilon: 0.2
+      bulgefraction: 0.0
+      diskfraction: 0.04
+
+      cutoff_radius: 30.0
+      dm_mask_outside_cutoff: 1
+
+Notes:
+
+- cutoff_radius is required.
+- dm_mask_outside_cutoff is optional and defaults to 1.
+- M_200 key name follows the implementation key exactly.
+
+Practical guidance for choosing center and cutoff
+-------------------------------------------------
+
+1. Center:
+   - Set position to the actual dynamical center of the DM halo (or intended fixed center of the external field).
+   - If the halo drifts and you keep a fixed center, the boundary is evaluated around that fixed point.
+
+2. Cutoff radius:
+   - Choose based on where you want to switch from self-gravitating halo to externally imposed NFW regime.
+   - Transition is a hard step at :math:`R_{cut}`.
+
+3. Scope:
+   - DM masking is DM-only by design.
+   - Gas, stars, sinks, and black holes are not mass-masked by this feature.
+
+Diagnostics
+-----------
+
+At startup, the backend prints:
+
+- truncated NFW activation
+- center, scale radius, halo properties
+- cutoff radius and DM masking flag
+
+See logging in potential.h.
+
+Known limitations
+-----------------
+
+1. The cutoff center and external potential center are currently tied to the same position.
+2. The transition at :math:`R_{cut}` is discontinuous (hard boundary).
+3. Center is user-specified; there is no automatic halo-center finder in this backend.
+
+validation checks
+---------------------------
+
+1. Place tracer particles just inside and just outside :math:`R_{cut}` and verify:
+   - inner: no external NFW acceleration
+   - outer: non-zero external NFW acceleration
+
+2. For DM particles outside :math:`R_{cut}` with dm_mask_outside_cutoff=1, verify they do not source self-gravity.
+
+3. Compare single-rank and MPI runs for consistency of the masked regime.
+
+
+

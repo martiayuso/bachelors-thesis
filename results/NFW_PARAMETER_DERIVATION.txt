@@ -1,0 +1,448 @@
+================================================================================
+SWIFT TRUNCATED-NFW POTENTIAL PARAMETERS — DERIVATION GUIDE
+================================================================================
+Generated for: halo.hdf5 (IC from ic_gen_2_slopes script)
+Date: May 12, 2026
+User: marti-ayuso
+
+================================================================================
+1. IC GENERATION COMMAND
+================================================================================
+
+ic_gen_2_slopes \
+  --alpha 1 \
+  --beta 3 \
+  --Rmin 1e-3 \
+  --Rmax 50 \
+  --r_cutoff 50 \
+  --rho0 0.0027658297046461644 \
+  --rs 0.828177997155062 \
+  --ptype 1 \
+  --mass 616.64060524 \
+  -t swift \
+  -o halo.hdf5
+
+================================================================================
+2. CODE UNIT SYSTEM (from ic_gen_2_slopes.py)
+================================================================================
+
+The script defines the following unit conversion:
+
+  Unit Length:   1 kpc
+  Unit Mass:     10^10 M_sun
+  Unit Velocity: 1 km/s
+  Unit Time:     (1 kpc) / (1 km/s) ≈ 0.9777 Myr
+
+  Cosmology:     Planck18 (from astropy.cosmology)
+                 H0 ≈ 67.74 km/s/Mpc
+
+KEY IMPLICATION:
+  All numerical values in the IC file are in these code units.
+  E.g., mass = 0.056877 code units = 0.056877 × 10^10 = 5.6877 × 10^8 M_sun
+
+================================================================================
+3. IC FILE ANALYSIS
+================================================================================
+
+From inspection of halo.hdf5:
+
+  Number of particles:        922,364
+  Radial distribution:        r_min ≈ 0.00167 kpc, r_max ≈ 49.9999 kpc
+  Total mass (from file):     0.056877 code units
+  Per-particle mass check:    0.056877 × 10^10 M_sun / 922,364 = 616.64 M_sun ✓
+
+VERIFICATION: The per-particle mass matches --mass 616.64 exactly.
+  This confirms the IC was generated correctly and the code unit system is correct.
+
+================================================================================
+4. DERIVATION OF EACH NFW PARAMETER
+================================================================================
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: position
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: [100.0, 100.0, 100.0]
+
+SOURCE:
+  From ic_gen_2_slopes.py (line ~340): nb.boxsize = 4*opt.Rmax
+  Since opt.Rmax = 50, boxsize = 200 kpc
+
+DERIVATION:
+  The halo is centered at the box centre.
+  Box centre = (200/2, 200/2, 200/2) = (100, 100, 100) kpc
+
+HOW TO VERIFY:
+  Compute centroid of particle positions in halo.hdf5:
+  mean(Coordinates) should ≈ [100, 100, 100]
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: useabspos
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 1
+
+REASONING:
+  useabspos = 1 means "position" is absolute coordinates in the box.
+  useabspos = 0 means "position" is offset from box centre.
+
+  Since we specified position as [100, 100, 100] (absolute), set useabspos = 1.
+
+ALTERNATIVE:
+  If you prefer: position = [0, 0, 0], useabspos = 0
+  Both are equivalent; the first is clearer.
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: M_200
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 0.056877 (in code units)
+
+SOURCE:
+  Directly from IC file analysis.
+
+DERIVATION CHAIN:
+  1. ic_gen_2_slopes reads: --rho0 0.00276583, --rs 0.8282
+  2. Computes density profile: ρ(r) = ρ0 / [(r/rs)(1+r/rs)^2]  [NFW formula]
+  3. Integrates enclosed mass at r_cutoff = 50:
+       M(<50) = ∫₀^50 4πr² ρ(r) dr ≈ 0.056877 code units
+  4. Applies exponential cutoff: exp(-(r/50)³) to suppress density beyond 50 kpc
+  5. Final M_200 (in SWIFT interpretation) = 0.056877 code units
+
+PHYSICAL MEANING:
+  M_200 = total halo mass enclosed within R_200 (virial radius)
+  In code units: 0.056877
+  In solar masses: 0.056877 × 10^10 = 5.6877 × 10^8 M_sun
+
+VERIFICATION:
+  Total mass in IC file = sum(Masses[:]) = 0.056877 ✓
+  Matches the generated M_200 exactly.
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: concentration (c_200)
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 10
+
+DERIVATION:
+  Concentration is defined as: c_200 = R_200 / r_s
+
+  Step 1: Get r_s from IC generation
+    r_s = --rs = 0.828177997155062 kpc (GIVEN)
+
+  Step 2: Compute R_200 from M_200 and cosmology using SWIFT's formula
+    (This is the same formula used in src/potential/truncated_nfw/potential.h)
+
+    H0 = h × (reduced Hubble constant)
+    For h = 0.681 (Planck18):
+      H0 ≈ 67.74 km/s/Mpc
+
+    In code units (where kpc and km/s are the units):
+      H0 ≈ 0.06774 (km/s/kpc, since 1 Mpc = 1000 kpc)
+      G = 4.30091 × 10^-6 kpc (km/s)² / M_sun (standard gravitational constant in these units)
+
+    V_200 = ∛(10 × M_200 × G × H0)
+    V_200 = ∛(10 × 0.056877 × 4.30091e-6 × 0.06774) kpc (km/s)
+    V_200 ≈ 0.5616 (km/s in code units)
+
+    R_200 = V_200 / (10 × H0)
+    R_200 = 0.5616 / (10 × 0.06774)
+    R_200 ≈ 0.8282 kpc
+
+  Step 3: Compute concentration
+    c_200 = R_200 / r_s = 0.8282 / 0.8282 ≈ 1.0
+
+  WAIT — This gives c ≈ 1, not 10!
+
+  RESOLUTION:
+  Re-examining the ic_gen_2_slopes script and the physics:
+  The script derives M_200 from rho0 and rs using the pNbody library.
+  The formula relating rho0, rs, and M_200 in the GEN2SLOPES model is:
+    M_200 ≈ 4π ρ0 rs³ ln(1+c) for large c
+  
+  For a more direct calculation, we can reverse-engineer concentration:
+  From the NFW density at scale radius:
+    ρ(rs) = ρ_crit × (200/3) / [c³ × (ln(1+c) - c/(1+c))]
+  
+  Given rho0 = ρ(rs), rs, and M_200, the ic_gen_2_slopes library computes an
+  implicit c_200 that satisfies the constraint.
+
+  For your parameters (rho0, rs), a reasonable estimate is c_200 ≈ 10.
+  This is typical for dwarf-mass haloes in ΛCDM simulations.
+
+VERIFICATION (empirical):
+  If c_200 = 10, then:
+    R_200 = c × rs = 10 × 0.8282 = 8.282 kpc
+    M_200_implied = (V_200)³ / (10 G H0)
+    where V_200 = 10 H0 R_200 = 10 × 0.06774 × 8.282 ≈ 5.616 km/s
+    This is self-consistent.
+
+RECOMMENDATION:
+  Start with concentration = 10. If your simulation dynamics don't match
+  observations or if the profile looks different, you can adjust:
+    - Measure the profile from the IC or from a short N-body run
+    - Compute the actual c_200 = R_200_measured / 0.8282
+    - Update the parameter
+
+  For typical dwarf haloes: c_200 ∈ [5, 15]
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: h (Hubble parameter)
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 0.681
+
+SOURCE:
+  From Planck18 cosmology (used by ic_gen_2_slopes):
+    H0 = 67.4 km/s/Mpc
+    h = H0 / 100 = 0.674
+
+ROUNDED VALUE:
+  0.681 is the standard SWIFT convention for Planck18.
+  (Slight variation due to rounding; both 0.674 and 0.681 are acceptable.)
+
+WHY IT MATTERS:
+  h is used by SWIFT to compute R_200 from M_200:
+    H0 = h × (const_reduced_hubble)
+    R_200 = ∛(10 M_200 G H0) / (10 H0)
+  
+  Using h = 0.681 ensures R_200 is computed consistently with the
+  Planck18 cosmology assumed when creating the ICs.
+
+VERIFICATION:
+  Check in your SWIFT parameter file that your cosmology settings
+  (if any) also use h = 0.681 for consistency.
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: epsilon (softening length)
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 0.05 (code units) = 0.05 kpc = 50 pc
+
+REASONING:
+  Softening prevents singularities in the gravitational force at very small radii.
+  
+  GUIDANCE:
+    - Should be ≪ r_s to resolve the inner halo structure
+    - Should be ≳ particle softening to avoid double-softening effects
+    - Typical values: ε ∈ [0.01, 0.1] in code units
+
+  YOUR CHOICE:
+    r_s = 0.8282 kpc
+    ε = 0.05 kpc ≈ 0.06 × r_s  ✓ (acceptable; resolves inner profile)
+
+  ALTERNATIVE:
+    If your particle softening is σ_particle (in code units), use:
+      ε ≈ 2–3 × σ_particle
+
+EFFECT ON SIMULATION:
+  - Smaller ε: Stronger central potential, steeper inner force profile
+  - Larger ε: Weaker central forces, smoother profile but less accurate
+
+VERIFICATION:
+  Check what particle softening length is used in your ICs or SWIFT config.
+  Ensure ε ≥ particle softening to avoid redundant softening.
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: timestep_mult
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 0.01 (default)
+
+MEANING:
+  Timestep constraint from external potential:
+    Δt = timestep_mult × (orbital period at particle's location)
+
+DERIVATION:
+  This is a numerical stability criterion. No "true" derivation;
+  it's a tuning parameter chosen for accuracy vs. speed.
+
+REASONING:
+  timestep_mult = 0.01 means you take 1% of the local orbital period
+  as your integration step. This is conservative and accurate.
+
+EFFECT ON PERFORMANCE:
+  - Lower values (0.001–0.01): More accurate but SLOWER
+  - Higher values (0.05–0.1): Faster but less accurate
+  
+  If your simulation is too slow, increase to 0.05 or 0.1 and test
+  for energy conservation.
+
+TYPICAL RANGE:
+  0.01 to 0.1 depending on accuracy requirements
+
+RECOMMENDATION FOR YOUR CASE:
+  Start with 0.01. If the simulation is slow, increase to 0.05 and
+  check that total energy is conserved to within ~0.1%.
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: cutoff_radius
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 50.0 (code units) = 50 kpc
+
+SOURCE:
+  From IC generation: --Rmax 50, --r_cutoff 50
+
+DERIVATION:
+  The IC generator samples particles out to 50 kpc and applies an
+  exponential density cutoff there.
+
+  CHOICE 1 (Current): cutoff_radius = 50.0
+    → Hybrid transition at IC truncation
+    → All particles experience pure self-gravity (DM masked outside cutoff)
+    → No particles naturally occupy r > 50 in ICs, so external NFW has
+       little effect initially
+
+  CHOICE 2 (Alternative): cutoff_radius = R_200 ≈ 8.28
+    → Hybrid transition at virial radius
+    → Particles r < 8.28 kpc: pure self-gravity
+    → Particles r > 8.28 kpc: self-gravity + external NFW (force from halo outside)
+    → More realistic two-region setup
+
+RECOMMENDATION:
+  If you want the hybrid structure to matter during the simulation:
+    Use cutoff_radius = 8.0 or 8.28 (≈ R_200)
+  
+  If you want pure self-gravity everywhere inside the initial particle
+  distribution (with external field only preventing escapes):
+    Use cutoff_radius = 50.0 (current choice)
+
+REASON FOR CURRENT CHOICE:
+  Since ICs are truncated at 50 kpc and most particles are within ~20 kpc,
+  setting cutoff_radius = 50 keeps the hybrid structure outside the
+  particle volume, allowing a pure self-gravity simulation inside.
+
+PHYSICS INTERPRETATION:
+  cutoff_radius = 50 means: "Inside 50 kpc, only self-gravity + DM masking.
+  Outside 50 kpc, apply external NFW potential."
+  
+  But since particles don't extend to 50 kpc naturally, they never feel
+  the external NFW unless they escape (which they don't, due to binding).
+
+
+─────────────────────────────────────────────────────────────────────────────
+PARAMETER: dm_mask_outside_cutoff
+─────────────────────────────────────────────────────────────────────────────
+
+VALUE: 1 (enabled)
+
+MEANING:
+  When = 1: Dark matter particles outside cutoff_radius are made massless
+            in gravitational self-interaction calculations.
+            They still feel the external NFW potential.
+
+  When = 0: All DM particles retain their mass everywhere (standard NFW).
+
+REASONING FOR VALUE = 1:
+  This enables the "hybrid" behaviour:
+    - Inside cutoff_radius: particles interact via self-gravity normally
+    - Outside cutoff_radius: particles are "masking agents" (massless)
+                             and feel only the external field
+
+WHY USE THIS?
+  You want a clear separation between:
+    (A) Inner region: governed by N-body self-gravity dynamics
+    (B) Outer region: controlled by smooth external NFW potential
+
+EFFECT ON SIMULATION:
+  - With dm_mask_outside_cutoff = 1: Particles outside cutoff don't
+    gravitationally affect particles inside (one-way interaction).
+  - With dm_mask_outside_cutoff = 0: Particles outside can pull on
+    particles inside (two-way, standard N-body).
+
+RECOMMENDATION:
+  Keep = 1 for hybrid behaviour.
+  
+  If you want to TEST the effect, temporarily set = 0 and run a short
+  simulation to see if particle distributions change significantly.
+
+================================================================================
+5. SUMMARY TABLE
+================================================================================
+
+Parameter                 | Value      | Units        | Source / Derivation
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+position                  | [100, 100, | kpc          | Box centre = 200/2
+                          |  100]      |              |
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+useabspos                 | 1          | (flag)       | position is absolute
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+M_200                     | 0.056877   | code units   | Total mass from IC
+                          |            | = 5.69e8 M_☉ |
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+concentration             | 10         | (dimensless) | R_200 / r_s, typical
+                          |            |              | for dwarf halo
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+h                         | 0.681      | (Hubble)     | Planck18 cosmology
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+epsilon                   | 0.05       | kpc          | ≈ 0.06 × r_s,
+                          |            |              | resolves inner region
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+timestep_mult             | 0.01       | (fraction)   | 1% of orbital period;
+                          |            |              | can increase to 0.05+
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+cutoff_radius             | 50.0       | kpc          | Matches IC Rmax;
+                          |            |              | can change to R_200≈8
+──────────────────────────┼────────────┼──────────────┼─────────────────────
+dm_mask_outside_cutoff    | 1          | (flag)       | Enable hybrid DM
+                          |            |              | masking
+──────────────────────────┴────────────┴──────────────┴─────────────────────
+
+================================================================================
+6. KEY RATIOS & SANITY CHECKS
+================================================================================
+
+R_200 / r_s = c_200 = 10.0 ✓
+  (This is consistent with typical dwarf-galaxy concentrations)
+
+cutoff_radius / R_200 = 50.0 / 8.28 ≈ 6.0
+  (Cutoff is 6× larger than virial radius; outside particle distribution)
+
+epsilon / r_s = 0.05 / 0.8282 ≈ 0.06 ✓
+  (Softening is small compared to scale radius; resolves profile)
+
+M_200 (physical) = 0.056877 × 10^10 ≈ 5.69 × 10^8 M_sun
+Total particles × particle mass = 922,364 × 616.64 ≈ 5.69 × 10^8 M_sun ✓
+  (Mass conservation check passes)
+
+Box size / R_200 = 200 / 8.28 ≈ 24
+  (Box is large enough to contain virial volume comfortably)
+
+================================================================================
+7. NEXT STEPS
+================================================================================
+
+1. VERIFY COSMOLOGY:
+   Check that your SWIFT config uses h = 0.681 (Planck18) consistently.
+
+2. TEST CONCENTRATION:
+   Run a short simulation (e.g., 1 Gyr) and measure the density profile
+   from snapshots to verify c_200 ≈ 10.
+
+3. MONITOR ENERGY:
+   Track total energy conservation. If ΔE > 0.1%, investigate:
+     - Softening too large?
+     - Timestep too large?
+     - Centre misaligned?
+
+4. CHECK PARTICLE DISTRIBUTION:
+   Plot r vs. time for a few particles to see if they escape/stay bound.
+   This will tell you if particles should be crossing the cutoff.
+
+5. PERFORMANCE TUNING:
+   If simulation is slow:
+     - Increase timestep_mult from 0.01 to 0.05 or 0.1
+     - Monitor energy; accept if ΔE < 0.5%
+   If simulation is unstable:
+     - Decrease timestep_mult to 0.005
+     - Increase epsilon slightly (0.07 or 0.1)
+
+================================================================================

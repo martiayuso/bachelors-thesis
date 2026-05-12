@@ -48,7 +48,7 @@ def plot(ic_file, sim_files, labels):
     ax1.set_yscale('log')
     ax1.set_xscale('log')
     ax1.set_ylabel(r'$\rho\ [M_\odot/\rm{kpc}^3]$')
-    ax1.set_xlim(1e-2, 10)
+    ax1.set_xlim(1e-2, 100)
     ax1.set_ylim(1e4, 2e10)
     ax1.legend()
     ax1.grid(alpha=0.2)

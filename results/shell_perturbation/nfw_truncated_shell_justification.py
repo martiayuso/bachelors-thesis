@@ -183,9 +183,6 @@ def outer_potential_from_cut(
     """
     Potential at probe radius r_probe due only to the mass outside r_cut.
     Exact for a truncated spherical NFW halo.
-
-    This is the quantity you want for the thesis argument:
-    "How much of the inner potential depth comes from the outer halo?"
     """
     if r_cut >= r_vir:
         return 0.0

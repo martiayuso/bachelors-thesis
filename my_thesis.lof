@@ -3,19 +3,23 @@
 \babel@toc {english}{}\relax 
 \babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Cusp versus core density profiles.}}{2}{figure.caption.7}%
-\contentsline {figure}{\numberline {2}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Central density evolution over 100 Gyr.}}{2}{figure.caption.8}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Cusp versus core density profiles.}}{2}{figure.caption.6}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Central density evolution over 100 Gyr.}}{3}{figure.caption.7}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Reference density evolution over time. The image file will be added later to \texttt {ch5/img}.}}{18}{figure.caption.9}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Radial density profiles at selected snapshots for the reference run.}}{18}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Comparison of 10-snapshot and 50-snapshot concatenated profiles. The exact figure filenames will be added later in \texttt {ch5/img}.}}{19}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Comparison of centering methods, including shrinking-sphere and histogram-based centering.}}{20}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Density evolution for different box sizes.}}{21}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Ratio plot or summary diagnostic for box-size sensitivity.}}{21}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Density evolution for the core initial-condition test.}}{22}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Density evolution for multiple softening lengths.}}{23}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces \textbf {[PLACEHOLDER FIGURES]} Parameter-study panels for the self-gravity settings. The final image files will be placed in \texttt {ch5/img}.}}{26}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Reference density evolution over time. The image file will be added later to \texttt {ch5/img}.}}{24}{figure.caption.8}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Radial density profiles at selected snapshots for the reference run.}}{24}{figure.caption.9}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Comparison of 10-snapshot and 50-snapshot concatenated profiles. The exact figure filenames will be added later in \texttt {ch5/img}.}}{25}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Comparison of centering methods, including shrinking-sphere and histogram-based centering.}}{26}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \textbf {Box-size study.} Comparison of the three tested simulation volumes (small, intermediate, large). The central-density diagnostic (inner radial bin) shows the same secular decline across volumes; changing the box size modifies the depletion rate only modestly.}}{27}{figure.caption.12}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Density evolution for the core initial-condition test.}}{28}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \textbf {[PLACEHOLDER FIGURE]} Density evolution for multiple softening lengths.}}{29}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces \textbf {[PLACEHOLDER FIGURES]} Parameter-study panels for the self-gravity settings. The final image files will be placed in \texttt {ch5/img}.}}{32}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \textbf {NFW enclosed mass and shell mass fraction.} Left axis: monotonically increasing enclosed mass $M(<r)$ with radius. Right axis: shell mass fraction per logarithmic shell. The outer halo contains a substantial fraction of the total mass budget, indicating that it cannot be ignored when computing potential depths.}}{34}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \textbf {Shell contributions to the central potential depth.} Individual shells (blue points with error bars) contribute to the total potential depth $|\Phi (0)|$. The cumulative contribution (orange line) from all shells beyond a given radius shows that shells at radii beyond the scale radius $r_s$ still make substantial contributions to the escape-speed scale. This supports the argument that the outer halo cannot be treated as a boundary condition; its potential structure must be represented accurately.}}{35}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces \textbf {Outer-potential fraction versus cutoff radius.} For probe radii ranging from the center to $r = 5 r_s$, the fraction of the potential originating from material beyond the cutoff radius $r_{\mathrm {cut}}$ is plotted against the cutoff. As the cutoff moves outward, the outer contribution drops sharply initially, then plateaus. For the central region ($r_{\mathrm {probe}} < r_s$), a cutoff at $r_{\mathrm {cut}} \approx 10$ kpc retains roughly 5--10\% of the potential from the outer halo; at $r_{\mathrm {cut}} \approx 30$ kpc, this drops below 1\%. This diagnostic directly guides the choice of truncation radius: if the outer halo contributes significantly to the potential at the radii of interest (e.g., $r < 1$ kpc for the central density), then the outer region must be represented accurately.}}{36}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \textbf {2D map of the outer-potential fraction.} Rows represent probe radii; columns represent cutoff radii. The color intensity indicates the fraction of potential at a given probe radius arising from material beyond the cutoff. The transition from high (red) to low (blue) values shows the radius beyond which the outer halo becomes a small correction. This visualization is useful for selecting practical values of $r_{\mathrm {cut}}$ for different regions of interest.}}{37}{figure.caption.20}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

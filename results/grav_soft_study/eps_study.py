@@ -63,7 +63,7 @@ def plot(ic_file, sim_files, labels):
     # Formatting Bottom Panel
     ax2.set_ylabel(r'$\rho / \rho_{\rm init}$')
     ax2.set_xlabel(r'$r\ [\rm{kpc}]$')
-    ax2.set_ylim(0.2, 1.4)
+    ax2.set_ylim(0.2, 1.6)
     ax2.grid(alpha=0.2)
 
     plt.tight_layout()

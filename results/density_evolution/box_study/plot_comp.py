@@ -52,12 +52,12 @@ def plot(ic_file, sim_files, labels):
     ax1.set_ylim(1e4, 2e10)
     ax1.legend()
     ax1.grid(alpha=0.2)
-    ax1.set_title(r"Density Profile Evolution for $\epsilon = 0.01\ \mathrm{kpc}$ at 10 Gyrs, Box Size Study")    
+    ax1.set_title(r"Box Size Study, Density Profile Evolution for $\epsilon = 0.01\ \mathrm{kpc}$ at 100 Gyr")    
 
     # Formatting Bottom Panel
     ax2.set_ylabel(r'$\rho / \rho_{\rm init}$')
     ax2.set_xlabel(r'$r\ [\rm{kpc}]$')
-    ax2.set_ylim(0.4, 1.2)
+    ax2.set_ylim(0.2, 1.2)
     ax2.grid(alpha=0.2)
 
     # Add vertical lines for softening
@@ -78,7 +78,12 @@ if __name__ == "__main__":
         "200_profile_snapshot_0100.hdf5.npz",
         "500_profile_snapshot_0100.hdf5.npz"
     ]
-    labels = ["100x100x100", "200x200x200", "500x500x500"]
 
-    
+    labels = [
+        r"Box size 100 $\rm{kpc}^3$",
+        r"Box size 200 $\rm{kpc}^3$",
+        r"Box size 500 $\rm{kpc}^3$"
+    ]
+
+
     plot(ic, sims, labels)
