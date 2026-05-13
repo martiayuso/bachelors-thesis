@@ -102,14 +102,15 @@ if __name__ == "__main__":
     ic = "profile_snapshot_0000.hdf5.npz"
 
     sims = [
-        "profile_50_orig_10.hdf5.npz",
-        "profile_50_corrected_10.hdf5.npz",
-        "profile_50_orig_100.hdf5.npz",
-        "profile_50_corrected_100.hdf5.npz"
+        "profile_40_100.hdf5.npz",
+        "profile_50_100.hdf5.npz",
+        "profile_60_100.hdf5.npz",
+        "profile_70_100.hdf5.npz",
+        "profile_90_100.hdf5.npz"
     ]
 
     labels = [
-        "10 Gyr, rcut = 50 kpc, v1", "10 Gyr, rcut = 50 kpc, v2", "100 Gyr, rcut = 50 kpc, v1", "100 Gyr, rcut = 50 kpc, v2"
+        "40", "50", "60", "70", "90"
     ]
 
     plot(ic, sims, labels)

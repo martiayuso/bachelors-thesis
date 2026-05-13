@@ -106,7 +106,8 @@ if __name__ == "__main__":
         "profile_snapshot_40_0010.hdf5.npz",
         "profile_snapshot_50_0010.hdf5.npz",
         "profile_snapshot_60_0010.hdf5.npz",
-        "profile_snapshot_70_0010.hdf5.npz"
+        "profile_snapshot_70_0010.hdf5.npz",
+        "profile_snapshot_0008.hdf5.npz"
     ]
 
     labels = [
@@ -114,7 +115,8 @@ if __name__ == "__main__":
         "40",
         "50",
         "60",
-        "70"
+        "70",
+        "test"
     ]
 
     plot(ic, sims, labels)
