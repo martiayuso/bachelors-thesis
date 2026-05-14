@@ -19,7 +19,7 @@ The completed sections below are written as a scientific discussion rather than 
 \section{Baseline behaviour}
 \label{sec:results_baseline}
 
-The baseline run shows a clear cusp-to-core transition, but the core does not stabilize. Instead, the inner density continues to decline throughout the simulated time span. This is the central empirical result of the thesis. In the broader context of halo evolution, the literature shows that collisionless systems can display a wide range of inner responses to external perturbations and time-dependent forcing, including stochastic heating by substructure and repeated diffusion in energy--angular-momentum space \cite{penarrubia2017fluctuations,penarrubia2019stochastic}. A complementary line of work by Errani and Pe\~narrubia suggests that an initially cuspy system should evolve toward a core and then settle into a stable configuration; if that picture applied directly here, the inner density would be expected to flatten rather than continue declining \cite{errani_penarrubia_placeholder}. The reference run is therefore notable not because it forms a core, but because the core remains dynamically active rather than approaching a steady inner state.
+The baseline run shows a clear cusp-to-core transition, but the core does not stabilize. Instead, the inner density continues to decline throughout the simulated time span. This is the central empirical result of the thesis. In the broader context of halo evolution, the literature shows that collisionless systems can display a wide range of inner responses to external perturbations and time-dependent forcing, including stochastic heating by substructure and repeated diffusion in energy--angular-momentum space \cite{penarrubia2017fluctuations,penarrubia2019stochastic}. Recent controlled $N$-body models by Errani et al. show that collisional star--dark-matter energy exchange can heat a cusp into a core and that this evolution tends to self-regulate as central dark-matter densities drop and binary formation increases, i.e. the contraction/heating rates slow at late times \cite{errani2026collisional}. If that late-time stabilization picture applied directly to our setup, the inner density would be expected to flatten after core formation rather than continue declining. The reference run is therefore notable not because it forms a core, but because the core remains dynamically active rather than approaching a steady inner state.
 
 The result is also instructive from the point of view of numerical convergence. Power et al. showed that the inner halo is especially sensitive to the interplay between resolution, force softening, and timestep control \cite{power2003inner}, while Zhang et al. later demonstrated that too aggressive a reduction of the softening length can artificially raise the innermost density \cite{zhang2019optimal}. The reference simulation does not display a simple monotonic dependence on any one of these parameters, which already suggests that the behaviour is not a trivial one-parameter resolution effect.
 
@@ -66,7 +66,7 @@ In summary, the box-size experiment removes a simple numerical-domain explanatio
 
 The comparison between cuspy and cored initial conditions is particularly informative because it distinguishes between a cusp-specific instability and a more general process. The core run still exhibits a decline of the central density, but the amplitude is smaller than in the cuspy case. This is a strong result because it means the mechanism is not limited to the special case of an initially steep central profile.
 
-In physical terms, this suggests that the system is sensitive to the presence of a central potential well, but not exclusively to its initial logarithmic slope. A cored halo has less extreme inner structure and therefore reacts less strongly, yet the evolution remains qualitatively the same. This is particularly important in light of the expectation, discussed by Errani and Pe\~narrubia, that a cusp should transform into a core and then stabilize; in that scenario the core should not continue to lose density, but the simulation shows that it does \cite{errani_penarrubia_placeholder}. That is exactly what one would expect if the central response is driven by a process that acts through the halo as a whole rather than through a cusp alone.
+In physical terms, this suggests that the system is sensitive to the presence of a central potential well, but not exclusively to its initial logarithmic slope. A cored halo has less extreme inner structure and therefore reacts less strongly, yet the evolution remains qualitatively the same. This is particularly important in light of the Errani et al. result that cusp-heating evolution should weaken once the core is established and central dark-matter densities are reduced \cite{errani2026collisional}. In that scenario, a pre-existing core should not continue to lose central density over long timescales; however, in our runs it does. That mismatch reinforces the conclusion that the persistent decline cannot be explained as a simple cusp-to-core transient and is instead tied to a broader dynamical mechanism.
 
 The literature on substructure-driven heating is again relevant here. Stochastic forcing does not require a cusp; it requires a fluctuating potential and a population of perturbers that can exchange energy with the central region \cite{penarrubia2017fluctuations}. The persistence of the effect in the core run is therefore compatible with a non-local heating picture and inconsistent with the idea that the problem is merely a cusp pathology.
 
@@ -168,15 +168,27 @@ That is not what we observe across the full parameter set. The central density e
 The most useful interpretation is therefore not that the solver settings are irrelevant, but that they are not the principal explanation. Their influence is secondary and limited to rate-level effects rather than qualitative behaviour. A solver parameter would need to have produced a qualitatively different central decline — either eliminating it or dramatically accelerating it — to be considered a dominant factor. None of the parameters tested here achieve that threshold.
 
 \begin{figure}[H]
-	\centering
-	\IfFileExists{ch5/img/timestep_study.png}{\includegraphics[width=0.48\textwidth]{ch5/img/timestep_study.png}}{\fbox{\parbox[c][0.18\textheight][c]{0.48\textwidth}{\centering \textbf{[PLACEHOLDER FIGURE]} Timestep study}}}
-	\hfill
-	\IfFileExists{ch5/img/mac_study.png}{\includegraphics[width=0.48\textwidth]{ch5/img/mac_study.png}}{\fbox{\parbox[c][0.18\textheight][c]{0.48\textwidth}{\centering \textbf{[PLACEHOLDER FIGURE]} MAC study}}}\\[0.5em]
-	\IfFileExists{ch5/img/theta_cr_study.png}{\includegraphics[width=0.48\textwidth]{ch5/img/theta_cr_study.png}}{\fbox{\parbox[c][0.18\textheight][c]{0.48\textwidth}{\centering \textbf{[PLACEHOLDER FIGURE]} $\theta_{\mathrm{cr}}$ study}}}
-	\hfill
-	\IfFileExists{ch5/img/epsilon_fmm_study.png}{\includegraphics[width=0.48\textwidth]{ch5/img/epsilon_fmm_study.png}}{\fbox{\parbox[c][0.18\textheight][c]{0.48\textwidth}{\centering \textbf{[PLACEHOLDER FIGURE]} $\epsilon_{\mathrm{fmm}}$ study}}}
-	\caption{\textbf{[PLACEHOLDER FIGURES]} Parameter-study panels for the self-gravity settings. The final image files will be placed in \texttt{ch5/img}.}
-	\label{fig:results_solver}
+\centering
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{content/ch5/img/eta_study.png}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{content/ch5/img/mac_study.png}
+\end{minipage}\\[0.5em]
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{content/ch5/img/theta_cr_study.png}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{content/ch5/img/epsilon_fmm_study.png}
+\end{minipage}
+\caption{\textbf{Self-gravity parameter study.} Panels show the central-density evolution for the tested solver settings: top-left -- timestep factor $\eta$ (labelled `eta'); top-right -- MAC choice; bottom-left -- geometric opening angle $\theta_{\mathrm{cr}}$; bottom-right -- FMM tolerance $\epsilon_{\mathrm{fmm}}$. In each panel blue curves correspond to 10 Gyr and red curves to 100 Gyr.}
+\label{fig:results_solver}
 \end{figure}
 
 The conclusion is that the trend is robust against the standard solver controls. This removes another plausible numerical explanation and strengthens the case for a mechanism tied to the structure of the halo rather than to a single gravity-accuracy parameter.

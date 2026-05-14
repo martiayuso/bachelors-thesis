@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex my_thesis"] 1778770497.05529 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1778770512.12431 0
-  "./content/tail/bibliography.bib" 1778769179.68919 3483 6e2d5c2530e0d4aa56339156bc1bf2be ""
+["bibtex my_thesis"] 1778792001.01614 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1778792020.70732 0
+  "./content/tail/bibliography.bib" 1778788110.47368 3527 879d04990a32d69078217b545398f8c2 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "my_thesis.aux" 1778770510.94863 53358 6f95f206547aaffee74b7da6968bbbec "pdflatex"
+  "my_thesis.aux" 1778792019.78575 53817 f74cca1bd449f55eee12b349b1e20eee "pdflatex"
   (generated)
   "my_thesis.bbl"
   "my_thesis.blg"
   (rewritten before read)
-["pdflatex"] 1778770497.34891 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1778770512.12565 0
+["pdflatex"] 1778792001.30134 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1778792020.70797 0
   "/etc/texmf/web2c/texmf.cnf" 1770803612.9779 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" 1778246252.92291 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -265,21 +265,25 @@
   "content/ch5/img/box_size_study.png" 1778504691.25394 332793 f612fd0afdb2d16e777d7447a7971e94 ""
   "content/ch5/img/density_evolution_core.png" 1774351384.39424 263250 4d47eba1605ee7aad0126731f17cf2d6 ""
   "content/ch5/img/density_evolution_cusp.png" 1778768734.02989 312524 a66e6569106a5c98c700a1262ca44ed0 ""
+  "content/ch5/img/epsilon_fmm_study.png" 1778790421.64829 420576 e94aa18eb9c9836475c81df77cf41db2 ""
+  "content/ch5/img/eta_study.png" 1778791681.14795 378766 bd76f327697795f196005a99ddcded1d ""
   "content/ch5/img/gradient.png" 1778596344.8745 245287 38eb98bcbbf7ceda044f9d23640f0941 ""
   "content/ch5/img/grav_soft_study_100.png" 1778486782.809 358197 af2968dc33310b12d98ec737e84f3454 ""
   "content/ch5/img/grav_soft_study_50.png" 1778059184.08148 358661 60d7f712906fe5cadaab52438da730c7 ""
-  "content/ch5/results.tex" 1778770481.49159 31195 9e9394ee2003bf80e3485025f1fbc8eb ""
+  "content/ch5/img/mac_study.png" 1778790697.59794 352755 233c13313b16edf96a7b8157ab2f08d6 ""
+  "content/ch5/img/theta_cr_study.png" 1778791264.7746 347017 edd67ebab13118b344b59da74dfb89fe ""
+  "content/ch5/results.tex" 1778791942.52921 31299 daafccc78f33d78e717878c432b23a2f ""
   "content/ch6/conclusions.tex" 1773313297.81779 110 a0903bc4f636631fc5b0efbf39b7b740 ""
   "content/head/abstracts.tex" 1777538124.49395 444 d897aaf0a067a69b9e1784bcf0d5ff5c ""
   "content/head/dedication.tex" 1773309928.08991 258 5bef0ee746ec05406c1c33b3c980ccdd ""
   "content/head/titlepage.tex" 1777538673.94252 1699 cec90d73b12d99120e783cfdf8cf8b6b ""
   "content/tail/appendix.tex" 1771334567.02518 44 9fa8215b0c8b60cf49b05639d6704a78 ""
   "content/tail/biblio.tex" 1771334567.02552 147 3da88521316b9dc9d1360dac743095a4 ""
-  "my_thesis.aux" 1778770510.94863 53358 6f95f206547aaffee74b7da6968bbbec "pdflatex"
-  "my_thesis.bbl" 1778770497.33353 2944 316ae8ea77e73eba4fff3d08628fbea1 "bibtex my_thesis"
-  "my_thesis.lof" 1778770510.98558 5233 8ed596e210e59b65957998da48ecd2d3 "pdflatex"
+  "my_thesis.aux" 1778792019.78575 53817 f74cca1bd449f55eee12b349b1e20eee "pdflatex"
+  "my_thesis.bbl" 1778792001.28626 2949 a4ac9079cc9cd3cdb6036f28cee8b146 "bibtex my_thesis"
+  "my_thesis.lof" 1778792019.81636 5479 fc5ba047a591e9a07d89565db7640c0d "pdflatex"
   "my_thesis.tex" 1778246252.92291 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
-  "my_thesis.toc" 1778770510.98558 6608 e3b3254b3ee3135d492e80d95c039e29 "pdflatex"
+  "my_thesis.toc" 1778792019.81636 6608 fa7f9f23320be89c835806fb5077e20e "pdflatex"
   "settings/settings_custom.tex" 1771334567.02816 721 dfc74678b200977ef9bd9e1204e3fe3c ""
   "settings/settings_epfl_template.tex" 1778246114.58067 7556 527d6875b685abaa56b81013f64036d9 ""
   (generated)
