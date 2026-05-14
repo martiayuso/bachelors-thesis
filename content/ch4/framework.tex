@@ -107,6 +107,23 @@ Using the same radial binning, the analysis computes velocity moments and anisot
 \end{equation}
 as complementary diagnostics for identifying orbital heating and redistribution mechanisms.
 
+\section{Post-processing pipeline and centering}
+\label{sec:framework_pipeline}
+
+The post-processing pipeline is designed to keep the density measurements stable against two common sources of noise: snapshot-to-snapshot variance and small centering offsets. These steps are methodological rather than interpretive, but they are essential for ensuring that the measured trends reflect the simulation rather than the extraction procedure.
+
+\subsection{Snapshot concatenation}
+
+To reduce stochastic noise in the density-evolution curves, consecutive snapshots are concatenated into larger time blocks before the profile comparison is made. This averaging procedure smooths out short-timescale fluctuations that appear in individual outputs, while preserving the secular evolution of the halo.
+
+The key point is that concatenation changes the visual smoothness of the curves, but not the underlying behaviour: the declining inner-density trend remains present after the time blocks are combined. For that reason, concatenation is used only as a noise-reduction step, not as a way of altering the physical interpretation.
+
+\subsection{Shrinking-sphere centering}
+
+Centering is handled independently from the density estimation. Each snapshot is recentered using a shrinking-sphere algorithm, which iteratively refines the halo center by repeatedly restricting the particle set to smaller radii around the current estimate. This method is robust against mild asymmetries and against the gradual drift that can occur in long collisionless runs.
+
+Using the shrinking-sphere center ensures that the innermost bins of the density profile are measured relative to a dynamically meaningful origin. In practice, this removes one of the most obvious numerical artefacts that could otherwise masquerade as a central density decline.
+
 \section{Shell-based analysis framework}
 \label{sec:framework_shells}
 

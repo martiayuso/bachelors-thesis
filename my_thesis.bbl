@@ -5,6 +5,11 @@ Binney, J. and Tremaine, S. (2008).
 \newblock {\em Galactic Dynamics}.
 \newblock Princeton University Press, Princeton, NJ, 2nd edition.
 
+\bibitem[Errani and Pe\~narrubia, 2026]{errani_penarrubia_placeholder}
+Errani, R. and Pe\~narrubia, J. (2026).
+\newblock Placeholder citation for the cusp-to-core stabilization discussion.
+\newblock TODO: replace with the correct Errani and Pe\~narrubia reference once located.
+
 \bibitem[Hopkins et~al., 2023]{hopkins2023novel}
 Hopkins, P.~F., Nadler, E.~O., Grudi\'{c}, M.~Y., Shen, X., Sands, I., and Jiang, F. (2023).
 \newblock Novel conservative methods for adaptive force softening in collisionless and multi-species {N}-body simulations.
