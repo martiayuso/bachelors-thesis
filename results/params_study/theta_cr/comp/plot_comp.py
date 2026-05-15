@@ -7,12 +7,12 @@ def plot(ic_file, sim_files, labels):
 
     params = {
         "text.usetex": True,
-        "font.size": 16,
-        "axes.titlesize": 20,
+        "font.size": 20,
+        "axes.titlesize": 22,
         "axes.labelsize": 18,
-        "xtick.labelsize": 14,
-        "ytick.labelsize": 14,
-        "legend.fontsize": 14,
+        "xtick.labelsize": 16,
+        "ytick.labelsize": 16,
+        "legend.fontsize": 16,
         "lines.linewidth": 2.8,
         "figure.figsize": (10, 8),
         "axes.linewidth": 1.5,
@@ -57,8 +57,8 @@ def plot(ic_file, sim_files, labels):
     # ------------------------------------------------------------------
     # Colors (2 MAC types: 10 Gyr / 100 Gyr)
     # ------------------------------------------------------------------
-    blue_colors = plt.cm.Blues(np.linspace(0.55, 0.85, 2))
-    red_colors  = plt.cm.Reds(np.linspace(0.55, 0.85, 2))
+    blue_colors = plt.cm.Blues(np.linspace(0.55, 0.85, 3))
+    red_colors  = plt.cm.Reds(np.linspace(0.55, 0.85, 3))
 
     # ------------------------------------------------------------------
     # Plot simulations
@@ -69,12 +69,12 @@ def plot(ic_file, sim_files, labels):
         r, rho = data['radius'], data['density']
 
         # First 2 = 10 Gyr
-        if i < 2:
+        if i < 3:
             color = blue_colors[i]
 
         # Last 2 = 100 Gyr
         else:
-            color = red_colors[i - 2]
+            color = red_colors[i - 3]
 
         ax1.plot(r, rho, color=color, linewidth=2.8)
 
@@ -97,7 +97,7 @@ def plot(ic_file, sim_files, labels):
     legend_labels.append("Initial condition")
 
     # theta_cr entries (paired colors)
-    for i in range(2):
+    for i in range(3):
 
         blue_line = Line2D([0], [0], color=blue_colors[i], lw=3)
         red_line  = Line2D([0], [0], color=red_colors[i], lw=3)
@@ -118,7 +118,7 @@ def plot(ic_file, sim_files, labels):
         borderpad=0.8,
         labelspacing=0.6
     )
-
+    '''
     # ------------------------------------------------------------------
     # Time legend (same style, stacked inside same box)
     # ------------------------------------------------------------------
@@ -147,7 +147,7 @@ def plot(ic_file, sim_files, labels):
     )
 
     ax1.add_artist(legend1)
-
+    '''
     # ------------------------------------------------------------------
     # Formatting
     # ------------------------------------------------------------------
@@ -201,11 +201,14 @@ if __name__ == "__main__":
     ic = "profile_snapshot_0000.hdf5.npz"
     sims = [
         "orig_1000.hdf5.npz",
+        "test2_1000.hdf5.npz",
         "test_1000.hdf5.npz",
         "orig_9999.hdf5.npz",
+        "test2_9999.hdf5.npz",
         "test_9999.hdf5.npz"
     ]
     labels = [r"$\theta_{cr}$ = 0.7",
+              r"$\theta_{cr}$ = 0.6",
               r"$\theta_{cr}$ = 0.5"]
 
     

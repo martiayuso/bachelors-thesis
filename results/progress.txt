@@ -29,3 +29,6 @@ The potential profile seems to be very similar (truncated vs original) (small pr
 To know the impact of the truncated model, I first have to check if the NFW params are correct. M200 was too big, thus exerting too much of a potential, thats why no particles could exit Rcut. I have tested a lower M200 and now particles can escape, however there's a discontinuity in the potential, as these outer particles still have too much potential (they follow the NFW curve but moved to a higher potential). If we correctly match the simulated potential, there wont be discontinuity.
 
 There was a problem: the inner particles were adding potential to the outer particles. Now this is fixed and it seems the system can expand more naturally. The potential still seems to be discontinued, which might simply be a matter of getting the NFW parameters correctly.
+
+
+Promising results, I will try to plot gradient to see evolution. I still have to correctly match the NFW params, no need to run up until 100 Gyrs, with a single step we can already see. So, in paralel I will try to match the NFW params and see if it changes much. After all this, I could also do a study on the Rcut, but right now I will set it at 50 kpcs, still, preliminary tests dont show much change.

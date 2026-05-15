@@ -7,12 +7,12 @@ def plot(ic_file, sim_files, labels):
 
     params = {
         "text.usetex": True,
-        "font.size": 16,
-        "axes.titlesize": 20,
+        "font.size": 20,
+        "axes.titlesize": 22,
         "axes.labelsize": 18,
-        "xtick.labelsize": 14,
-        "ytick.labelsize": 14,
-        "legend.fontsize": 14,
+        "xtick.labelsize": 16,
+        "ytick.labelsize": 16,
+        "legend.fontsize": 16,
         "lines.linewidth": 2.8,
         "figure.figsize": (10, 8),
         "axes.linewidth": 1.5,
@@ -132,7 +132,7 @@ def plot(ic_file, sim_files, labels):
         borderpad=0.8,
         labelspacing=0.6
     )
-
+    '''
     # ------------------------------------------------------------------
     # Secondary legend:
     # year-color mapping
@@ -151,7 +151,7 @@ def plot(ic_file, sim_files, labels):
         time_handles,
         time_labels,
         loc='upper right',
-        bbox_to_anchor=(1.0, 0.63),
+        bbox_to_anchor=(1.0, 0.585),
         frameon=True,
         fancybox=True,
         framealpha=0.9,
@@ -163,7 +163,7 @@ def plot(ic_file, sim_files, labels):
 
     # Keep both legends
     ax1.add_artist(legend1)
-
+    '''
     # ------------------------------------------------------------------
     # Top panel formatting
     # ------------------------------------------------------------------

@@ -90,11 +90,11 @@ The notes from the shell analysis already point in the same direction: outer she
 
 \begin{figure}[H]
 	\centering
-	\begin{minipage}[t]{0.6\textwidth}
+	\begin{minipage}[t]{0.5\textwidth}
 	\centering
 	\includegraphics[width=\linewidth]{content/ch5/img/grav_soft_study_50.png}
 	\end{minipage}%
-	\begin{minipage}[t]{0.6\textwidth}
+	\begin{minipage}[t]{0.5\textwidth}
 	\centering
 	\includegraphics[width=\linewidth]{content/ch5/img/grav_soft_study_100.png}
 	\end{minipage}
@@ -155,7 +155,7 @@ Some runs with modified $\epsilon_{\mathrm{fmm}}$ exhibit slightly improved earl
 \hline
 $\eta$ (timestep) & 0.002 & 0.0002 & 0.02 & — \\
 MAC & geometric & adaptive & — & — \\
-$\theta_{\mathrm{cr}}$ (geometric only) & 0.7 & 0.5 & — & — \\
+$\theta_{\mathrm{cr}}$ (geometric only) & 0.7 & 0.6 & 0.5 & — \\
 $\epsilon_{\mathrm{fmm}}$ (FMM tolerance) & 0.001 & 0.0001 & 0.01 & 0.1 \\
 \hline
 \end{tabular}
@@ -169,25 +169,25 @@ The most useful interpretation is therefore not that the solver settings are irr
 
 \begin{figure}[H]
 \centering
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.50\textwidth}
 \centering
 \includegraphics[width=\linewidth]{content/ch5/img/eta_study.png}
 \end{minipage}%
 \hfill
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.50\textwidth}
 \centering
 \includegraphics[width=\linewidth]{content/ch5/img/mac_study.png}
 \end{minipage}\\[0.5em]
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.50\textwidth}
 \centering
 \includegraphics[width=\linewidth]{content/ch5/img/theta_cr_study.png}
 \end{minipage}%
 \hfill
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[t]{0.50\textwidth}
 \centering
 \includegraphics[width=\linewidth]{content/ch5/img/epsilon_fmm_study.png}
 \end{minipage}
-\caption{\textbf{Self-gravity parameter study.} Panels show the central-density evolution for the tested solver settings: top-left -- timestep factor $\eta$ (labelled `eta'); top-right -- MAC choice; bottom-left -- geometric opening angle $\theta_{\mathrm{cr}}$; bottom-right -- FMM tolerance $\epsilon_{\mathrm{fmm}}$. In each panel blue curves correspond to 10 Gyr and red curves to 100 Gyr.}
+\caption{\textbf{Self-gravity parameter study.} Panels show the central-density evolution for the tested solver settings: top-left -- timestep factor $\eta$; top-right -- MAC choice; bottom-left -- geometric opening angle $\theta_{\mathrm{cr}}$; bottom-right -- FMM tolerance $\epsilon_{\mathrm{fmm}}$. In each panel blue curves correspond to 10 Gyr and red curves to 100 Gyr.}
 \label{fig:results_solver}
 \end{figure}
 

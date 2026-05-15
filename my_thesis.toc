@@ -54,7 +54,7 @@
 \contentsline {section}{\numberline {4.5}Self-gravity settings}{31}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Timestep study}{32}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{32}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{33}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{32}{subsection.4.5.3}%
 \contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{33}{subsection.4.5.4}%
 \contentsline {subsection}{\numberline {4.5.5}Summary table of self-gravity parameter variations}{33}{subsection.4.5.5}%
 \contentsline {subsection}{\numberline {4.5.6}Overall interpretation of solver sensitivity}{33}{subsection.4.5.6}%
@@ -63,8 +63,8 @@
 \contentsline {subsection}{\numberline {4.6.2}Mass and potential distribution across the halo}{35}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}Outer-halo influence as a function of cutoff radius}{37}{subsection.4.6.3}%
 \contentsline {subsection}{\numberline {4.6.4}2D outer-fraction map}{38}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Interpretation and implications}{39}{subsection.4.6.5}%
-\contentsline {section}{\numberline {4.7}Truncated NFW}{40}{section.4.7}%
+\contentsline {subsection}{\numberline {4.6.5}Interpretation and implications}{38}{subsection.4.6.5}%
+\contentsline {section}{\numberline {4.7}Truncated NFW}{39}{section.4.7}%
 \contentsline {chapter}{\numberline {5}Conclusions}{41}{chapter.5}%
 \contentsline {section}{\numberline {5.1}One section}{41}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}One subsection}{41}{subsection.5.1.1}%

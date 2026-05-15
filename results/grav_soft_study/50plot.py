@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.legend_handler import HandlerTuple
 
 def plot(ic_file, sim_files, labels):
 
@@ -39,14 +38,32 @@ def plot(ic_file, sim_files, labels):
     ic_data = np.load(ic_file)
     r_ic, rho_ic = ic_data['radius'], ic_data['density']
 
-    ax1.plot(r_ic, rho_ic, color='0.4', linewidth=2.0)
-    ax2.axhline(1.0, color='0.4', alpha=0.8, linewidth=2.0)
+    ax1.plot(
+        r_ic,
+        rho_ic,
+        color='0.4',
+        linewidth=2.0
+    )
+
+    ax2.axhline(
+        1.0,
+        color='0.4',
+        alpha=0.8,
+        linewidth=2.0
+    )
 
     # ------------------------------------------------------------------
-    # Colors (3 ν values × 2 times)
+    # Colors
     # ------------------------------------------------------------------
-    blue_colors = plt.cm.Blues(np.linspace(0.55, 0.85, 3))
-    red_colors  = plt.cm.Reds(np.linspace(0.55, 0.85, 3))
+    colors = [
+        'tab:orange',
+        'tab:green',
+        'tab:red',
+        'tab:purple',
+        'tab:brown'
+    ]
+
+    eps_values = [1, 5, 10, 50, 100]  # pc
 
     # ------------------------------------------------------------------
     # Plot simulations
@@ -56,45 +73,71 @@ def plot(ic_file, sim_files, labels):
         data = np.load(file)
         r, rho = data['radius'], data['density']
 
-        # first 3 = 10 Gyr, last 3 = 100 Gyr
-        if i < 3:
-            color = blue_colors[i]
-        else:
-            color = red_colors[i - 3]
+        current_color = colors[i]
 
-        ax1.plot(r, rho, color=color, linewidth=2.8)
+        # Density profile
+        ax1.plot(
+            r,
+            rho,
+            color=current_color,
+            linewidth=2
+        )
 
+        # Ratio profile
         rho_interp = np.interp(r_ic, r, rho)
 
         with np.errstate(divide='ignore', invalid='ignore'):
             ratio = rho_interp / rho_ic
 
-        ax2.plot(r_ic, ratio, color=color, linewidth=2.5)
+        ax2.plot(
+            r_ic,
+            ratio,
+            color=current_color,
+            linewidth=2
+        )
+
+        # Vertical softening lines
+        v_line_pos = (eps_values[i] * 2.8) / 1000.0
+
+        ax1.axvline(
+            v_line_pos,
+            color=current_color,
+            linestyle='--',
+            alpha=0.7,
+            linewidth=1.5
+        )
+
+        ax2.axvline(
+            v_line_pos,
+            color=current_color,
+            linestyle='--',
+            alpha=0.7,
+            linewidth=1.5
+        )
 
     # ------------------------------------------------------------------
-    # Legend (IC → ν pairs → time key)
+    # Legend
     # ------------------------------------------------------------------
     legend_handles = []
     legend_labels = []
 
     # IC first
     ic_handle = Line2D([0], [0], color='0.4', lw=3)
+
     legend_handles.append(ic_handle)
     legend_labels.append("Initial condition")
 
-    # ν entries (paired 10 / 100 Gyr)
-    for i in range(3):
+    # epsilon entries
+    for i in range(len(labels)):
 
-        blue_line = Line2D([0], [0], color=blue_colors[i], lw=3)
-        red_line  = Line2D([0], [0], color=red_colors[i], lw=3)
+        handle = Line2D([0], [0], color=colors[i], lw=3)
 
-        legend_handles.append((blue_line, red_line))
+        legend_handles.append(handle)
         legend_labels.append(labels[i])
 
-    legend1 = ax1.legend(
+    ax1.legend(
         legend_handles,
         legend_labels,
-        handler_map={tuple: HandlerTuple(ndivide=None)},
         loc='upper right',
         frameon=True,
         fancybox=True,
@@ -104,36 +147,7 @@ def plot(ic_file, sim_files, labels):
         borderpad=0.8,
         labelspacing=0.6
     )
-    '''
-    # ------------------------------------------------------------------
-    # Time legend (same box, stacked)
-    # ------------------------------------------------------------------
-    time_handles = [
-        Line2D([0], [0], color=blue_colors[1], lw=3),
-        Line2D([0], [0], color=red_colors[1], lw=3),
-    ]
 
-    time_labels = [
-        "10 Gyr",
-        "100 Gyr"
-    ]
-
-    legend2 = ax1.legend(
-        time_handles,
-        time_labels,
-        loc='upper right',
-        bbox_to_anchor=(1.0, 0.692),
-        frameon=True,
-        fancybox=True,
-        framealpha=0.9,
-        edgecolor='0.8',
-        handlelength=3.0,
-        borderpad=0.8,
-        labelspacing=0.6
-    )
-
-    ax1.add_artist(legend1)
-    '''
     # ------------------------------------------------------------------
     # Formatting
     # ------------------------------------------------------------------
@@ -141,27 +155,26 @@ def plot(ic_file, sim_files, labels):
     ax1.set_xscale('log')
 
     ax1.set_ylabel(r'$\rho\ [M_\odot/\rm{kpc}^3]$')
+
     ax1.set_xlim(1e-2, 10)
     ax1.set_ylim(1e4, 2e10)
 
     ax1.grid(alpha=0.2, linewidth=0.8)
 
-    ax1.set_title(r"$\eta$ Study, Density Profile Evolution for $\epsilon = 0.01\ \mathrm{kpc}$")
+    ax1.set_title(
+        r"Density Profiles for Different $\epsilon$, at 50 Gyr"
+    )
 
+    # ------------------------------------------------------------------
+    # Bottom panel formatting
+    # ------------------------------------------------------------------
     ax2.set_ylabel(r'$\rho / \rho_{\rm init}$')
+
     ax2.set_xlabel(r'$r\ [\rm{kpc}]$')
-    ax2.set_ylim(0.2, 1.2)
+
+    ax2.set_ylim(0.2, 1.4)
 
     ax2.grid(alpha=0.2, linewidth=0.8)
-
-    # ------------------------------------------------------------------
-    # Softening line
-    # ------------------------------------------------------------------
-    eps_value = 0.01
-    v_line_pos = eps_value * 2.8
-
-    for ax in (ax1, ax2):
-        ax.axvline(v_line_pos, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
 
     # ------------------------------------------------------------------
     # Layout / save
@@ -174,23 +187,34 @@ def plot(ic_file, sim_files, labels):
         hspace=0.05
     )
 
-    plt.savefig("density_evo_nu.png", dpi=300, bbox_inches="tight", pad_inches=0.02)
+    plt.savefig(
+        "density_profile.png",
+        dpi=300,
+        bbox_inches="tight",
+        pad_inches=0.02
+    )
+
     plt.show()
 
-if __name__ == "__main__":
-    # Update these paths to the .npz files generated by your modified script
-    ic = "profile_snapshot_0000.hdf5.npz"
-    sims = [
-        "test_1_1000.hdf5.npz",
-        "orig_1000.hdf5.npz",
-        "test_2_1000.hdf5.npz",
-        "test_1_9999.hdf5.npz",
-        "orig_9999.hdf5.npz",
-        "test_2_9999.hdf5.npz"
-    ]
-    labels = [r"$\eta$ = 0.02",
-              r"$\eta$ = 0.002",
-              r"$\eta$ = 0.0002"]
 
-    
+if __name__ == "__main__":
+
+    ic = "profile_snapshot_0000.hdf5.npz"
+
+    sims = [
+        "profile_snapshot_5000_0.001.hdf5.npz",
+        "profile_snapshot_5000_0.005.hdf5.npz",
+        "profile_snapshot_5000_0.01.hdf5.npz",
+        "profile_snapshot_5000_0.05.hdf5.npz",
+        "profile_snapshot_5000_0.1.hdf5.npz",
+    ]
+
+    labels = [
+        r"$\epsilon = 1$ pc",
+        r"$\epsilon = 5$ pc",
+        r"$\epsilon = 10$ pc",
+        r"$\epsilon = 50$ pc",
+        r"$\epsilon = 100$ pc"
+    ]
+
     plot(ic, sims, labels)
