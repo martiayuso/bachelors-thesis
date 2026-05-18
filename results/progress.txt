@@ -32,3 +32,6 @@ There was a problem: the inner particles were adding potential to the outer part
 
 
 Promising results, I will try to plot gradient to see evolution. I still have to correctly match the NFW params, no need to run up until 100 Gyrs, with a single step we can already see. So, in paralel I will try to match the NFW params and see if it changes much. After all this, I could also do a study on the Rcut, but right now I will set it at 50 kpcs, still, preliminary tests dont show much change.
+
+
+Gradient seems to solve the problem. I still have to study in more detail what happens in the first Gyrs, since it's there where the evolution from cusp to core happens. On the other hand, from 2 Gyrs it does not continue to advance, which is consisten with Erani and Peñarubia paper and their prediction.

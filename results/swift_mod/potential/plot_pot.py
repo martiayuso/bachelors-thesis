@@ -18,7 +18,7 @@ plt.grid(True)
 plt.show()
 
 
-nb = Nbody("snap_50/centered/snapshot_mod_0070.hdf5")
+nb = Nbody("snap_50/centered/snapshot_0100.hdf5")
 
 r2 = nb.rxyz()
 phi2 = nb.pot
