@@ -4,7 +4,7 @@
 \contentsline {chapter}{Abstract}{i}{chapter*.1}%
 \babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Figures}{vii}{section*.4}%
+\contentsline {chapter}{List of Figures}{v}{section*.4}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}The cusp-core problem}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Motivating question}{2}{section.1.2}%
@@ -17,6 +17,7 @@
 \contentsline {section}{\numberline {2.4}Gravitational softening: fixed and adaptive formulations}{7}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Gravity solver controls in SWIFT: Tree/FMM context}{8}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Why shell structure and mass redistribution matter}{9}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Chapter summary}{10}{section.2.7}%
 \contentsline {chapter}{\numberline {3}Simulation setup, framework and implementation}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1}SWIFT simulation setup}{11}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Baseline gravity and time integration choices}{12}{subsection.3.1.1}%
@@ -38,11 +39,11 @@
 \contentsline {section}{\numberline {3.6}Numerical implementation of the hybrid model}{17}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Implementation objectives and design choices}{18}{subsection.3.6.1}%
 \contentsline {subsection}{\numberline {3.6.2}Build-time wiring and backend selection}{18}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Runtime parameters and YAML configuration}{19}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}DM masking and effective gravitational mass}{19}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.3}Runtime parameters and YAML configuration}{18}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}Two-layer masking logic: sources and targets}{19}{subsection.3.6.4}%
 \contentsline {subsection}{\numberline {3.6.5}External potential behaviour and timestep coupling}{20}{subsection.3.6.5}%
 \contentsline {subsection}{\numberline {3.6.6}Centering, cutoff convention and edge cases}{20}{subsection.3.6.6}%
-\contentsline {subsection}{\numberline {3.6.7}Serialization, restart safety and diagnostics}{20}{subsection.3.6.7}%
+\contentsline {subsection}{\numberline {3.6.7}Serialization, restart safety and diagnostics}{21}{subsection.3.6.7}%
 \contentsline {subsection}{\numberline {3.6.8}Foreign-particle and MPI consistency}{21}{subsection.3.6.8}%
 \contentsline {subsection}{\numberline {3.6.9}Validation strategy}{21}{subsection.3.6.9}%
 \contentsline {subsection}{\numberline {3.6.10}Caveats and limitations}{22}{subsection.3.6.10}%
@@ -59,15 +60,14 @@
 \contentsline {subsection}{\numberline {4.5.5}Summary table of self-gravity parameter variations}{33}{subsection.4.5.5}%
 \contentsline {subsection}{\numberline {4.5.6}Overall interpretation of solver sensitivity}{33}{subsection.4.5.6}%
 \contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{34}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Analytic shell decomposition: method}{35}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Mass and potential distribution across the halo}{35}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Outer-halo influence as a function of cutoff radius}{37}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}2D outer-fraction map}{38}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Interpretation and implications}{38}{subsection.4.6.5}%
+\contentsline {subsection}{\numberline {4.6.1}Mass and potential distribution across the halo}{35}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Outer-halo influence as a function of cutoff radius}{37}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}2D outer-fraction map}{38}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Interpretation and implications}{38}{subsection.4.6.4}%
 \contentsline {section}{\numberline {4.7}Truncated NFW}{39}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Conclusions}{41}{chapter.5}%
-\contentsline {section}{\numberline {5.1}One section}{41}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}One subsection}{41}{subsection.5.1.1}%
+\contentsline {chapter}{\numberline {5}Conclusions}{40}{chapter.5}%
+\contentsline {section}{\numberline {5.1}One section}{40}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}One subsection}{40}{subsection.5.1.1}%
 \vspace {\normalbaselineskip }
-\contentsline {chapter}{\numberline {A}An appendix}{43}{appendix.A}%
-\contentsline {chapter}{Bibliography}{45}{appendix*.20}%
+\contentsline {chapter}{\numberline {A}An appendix}{42}{appendix.A}%
+\contentsline {chapter}{Bibliography}{43}{appendix*.20}%

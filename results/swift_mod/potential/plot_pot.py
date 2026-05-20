@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from pNbody import Nbody
 
 import numpy as np
-nb = Nbody("snap_50/centered/snapshot_mod7_0001.hdf5")
+nb = Nbody("snap_50/centered/snapshot_0227.hdf5")
 
 r1 = nb.rxyz()
 phi1 = nb.pot

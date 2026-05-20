@@ -66,7 +66,7 @@ def plot(sim_files, labels):
         r = data['radius']
         rho = data['density']
 
-        rho = 0.02 * rho
+        rho = 0.1 * rho
 
         ax.plot(
             r,
@@ -123,21 +123,21 @@ def plot(sim_files, labels):
 if __name__ == "__main__":
 
     sims = [
-        "profile_chunk_0100_0149.hdf5.npz",
-        "profile_chunk_0200_0249.hdf5.npz",
-        "profile_chunk_0300_0349.hdf5.npz",
-        "profile_chunk_0400_0449.hdf5.npz",
-        "profile_chunk_0500_0549.hdf5.npz",
-        "profile_chunk_0600_0649.hdf5.npz",
-        "profile_chunk_0700_0749.hdf5.npz",
-        "profile_chunk_0800_0849.hdf5.npz",
-        "profile_chunk_0900_0949.hdf5.npz",
-        "profile_chunk_0950_0999.hdf5.npz"
+        "profile_chunk_0000_0009.hdf5.npz",
+        "profile_chunk_0010_0019.hdf5.npz",
+        "profile_chunk_0020_0029.hdf5.npz",
+        "profile_chunk_0030_0039.hdf5.npz",
+        "profile_chunk_0040_0049.hdf5.npz",
+        "profile_chunk_0050_0059.hdf5.npz",
+        "profile_chunk_0060_0069.hdf5.npz",
+        "profile_chunk_0070_0079.hdf5.npz",
+        "profile_chunk_0080_0089.hdf5.npz",
+        "profile_chunk_0090_0099.hdf5.npz"
     ]
 
     labels = [
-        "10 Gyr", "20 Gyr", "30 Gyr", "40 Gyr", "50 Gyr",
-        "60 Gyr", "70 Gyr", "80 Gyr", "90 Gyr", "100 Gyr"
+        "1 Gyr", "2 Gyr", "3 Gyr", "4 Gyr", "5 Gyr",
+        "6 Gyr", "7 Gyr", "8 Gyr", "9 Gyr", "10 Gyr"
     ]
 
     plot(sims, labels)

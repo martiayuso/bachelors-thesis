@@ -1,0 +1,98 @@
+Truncated-NFW: Target-side analytic-only implementation
+
+Purpose
+-------
+This document explains the changes introduced to make "outer" particles (outside the truncated-NFW cutoff) be influenced ONLY by the analytic external NFW potential, and NOT by resolved self-gravity (tree / pairwise / mesh). The goal is to implement a strict replacement of the outer halo by the analytic field while keeping the inner region resolved.
+
+Design summary
+--------------
+- Outer region definition uses the existing truncated-NFW mask state set by the external potential backend: the code uses
+  - `gravity_truncated_nfw_dm_masking_enabled` (flag)
+  - `gravity_truncated_nfw_dm_mask_centre[3]` (centre)
+  - `gravity_truncated_nfw_dm_mask_r2` (cutoff radius squared)
+
+- Two responsibilities exist and were separated in code:
+  1. Masking (source-side): existing behaviour that sets outer dark-matter particles to contribute zero mass to the tree/mesh (left unchanged).
+  2. Target-side suppression (new): outer particles should not receive any self-gravity updates (tree/pair/mesh). They should only receive the analytic external potential/acceleration.
+
+What was changed (high level)
+-----------------------------
+1. Added a local helper `gravity_is_outside_truncated_nfw_cutoff(const double x[3])` to detect whether a particle position is outside the configured truncated-NFW radius.
+   - Added to both gravity variants: `src/gravity/Default/gravity.h` and `src/gravity/MultiSoftening/gravity.h`.
+
+2. Suppress self-gravity write-back for outer targets
+   - Modified `gravity_cache_write_back(...)` in `src/gravity_cache.h` to skip adding tree/pairwise accumulated accelerations and the pair/tree potential contribution to any `gpart` that is outside the truncated cutoff. This prevents all accumulated pair/tree contributions (a_x, a_y, a_z, pot) being applied to outer particles.
+
+3. Prevent multipole (L2P) contributions for outer targets
+   - At the entry of `gravity_L2P(...)` in `src/multipole.h` we early-return if the target particle is outside the truncated cutoff. This stops multipole M2L/L2P updates from changing outer `gpart` state.
+
+4. Prevent mesh (PM) interpolation for outer targets
+   - In the local mesh interpolation path `mesh_to_gpart_CIC(...)` in `src/mesh_gravity.c` we early-return for outer particles so `gp->a_grav_mesh` and `gp->potential_mesh` are not populated for them.
+   - In the MPI-distributed mesh path `mesh_patch_to_gparts_CIC(...)` in `src/mesh_gravity_mpi.c` we also early-return for outer particles.
+
+Files modified
+--------------
+- `src/gravity/Default/gravity.h`
+  - Added helper `gravity_is_outside_truncated_nfw_cutoff(const double x[3])`.
+
+- `src/gravity/MultiSoftening/gravity.h`
+  - Added helper `gravity_is_outside_truncated_nfw_cutoff(const double x[3])` (mirror of Default variant).
+
+- `src/gravity_cache.h`
+  - In `gravity_cache_write_back(...)` added a guard:
+    if (gravity_is_outside_truncated_nfw_cutoff(gparts[i].x)) continue;
+  - This skips applying cached accelerations and `pot` to outer targets.
+
+- `src/multipole.h`
+  - At start of `gravity_L2P(...)` added:
+    #if defined(EXTERNAL_POTENTIAL_TRUNCATED_NFW)
+      if (gravity_is_outside_truncated_nfw_cutoff(gp->x)) return;
+    #endif
+
+- `src/mesh_gravity.c`
+  - In `mesh_to_gpart_CIC(...)` added the same guard to return immediately for outer targets.
+
+- `src/mesh_gravity_mpi.c`
+  - In `mesh_patch_to_gparts_CIC(...)` added the same guard to return for outer targets.
+
+Notes on unchanged logic
+------------------------
+- The source-side masking (where the code sets the *effective mass* of a DM particle outside the cutoff to `0.f`) is unchanged. That behaviour is implemented already via `gravity_get_effective_mass_from_position()`.
+
+- The external/truncated NFW backend (`src/potential/truncated_nfw/potential.h`) was NOT changed by this patch. It still:
+  - Computes analytic acceleration for particles outside `Rcut` and calls `gravity_add_comoving_potential(g, pot)` to add the analytic potential term to `g->potential`.
+  - Computes `external_gravity_get_potential_energy(...)` for outside particles.
+
+  Therefore outer particles will still receive the analytic NFW acceleration/potential from the external backend (unchanged).
+
+Behavioral consequences
+-----------------------
+- Outer particles (as targets) will no longer receive any contributions from the tree/pairwise or mesh gravity routines. Their acceleration and potential will be solely from external NFW calls (and any other external potentials enabled).
+
+- Inner particles are unchanged: they still interact among themselves with the resolved N-body gravity; they also remain sources that act on other inner particles. The source masking still removes outer DM as sources.
+
+- Potential bookkeeping: because we prevented resolved self-gravity write-back for outer particles, `gp->potential` for outer `gpart`s will not include tree/pair/mesh contributions. They will include `potential_mesh` only if the mesh path was not skipped (we skipped it), and will include the analytic external potential because external backend calls `gravity_add_comoving_potential` directly (the external potential code was not altered).
+
+- Energy diagnostics: `stats.E_pot_self` aggregates `0.5 * m * gravity_get_physical_potential(gp)` only for the self-resolved potential (what `gp->potential` contains) and `stats.E_pot_ext` uses `external_gravity_get_potential_energy(...)` to compute analytic external energy. With this change the self-potential of outer particles will be zero (no resolved contributions), and the external potential energy is still provided via `E_pot_ext` (unchanged).
+
+Caveats and suggested follow-ups
+--------------------------------
+1. DM-only masking remains: the effective-mass masking logic currently affects `swift_type_dark_matter` only. If you have non-DM particle types in the outer region that should also be treated as analytic-only targets, update `gravity_get_effective_mass_from_position()` accordingly.
+
+2. Energy continuity: the analytic potential is unchanged and still has an explicit gate (it only adds accel/potential outside `Rcut`). If you want continuous potential bookkeeping inside the cutoff (a constant offset so the analytic potential matches at `Rcut`), that must be implemented in the potential backend (add a constant term inside `Rcut` for `external_gravity_get_potential_energy()` or similar). Adding a constant does not change forces, only diagnostics.
+
+3. Testing suggestions
+   - Run a short, small test where you print forces and potentials for a selection of particles around `Rcut` to verify outer particles have zero resolved gravity and non-zero analytic gravity.
+   - Compare `E_pot_self` and `E_pot_ext` before/after the change on a brief run (single step) to confirm bookkeeping behaves as intended.
+
+Summary
+-------
+The change implements a target-side suppression of resolved gravity for particles outside the truncated-NFW cutoff while leaving source-side masking and the analytic NFW backend intact. This makes the outer region a strict analytic-only domain (for forces and particle potentials originating from resolved gravity), matching the requested model.
+
+If you want, I can also:
+- Extend masking to non-DM types.
+- Add the optional constant offset inside `Rcut` so `external_gravity_get_potential_energy()` provides a continuous analytic potential across the cutoff (fixing energy bookkeeping discontinuities).
+- Add a small unit-test or debug dump routine that prints per-particle force/potential components for verification.
+
+
+Changes validated: syntax checks on modified files passed (no immediate parse errors). Build/runtime tests recommended on your machine.

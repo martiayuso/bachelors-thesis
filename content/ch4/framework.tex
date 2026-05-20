@@ -32,25 +32,19 @@ with minimum and maximum timesteps typically constrained in the interval
 \begin{equation}
 \Delta t_{\min}=10^{-6}, \qquad \Delta t_{\max}=10^{-2}
 \end{equation}
-for the long-run campaign, and tighter values used in dedicated tests.
 
-To probe solver sensitivity, each of the following was varied while keeping the others fixed: timestep factor $\eta$, MAC choice (geometric/adaptive), geometric opening threshold $\theta_{\mathrm{cr}}$, and $\epsilon_{\mathrm{fmm}}$. These controlled perturbations define the backbone of the numerical-robustness analysis presented in the results chapter.
+To probe solver sensitivity, each of the following was varied while keeping the others fixed: timestep factor $\eta$, MAC choice (geometric/adaptive), geometric opening threshold $\theta_{\mathrm{cr}}$, and $\epsilon_{\mathrm{fmm}}$. These controlled tests form the foundation of the numerical robustness analysis presented in the results chapter.
 
 \subsection{Output cadence and bookkeeping}
 
-The production analysis relies on regular snapshot dumps that allow profile reconstruction at multiple times (e.g. 0, 20, 40, 60, 80, and 100 Gyr in the long runs). In parallel, SWIFT writes:
-\begin{itemize}
-\item global conservation and bulk quantities in \texttt{statistics.txt},
-\item timestep activity in \texttt{timesteps.txt}.
-\end{itemize}
-These files are used as consistency checks (mass budget, energy trends, and global angular momentum evolution) when interpreting local density changes.
+The production analysis relies on regular snapshot dumps that allow profile reconstruction at multiple times. In parallel, SWIFT writes global conservation and bulk quantities in \texttt{statistics.txt}, and timestep activity in \texttt{timesteps.txt}.
 
 \section{Halo initial conditions and parameter choices}
 \label{sec:framework_ic_params}
 
 The halo models are generated as collisionless particle realizations with controlled inner slopes to enable cusp/core comparisons under otherwise matched numerical conditions.
 
-For dedicated truncated-NFW tests, initial conditions are produced with
+Initial conditions are produced with the pNbody code:
 \begin{verbatim}
 ic_gen_2_slopes --alpha 1 --beta 3 --Rmin 1e-3 --Rmax 50 --r_cutoff 50 \
 				--rho0 0.0027658297046461644 --rs 0.828177997155062 \
@@ -62,7 +56,7 @@ Across the broader thesis campaign, the most relevant controlled parameters are:
 \begin{itemize}
 \item halo type: cusp and core initial conditions,
 \item box-size variants for finite-volume sensitivity checks,
-\item gravitational softening variants (with a commonly used reference value $\epsilon=0.01\,$kpc),
+\item gravitational softening variants,
 \item self-gravity solver parameters ($\eta$, MAC, $\theta_{\mathrm{cr}}$, $\epsilon_{\mathrm{fmm}}$).
 \end{itemize}
 
@@ -110,7 +104,7 @@ as complementary diagnostics for identifying orbital heating and redistribution 
 \section{Post-processing pipeline and centering}
 \label{sec:framework_pipeline}
 
-The post-processing pipeline is designed to keep the density measurements stable against two common sources of noise: snapshot-to-snapshot variance and small centering offsets. These steps are methodological rather than interpretive, but they are essential for ensuring that the measured trends reflect the simulation rather than the extraction procedure.
+The post-processing pipeline is designed to keep the density measurements stable against two common sources of noise: snapshot-to-snapshot variance and small centering offsets. These steps are essential for ensuring that the measured trends reflect the simulation rather than the extraction procedure.
 
 \subsection{Snapshot concatenation}
 
@@ -122,7 +116,7 @@ The key point is that concatenation changes the visual smoothness of the curves,
 
 Centering is handled independently from the density estimation. Each snapshot is recentered using a shrinking-sphere algorithm, which iteratively refines the halo center by repeatedly restricting the particle set to smaller radii around the current estimate. This method is robust against mild asymmetries and against the gradual drift that can occur in long collisionless runs.
 
-Using the shrinking-sphere center ensures that the innermost bins of the density profile are measured relative to a dynamically meaningful origin. In practice, this removes one of the most obvious numerical artefacts that could otherwise masquerade as a central density decline.
+Using the shrinking-sphere center ensures that the innermost bins of the density profile are measured relative to a dynamically meaningful origin. In practice, this removes one of the most obvious numerical artefacts that could otherwise be mistaken for a central density decline.
 
 \section{Shell-based analysis framework}
 \label{sec:framework_shells}
@@ -137,7 +131,7 @@ The analysis addresses a specific question: if outer shells contribute substanti
 
 \subsection{NFW truncated-halo model}
 
-The analysis uses a spherically symmetric Navarro--Frenk--White (NFW) halo model \cite{navarro1996structure}, which is a standard benchmark for dark matter halos:
+The analysis uses a spherically symmetric Navarro--Frenk--White (NFW) halo model \citep{navarro1996structure}, which is a standard benchmark for dark matter halos:
 
 \begin{equation}
 \rho(r) = \frac{\rho_s}{(r/r_s)(1 + r/r_s)^2},
@@ -219,20 +213,9 @@ The analytical approach avoids numerical-integration noise and ensures all diagn
 
 Motivated by the shell results, a dedicated hybrid gravity model was implemented and tested on a custom SWIFT branch (\texttt{truncated-NFW}). The model enforces a hard radial split at a cutoff radius $R_{\mathrm{cut}}$:
 \begin{itemize}
-\item inner region ($r \le R_{\mathrm{cut}}$): standard self-gravity, no external NFW acceleration,
-\item outer region ($r > R_{\mathrm{cut}}$): external NFW acceleration applied, with optional masking of dark-matter self-gravity sourcing outside the cutoff.
+\item inner region ($r \le R_{\mathrm{cut}}$): standard self-gravity, no external NFW potential,
+\item outer region ($r > R_{\mathrm{cut}}$): external NFW potential applied, with optional masking of dark-matter self-gravity sourcing outside the cutoff.
 \end{itemize}
-
-In test runs, the backend is selected at compile time using
-\begin{verbatim}
---with-ext-potential=truncated-nfw
-\end{verbatim}
-and runtime control is provided through the \texttt{NFWPotential} block, including
-\begin{equation}
-R_{\mathrm{cut}} = 10\ \mathrm{kpc}, \qquad
-\texttt{dm\_mask\_outside\_cutoff}=1
-\end{equation}
-in the reference validation setup.
 
 The design goal is not to claim a final physical model, but to construct a targeted numerical experiment: if outer-halo coupling is a major driver of central evolution, changing how the outer region sources gravity should produce a measurable response in inner-density trends.
 
@@ -241,7 +224,7 @@ The design goal is not to claim a final physical model, but to construct a targe
 The truncated-NFW backend is designed to isolate the dynamical role of the outer halo while keeping the inner region fully self-consistent. The implementation follows three guiding principles:
 
 \begin{itemize}
-\item \textbf{Clear separation of responsibilities}: inner particles (\(r\le R_{\mathrm{cut}}\)) evolve under the usual SWIFT self-gravity solver and provide the only self-gravity sources inside the cutoff; outer particles (\(r>R_{\mathrm{cut}}\)) do not source local self-gravity and instead experience an analytic NFW acceleration.
+\item \textbf{Clear separation of responsibilities}: inner particles (\(r\le R_{\mathrm{cut}}\)) evolve under the usual SWIFT self-gravity solver and provide the only resolved self-gravity sources inside the cutoff. Outer particles (\(r>R_{\mathrm{cut}}\)) evolve in the analytic truncated-NFW field, with resolved gravity contributions removed by construction.
 \item \textbf{Minimal invasive changes}: the feature is implemented as an optional, compile-time selectable external-potential backend and does not alter the default gravity code paths when disabled.
 \item \textbf{Deterministic, documented boundary convention}: the hard boundary is defined as inner for \(r\le R_{\mathrm{cut}}\) and outer for \(r>R_{\mathrm{cut}}\), avoiding ambiguous behaviour at the cutoff.
 \end{itemize}
@@ -256,51 +239,60 @@ The backend is registered as an external-potential option and selected at config
 
 At build-time the configure script defines the macro identifying the truncated-NFW backend and compiles the corresponding header implementation. This approach keeps the extra code path isolated behind a single configure flag and reduces the risk of accidental behavior changes in other backends.
 
-Files involved at build time include the project's \texttt{configure.ac} (to add the new option) and \texttt{src/potential.h} (to include the backend header when the macro is set).
+Files involved at build time include the project's \texttt{configure.ac} (backend option and macro definition), \texttt{src/potential.h} (backend include branch), and \texttt{src/potential/truncated\_nfw/potential.h} (backend implementation). Gravity-side hooks live in \texttt{src/gravity/*}, \texttt{src/multipole.h}, and mesh-gravity files, but remain dormant unless the truncated-NFW backend is selected.
 
 \subsection{Runtime parameters and YAML configuration}
 
 Runtime control is provided through the existing \texttt{NFWPotential} block in the parameter YAML. The truncated-NFW mode extends the canonical NFW keys with a small set of required and optional keys:
 
 \begin{itemize}
-\item \texttt{cutoff:} required floating-point value; the radial cutoff $R_{\mathrm{cut}}$ in kpc.
+\item \texttt{cutoff\_radius:} required floating-point value; the radial cutoff $R_{\mathrm{cut}}$ in kpc.
 \item \texttt{dm\_mask\_outside\_cutoff:} optional boolean (default 1). If true, DM outside the cutoff is excluded as a source of self-gravity.
 \item \texttt{position:} center of the external potential (array); default behaviour follows the usual \texttt{NFWPotential:useabspos} semantics.
 \item \texttt{useabspos:} boolean as in the standard NFWPotential, controls interpretation of \texttt{position}.
 \end{itemize}
 
-The parameter-parsing code validates that \texttt{cutoff} is provided when the truncated-NFW backend is selected and prints the effective configuration at startup for reproducibility diagnostics.
+The parameter parser in the backend validates that \texttt{cutoff\_radius} is present when truncated-NFW is selected and prints the effective setup at startup (center, halo parameters, cutoff, masking flag). The same center definition is propagated to the masking logic through dedicated globals (mask enabled flag, mask center, and $R_{\mathrm{cut}}^2$), so potential and masking use exactly the same geometric reference.
 
-\subsection{DM masking and effective gravitational mass}
+\subsection{Two-layer masking logic: sources and targets}
 
-Masking outer dark-matter sources requires that the gravity kernels consume an effective source mass rather than the raw particle mass. The implementation introduces a per-particle multiplicative factor, \texttt{grav\_mass\_factor}, defined operationally as:
+The gravity split is enforced through two complementary mechanisms.
+
+\textbf{Source-side masking.} Dark-matter particles outside the cutoff use an effective gravitational source mass of zero through \texttt{gravity\_get\_effective\_mass\_from\_position()}. Operationally this corresponds to \texttt{grav\_mass\_factor}=0 for outer DM and \texttt{grav\_mass\_factor}=1 otherwise. The effective mass is then consumed consistently by pairwise interactions, gravity caches, multipole construction, and no-cache pair loops (including \texttt{runner\_doiact\_grav.c}), so outer DM does not source resolved self-gravity.
+
+\textbf{Target-side suppression.} Outer particles are also prevented from receiving resolved self-gravity updates. This ensures that the outer domain is analytic-only not only as a source prescription but also at the level of target acceleration/potential write-back.
+
+To implement this, a common geometric helper
+\texttt{gravity\_is\_outside\_truncated\_nfw\_cutoff(const double x[3])}
+was added in both gravity variants:
+\texttt{src/gravity/Default/gravity.h} and
+\texttt{src/gravity/MultiSoftening/gravity.h}.
+
+This helper is then used to gate resolved-gravity write-back paths:
 
 \begin{itemize}
-\item If particle is dark matter and $r \le R_{\mathrm{cut}}$ then \texttt{grav\_mass\_factor} = 1.
-\item If particle is dark matter and $r > R_{\mathrm{cut}}$ then \texttt{grav\_mass\_factor} = 0.
-\item For non-dark-matter particle types \texttt{grav\_mass\_factor} = 1 (unchanged behaviour).
+\item \texttt{src/gravity\_cache.h}: in \texttt{gravity\_cache\_write\_back(...)} a guard skips adding cached pair/tree acceleration and potential to outer targets;
+\item \texttt{src/multipole.h}: in \texttt{gravity\_L2P(...)} an early return prevents multipole target updates for outer particles;
+\item \texttt{src/mesh\_gravity.c}: in \texttt{mesh\_to\_gpart\_CIC(...)} an early return suppresses local PM interpolation for outer particles;
+\item \texttt{src/mesh\_gravity\_mpi.c}: in \texttt{mesh\_patch\_to\_gparts\_CIC(...)} an early return suppresses MPI PM interpolation for outer particles.
 \end{itemize}
 
-The factor is stored on the particle/gpart structure and updated at a controlled cadence (per-step or at each rebuild of the domain/tree). It is intentionally not recomputed per pairwise interaction to avoid excessive overhead; instead kernels read the cached factor from the particle metadata.
+Operationally, for any target with $r>R_{\mathrm{cut}}$, resolved pair/tree/mesh contributions are not written to the particle state. Outer particles therefore evolve only under analytic external potential terms.
 
-The following code paths are adapted to use the effective mass (\(m_{\rm eff} = m\times\texttt{grav\_mass\_factor}\)):
-
-\begin{itemize}
-\item particle--particle (P2P) interactions: the source mass used in force calculations is replaced with \(m_{\rm eff}\) in both local and foreign-particle branches;
-\item multipole construction (P2M/M2M): moment builders use \(m_{\rm eff}\) when accumulating monopole and higher multipole coefficients so that outer masked mass does not contribute to tree moments;
-\item packing / MPI export: when serialising particle data for remote requests, either the effective mass is exported or the mask-factor is exported alongside mass to guarantee consistent foreign-particle behaviour.
-\end{itemize}
-
-This choice ensures force symmetry and avoids MPI-induced asymmetries: source mass appears identical to all consumers regardless of rank.
+The same predicate is used in both local and MPI-distributed mesh paths, avoiding rank-dependent behaviour at the cutoff surface.
 
 \subsection{External potential behaviour and timestep coupling}
 
 The external-potential API is responsible for returning three quantities for each particle position: acceleration \(\mathbf{a}_{\rm ext}(\mathbf{x})\), potential energy contribution \(\Phi_{\rm ext}(\mathbf{x})\), and optional timestep constraint multipliers. In truncated-NFW mode these are implemented as
 
 \begin{itemize}
-\item for $r \le R_{\mathrm{cut}}$: \(\mathbf{a}_{\rm ext}=\mathbf{0}\), \(\Phi_{\rm ext}=0\) (no external field acting on inner particles),
+\item for $r \le R_{\mathrm{cut}}$: \(\mathbf{a}_{\rm ext}=0\), \(\Phi_{\rm ext}=0\) (no external field acting on inner particles),
 \item for $r > R_{\mathrm{cut}}$: standard truncated NFW analytic expressions for \(\mathbf{a}_{\rm ext}\) and \(\Phi_{\rm ext}\) are returned.
 \end{itemize}
+
+The analytic potential/acceleration are injected through the standard external-potential hooks (including \texttt{gravity\_add\_comoving\_potential(...)}), while resolved-gravity suppression is handled in gravity and mesh write-back paths.
+
+This separation clarifies potential bookkeeping: outer particles no longer accumulate resolved self-potential from tree/pair/mesh, but they still receive the analytic external contribution via the external backend and enter \(E_{\rm pot,ext}\) diagnostics through \texttt{external\_gravity\_get\_potential\_energy(...)}.
 
 The external potential may optionally supply a timestep multiplier for outer particles (for example to limit timesteps when the analytic field varies strongly), but by default the domain's existing timestep criteria govern integration.
 
@@ -312,7 +304,7 @@ We adopt the hard-step convention: particles at exactly $r=R_{\mathrm{cut}}$ are
 
 \subsection{Serialization, restart safety and diagnostics}
 
-All new runtime parameters are recorded in the standard external-potential state so that restarts reproduce the mask and potential choices. On startup the backend prints a compact diagnostics summary that includes: backend name, chosen center, $r_{\mathrm{cut}}$, and whether DM masking is active. The code path that initialises \texttt{grav\_mass\_factor} is invoked at both fresh starts and restarts to preserve behaviour across sessions.
+All runtime parameters are recorded in the standard external-potential state so that restarts reproduce the mask and potential choices. On startup the backend prints a compact diagnostics summary that includes backend name, chosen center, $r_{\mathrm{cut}}$, and whether DM masking is active. The initialization path that sets masking state and effective masses is executed at fresh start and restart, and is refreshed at the gravity update cadence (per step or per tree/domain rebuild, depending on run configuration).
 
 Because the modification changes the effective source mass (and therefore total self-gravity source) the global energy bookkeeping routines are instrumented to report the expected non-conservative terms and to show the separation between particle-sourced and analytic-potential contributions to the total potential energy. These diagnostics are intended for validation and are not enabled in tight production runs by default.
 
@@ -325,7 +317,7 @@ To preserve exact force symmetry across MPI boundaries, the effective mass seman
 \item export both the raw mass and the mask-factor, and reconstruct \(m_{\rm eff}\) on the receiving side.
 \end{enumerate}
 
-Either strategy yields the same physics if used consistently; the code uses the first option (exporting \(m_{\rm eff}\)) for simplicity and minimal changes to the receiver-side kernels.
+Either strategy yields the same physics if used consistently; the implementation enforces a single semantics for local and remote particles so multipole and pairwise forces remain symmetric across rank boundaries.
 
 \subsection{Validation strategy}
 
@@ -348,7 +340,8 @@ The present implementation aims at a minimal, well-defined numerical experiment 
 \item the cutoff is a hard step; no smooth transition shell is implemented (this can be added later if numerical artefacts at the boundary are observed),
 \item only dark-matter particles are eligible for masking; gas, stars and sink/BH particles keep their full source mass, and their coupling to the external potential is unchanged,
 \item using a fixed centre for the external potential while the particle distribution drifts can create a mismatch; the user must therefore choose the centre carefully (e.g. by using a shrinking-sphere centre estimate before launching a hybrid run),
-\item energy is not strictly conserved across the particle/analytic split because masked particle mass is removed from the self-gravity source and replaced by an analytic potential; diagnostics are provided to quantify this effect.
+\item energy is not strictly conserved across the particle/analytic split because masked particle mass is removed from the self-gravity source and replaced by an analytic potential; diagnostics are provided to quantify this effect,
+\item for strict energy continuity diagnostics, a constant potential offset at $R_{\mathrm{cut}}$ may still be desirable in the external backend (forces are unaffected by this constant, but reported potential energies can shift).
 \end{itemize}
 
 Implementation details and exact file locations are documented in the project plan and inline in the code (see \texttt{software/swiftsim/src/potential/truncated\_nfw/potential.h} and related gravity hooks). The repository includes the configure option, the backend header, and the gravity-kernel adaptations required to run and validate the hybrid experiments described in Chapter~\ref{sec:framework_shells}.

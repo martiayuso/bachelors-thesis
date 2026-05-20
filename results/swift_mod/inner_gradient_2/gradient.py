@@ -123,21 +123,19 @@ def plot(sim_files, labels):
 if __name__ == "__main__":
 
     sims = [
+        "profile_chunk_0000_0049.hdf5.npz",
+        "profile_chunk_0050_0099.hdf5.npz",
         "profile_chunk_0100_0149.hdf5.npz",
+        "profile_chunk_0150_0199.hdf5.npz",
         "profile_chunk_0200_0249.hdf5.npz",
+        "profile_chunk_0250_0299.hdf5.npz",
         "profile_chunk_0300_0349.hdf5.npz",
-        "profile_chunk_0400_0449.hdf5.npz",
-        "profile_chunk_0500_0549.hdf5.npz",
-        "profile_chunk_0600_0649.hdf5.npz",
-        "profile_chunk_0700_0749.hdf5.npz",
-        "profile_chunk_0800_0849.hdf5.npz",
-        "profile_chunk_0900_0949.hdf5.npz",
-        "profile_chunk_0950_0999.hdf5.npz"
+        "profile_chunk_0350_0399.hdf5.npz"
     ]
 
     labels = [
-        "10 Gyr", "20 Gyr", "30 Gyr", "40 Gyr", "50 Gyr",
-        "60 Gyr", "70 Gyr", "80 Gyr", "90 Gyr", "100 Gyr"
+        "0.25 Gyr", "0.5 Gyr", "0.75 Gyr", "1 Gyr", "1.25 Gyr",
+        "1.5 Gyr", "1.75 Gyr", "2 Gyr"
     ]
 
     plot(sims, labels)
