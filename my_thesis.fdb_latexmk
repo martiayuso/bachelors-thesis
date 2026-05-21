@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex my_thesis"] 1779288302.96219 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1779288382.17508 0
-  "./content/tail/bibliography.bib" 1778788110.47368 3527 879d04990a32d69078217b545398f8c2 ""
+["bibtex my_thesis"] 1779358117.42582 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1779358135.45029 0
+  "./content/tail/bibliography.bib" 1779355244.33048 3857 461a54a29cf8d926dab8f3ed3b2ddf72 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "my_thesis.aux" 1779288381.19171 53674 b7d18e0a64fd4be0f9db8be478591eca "pdflatex"
+  "my_thesis.aux" 1779358134.58309 54883 b1435e82b522cd62eac9e5da5c905546 "pdflatex"
   (generated)
   "my_thesis.bbl"
   "my_thesis.blg"
   (rewritten before read)
-["pdflatex"] 1779288362.45469 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1779288382.17587 0
+["pdflatex"] 1779358117.69779 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1779358135.45094 0
   "/etc/texmf/web2c/texmf.cnf" 1770803612.9779 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" 1778246252.92291 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -254,8 +254,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1770803631.54445 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1770803750 8213494 1601c7fe5a1845281692149c2557de05 ""
   "assets/epfl.eps" 1771334566.92216 13206 fd3504dba80939a7a2d79ad30c15d905 ""
-  "content/ch1/introduction.tex" 1779287878.93073 8963 ac0f31c8c8113583495056353cc4c7e9 ""
-  "content/ch3/background.tex" 1779288361.86164 15036 4c41f45b6592c0ef21faa3877ddced12 ""
+  "content/ch1/img/cuspvcore.png" 1779355420.02353 440387 3a9f7fe11ea13993537951b8d20f0121 ""
+  "content/ch1/introduction.tex" 1779355511.75951 8701 5e4af9f44bd4fdb1f5c0ba19217e262b ""
+  "content/ch3/background.tex" 1779358099.05079 15300 2e60d12b6fef1690a2bd83a629f940a0 ""
   "content/ch4/framework.tex" 1779287878.93031 27057 cd3c3a8cf2ecab2d6f7f42adc8dac4b2 ""
   "content/ch5/img/01_mass_profile_and_shell_fraction.png" 1777910986.34906 288077 f56e28fa2bc22379d402e9d3724fce31 ""
   "content/ch5/img/02_central_potential_shell_contribution.png" 1777910989.13462 227941 42e06eecf5b908e1b582b9777e9cd294 ""
@@ -278,11 +279,11 @@
   "content/head/titlepage.tex" 1779287878.92872 1699 cec90d73b12d99120e783cfdf8cf8b6b ""
   "content/tail/appendix.tex" 1779287878.92397 44 9fa8215b0c8b60cf49b05639d6704a78 ""
   "content/tail/biblio.tex" 1779287878.92466 147 3da88521316b9dc9d1360dac743095a4 ""
-  "my_thesis.aux" 1779288381.19171 53674 b7d18e0a64fd4be0f9db8be478591eca "pdflatex"
-  "my_thesis.bbl" 1779288303.24498 2949 a4ac9079cc9cd3cdb6036f28cee8b146 "bibtex my_thesis"
-  "my_thesis.lof" 1779288381.22471 5462 31eb68aeeb82c227b338b11f6c21a72a "pdflatex"
+  "my_thesis.aux" 1779358134.58309 54883 b1435e82b522cd62eac9e5da5c905546 "pdflatex"
+  "my_thesis.bbl" 1779358117.68395 3254 3c291755e0436b4765869394f85de70c "bibtex my_thesis"
+  "my_thesis.lof" 1779358134.61309 5398 362bd396816b900c4e9bc60fe1b4d191 "pdflatex"
   "my_thesis.tex" 1778246252.92291 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
-  "my_thesis.toc" 1779288381.22471 6576 721b6f49807c89c1c8d828ef5480e1bb "pdflatex"
+  "my_thesis.toc" 1779358134.61309 6731 5e084ed5521c7e8880f6a08c282b5944 "pdflatex"
   "settings/settings_custom.tex" 1771334567.02816 721 dfc74678b200977ef9bd9e1204e3fe3c ""
   "settings/settings_epfl_template.tex" 1779181785.74165 7558 ebb06658e1845f94c04f9b01b86542f0 ""
   (generated)

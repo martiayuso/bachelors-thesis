@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  20 MAY 2026 16:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  21 MAY 2026 12:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1043,45 +1043,51 @@ Chapter 1.
 
 
 
-] [2]
-Overfull \hbox (7.56029pt too wide) in paragraph at lines 52--53
+]
+<content/ch1/img/cuspvcore.png, id=277, 792.9625pt x 710.655pt>
+File: content/ch1/img/cuspvcore.png Graphic file (type png)
+<use content/ch1/img/cuspvcore.png>
+Package pdftex.def Info: content/ch1/img/cuspvcore.png  used on input line 18.
+(pdftex.def)             Requested size: 334.15044pt x 299.47069pt.
+ [2 <./content/ch1/img/cuspvcore.png (PNG copy)>]
+Overfull \hbox (7.56029pt too wide) in paragraph at lines 39--40
 []\T1/futs/b/n/10.95 (-20) Rule out triv-ial nu-mer-i-cal ex-pla-na-tions\T1/futs/m/n/10.95 (-20) : Test whether changes to nu-mer-i-cal parameters---
  []
 
 
-Overfull \hbox (10.12086pt too wide) in paragraph at lines 52--53
+Overfull \hbox (10.12086pt too wide) in paragraph at lines 39--40
 \T1/futs/m/n/10.95 (-20) gravitational soft-en-ing length, timestep fac-tor, force-solver ac-cu-racy settings---significantly
  []
 
 [3]) (./content/ch3/background.tex [4]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 10.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8.3> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 10.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 10.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 8.
 [5
 
 ] [6]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 13.24796pt on input line 43.
+(Font)              scaled to size 13.24796pt on input line 75.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 43.
+(Font)              scaled to size 9.19998pt on input line 75.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 43.
+(Font)              scaled to size 7.35999pt on input line 75.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <10> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8> not available
-(Font)              Font shape `T1/futs/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 13.24796pt on input line 43.
+(Font)              scaled to size 13.24796pt on input line 75.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 43.
+(Font)              scaled to size 9.19998pt on input line 75.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 43.
+(Font)              scaled to size 7.35999pt on input line 75.
  [7] [8] [9]) (./content/ch4/framework.tex [10]
 Chapter 3.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
@@ -1144,80 +1150,80 @@ Chapter 4.
 [23
 
 ]
-<content/ch5/img/gradient.png, id=458, 722.7pt x 578.16pt>
+<content/ch5/img/gradient.png, id=472, 722.7pt x 578.16pt>
 File: content/ch5/img/gradient.png Graphic file (type png)
 <use content/ch5/img/gradient.png>
 Package pdftex.def Info: content/ch5/img/gradient.png  used on input line 30.
 (pdftex.def)             Requested size: 417.68646pt x 334.15088pt.
  [24]
-<content/ch5/img/density_evolution_cusp.png, id=464, 722.7pt x 578.16pt>
+<content/ch5/img/density_evolution_cusp.png, id=478, 722.7pt x 578.16pt>
 File: content/ch5/img/density_evolution_cusp.png Graphic file (type png)
 <use content/ch5/img/density_evolution_cusp.png>
 Package pdftex.def Info: content/ch5/img/density_evolution_cusp.png  used on input line 37.
 (pdftex.def)             Requested size: 417.68646pt x 334.15088pt.
  [25 <./content/ch5/img/gradient.png>] [26 <./content/ch5/img/density_evolution_cusp.png>]
-<content/ch5/img/box_size_study.png, id=485, 722.7pt x 578.16pt>
+<content/ch5/img/box_size_study.png, id=499, 722.7pt x 578.16pt>
 File: content/ch5/img/box_size_study.png Graphic file (type png)
 <use content/ch5/img/box_size_study.png>
 Package pdftex.def Info: content/ch5/img/box_size_study.png  used on input line 57.
 (pdftex.def)             Requested size: 417.68646pt x 334.15088pt.
  [27] [28 <./content/ch5/img/box_size_study.png>]
-<content/ch5/img/density_evolution_core.png, id=499, 722.7pt x 578.16pt>
+<content/ch5/img/density_evolution_core.png, id=513, 722.7pt x 578.16pt>
 File: content/ch5/img/density_evolution_core.png Graphic file (type png)
 <use content/ch5/img/density_evolution_core.png>
 Package pdftex.def Info: content/ch5/img/density_evolution_core.png  used on input line 75.
 (pdftex.def)             Requested size: 417.68646pt x 334.15088pt.
  [29 <./content/ch5/img/density_evolution_core.png>]
-<content/ch5/img/grav_soft_study_50.png, id=514, 695.4783pt x 543.9522pt>
+<content/ch5/img/grav_soft_study_50.png, id=529, 695.4783pt x 543.9522pt>
 File: content/ch5/img/grav_soft_study_50.png Graphic file (type png)
 <use content/ch5/img/grav_soft_study_50.png>
 Package pdftex.def Info: content/ch5/img/grav_soft_study_50.png  used on input line 95.
 (pdftex.def)             Requested size: 208.84323pt x 163.3363pt.
-<content/ch5/img/grav_soft_study_100.png, id=515, 695.4783pt x 543.9522pt>
+<content/ch5/img/grav_soft_study_100.png, id=530, 695.4783pt x 543.9522pt>
 File: content/ch5/img/grav_soft_study_100.png Graphic file (type png)
 <use content/ch5/img/grav_soft_study_100.png>
 Package pdftex.def Info: content/ch5/img/grav_soft_study_100.png  used on input line 99.
 (pdftex.def)             Requested size: 208.84323pt x 163.3363pt.
  [30] [31 <./content/ch5/img/grav_soft_study_50.png> <./content/ch5/img/grav_soft_study_100.png>] [32]
-<content/ch5/img/eta_study.png, id=535, 695.4783pt x 543.9522pt>
+<content/ch5/img/eta_study.png, id=549, 695.4783pt x 543.9522pt>
 File: content/ch5/img/eta_study.png Graphic file (type png)
 <use content/ch5/img/eta_study.png>
 Package pdftex.def Info: content/ch5/img/eta_study.png  used on input line 174.
 (pdftex.def)             Requested size: 208.84323pt x 163.3363pt.
-<content/ch5/img/mac_study.png, id=536, 695.4783pt x 543.9522pt>
+<content/ch5/img/mac_study.png, id=550, 695.4783pt x 543.9522pt>
 File: content/ch5/img/mac_study.png Graphic file (type png)
 <use content/ch5/img/mac_study.png>
 Package pdftex.def Info: content/ch5/img/mac_study.png  used on input line 179.
 (pdftex.def)             Requested size: 208.84323pt x 163.3363pt.
-<content/ch5/img/theta_cr_study.png, id=537, 695.4783pt x 543.9522pt>
+<content/ch5/img/theta_cr_study.png, id=551, 695.4783pt x 543.9522pt>
 File: content/ch5/img/theta_cr_study.png Graphic file (type png)
 <use content/ch5/img/theta_cr_study.png>
 Package pdftex.def Info: content/ch5/img/theta_cr_study.png  used on input line 183.
 (pdftex.def)             Requested size: 208.84323pt x 163.3363pt.
-<content/ch5/img/epsilon_fmm_study.png, id=538, 695.4783pt x 543.9522pt>
+<content/ch5/img/epsilon_fmm_study.png, id=552, 695.4783pt x 543.9522pt>
 File: content/ch5/img/epsilon_fmm_study.png Graphic file (type png)
 <use content/ch5/img/epsilon_fmm_study.png>
 Package pdftex.def Info: content/ch5/img/epsilon_fmm_study.png  used on input line 188.
 (pdftex.def)             Requested size: 208.84323pt x 163.3363pt.
  [33] [34 <./content/ch5/img/eta_study.png> <./content/ch5/img/mac_study.png> <./content/ch5/img/theta_cr_study.png> <./content/ch5/img/epsilon_fmm_study.png>]
-<content/ch5/img/01_mass_profile_and_shell_fraction.png, id=555, 610.6815pt x 436.5765pt>
+<content/ch5/img/01_mass_profile_and_shell_fraction.png, id=569, 610.6815pt x 436.5765pt>
 File: content/ch5/img/01_mass_profile_and_shell_fraction.png Graphic file (type png)
 <use content/ch5/img/01_mass_profile_and_shell_fraction.png>
 Package pdftex.def Info: content/ch5/img/01_mass_profile_and_shell_fraction.png  used on input line 213.
 (pdftex.def)             Requested size: 355.03604pt x 253.82074pt.
  [35 <./content/ch5/img/01_mass_profile_and_shell_fraction.png>]
-<content/ch5/img/02_central_potential_shell_contribution.png, id=563, 612.6525pt x 438.219pt>
+<content/ch5/img/02_central_potential_shell_contribution.png, id=577, 612.6525pt x 438.219pt>
 File: content/ch5/img/02_central_potential_shell_contribution.png Graphic file (type png)
 <use content/ch5/img/02_central_potential_shell_contribution.png>
 Package pdftex.def Info: content/ch5/img/02_central_potential_shell_contribution.png  used on input line 224.
 (pdftex.def)             Requested size: 355.03604pt x 253.9599pt.
  [36 <./content/ch5/img/02_central_potential_shell_contribution.png>]
-<content/ch5/img/03_outer_fraction_vs_cutoff.png, id=570, 611.3385pt x 436.5765pt>
+<content/ch5/img/03_outer_fraction_vs_cutoff.png, id=584, 611.3385pt x 436.5765pt>
 File: content/ch5/img/03_outer_fraction_vs_cutoff.png Graphic file (type png)
 <use content/ch5/img/03_outer_fraction_vs_cutoff.png>
 Package pdftex.def Info: content/ch5/img/03_outer_fraction_vs_cutoff.png  used on input line 237.
 (pdftex.def)             Requested size: 355.03604pt x 253.54762pt.
-<content/ch5/img/04_outer_fraction_map.png, id=572, 599.184pt x 451.0305pt>
+<content/ch5/img/04_outer_fraction_map.png, id=586, 599.184pt x 451.0305pt>
 File: content/ch5/img/04_outer_fraction_map.png Graphic file (type png)
 <use content/ch5/img/04_outer_fraction_map.png>
 Package pdftex.def Info: content/ch5/img/04_outer_fraction_map.png  used on input line 250.
@@ -1231,29 +1237,44 @@ Appendix A.
 ) [42
 
 
-] (./content/tail/biblio.tex (./my_thesis.bbl)) [43
+] (./content/tail/biblio.tex (./my_thesis.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+[]\T1/futs/m/n/10.95 (+20) AAS Nova (2024).  Down to the core: Dark mat-ter de-vi-a-tions
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+\T1/futs/m/n/10.95 (+20) in ultra-faint dwarf galax-ies.  [][]$https : / / aasnova . org / 2024 / 11 / 01 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+\T1/futs/m/n/10.95 (+20) down-[]to-[]the-[]core-[]dark-[]matter-[]deviations-[]in-[]ultra-[]faint-[]dwarf-[]galaxies / #prettyPhoto$[][].
+ []
+
+[43
 
 
 
-] (./my_thesis.aux)
+])) [44] (./my_thesis.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 31718 strings out of 474222
- 572964 string characters out of 5748733
+ 31733 strings out of 474222
+ 573245 string characters out of 5748733
  1940975 words of memory out of 5000000
- 52724 multiletter control sequences out of 15000+600000
- 737511 words of font info for 457 fonts, out of 8000000 for 9000
+ 52731 multiletter control sequences out of 15000+600000
+ 741611 words of font info for 458 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,13n,96p,1375b,1345s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,96p,1375b,1345s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on my_thesis.pdf (51 pages, 3713467 bytes).
+Output written on my_thesis.pdf (52 pages, 4157876 bytes).
 PDF statistics:
- 919 PDF objects out of 1000 (max. 8388607)
- 799 compressed objects within 8 object streams
- 175 named destinations out of 1000 (max. 500000)
- 115832 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 945 PDF objects out of 1000 (max. 8388607)
+ 820 compressed objects within 9 object streams
+ 183 named destinations out of 1000 (max. 500000)
+ 117893 words of extra memory for PDF output out of 128383 (max. 10000000)
 

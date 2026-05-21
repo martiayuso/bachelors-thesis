@@ -3,6 +3,8 @@
 %\markboth{Introduction}{Introduction}
 %\addcontentsline{toc}{chapter}{Introduction}
 
+Gravity acts across cosmic scales to produce structure that is often richer than the simple laws that govern it. Over time, orbits mix, collective behaviour develops, and slow secular evolution can reshape a system over many dynamical times. Numerical simulations provide a controlled setting in which these processes can be studied, allowing theoretical ideas to be translated into measurable time evolution and compared with analytic expectations. Interpreting the results requires care, because subtle trends may reflect genuine physics or arise from modelling choices and post-processing. The chapters that follow develop the theoretical background, describe the computational framework, and present the diagnostics and experiments used throughout this thesis.
+
 \section{The cusp-core problem}
 
 Dark matter is believed to constitute approximately 85\% of the matter in the universe and plays a crucial role in shaping cosmic structure. Despite decades of observational and theoretical effort, its fundamental nature remains one of the outstanding questions in physics and astronomy. At cosmological scales, dark matter halos form through gravitational collapse and hierarchical assembly, producing characteristic density profiles that encode information about the underlying dark matter model, assembly history, and internal dynamics.
@@ -13,12 +15,8 @@ One promising explanation for core formation involves non-adiabatic perturbation
 
 \begin{figure}[H]
 	\centering
-	\IfFileExists{ch1/img/cusp_vs_core.png}{%
-		\includegraphics[width=0.8\textwidth]{ch1/img/cusp_vs_core.png}%
-	}{%
-		\fbox{\parbox[c][0.22\textheight][c]{0.8\textwidth}{\centering \textbf{[PLACEHOLDER FIGURE]} Illustration of cusp-like and core-like dark matter density profiles. Left: steep central cusp predicted by CDM simulations. Right: shallower core observed in many dwarf galaxies. The transition occurs at a radius that depends on the halo mass and evolutionary history.}}%
-	}%
-	\caption{\textbf{[PLACEHOLDER FIGURE]} Cusp versus core density profiles.}
+	\includegraphics[width=0.8\textwidth]{content/ch1/img/cuspvcore.png}
+	\caption{Cusp versus core density profiles. Image credit: AAS Nova (Down to the core: Dark matter deviations in ultra-faint dwarf galaxies) \citep{aasnova2024}.}
 	\label{fig:intro_cusp_core}
 \end{figure}
 
@@ -30,20 +28,9 @@ The question is not merely academic. If the observed density decline is primaril
 
 This thesis focuses on determining which of these possibilities explains the persistent central-density decline observed in a reference SWIFT simulation of a dark matter halo evolved in isolation over 100 Gyr.
 
-\begin{figure}[H]
-	\centering
-	\IfFileExists{ch1/img/density_evolution_concept.png}{%
-		\includegraphics[width=0.8\textwidth]{ch1/img/density_evolution_concept.png}%
-	}{%
-		\fbox{\parbox[c][0.22\textheight][c]{0.8\textwidth}{\centering \textbf{[PLACEHOLDER FIGURE]} Central density evolution over time in a dark-matter-only simulation. The plot shows a gradual decline of the inner density despite no baryonic feedback or external perturbations. The central question is whether this decline is physical, numerical, or methodological in origin.}}%
-	}%
-	\caption{\textbf{[PLACEHOLDER FIGURE]} Central density evolution over 100 Gyr.}
-	\label{fig:intro_density_evolution}
-\end{figure}
-
 \section{Aims and objectives}
 
-The main goal of this work is to systematically investigate the origin of the central-density decline through controlled parameter studies, diagnostic validation, and mechanistic tests. The specific objectives are:
+The main goal of this work is to investigate the origin of the central-density decline through controlled parameter studies, diagnostic validation, and mechanistic tests. The specific objectives are:
 
 \begin{enumerate}
 

@@ -2,8 +2,6 @@
 
 This chapter introduces the physical and numerical concepts required to interpret the evolution of the inner dark matter density in ultra-faint dwarf galaxy simulations. The objective is not to review all of modern structure formation, but to establish the minimum framework needed for the analyses in subsequent chapters: collisionless halo dynamics, cusp/core phenomenology, numerical heating, gravitational softening, the gravity solver controls used in SWIFT, and the role of shell-to-shell coupling in mass redistribution.
 
-The chapter is intentionally organized from first principles to practical diagnostics. We begin with the collisionless equations that govern halo evolution, then move to the cusp-core problem in faint systems, and finally discuss numerical ingredients that can mimic or amplify physical effects. This progression is important because the central scientific question of the thesis requires separating genuine dynamical evolution from resolution- and solver-induced artefacts.
-
 \section{Dark matter halos and density profiles}
 \label{sec:bg_halos_profiles}
 
@@ -21,13 +19,47 @@ These equations make clear that halo structure is a phase-space problem: the den
 
 In cosmological simulations, dynamically relaxed halos are commonly described by broken power-law density profiles, where the logarithmic slope changes from inner to outer radii. In this language, the central shape of the profile is the critical diagnostic: a steep rise toward small radii is referred to as a \emph{cusp}, while a flattened inner profile is referred to as a \emph{core}. Since this inner region is also the most demanding numerically, any physical interpretation must be tied to explicit convergence and resolution arguments \citep{power2003inner,zhang2019optimal}.
 
+A widely used fitting form for collisionless dark matter haloes is the Navarro--Frenk--White (NFW) profile,
+\begin{equation}
+\rho(r) =
+\frac{\rho_s}
+{\left(r/r_s\right)\left(1+r/r_s\right)^2},
+\end{equation}
+where $\rho_s$ is a characteristic density and $r_s$ is the scale radius at which the logarithmic slope changes from approximately $-1$ to $-3$.
+
 A commonly used reference model is the NFW-like form, which captures the transition from an inner and outer power-law regime. The associated local slope,
 \begin{equation}
 \gamma(r) \equiv -\frac{\mathrm{d}\ln\rho}{\mathrm{d}\ln r},
 \end{equation}
-is a useful quantity throughout this thesis because it directly tracks whether the central profile evolves toward cusp-like or core-like behaviour.
+is a useful quantity because it directly tracks whether the central profile evolves toward cusp-like or core-like behaviour.
 
-For this thesis, the practical consequence is straightforward: the measured inner density slope cannot be interpreted in isolation. It must be analyzed jointly with the numerical setup that determines force accuracy, relaxation strength, and time integration quality.
+\subsection{Virial equilibrium, characteristic timescales, and orbital support}
+\label{sec:bg_virial_jeans}
+
+Dark matter haloes are not static objects, but many relaxed systems are close enough to dynamical equilibrium that a virial description is useful. 
+
+For a virialized self-gravitating system, the time-averaged kinetic and potential energies approximately satisfy
+\begin{equation}
+2K + U \approx 0,
+\end{equation}
+which provides a useful global characterization of dynamical equilibrium.
+
+In that regime, the balance between kinetic and potential energy sets the overall structure of the halo, while the local orbital distribution determines how the inner profile evolves over time. The relevant timescale is the dynamical time,
+\begin{equation}
+t_{\mathrm{dyn}}(r) \sim \left[G\bar{\rho}(<r)\right]^{-1/2},
+\end{equation}
+which becomes short in the dense central regions and therefore makes the inner halo especially sensitive to both physical perturbations and numerical error.
+
+A useful way to connect density structure to orbital support is through the spherical Jeans equation,
+\begin{equation}
+\frac{\mathrm{d}\left(\rho \sigma_r^2\right)}{\mathrm{d}r}
++2\beta(r)\frac{\rho \sigma_r^2}{r}
+=
+-\rho \frac{\mathrm{d}\Phi}{\mathrm{d}r},
+\end{equation}
+where $\sigma_r$ is the radial velocity dispersion and $\beta(r)$ is the anisotropy parameter. This equation shows that the density profile cannot be interpreted independently of the velocity structure: two haloes with similar density profiles may differ substantially in orbital content and stability.
+
+Radial anisotropy is particularly important because systems dominated by radial orbits can respond differently to perturbations and secular evolution than more isotropic systems. Changes in orbital anisotropy may therefore accompany or even drive changes in the inner density structure.
 
 \section{Cusp-core behaviour in ultra-faint dwarf galaxies}
 \label{sec:bg_cusp_core}
@@ -36,9 +68,9 @@ Ultra-faint dwarf galaxies are particularly valuable for small-scale dark matter
 
 In a cold dark matter scenario, cuspy inner profiles are the usual expectation for collisionless halos. In warmer dark matter scenarios, free-streaming suppresses small-scale power and can alter assembly histories, potentially affecting central structure indirectly through different accretion and merger pathways \citep{salamin2026origin}. Independently of the particle model, repeated perturbations and non-adiabatic potential fluctuations can transfer energy to central orbits and drive profile flattening.
 
-The conceptual point is that core formation is not a binary signature of one mechanism. Similar-looking inner profiles can emerge from different routes: altered initial fluctuation spectra, stochastic heating by external perturbers, or numerical relaxation. As a result, robust interpretation requires combining profile evolution with complementary diagnostics such as enclosed-mass evolution, shell-resolved kinematics, and sensitivity to solver controls.
+The conceptual point is that core formation does not originate from one mechanism. Similar-looking inner profiles can emerge from different routes: altered initial fluctuation spectra, stochastic heating by external perturbers, or numerical relaxation. As a result, interpretation requires combining profile evolution with complementary diagnostics.
 
-This creates a central interpretive challenge for the present work: an apparent cusp-to-core transition can arise from physical mechanisms, from numerical artifacts, or from both acting simultaneously. The role of the theoretical background is therefore to define diagnostics that separate these possibilities as rigorously as possible.
+This creates a central interpretive challenge for the present work: an apparent cusp-to-core transition can arise from physical mechanisms, from numerical artifacts, or from both acting simultaneously.
 
 \section{Numerical heating and relaxation effects in \texorpdfstring{$N$-body}{N-body} systems}
 \label{sec:bg_relaxation}
@@ -51,7 +83,7 @@ t_{\mathrm{relax}} \sim \frac{N}{8\ln N}\,t_{\mathrm{cross}},
 \end{equation}
 where $N$ is the number of effective particles supporting the region of interest and $t_{\mathrm{cross}}$ is a characteristic crossing time \citep{binney2008galactic}. This scaling emphasizes why central halo regions are vulnerable: they contain fewer particles and shorter dynamical times, making discreteness effects comparatively stronger.
 
-The classical relaxation timescale argument provides a first-order test: if the numerical relaxation time at a given radius is not much longer than the simulated evolution time, then the resulting structure may be numerically biased. In practice, this means that central density trends must always be interpreted together with particle number, timestep control, force regularization, and force-accuracy parameters.
+The classical relaxation timescale argument provides a first-order test: if the numerical relaxation time at a given radius is not much longer than the simulated evolution time, then the resulting structure may be numerically biased.
 
 Power et al. translated these ideas into practical convergence guidance for halo simulations by linking reliability in the inner profile to a combination of mass resolution, timestep sampling, and force softening \citep{power2003inner}. Their framework remains a benchmark because it moves beyond single-parameter tuning and treats convergence as a coupled numerical problem.
 
@@ -60,7 +92,7 @@ For this thesis, numerical heating is not treated as a generic warning but as an
 \section{Gravitational softening: fixed and adaptive formulations}
 \label{sec:bg_softening}
 
-Gravitational softening modifies the short-range Newtonian force to prevent unphysical singular accelerations from particle-particle encounters. With a fixed softening length $\epsilon$, one obtains a trade-off: large $\epsilon$ suppresses noise and relaxation but erases genuine small-scale structure; small $\epsilon$ improves nominal resolution but can increase discreteness-driven heating \citep{power2003inner,zhang2019optimal}.
+Gravitational softening modifies the short-range Newtonian force to prevent unphysical singular accelerations from particle-particle encounters. With a fixed softening length $\epsilon$, one obtains a trade-off: large $\epsilon$ suppresses noise and relaxation but erases genuine small-scale structure; small $\epsilon$ improves nominal resolution but can increase heating \citep{power2003inner,zhang2019optimal}.
 
 In many implementations, this can be written schematically with a softened pair force,
 \begin{equation}
@@ -70,44 +102,47 @@ which regularizes the $r^{-2}$ singularity at very short separation \citep{zhang
 
 Power et al. established influential convergence criteria linking softening, timestep, and particle number in the inner halo \citep{power2003inner}. Later work showed that these prescriptions may be conservative for some setups, while also emphasizing that excessively small softening can bias the innermost density high \citep{zhang2019optimal}. Taken together, these studies show that softening is not a single "best" number independent of context.
 
-Adaptive softening addresses this by varying effective force resolution with local conditions. However, naive implementations violate conservation laws. The Lagrangian formalism of Price and Monaghan demonstrated how to construct adaptive softening with the additional correction terms required for consistent energy and momentum conservation \citep{price2007energy}. Modern conservative extensions generalize this framework to multi-species collisionless simulations \citep{hopkins2023novel}.
+Adaptive softening addresses this by varying effective force resolution with local conditions. However, straightforward implementations do not preserve conservation laws. The Lagrangian formalism of Price and Monaghan demonstrated how to construct adaptive softening with the additional correction terms required for consistent energy and momentum conservation \citep{price2007energy}. Modern conservative extensions generalize this framework to multi-species collisionless simulations \citep{hopkins2023novel}.
 
 From a methodological perspective, adaptive schemes are especially relevant for halos with strong radial density contrasts. A fixed $\epsilon$ that is adequate in the outskirts may be too coarse in the center, while an $\epsilon$ tuned to the center may be too noisy at large radii. Conservative adaptive formulations provide a way to mitigate this tension while preserving the invariants required for long integrations.
 
-In the context of this thesis, softening is a key control variable, but not an isolated one. Its interpretation depends on the interaction between local force regularization and global gravitational coupling across the halo.
+In the context of this thesis, softening is a key control variable which will be studied in detail.
 
-\section{Gravity solver controls in SWIFT: Tree/FMM context}
+\section{Gravity solver controls in SWIFT}
 \label{sec:bg_solver_controls}
 
 Beyond softening, force computation in modern cosmological codes depends on hierarchical gravity solvers (tree and fast multipole expansions) and their acceptance criteria. These methods accelerate long-range gravity by replacing exact pairwise summation with controlled approximations, whose errors depend on opening criteria and expansion tolerances.
 
 This introduces a second numerical layer on top of softening. Even with identical initial conditions and identical softening, changes in opening criteria or multipole tolerances can alter force errors in a way that accumulates over many dynamical times. For slowly evolving central densities, small systematic differences can integrate into measurable secular trends.
 
-In practical terms, parameters such as the multipole acceptance criterion (MAC), geometric opening thresholds (e.g. $\theta_{\mathrm{cr}}$), expansion tolerances (e.g. FMM error controls), and timestep factors set the balance between computational cost and force accuracy. Because central density evolution is sensitive to small cumulative force biases, these controls must be included in any robust sensitivity analysis of cusp/core evolution.
+In practical terms, parameters such as the multipole acceptance criterion (MAC), geometric opening thresholds (e.g. $\theta_{\mathrm{cr}}$), expansion tolerances (e.g. FMM error controls), and timestep factors set the balance between computational cost and force accuracy. Because central density evolution is sensitive to small cumulative force biases, these controls must be included in any sensitivity analysis of cusp/core evolution.
 
-The same logic applies to timestep controls. If timesteps are too large compared to local orbital times, integration error can mimic diffusion or heating. If they are too small, the simulation becomes expensive but not necessarily more accurate unless force errors are also reduced. A reliable interpretation therefore requires coordinated tests across both integration and force-approximation parameters.
-
-Therefore, when this thesis tests solver settings, the goal is not merely code tuning. It is a mechanism test: if the observed inner-density trend is primarily a solver artifact, changing these controls should alter either its onset or its long-term rate.
+The same logic applies to timestep controls. If timesteps are too large compared to local orbital times, integration error can mimic diffusion or heating. If they are too small, the simulation becomes expensive but not necessarily more accurate unless force errors are also reduced. A reliable interpretation therefore requires tests across both integration and force-approximation parameters.
 
 \section{Why shell structure and mass redistribution matter}
 \label{sec:bg_shells}
 
 A central point for this thesis is that inner density evolution is not purely local. Even when interest focuses on the innermost region, the central potential is influenced by mass and orbital structure over a broad radial range. Particle populations at larger radii can contribute to central acceleration fluctuations, angular momentum exchange, and gradual redistribution of enclosed mass.
 
-Recent theoretical work on stochastic tidal fields generated by clumpy substructure provides a useful interpretation for this non-local coupling. In these treatments, gravitational fluctuations induce diffusion in orbital integrals and can transfer energy and angular momentum through repeated perturbations rather than through single catastrophic events \citep{penarrubia2019stochastic,penarrubia2017fluctuations}. This view is directly relevant to shell-based diagnostics: outer shells can influence central dynamics through cumulative, time-correlated forcing.
+Recent theoretical work on stochastic tidal fields generated by clumpy substructure provides a useful interpretation for this non-local coupling. In these treatments, gravitational fluctuations induce diffusion in orbital integrals and can transfer energy and angular momentum through repeated perturbations rather than through single events \citep{penarrubia2019stochastic,penarrubia2017fluctuations}.
 
 An important implication is that central density decline may be driven by the full halo environment, not only by the innermost force law. If true, changing local softening alone may leave a substantial part of the trend unchanged. This is precisely why shell-resolved measurements and cumulative mass diagnostics are central to the thesis design.
 
 This motivates a shell-based analysis in which the halo is decomposed into radial regions and their dynamical influence on the center is tracked over time. If outer shells contribute substantially to central kinematic evolution, then changing only inner local parameters (for example, local softening) may have limited impact on the global trend.
 
-This non-local perspective is consistent with previous findings in the project context, where persistent central density decline can remain visible across multiple numerical variations \citep{salamin2026origin}. The theoretical implication is that diagnosis must combine local resolution tests with global mass-transport diagnostics.
+This non-local perspective is consistent with previous findings in the project context, where persistent central density decline can remain visible across multiple numerical variations \citep{salamin2026origin}.
 
-\section{Chapter summary}
-\label{sec:bg_summary}
+\subsection{Global coupling through the halo potential}
+\label{sec:bg_global_coupling}
 
-The theoretical framework developed here leads to three working principles for the rest of the thesis. First, cusp/core evolution in ultra-faint dwarfs is physically informative only when accompanied by explicit numerical convergence and solver-sensitivity checks. Second, gravitational softening is necessary but not sufficient to explain long-term inner-density evolution. Third, shell-to-shell coupling and cumulative mass redistribution provide a natural mechanism class that must be tested alongside local numerical effects.
+Although the radial force inside a spherical shell depends only on the mass enclosed within that radius, the potential and orbital structure of the system still reflect the full mass distribution. For a spherically symmetric halo,
+\begin{equation}
+g(r) = -\frac{G M(<r)}{r^2},
+\end{equation}
+while the potential can be written schematically as
+\begin{equation}
+\Phi(r) = -G\left[\frac{M(<r)}{r} + \int_r^\infty \frac{1}{r'}\,\mathrm{d}M(r')\right].
+\end{equation}
+This distinction is important: outer shells do not change the local radial force inside them, but they do contribute to the depth of the potential well and to the overall orbital environment of inner particles.
 
-Operationally, this means that the results chapter should be read as a sequence of discriminating tests. Each test changes one class of assumptions and asks whether the central trend persists, weakens, or disappears. A persistent trend across softening and solver variations strengthens the case for a global redistribution process; strong sensitivity to one parameter would instead indicate a dominant numerical origin.
-
-The next chapter translates these principles into a concrete simulation and analysis framework, including parameter studies, centering strategy, density diagnostics, and shell-based measurements.
-
+The consequence is that central evolution cannot be assumed to be purely local. Even if the inner density is the observable of interest, outer regions may still influence it through the global potential, through cumulative mass redistribution, and through long-term coupling of orbital structure. This is the theoretical basis for the shell-resolved diagnostics used later in the thesis.
