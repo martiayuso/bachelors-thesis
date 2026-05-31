@@ -3,11 +3,11 @@
 %\markboth{Introduction}{Introduction}
 %\addcontentsline{toc}{chapter}{Introduction}
 
-Gravity acts across cosmic scales to produce structure that is often richer than the simple laws that govern it. Over time, orbits mix, collective behaviour develops, and slow secular evolution can reshape a system over many dynamical times. Numerical simulations provide a controlled setting in which these processes can be studied, allowing theoretical ideas to be translated into measurable time evolution and compared with analytic expectations. Interpreting the results requires care, because subtle trends may reflect genuine physics or arise from modelling choices and post-processing. The chapters that follow develop the theoretical background, describe the computational framework, and present the diagnostics and experiments used throughout this thesis.
+Dark matter is believed to constitute approximately 85\% of the matter in the universe and plays a crucial role in shaping cosmic structure. Despite decades of observational and theoretical effort, its fundamental nature remains one of the outstanding questions in physics and astronomy. At cosmological scales, dark matter halos form through gravitational collapse and hierarchical assembly, producing characteristic density profiles that encode information about the underlying dark matter model, assembly history, and internal dynamics.
+
+Numerical simulations provide a controlled setting in which these processes can be studied. Interpreting the results requires care, because subtle trends may reflect genuine physics or arise from modelling choices and post-processing. The chapters that follow develop the theoretical background, describe the computational framework, and present the diagnostics and experiments used throughout this thesis.
 
 \section{The cusp-core problem}
-
-Dark matter is believed to constitute approximately 85\% of the matter in the universe and plays a crucial role in shaping cosmic structure. Despite decades of observational and theoretical effort, its fundamental nature remains one of the outstanding questions in physics and astronomy. At cosmological scales, dark matter halos form through gravitational collapse and hierarchical assembly, producing characteristic density profiles that encode information about the underlying dark matter model, assembly history, and internal dynamics.
 
 In standard Cold Dark Matter (CDM) cosmology, gravitational $N$-body simulations predict that dark matter halos develop steep, cuspy density profiles in their central regions, following a power-law slope $\gamma \approx -1.5$ to $-2$ within a characteristic transition radius. Observationally, however, many dwarf galaxies exhibit much shallower central profiles with slopes closer to $\gamma \approx -0.2$ to $-1$, a feature referred to as a density core. This discrepancy between the predicted cusps and observed cores, known as the \emph{cusp-core problem}, has motivated decades of investigation into whether the resolution lies in the nature of dark matter, the dynamical history of galaxies, or systematic observational uncertainties \citep{power2003inner,zhang2019optimal}.
 
@@ -36,7 +36,7 @@ The main goal of this work is to investigate the origin of the central-density d
 
 \item \textbf{Characterize the baseline behavior}: Establish what the reference simulation produces in terms of density-profile evolution, and verify that the trend is robust against simple post-processing variations (centering method, snapshot noise reduction).
 
-\item \textbf{Rule out trivial numerical explanations}: Test whether changes to numerical parameters---gravitational softening length, timestep factor, force-solver accuracy settings---significantly alter the observed decline. If numerical parameters prove insensitive, a more fundamental physical or structural process becomes more likely.
+\item \textbf{Rule out trivial numerical explanations}: Test whether changes to numerical parameters (gravitational softening length, timestep factor, force-solver accuracy settings) significantly alter the observed decline. If numerical parameters prove insensitive, a more fundamental physical or structural process becomes more likely.
 
 \item \textbf{Assess global and local influences}: Investigate whether the inner-density trend reflects purely local collapse-scale physics or depends on the larger-scale halo environment. Shell-based diagnostics will quantify how outer layers couple to the center.
 
@@ -64,4 +64,4 @@ The thesis is organized as follows:
 
 \end{description}
 
-The thesis therefore focuses on determining whether the effect is numerical, methodological, or physical in origin, by combining targeted diagnostics with controlled variations of the numerical setup and initial conditions.
+This thesis therefore focuses on determining whether the effect is numerical, methodological, or physical in origin, by combining targeted diagnostics with controlled variations of the numerical setup and initial conditions.

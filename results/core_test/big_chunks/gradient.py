@@ -2,7 +2,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 
-def plot(ic_file, sim_files, labels):
+
+def nfw_profile(r, rho0, rs, alpha=1.0, beta=3.0):
+    """
+    Generalized two-slope profile.
+
+    For alpha=1 and beta=3 this becomes the NFW profile.
+    """
+    x = r / rs
+    return rho0 / (x**alpha * (1.0 + x)**(beta - alpha))
+
+
+def plot(sim_files, labels):
     params = {
         "text.usetex": True,
         "font.size": 12,
@@ -12,16 +23,27 @@ def plot(ic_file, sim_files, labels):
     }
     plt.rcParams.update(params)
 
-    # Single figure/axis
     fig, ax = plt.subplots()
-
 
     colors = cm.rainbow(np.linspace(0, 1, len(sim_files) + 1))
 
-    # Load initial condition
-    ic_data = np.load(ic_file)
-    r_ic, rho_ic = ic_data['radius'], ic_data['density']
-    rho_ic = 0.01 * rho_ic
+    # ------------------------------------------------------------------
+    # Analytical initial condition
+    # ------------------------------------------------------------------
+    rho0 = 0.0027658297046461644 * 1e10
+    rs = 0.828177997155062
+    alpha = 0.0
+    beta = 3.0
+
+    r_ic = np.logspace(-3, np.log10(50), 1000)
+    rho_ic = nfw_profile(r_ic, rho0, rs, alpha, beta)
+
+    # Optional exponential cutoff
+    r_cutoff = 50.0
+    power_cutoff = 3.0
+    rho_ic *= np.exp(-(r_ic / r_cutoff)**power_cutoff)
+
+    rho_ic = 1 * rho_ic
 
     ax.plot(
         r_ic,
@@ -31,11 +53,15 @@ def plot(ic_file, sim_files, labels):
         linewidth=2.5
     )
 
-    # Plot simulations
+    # ------------------------------------------------------------------
+    # Simulation snapshots
+    # ------------------------------------------------------------------
     for i, file in enumerate(sim_files):
         data = np.load(file)
-        r, rho = data['radius'], data['density']
-        rho = 0.01 * rho
+        r = data['radius']
+        rho = data['density']
+
+        rho = 0.02 * rho
 
         ax.plot(
             r,
@@ -45,11 +71,33 @@ def plot(ic_file, sim_files, labels):
             linewidth=2.5
         )
 
+    # ------------------------------------------------------------------
     # Formatting
+    # ------------------------------------------------------------------
     ax.set_xscale('log')
     ax.set_yscale('log')
-    
+
+    ax.yaxis.set_ticks_position('both')
+    ax.xaxis.set_ticks_position('both')
+
+    ax.tick_params(
+        axis='both',
+        which='major',
+        direction='in',
+        length=6,
+        width=1
+    )
+
+    ax.tick_params(
+        axis='both',
+        which='minor',
+        direction='in',
+        length=3,
+        width=0.8
+    )
+
     ax.set_xlim(1e-2, 10)
+    ax.set_ylim(1e4, 1e8)
 
     ax.set_xlabel(r'$r\ [\rm{kpc}]$')
     ax.set_ylabel(r'$\rho\ [M_\odot/\rm{kpc}^3]$')
@@ -80,9 +128,6 @@ def plot(ic_file, sim_files, labels):
 
 
 if __name__ == "__main__":
-
-    ic = "profile_chunk_0000_0049.hdf5.npz"
-
     sims = [
         "profile_chunk_0100_0149.hdf5.npz",
         "profile_chunk_0200_0249.hdf5.npz",
@@ -101,4 +146,4 @@ if __name__ == "__main__":
         "60 Gyr", "70 Gyr", "80 Gyr", "90 Gyr", "100 Gyr"
     ]
 
-    plot(ic, sims, labels)
+    plot(sims, labels)

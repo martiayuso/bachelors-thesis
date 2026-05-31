@@ -42,17 +42,21 @@
 %\usepackage[a4paper,top=22mm,bottom=28mm,inner=35mm,outer=25mm]{geometry}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%
 % EDOC THESIS TEMPLATE: Variant 2.0 -> Utopia, Gabarrit A (lighter pages)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fourier} % Utopia font-typesetting including mathematical formula compatible with newer TeX-Distributions (>2010)
 %\usepackage{utopia} % on older systems -> use this package instead of fourier in combination with mathdesign for better looking results
 %\usepackage[adobe-utopia]{mathdesign}
-\setlength{\textwidth}{146.8mm} % = 210mm - 31.6mm - 31.6mm
-\setlength{\oddsidemargin}{6.2mm} % 31.6mm - 1in (from hoffset)
-\setlength{\evensidemargin}{6.2mm} % 31.6mm - 1in (from hoffset)
-\setlength{\topmargin}{-2.2mm} % = 0mm -1in + 23.2mm 
-\setlength{\textheight}{221.9mm} % = 297mm -29.5mm -31.6mm - 14mm (12 to accomodate footline with pagenumber)
+% Manual page geometry (preserved below for reference; commented out)
+%\setlength{\textwidth}{146.8mm} % = 210mm - 31.6mm - 31.6mm
+%\setlength{\oddsidemargin}{6.2mm} % 31.6mm - 1in (from hoffset)
+%\setlength{\evensidemargin}{6.2mm} % 31.6mm - 1in (from hoffset) 
+%\setlength{\topmargin}{-2.2mm} % = 0mm -1in + 23.2mm 
+%\setlength{\textheight}{221.9mm} % = 297mm -29.5mm -31.6mm - 14mm (12 to accomodate footline with pagenumber)
+%\setlength{\headheight}{14mm}
+% Use geometry for consistent margin control; try 20mm side margins (original manual lengths preserved above)
+\usepackage[a4paper,includehead,includefoot,left=27mm,right=27mm,top=28mm,bottom=28mm]{geometry}
 \setlength{\headheight}{14mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

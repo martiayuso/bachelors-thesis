@@ -66,7 +66,7 @@ def plot(sim_files, labels):
         r = data['radius']
         rho = data['density']
 
-        rho = 1 * rho
+        rho = 0.2 * rho
 
         ax.plot(
             r,
@@ -126,12 +126,14 @@ if __name__ == "__main__":
             "profile_snap_02.hdf5.npz",
             "profile_snap_05.hdf5.npz",
             "profile_snap_10.hdf5.npz",
-            "profile_snap_50.hdf5.npz",
-            "profile_snap_10_mod.hdf5.npz"
+            "profile_snap_15.hdf5.npz",
+            "profile_snap_20.hdf5.npz",
+            "profile_snap_25.hdf5.npz",
+            "profile_snap_50.hdf5.npz"
     ]
 
     labels = [
-        "rcut 2", "rcut 5", "rcut 10", "rcut 50", "rcut 10 -- MOD"
+        "rcut 2", "rcut 5", "rcut 10", "rcut 15", "rcut 20", "rcut 25", "rcut 50"
     ]
 
     plot(sims, labels)

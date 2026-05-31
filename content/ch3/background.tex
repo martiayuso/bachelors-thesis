@@ -1,6 +1,6 @@
 \chapter{Theoretical background}
 
-This chapter introduces the physical and numerical concepts required to interpret the evolution of the inner dark matter density in ultra-faint dwarf galaxy simulations. The objective is not to review all of modern structure formation, but to establish the minimum framework needed for the analyses in subsequent chapters: collisionless halo dynamics, cusp/core phenomenology, numerical heating, gravitational softening, the gravity solver controls used in SWIFT, and the role of shell-to-shell coupling in mass redistribution.
+This chapter introduces the physical and numerical concepts required to interpret the evolution of the inner dark matter density in ultra-faint dwarf galaxy simulations. The objective is not to review all of modern structure formation, but to establish the framework needed for the analyses in subsequent chapters: collisionless halo dynamics, cusp/core phenomenology, numerical heating, gravitational softening, the gravity solver controls used in SWIFT, and the role of shell-to-shell coupling in mass redistribution.
 
 \section{Dark matter halos and density profiles}
 \label{sec:bg_halos_profiles}
@@ -32,6 +32,13 @@ A commonly used reference model is the NFW-like form, which captures the transit
 \gamma(r) \equiv -\frac{\mathrm{d}\ln\rho}{\mathrm{d}\ln r},
 \end{equation}
 is a useful quantity because it directly tracks whether the central profile evolves toward cusp-like or core-like behaviour.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8  \textwidth]{content/ch3/img/millennium2zoom_paper.jpg}
+	\caption{Zoom sequence (100 to 0.5 Mpc/h) into the most massive halo at $z=0$ from the Millennium-II Simulation \citep{boylan2009millennium2}.}
+	\label{fig:millennium2_zoom}
+\end{figure}
 
 \subsection{Virial equilibrium, characteristic timescales, and orbital support}
 \label{sec:bg_virial_jeans}
@@ -118,6 +125,22 @@ This introduces a second numerical layer on top of softening. Even with identica
 In practical terms, parameters such as the multipole acceptance criterion (MAC), geometric opening thresholds (e.g. $\theta_{\mathrm{cr}}$), expansion tolerances (e.g. FMM error controls), and timestep factors set the balance between computational cost and force accuracy. Because central density evolution is sensitive to small cumulative force biases, these controls must be included in any sensitivity analysis of cusp/core evolution.
 
 The same logic applies to timestep controls. If timesteps are too large compared to local orbital times, integration error can mimic diffusion or heating. If they are too small, the simulation becomes expensive but not necessarily more accurate unless force errors are also reduced. A reliable interpretation therefore requires tests across both integration and force-approximation parameters.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{content/ch3/img/agora_gear_revaz.png}
+		{\small\textit{Agora galaxy (GEAR model). A simulation highlighting gas, star formation and morphological features produced with the GEAR physics module. Image: Yves Revaz, SWIFT gallery.}}
+	\end{minipage}\hfill
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{content/ch3/img/santa_barbara_borrow.png}
+		{\small\textit{Santa-Barbara Cluster. A large-scale cluster formation snapshot from the Santa Barbara comparison suite. Image: Josh Borrow, SWIFT gallery.}}
+	\end{minipage}
+	\caption{Simulation examples from the SWIFT gallery \citep{swiftgallery2024}.}
+	\label{fig:swift_gallery_examples}
+\end{figure}
 
 \section{Why shell structure and mass redistribution matter}
 \label{sec:bg_shells}

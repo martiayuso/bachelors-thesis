@@ -21,6 +21,8 @@ def plot(ic_file, sim_files, labels):
     ic_data = np.load(ic_file)
     r_ic, rho_ic = ic_data['radius'], ic_data['density']
     
+    rho_ic = 0.02 * rho_ic
+    
     ax1.plot(r_ic, rho_ic, label="Initial condition", color='tab:blue', linewidth=1.5)
     ax2.axhline(1.0, color='tab:blue', alpha=0.5, linewidth=1)
 
@@ -31,6 +33,8 @@ def plot(ic_file, sim_files, labels):
     for i, file in enumerate(sim_files):
         data = np.load(file)
         r, rho = data['radius'], data['density']
+        
+        rho = 0.02 * rho
         
         # Plot Density on the main axis
         ax1.plot(r, rho, label=labels[i], color=colors[i % len(colors)])
@@ -49,7 +53,7 @@ def plot(ic_file, sim_files, labels):
     ax1.set_xscale('log')
     ax1.set_ylabel(r'$\rho\ [M_\odot/\rm{kpc}^3]$')
     ax1.set_xlim(1e-2, 10)
-    ax1.set_ylim(1e5, 2e12)
+    ax1.set_ylim(1e4, 1e10)
     ax1.legend()
     ax1.grid(alpha=0.2)
     ax1.set_title(r"Density Profile Evolution for $\epsilon = 0.01\ \mathrm{kpc}$")    
@@ -59,6 +63,30 @@ def plot(ic_file, sim_files, labels):
     ax2.set_xlabel(r'$r\ [\rm{kpc}]$')
     ax2.set_ylim(0.2, 1.2)
     ax2.grid(alpha=0.2)
+    
+    # --------------------------------------------------------------
+    # Tick / mark formatting
+    # --------------------------------------------------------------
+    for ax in [ax1, ax2]:
+
+        ax.yaxis.set_ticks_position('both')
+        ax.xaxis.set_ticks_position('both')
+
+        ax.tick_params(
+            axis='both',
+            which='major',
+            direction='in',
+            length=6,
+            width=1
+        )
+
+        ax.tick_params(
+            axis='both',
+            which='minor',
+            direction='in',
+            length=3,
+            width=0.8
+        )
 
     # Add vertical lines for softening
     eps_value = 0.01
@@ -66,8 +94,10 @@ def plot(ic_file, sim_files, labels):
     ax1.axvline(v_line_pos, color='gray', linestyle='--', alpha=0.6, linewidth=1)
     ax2.axvline(v_line_pos, color='gray', linestyle='--', alpha=0.6, linewidth=1)
 
-    plt.tight_layout()
-    plt.savefig("density_evo_100.png", dpi=300)
+    # Reduce outer whitespace
+    fig.subplots_adjust(left=0.11, right=0.98, top=0.93, bottom=0.10, hspace=0.05)
+
+    plt.savefig("density_evo_100.png", dpi=300, bbox_inches='tight', pad_inches=0.16)
     plt.show()
 
 if __name__ == "__main__":

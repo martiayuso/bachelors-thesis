@@ -11,6 +11,12 @@ Binney, J. and Tremaine, S. (2008).
 \newblock {\em Galactic Dynamics}.
 \newblock Princeton University Press, Princeton, NJ, 2nd edition.
 
+\bibitem[Boylan-Kolchin et~al., 2009]{boylan2009millennium2}
+Boylan-Kolchin, M., Springel, V., White, S. D.~M., Jenkins, A., and Lemson, G. (2009).
+\newblock Resolving cosmic structure formation with the millennium-ii simulation.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 398:1150--1163.
+\newblock arXiv:0903.3041 [astro-ph].
+
 \bibitem[Errani et~al., 2026]{errani2026collisional}
 Errani, R., Esser, N., Pe\~narrubia, J., and Walker, M.~G. (2026).
 \newblock Collisional dynamics of stars and dark matter in ultra-faint galaxies.
@@ -56,6 +62,12 @@ Price, D.~J. and Monaghan, J.~J. (2007).
 Salamin, G. G.~H. (2026).
 \newblock The origin of size growth in ultra-faint dwarf galaxies: a comparison of cold and warm dark matter zoom-in {N}-body simulations.
 \newblock Master's thesis, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne (EPFL), Lausanne, Switzerland.
+
+\bibitem[{SWIFT Collaboration}, 2024]{swiftgallery2024}
+{SWIFT Collaboration} (2024).
+\newblock Swift simulation gallery.
+\newblock \url{https://swift.strw.leidenuniv.nl/gallery.html}.
+\newblock Accessed: 2026-05-21.
 
 \bibitem[Zhang et~al., 2019]{zhang2019optimal}
 Zhang, T., Liao, S., Li, M., and Gao, L. (2019).

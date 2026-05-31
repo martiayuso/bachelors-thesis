@@ -1,0 +1,92 @@
+Truncated NFW implementation — pseudocode
+
+Purpose:
+- Present the control flow and key operations for the truncated-NFW hybrid: inner resolved self-gravity, outer analytic NFW; outer DM sources masked to tiny mass; outer targets receive only analytic potential/acceleration.
+
+Constants / globals set at init:
+- R_cut (cutoff radius)
+- R_cut2 = R_cut * R_cut
+- halo_center = (x0, y0, z0)
+- DM_mask_value = 1e-10f  # tiny non-zero mass used for masked DM
+- DM_masking_enabled = true/false  # set by potential_init_backend
+
+Helpers:
+- dist2_to_center(pos): return squared distance from halo_center
+- is_outside_cutoff(pos): return dist2_to_center(pos) > R_cut2
+
+API-like pseudocode:
+
+potential_init_backend(params):
+  read NFWPotential:* parameters from config
+  set halo_center, R_cut, R_cut2, concentration, M200, etc.
+  set DM_masking_enabled true if user enabled
+  register external potential callbacks (acceleration, energy, timestep)
+
+mass_getter(particle):
+  if particle.type == DM and DM_masking_enabled and is_outside_cutoff(particle.pos):
+    return DM_mask_value
+  else:
+    return unpacked_mass_from_particle(particle)
+
+compute_external_nfw_acceleration(particle):
+  if is_outside_cutoff(particle.pos):
+    return analytic_NFW_accel(particle.pos - halo_center, parameters)
+  else:
+    return (0,0,0)
+
+compute_external_nfw_potential_energy(particle):
+  if is_outside_cutoff(particle.pos):
+    return analytic_NFW_potential_energy(particle.pos - halo_center, parameters)
+  else:
+    return 0.0
+
+Gravity kernel (high level):
+- Called per domain/patch as usual by SWIFT: build tree/mesh, evaluate pair/tree forces.
+- Key changes only in two places: when reading source masses, and when writing resolved results into target particle records.
+
+tree_pair_mesh_force_evaluation(targets, sources):
+  for each source node/particle used by kernel:
+    m_eff = mass_getter(source)        # source-side masking: tiny mass for outside DM
+    use m_eff for contributions to multipole moments / pair forces / mesh density
+
+  for each target in targets:
+    if is_outside_cutoff(target.pos):
+      # TARGET-SIDE GUARD: skip writing resolved self-gravity contributions
+      # i.e., do not add tree/pair/mesh accelerations/potential into target's gpart structure
+      continue or skip write-back for this target in gravity_cache_write_back / L2P / mesh_to_gpart_CIC
+    else:
+      write resolved acceleration into target.gparts.a += resolved_accel
+      accumulate resolved potential into target.gp->potential += resolved_potential
+
+After resolved kernels done (per-target):
+  for each target in targets:
+    a_ext = compute_external_nfw_acceleration(target)
+    # Add analytic acceleration for outer targets (and inner if desired — implementation currently applies only if r>R_cut)
+    target.gparts.a += a_ext
+    # Add analytic potential bookkeeping
+    gravity_add_comoving_potential(target, compute_external_nfw_potential_energy(target))
+
+Diagnostics:
+- E_pot_self: computed from resolved gp->potential and particle masses (as before)
+- E_pot_ext: computed using compute_external_nfw_potential_energy for each particle and summed into statistics
+
+Notes and considerations:
+- Masking is DM-only in current implementation: other particle types keep their normal mass.
+- Using a tiny non-zero DM mask value (1e-10f) avoids numerical edge cases caused by exactly zero mass in tree/multipole code.
+- Target-side guard must be added in all places that write resolved force/potential into target structures: multipole L2P, gravity_cache_write_back, mesh_to_gpart_CIC, etc.
+- External analytic routines should be careful to apply only to intended targets (current behaviour: only for r>R_cut).
+- Potential bookkeeping may show a step/discontinuity at R_cut if no constant offset is applied to make potentials continuous.
+
+Example high-level flow (startup -> timestep loop):
+- potential_init_backend(params)
+- build global cutoff globals
+- for each timestep:
+    build domain structures, tree/mesh
+    for each gravity patch:
+      tree_pair_mesh_force_evaluation(targets, sources)
+      # resolved contributions written back only for inner targets
+      for each target:
+        apply compute_external_nfw_acceleration(target)  # analytic field for outer targets
+    collect statistics: E_pot_self, E_pot_ext
+
+End of pseudocode

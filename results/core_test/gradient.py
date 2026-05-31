@@ -81,19 +81,19 @@ def plot(ic_file, sim_files, labels):
 
 if __name__ == "__main__":
 
-    ic = "profile_chunk_0000_0049.hdf5.npz"
+    ic = "profile_chunk_0000_0004.hdf5.npz"
 
     sims = [
-        "profile_chunk_0100_0149.hdf5.npz",
-        "profile_chunk_0200_0249.hdf5.npz",
-        "profile_chunk_0300_0349.hdf5.npz",
-        "profile_chunk_0400_0449.hdf5.npz",
-        "profile_chunk_0500_0549.hdf5.npz",
-        "profile_chunk_0600_0649.hdf5.npz",
-        "profile_chunk_0700_0749.hdf5.npz",
-        "profile_chunk_0800_0849.hdf5.npz",
-        "profile_chunk_0900_0949.hdf5.npz",
-        "profile_chunk_0950_0999.hdf5.npz"
+        "profile_chunk_0100_0104.hdf5.npz",
+        "profile_chunk_0200_0204.hdf5.npz",
+        "profile_chunk_0300_0304.hdf5.npz",
+        "profile_chunk_0400_0404.hdf5.npz",
+        "profile_chunk_0500_0504.hdf5.npz",
+        "profile_chunk_0600_0604.hdf5.npz",
+        "profile_chunk_0700_0704.hdf5.npz",
+        "profile_chunk_0800_0804.hdf5.npz",
+        "profile_chunk_0900_0904.hdf5.npz",
+        "profile_chunk_0995_0999.hdf5.npz"
     ]
 
     labels = [

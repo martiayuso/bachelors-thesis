@@ -14,8 +14,6 @@
 
 This chapter presents the numerical results obtained from the reference simulation campaign and the subsequent sensitivity studies. The central question is whether the persistent decline of the inner density is an intrinsic dynamical feature of the halo, a consequence of numerical settings, or an artefact of the analysis procedure. The discussion is therefore structured around a sequence of increasingly restrictive checks: first the reference evolution itself, then the post-processing pipeline, then controlled variations of the simulation volume, the initial halo structure, the softening length, and the gravity solver settings.
 
-The completed sections below are written as a scientific discussion rather than as a notebook-style log. The later sections remain intentionally unfinished and are marked with explicit placeholders.
-
 \section{Baseline behaviour}
 \label{sec:results_baseline}
 
@@ -23,7 +21,7 @@ The baseline run shows a clear cusp-to-core transition, but the core does not st
 
 The result is also instructive from the point of view of numerical convergence. Power et al. showed that the inner halo is especially sensitive to the interplay between resolution, force softening, and timestep control \citep{power2003inner}, while Zhang et al. later demonstrated that too aggressive a reduction of the softening length can artificially raise the innermost density \citep{zhang2019optimal}. The reference simulation does not display a simple monotonic dependence on any one of these parameters, which already suggests that the behaviour is not a trivial one-parameter resolution effect.
 
-The baseline density-evolution plot and the snapshot sequence show the same qualitative pattern: the inner profile becomes shallower, but the inner density does not settle. The new gradient plot in Figure~\ref{fig:baseline_gradient} makes this especially clear: the central density drops rapidly at early times, then continues to drift downward more slowly, without ever forming a stable plateau. The companion plot in Figure~\ref{fig:baseline_cusp_short} presents the same evolution over a shorter time interval and adds the ratio to the initial conditions, which makes the secular decline easier to read at a glance. In that sense, the evolution resembles a continuing redistribution of mass rather than a completed structural transformation. This is the key point that motivates the rest of the chapter.
+The baseline density-evolution plot and the snapshot sequence show the same pattern: the inner profile becomes shallower, but the inner density does not settle. The new gradient plot in Figure~\ref{fig:baseline_gradient} makes this especially clear: the central density drops rapidly at early times, then continues to drift downward more slowly, without ever forming a stable plateau. The companion plot in Figure~\ref{fig:baseline_cusp_short} presents the same evolution and adds the ratio to the initial conditions, which makes the decline easier to read at a glance. In that sense, the evolution resembles a continuing redistribution of mass rather than a completed structural transformation. This is the key point that motivates the rest of the chapter.
 
 \begin{figure}[H]
 	\centering
@@ -35,18 +33,16 @@ The baseline density-evolution plot and the snapshot sequence show the same qual
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/density_evolution_cusp.png}
-	\caption{\textbf{Baseline evolution with ratio to the initial state.} The shorter time window clarifies the early-time evolution, and the lower panel shows the density ratio relative to the initial conditions. This representation highlights that the inner decline is continuous rather than a brief transient.}
+	\caption{\textbf{Baseline evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
 	\label{fig:baseline_cusp_short}
 \end{figure}
 
-The comparison with the literature is therefore important: the simulation reproduces a cusp-to-core transition, but it does not reproduce a long-lived, stationary core. Whatever mechanism is responsible must therefore operate over the full duration of the run.
-
-The most conservative conclusion at this stage is that the halo does not relax into a static inner structure on the simulated timescale. The observed behaviour is a secular evolution of the center, not merely an initial transient.
+It is important to note that the simulation does not reproduce the same results as shown in the literature, it does not reproduce a long-lived, stationary core. Whatever mechanism is responsible must therefore operate over the full duration of the run.
 
 \section{Box size}
 \label{sec:results_box_size}
 
-The role of the numerical domain was tested explicitly by repeating the reference experiment in three increasingly larger simulation volumes while holding all physical and numerical parameters fixed (identical particle realization, softening, timestepping rules and gravity solver settings). The objective was to determine whether finite-domain effects, long-range tidal contributions or boundary-condition artefacts can explain the persistent central-density decline.
+The role of the numerical domain was tested explicitly by repeating the reference experiment in three increasingly larger simulation volumes while holding all physical and numerical parameters fixed (identical particle realization, softening, timestepping rules and gravity solver settings). The objective was to determine whether finite-domain effects, long-range tidal contributions or boundary condition artefacts can explain the persistent central density decline.
 
 Figure~\ref{fig:box_size_study} summarises the outcome. The central-density diagnostic used throughout this thesis (the inner radial bin of the standard profile grid; see Section~\ref{sec:framework_diagnostics}) shows the same secular decline in each volume. Enlarging the domain alters the quantitative rate of depletion by a modest amount, but it does not halt or reverse the process: the qualitative behaviour is invariant to the choice of box size.
 
@@ -66,14 +62,21 @@ In summary, the box-size experiment removes a simple numerical-domain explanatio
 
 The comparison between cuspy and cored initial conditions is particularly informative because it distinguishes between a cusp-specific instability and a more general process. The core run still exhibits a decline of the central density, but the amplitude is smaller than in the cuspy case. This is a strong result because it means the mechanism is not limited to the special case of an initially steep central profile.
 
-In physical terms, this suggests that the system is sensitive to the presence of a central potential well, but not exclusively to its initial logarithmic slope. A cored halo has less extreme inner structure and therefore reacts less strongly, yet the evolution remains qualitatively the same. This is particularly important in light of the Errani et al. result that cusp-heating evolution should weaken once the core is established and central dark-matter densities are reduced \citep{errani2026collisional}. In that scenario, a pre-existing core should not continue to lose central density over long timescales; however, in our runs it does. That mismatch reinforces the conclusion that the persistent decline cannot be explained as a simple cusp-to-core transient and is instead tied to a broader dynamical mechanism.
+In physical terms, this suggests that the system is sensitive to the presence of a central potential well, but not exclusively to its initial logarithmic slope. A cored halo has less extreme inner structure and therefore reacts less strongly, yet the evolution remains qualitatively the same. This is particularly important in light of the Errani et al. result that cusp-heating evolution should weaken once the core is established and central dark-matter densities are reduced \citep{errani2026collisional}. In that scenario, a pre-existing core should not continue to lose central density over long timescales; however, this behaviour is observed in the simulations. That mismatch reinforces the conclusion that the persistent decline cannot be explained as a simple cusp-to-core transient and is instead tied to a broader dynamical mechanism.
 
-The literature on substructure-driven heating is again relevant here. Stochastic forcing does not require a cusp; it requires a fluctuating potential and a population of perturbers that can exchange energy with the central region \citep{penarrubia2017fluctuations}. The persistence of the effect in the core run is therefore compatible with a non-local heating picture and inconsistent with the idea that the problem is merely a cusp pathology.
+The literature on heating caused by substructure is again relevant here. Stochastic forcing does not require a cusp; it requires a fluctuating potential and a population of perturbers that can exchange energy with the central region \citep{penarrubia2017fluctuations}. The persistence of the effect in the core run is therefore compatible with a non-local heating picture and inconsistent with the idea that the problem is merely a cusp pathology.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/gradient_core.png}
+	\caption{\textbf{Core initial condition density-profile evolution.} The cored halo also shows a decline in central density, although with a smaller amplitude than the cuspy case. This directly contradicts a simple expectation of core formation followed by stabilization.}
+	\label{fig:baseline_gradient}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/density_evolution_core.png}
-	\caption{\textbf{Core initial-condition test.} The cored halo also shows a decline in central density, although with a smaller amplitude than the cuspy case. This directly contradicts a simple expectation of core formation followed by stabilization.}
+	\caption{\textbf{Core initial condition evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
 	\label{fig:core_initial_condition}
 \end{figure}
 
@@ -85,8 +88,6 @@ The practical implication is that changing the inner slope reduces the amplitude
 Softening is the most obvious numerical parameter to suspect in any study of the inner halo, because it directly regularizes short-range interactions. The literature makes clear, however, that the role of softening is subtle: too much softening suppresses genuine small-scale structure, while too little can artificially increase the density in the innermost region \citep{power2003inner,zhang2019optimal}. In the convergence analysis of Zhang et al., the optimal softening length is the one that balances force bias against discreteness noise; below that scale, the central profile can become biased high because close encounters are less regularized and the inner region responds more strongly to numerical heating rather than to a genuine improvement in resolution. The present results fit that picture in the sense that the softening length changes the detailed rate of evolution, but not the existence of the decline itself.
 
 This is an important negative result. If softening were the primary cause, the central density evolution should have shown a qualitatively different response when the softening length was varied. Instead, the trend persists across the tested range. The smallest tested softening is especially informative: it shows a modest increase in density as one approaches the center, but that should not be interpreted as a real improvement of the physical problem. The more likely explanation is that the reduced softening has allowed stronger numerical heating and a slightly more concentrated inner profile, which is exactly the kind of bias that an under-softened calculation can introduce \citep{power2003inner,zhang2019optimal}.
-
-The notes from the shell analysis already point in the same direction: outer shells contribute significantly to the central dynamics, and changing the local softening length does not alter the fact that those shells are still present and still exert gravity. In other words, softening can change the numerical regularization of pairwise forces, but it does not remove the mass distribution that sources the global potential.
 
 \begin{figure}[H]
 	\centering
@@ -107,7 +108,7 @@ The conclusion is that softening is not the dominant driver. It is part of the n
 \section{Self-gravity settings}
 \label{sec:results_solver}
 
-The solver-parameter study addresses a more subtle question: whether the observed decline could be the cumulative effect of force-approximation or integration errors. This is a natural concern in hierarchical gravity solvers, where the acceptance criterion and multipole tolerances determine how accurately long-range interactions are represented. In principle, a slightly looser or tighter force approximation can shift the secular evolution of a halo even when the initial conditions are identical.
+The solver parameter study addresses whether the observed decline could be the cumulative effect of force approximation or integration errors. This is a natural concern in hierarchical gravity solvers, where the acceptance criterion and multipole tolerances determine how accurately long-range interactions are represented. In principle, a slightly looser or tighter force approximation can shift the secular evolution of a halo even when the initial conditions are identical.
 
 The present study varies four key control parameters of the self-gravity solver:
 \begin{itemize}
@@ -129,13 +130,13 @@ If timestep error were the main driver of central decline, the coarser run shoul
 
 The MAC choice reflects a fundamental trade-off in hierarchical tree methods: speed versus local accuracy. The geometric MAC is computationally cheaper but treats all distant cells identically; the adaptive MAC is more expensive but adapts the multipole threshold based on local structure. For a collisionless halo, the choice of MAC affects the accuracy of long-range forces and can subtly alter how external shells couple to the center.
 
-If MAC were the primary sensitivity, changing between geometric and adaptive should produce a qualitatively different central-decline rate. The runs tested here show no such distinction.
+If MAC were the primary sensitivity, changing between geometric and adaptive should produce a qualitatively different central decline rate. The runs tested here show no such distinction.
 
 \subsection{Geometric opening angle study}
 
-For the geometric MAC, a smaller opening angle $\theta_{\mathrm{cr}}$ means stricter multipole approximation: more cell pairs are forced into exact evaluation rather than multipole summation. The baseline value $\theta_{\mathrm{cr}} = 0.7$ is a standard choice; the test value $\theta_{\mathrm{cr}} = 0.5$ represents a more stringent criterion and therefore higher force accuracy.
+For the geometric MAC, a smaller opening angle $\theta_{\mathrm{cr}}$ means stricter multipole approximation. More cell pairs are forced into exact evaluation rather than multipole summation. The baseline value $\theta_{\mathrm{cr}} = 0.7$ is a standard choice; the smaller test values represent a more stringent criterion and therefore higher force accuracy.
 
-Lowering $\theta_{\mathrm{cr}}$ should increase computational cost but also increase force precision. If force-approximation error were limiting the simulation, tightening $\theta_{\mathrm{cr}}$ should reduce or delay the central decline. The observed effect is marginal.
+Lowering $\theta_{\mathrm{cr}}$ should increase computational cost but also increase force precision. If force approximation error were limiting the simulation, tightening $\theta_{\mathrm{cr}}$ should reduce or delay the central decline. The observed effect is marginal.
 
 \subsection{FMM tolerance study}
 
@@ -163,9 +164,9 @@ $\epsilon_{\mathrm{fmm}}$ (FMM tolerance) & 0.001 & 0.0001 & 0.01 & 0.1 \\
 
 \subsection{Overall interpretation of solver sensitivity}
 
-That is not what we observe across the full parameter set. The central density evolution remains broadly similar across all tested settings. This is consistent with the general lesson from convergence studies: changing a gravity control parameter may reduce error bars or shift the onset of bias, but it does not necessarily eliminate the physical or numerical process that dominates the evolution \citep{power2003inner,zhang2019optimal}.
+The central density evolution remains broadly similar across all tested settings. This is consistent with the general lesson from convergence studies, changing a gravity control parameter may reduce error bars or shift the onset of bias, but it does not necessarily eliminate the physical or numerical process that dominates the evolution \citep{power2003inner,zhang2019optimal}.
 
-The most useful interpretation is therefore not that the solver settings are irrelevant, but that they are not the principal explanation. Their influence is secondary and limited to rate-level effects rather than qualitative behaviour. A solver parameter would need to have produced a qualitatively different central decline — either eliminating it or dramatically accelerating it — to be considered a dominant factor. None of the parameters tested here achieve that threshold.
+The most useful interpretation is therefore not that the solver settings are irrelevant, but that they are not the principal explanation. Their influence is secondary and limited to rate-level effects rather than qualitative behaviour. A solver parameter would need to have produced a qualitatively different central decline (either eliminating it or dramatically accelerating it) to be considered a dominant factor. None of the parameters tested here achieve that threshold.
 
 \begin{figure}[H]
 \centering
@@ -191,18 +192,19 @@ The most useful interpretation is therefore not that the solver settings are irr
 \label{fig:results_solver}
 \end{figure}
 
-The conclusion is that the trend is robust against the standard solver controls. This removes another plausible numerical explanation and strengthens the case for a mechanism tied to the structure of the halo rather than to a single gravity-accuracy parameter.
+The conclusion is that the trend is robust against the standard solver controls. This removes another plausible numerical explanation and strengthens the case for a mechanism tied to the structure of the halo rather than to a single gravity accuracy parameter.
 
 
 \section{Shell study: outer-halo influence on inner potential}
 \label{sec:results_shell_study}
 
-The central-density decline observed in the baseline simulation could, in principle, arise from dynamical interactions between the inner halo and the outer shells. To test this hypothesis, we perform an analytic shell-decomposition study using an NFW model \citep{navarro1996structure} to quantify how much of the inner potential depth comes from material at different radii. This analysis then motivates a hybrid numerical experiment: if outer shells are dynamically important, replacing them with an analytic potential while keeping the inner region as particles should produce a measurably different evolution.
-subsection{Analytic shell decomposition: method}
+The central density decline observed in the baseline simulation could, in principle, arise from dynamical interactions between the inner halo and the outer shells. To test this hypothesis, we perform an analytic shell-decomposition study using an NFW model \citep{navarro1996structure} to quantify how much of the inner potential depth comes from material at different radii. This analysis then motivates a hybrid numerical experiment: if outer shells are dynamically important, replacing them with an analytic potential while keeping the inner region as particles should produce a measurably different evolution.
+
+\subsection{Analytic shell decomposition}
 
 Following the framework established in Chapter 3, the halo is decomposed into logarithmically spaced shells and the exact analytic contributions of each shell to the gravitational potential and force are computed. The key physical insight is the shell theorem: in a spherically symmetric system, outer shells contribute to the potential everywhere inside them, but only the enclosed mass contributes to the radial force.
 
-For an NFW profile with parameters matching the simulation setup ($\rho_s = 10^7 \, M_{\odot}/\mathrm{kpc}^3$, $r_s = 10 \, \mathrm{kpc}$, $r_{\mathrm{vir}} = 100 \, \mathrm{kpc}$), the analysis computes: (i) the enclosed mass $M(<r)$ and shell mass distribution, (ii) the contribution of each shell to the potential depth at the center, (iii) the fraction of potential at arbitrary probe radii originating from material outside a chosen cutoff radius, and (iv) a 2D diagnostic map showing these fractions for all radius combinations.
+For an NFW profile with parameters $\rho_s = 10^7 \, M_{\odot}/\mathrm{kpc}^3$, $r_s = 10 \, \mathrm{kpc}$, $r_{\mathrm{vir}} = 100 \, \mathrm{kpc}$, the analysis computes: (i) the enclosed mass $M(<r)$ and shell mass distribution, (ii) the contribution of each shell to the potential depth at the center, (iii) the fraction of potential at arbitrary probe radii originating from material outside a chosen cutoff radius, and (iv) a 2D diagnostic map showing these fractions for all radius combinations.
 
 \subsection{Mass and potential distribution across the halo}
 
@@ -211,7 +213,7 @@ The first two diagnostics establish the overall radial structure of the halo. Fi
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{content/ch5/img/01_mass_profile_and_shell_fraction.png}
-	\caption{\textbf{NFW enclosed mass and shell mass fraction.} Left axis: monotonically increasing enclosed mass $M(<r)$ with radius. Right axis: shell mass fraction per logarithmic shell. The outer halo contains a substantial fraction of the total mass budget, indicating that it cannot be ignored when computing potential depths.}
+	\caption{\textbf{NFW enclosed mass and shell mass fraction.} Left axis: monotonically increasing enclosed mass $M(<r)$ with radius. Right axis: shell mass fraction per logarithmic shell.}
 	\label{fig:results_shell_mass}
 \end{figure}
 
@@ -222,24 +224,24 @@ Figure \ref{fig:results_shell_potential} shows the contribution of each shell to
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{content/ch5/img/02_central_potential_shell_contribution.png}
-	\caption{\textbf{Shell contributions to the central potential depth.} Individual shells (blue points with error bars) contribute to the total potential depth $|\Phi(0)|$. The cumulative contribution (orange line) from all shells beyond a given radius shows that shells at radii beyond the scale radius $r_s$ still make substantial contributions to the escape-speed scale. This supports the argument that the outer halo cannot be treated as a boundary condition; its potential structure must be represented accurately.}
+	\caption{\textbf{Shell contributions to the central potential depth.} Individual shells (blue points with error bars) contribute to the total potential depth $|\Phi(0)|$. The cumulative contribution (orange line) from all shells beyond a given radius shows that shells at radii beyond the scale radius $r_s$ still make substantial contributions to the escape-speed scale.}
 	\label{fig:results_shell_potential}
 \end{figure}
 
-The key finding here is that shells well outside the center---at radii several times the scale radius---still contribute visibly to the potential depth. This is exactly the behavior predicted by the shell theorem: outer matter deepens the potential well without changing the local force. The fractional contribution decreases with radius but remains non-negligible up to $r \sim 3 r_s$. This result motivates the choice of cutoff radius in the hybrid model: setting $r_{\mathrm{cut}}$ too small would omit a significant part of the potential structure.
+The key finding here is that shells well outside the center, at radii several times the scale radius, still contribute visibly to the potential depth. The fractional contribution decreases with radius but remains non-negligible up to $r \sim 3 r_s$. This result motivates the choice of cutoff radius in the hybrid model; setting $r_{\mathrm{cut}}$ too small would omit a significant part of the potential structure.
 
 \subsection{Outer-halo influence as a function of cutoff radius}
 
-The most critical diagnostic for the hybrid model design is the outer-potential fraction: the fraction of the total potential at a given probe radius that arises from material beyond a chosen cutoff radius. Figure \ref{fig:results_shell_cutoff} shows this quantity for several probe radii as the cutoff radius is increased.
+The most critical diagnostic for the hybrid model design is the outer potential fraction. The fraction of the total potential at a given probe radius that arises from material beyond a chosen cutoff radius. Figure \ref{fig:results_shell_cutoff} shows this quantity for several probe radii as the cutoff radius is increased.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{content/ch5/img/03_outer_fraction_vs_cutoff.png}
-	\caption{\textbf{Outer-potential fraction versus cutoff radius.} For probe radii ranging from the center to $r = 5 r_s$, the fraction of the potential originating from material beyond the cutoff radius $r_{\mathrm{cut}}$ is plotted against the cutoff. As the cutoff moves outward, the outer contribution drops sharply initially, then plateaus. For the central region ($r_{\mathrm{probe}} < r_s$), a cutoff at $r_{\mathrm{cut}} \approx 10$ kpc retains roughly 5--10\% of the potential from the outer halo; at $r_{\mathrm{cut}} \approx 30$ kpc, this drops below 1\%. This diagnostic directly guides the choice of truncation radius: if the outer halo contributes significantly to the potential at the radii of interest (e.g., $r < 1$ kpc for the central density), then the outer region must be represented accurately.}
+	\caption{\textbf{Outer-potential fraction versus cutoff radius.} For probe radii ranging from the center to $r = 5 r_s$, the fraction of the potential originating from material beyond the cutoff radius $r_{\mathrm{cut}}$ is plotted against the cutoff. As the cutoff moves outward, the outer contribution drops sharply initially, then plateaus. For the central region ($r_{\mathrm{probe}} < r_s$), a cutoff at $r_{\mathrm{cut}} \approx 10$ kpc retains roughly 5--10\% of the potential from the outer halo; at $r_{\mathrm{cut}} \approx 30$ kpc, this drops below 1\%. Thus, if the outer halo contributes significantly to the potential at the radii of interest (e.g., $r < 1$ kpc for the central density), then the outer region must be represented accurately.}
 	\label{fig:results_shell_cutoff}
 \end{figure}
 
-The curves in this figure answer the central question: how large must $r_{\mathrm{cut}}$ be to capture the essential potential structure? For the central region, a cutoff at $r_{\mathrm{cut}} = 10$ kpc (the value used in the hybrid-model simulations) retains the majority of the potential at small radii while excluding the outermost, kinematically less important material. This is a quantitative justification for the parameter choice in the numerical hybrid experiment.
+The curves in this figure answer the central question: how large must $r_{\mathrm{cut}}$ be to capture the essential potential structure? For the central region, a cutoff at $r_{\mathrm{cut}} = 10$ kpc retains the majority of the potential at small radii while excluding the outermost, kinematically less important material. This is a quantitative justification for the parameter choice in the numerical hybrid experiment.
 
 \subsection{2D outer-fraction map}
 
@@ -248,23 +250,23 @@ Figure \ref{fig:results_shell_map} provides a compact summary of the outer-poten
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{content/ch5/img/04_outer_fraction_map.png}
-	\caption{\textbf{2D map of the outer-potential fraction.} Rows represent probe radii; columns represent cutoff radii. The color intensity indicates the fraction of potential at a given probe radius arising from material beyond the cutoff. The transition from high (red) to low (blue) values shows the radius beyond which the outer halo becomes a small correction. This visualization is useful for selecting practical values of $r_{\mathrm{cut}}$ for different regions of interest.}
+	\caption{\textbf{2D map of the outer-potential fraction.} Rows represent probe radii; columns represent cutoff radii. The color intensity indicates the fraction of potential at a given probe radius arising from material beyond the cutoff. The transition from high (red) to low (blue) values shows the radius beyond which the outer halo becomes a small correction.}
 	\label{fig:results_shell_map}
 \end{figure}
 
-The 2D map reveals the structure clearly: for small cutoff radii (left side), a broad range of inner probe radii (upper rows) feel substantial outer-halo influence. As the cutoff moves outward, this influence shrinks to a narrow band near the cutoff itself. The color gradient provides a quantitative guide for selecting $r_{\mathrm{cut}}$ based on acceptable levels of outer-halo contribution.
+The 2D map reveals the structure clearly: for small cutoff radii (lower rows), a broad range of inner probe radii feel substantial outer halo influence. As the cutoff moves outward, this influence shrinks to a narrow band near the cutoff itself.
 
 \subsection{Interpretation and implications}
 
-The analytic shell study establishes that the outer halo is not dynamically negligible: it contributes substantially to the potential structure experienced by inner particles, even if it does not directly modify the local force field through the shell theorem. This has two important consequences:
+The analytic shell study establishes that the outer halo is not dynamically negligible, it contributes substantially to the potential structure experienced by inner particles, even if it does not directly modify the local force field. This has two important consequences:
 
 \begin{enumerate}
-\item \textbf{Motivation for the hybrid model}: A simulation in which the inner region ($r < r_{\mathrm{cut}}$) evolves with particles while the outer region ($r > r_{\mathrm{cut}}$) is represented by an analytic potential can only reproduce the true inner evolution if the outer potential is represented accurately. The shell analysis shows that choosing $r_{\mathrm{cut}} \sim 10$ kpc captures the essential structure while allowing numerical experiments.
+\item \textbf{Motivation for the hybrid model}: A simulation in which the inner region ($r < r_{\mathrm{cut}}$) evolves with particles while the outer region ($r > r_{\mathrm{cut}}$) is represented by an analytic potential can only reproduce the true inner evolution if the outer potential is represented accurately.
 
-\item \textbf{Tests of shell-coupling mechanisms}: If the persistent central-density decline arises from global halo coupling---where the outer shells modulate the potential experienced by inner particles---then a hybrid model should produce a noticeably different evolution. Conversely, if the decline persists even in the hybrid setup, the mechanism is either purely inner-region dynamics or depends on structures (e.g., substructure, asymmetries) not captured by a smooth analytic outer potential.
+\item \textbf{Tests of shell-coupling mechanisms}: If the persistent central density decline arises from global halo coupling, where the outer shells modulate the potential experienced by inner particles, then a hybrid model should produce a noticeably different evolution. Conversely, if the decline persists even in the hybrid setup, the mechanism is either purely inner-region dynamics or depends on structures (e.g., substructure, asymmetries) not captured by a smooth analytic outer potential.
 \end{enumerate}
 
-The result is therefore a quantitative prediction: an outer-halo potential that accurately matches the mass distribution should preserve roughly 5--10\% of the outer-potential contribution at the cutoff radius. Whether this degree of fidelity is sufficient to maintain the observed central-density decline, or whether further structural complexity is required, is addressed by the hybrid-model simulations discussed in the next section.
+Therefore, an outer halo potential that accurately matches the mass distribution should preserve roughly 5--10\% of the outer-potential contribution at the cutoff radius. Whether this degree of fidelity is sufficient to maintain the observed central-density decline, or whether further structural complexity is required, is addressed by the hybrid-model simulations discussed in the next section.
 
 \section{Truncated NFW}
 \label{sec:results_truncated_nfw}

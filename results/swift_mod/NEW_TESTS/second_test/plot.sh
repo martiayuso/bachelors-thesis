@@ -7,15 +7,17 @@ set -e
 source ~/swift-venv/bin/activate
 
 # Go to the directory containing the script and files
-cd /home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/NEW_TESTS/initial_test
+cd /home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/NEW_TESTS/second_test
 
 # List of chunk files
 FILES=(
     "snap_02.hdf5"
     "snap_05.hdf5"
     "snap_10.hdf5"
+    "snap_15.hdf5"
+    "snap_20.hdf5"
+    "snap_25.hdf5"
     "snap_50.hdf5"
-    "snap_10_mod.hdf5"
 )
 
 # Run the plotting command sequentially
@@ -27,7 +29,7 @@ for FILE in "${FILES[@]}"; do
         --xmin 0.01 \
         --xmax 10 \
         --rmax 10 \
-        --nr 200 \
+        --nr 500 \
         --log xy \
         "$FILE"
 

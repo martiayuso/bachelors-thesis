@@ -7,13 +7,13 @@ def plot(ic_file, sim_files, labels):
     params = {
         "text.usetex": True,
         "font.size": 20,
-        "axes.titlesize": 22,
-        "axes.labelsize": 18,
-        "xtick.labelsize": 16,
-        "ytick.labelsize": 16,
-        "legend.fontsize": 16,
+        "axes.titlesize": 24,
+        "axes.labelsize": 22,
+        "xtick.labelsize": 20,
+        "ytick.labelsize": 20,
+        "legend.fontsize": 20,
         "lines.linewidth": 2.8,
-        "figure.figsize": (10, 8),
+        "figure.figsize": (9, 14),
         "axes.linewidth": 1.5,
     }
     plt.rcParams.update(params)
@@ -143,7 +143,7 @@ def plot(ic_file, sim_files, labels):
         fancybox=True,
         framealpha=0.9,
         edgecolor='0.8',
-        handlelength=3.0,
+        handlelength=1.0,
         borderpad=0.8,
         labelspacing=0.6
     )
@@ -210,11 +210,11 @@ if __name__ == "__main__":
     ]
 
     labels = [
-        r"$\epsilon = 1$ pc",
-        r"$\epsilon = 5$ pc",
-        r"$\epsilon = 10$ pc",
-        r"$\epsilon = 50$ pc",
-        r"$\epsilon = 100$ pc"
+        r"$\epsilon$ = 1 pc",
+        r"$\epsilon$ = 5 pc",
+        r"$\epsilon$ = 10 pc",
+        r"$\epsilon$ = 50 pc",
+        r"$\epsilon$ = 100 pc"
     ]
 
     plot(ic, sims, labels)

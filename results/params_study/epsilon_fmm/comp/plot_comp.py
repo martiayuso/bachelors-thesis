@@ -8,11 +8,11 @@ def plot(ic_file, sim_files, labels):
     params = {
         "text.usetex": True,
         "font.size": 20,
-        "axes.titlesize": 22,
-        "axes.labelsize": 18,
-        "xtick.labelsize": 16,
-        "ytick.labelsize": 16,
-        "legend.fontsize": 16,
+        "axes.titlesize": 26,
+        "axes.labelsize": 22,
+        "xtick.labelsize": 20,
+        "ytick.labelsize": 20,
+        "legend.fontsize": 24,
         "lines.linewidth": 2.8,
         "figure.figsize": (10, 8),
         "axes.linewidth": 1.5,
@@ -244,10 +244,10 @@ if __name__ == "__main__":
     ]
 
     labels = [
-        r"$\epsilon_{\mathrm{fmm}} = 0.1$",
-        r"$\epsilon_{\mathrm{fmm}} = 0.01$",
-        r"$\epsilon_{\mathrm{fmm}} = 0.001$",
-        r"$\epsilon_{\mathrm{fmm}} = 0.0001$",
+        r"$\epsilon_{\mathrm{fmm}}$ = 0.1",
+        r"$\epsilon_{\mathrm{fmm}}$ = 0.01",
+        r"$\epsilon_{\mathrm{fmm}}$ = 0.001",
+        r"$\epsilon_{\mathrm{fmm}}$ = 0.0001",
     ]
 
     plot(ic, sims, labels)

@@ -1,4 +1,48 @@
 \appendix
-\chapter{An appendix}
+\chapter{Shrinking sphere centering method}
+\label{app:shrinking_sphere}
 
-\lipsum[1]
+This appendix gives the mathematical formulation and a direct algorithmic implementation of the shrinking-sphere centering routine used in the analysis.
+
+Let the particle set be indexed by $i$, with positions $\mathbf{x}_i\in\mathbb{R}^3$ and masses $m_i>0$. Define the mass-weighted centroid over an index set $S$ as
+\begin{equation}
+\mathbf{C}(S) = \frac{\sum_{i\in S} m_i\,\mathbf{x}_i}{\sum_{i\in S} m_i}.
+\end{equation}
+
+Initialize
+\begin{equation}
+S_0 = \{1,\dots,N\},\qquad \mathbf{x}_0 = \mathbf{C}(S_0),\qquad R_0 = \max_{i\in S_0}\|\mathbf{x}_i-\mathbf{x}_0\|.
+\end{equation}
+
+For iterations $k=0,1,2,\dots$ define the restricted set and update rules
+\begin{align}
+S_{k+1} &= \{i\in S_k:\ \|\mathbf{x}_i-\mathbf{x}_k\| < R_k\}, \\
+\mathbf{x}_{k+1} &= \mathbf{C}(S_{k+1}), \\
+R_{k+1} &= f_s\,R_k,
+\end{align}
+with shrink factor $0<f_s<1$ (implementation default $f_s=0.9$).
+
+Stop when either
+\begin{equation}
+\|\mathbf{x}_{k+1}-\mathbf{x}_k\| < \delta \quad\text{or}\quad |S_{k+1}| < N_{\min},
+\end{equation}
+and return $\mathbf{x}_{\mathrm{final}}=\mathbf{x}_{k+1}$. Typical choices used in the analysis are $\delta=10^{-5}$ (code length units) and $N_{\min}=100$.
+
+The same logic can be written in compact pseudocode as follows:
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
+function shrinking_sphere_center(pos[N,3], mass[N], f_s=0.9, delta=1e-5, N_min=100):
+	x = weighted_average(pos, mass)
+	R = max(norm(pos - x, axis=1))
+	while True:
+		r = norm(pos - x, axis=1)
+		mask = (r < R)
+		if mask.sum() < N_min:
+			break
+		x_new = weighted_average(pos[mask], mass[mask])
+		if norm(x_new - x) < delta:
+			x = x_new
+			break
+		x = x_new
+		R = R * f_s
+	return x
+\end{lstlisting}
