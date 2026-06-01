@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex my_thesis"] 1780264985.85559 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1780265020.95851 0
-  "./content/tail/bibliography.bib" 1779379379.78208 4505 882a0256edb91960a8e252c84c109b7c ""
+["bibtex my_thesis"] 1780343648.81779 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1780343700.47654 0
+  "./content/tail/bibliography.bib" 1780306347.06397 4843 68f78f5e6151eb74fb07bf38602a4244 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "my_thesis.aux" 1780265019.93325 57563 a488a9205829ce7cb47041492519b7f6 "pdflatex"
+  "my_thesis.aux" 1780343699.32789 62648 9c1e5658ffb764597ff16cc2cfd38b3e "pdflatex"
   (generated)
   "my_thesis.bbl"
   "my_thesis.blg"
   (rewritten before read)
-["pdflatex"] 1780264986.22207 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1780265020.95938 0
+["pdflatex"] 1780343649.13237 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1780343700.4772 0
   "/etc/texmf/web2c/texmf.cnf" 1770803612.9779 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" 1778246252.92291 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -268,8 +268,9 @@
   "assets/epfl.eps" 1771334566.92216 13206 fd3504dba80939a7a2d79ad30c15d905 ""
   "content/ch1/img/cuspvcore.png" 1779355420.02353 440387 3a9f7fe11ea13993537951b8d20f0121 ""
   "content/ch1/introduction.tex" 1780235312.76432 8342 f9f0af952d5eb523361fb7f316b0edd4 ""
-  "content/ch3/background.tex" 1780235312.8562 16398 0d16fa66d31fe476fb1e5b079aa9127c ""
+  "content/ch3/background.tex" 1780306366.81357 16251 aec7dc4489b8e750e5bfc56252c26087 ""
   "content/ch3/img/agora_gear_revaz.png" 1779377833.30945 831770 bd6f58d4082dddf6fb0aff160b802cea ""
+  "content/ch3/img/dwarf_galaxies.png" 1780306103.57622 2481347 de2904337141a002cd93d84a586c01ba ""
   "content/ch3/img/millennium2zoom_paper.jpg" 1779379122.57211 393792 31715b76114ae66f50c4f7706b766dce ""
   "content/ch3/img/santa_barbara_borrow.png" 1779377833.32121 4027793 83e6ff16a6de05f03933c65469e2c424 ""
   "content/ch4/framework.tex" 1780264950.65139 32288 82941f4aa38a7de82e3ebfcc3009f6d9 ""
@@ -289,19 +290,23 @@
   "content/ch5/img/grav_soft_study_100.png" 1780261954.2849 500533 44820318752dc2ef2731484053468f91 ""
   "content/ch5/img/grav_soft_study_50.png" 1780261902.261 511974 f703745805dd6d5b02a3d4b1cfef7a87 ""
   "content/ch5/img/mac_study.png" 1780259956.00103 370594 05e132bf1be6670368f50df46dd64cee ""
+  "content/ch5/img/particle_map_3panel.png" 1780343560.92933 5953264 0d9fd4609781891314c926fa26799a0a ""
+  "content/ch5/img/particle_map_3panel_core.png" 1780342631.76483 5945885 d288829001fc005c3fd7c1519cd458f4 ""
+  "content/ch5/img/potential_map_multi_rmax.png" 1780319833.97738 4696593 034df43159ca8477cc86a1e97f8598f3 ""
+  "content/ch5/img/potential_map_multi_rmax_core.png" 1780326770.99394 4914999 8bf63741e6234b48a4d7937ff490cdfc ""
   "content/ch5/img/theta_cr_study.png" 1780260002.2686 410010 60e232549dd0c068036b1a62979e0edb ""
-  "content/ch5/results.tex" 1780261974.17615 29523 e6c9c8e905421bcd240f172a02aefee3 ""
+  "content/ch5/results.tex" 1780343597.26226 33888 0e96a51d2604c8828de51af903c642e8 ""
   "content/ch6/conclusions.tex" 1779287878.93134 110 a0903bc4f636631fc5b0efbf39b7b740 ""
   "content/head/abstracts.tex" 1779287878.92777 444 d897aaf0a067a69b9e1784bcf0d5ff5c ""
   "content/head/dedication.tex" 1779287878.92724 258 5bef0ee746ec05406c1c33b3c980ccdd ""
   "content/head/titlepage.tex" 1779391828.95493 1678 b39a8c6fc5271b82e834ddaf86fe4312 ""
   "content/tail/appendix.tex" 1780238437.47395 1790 bbb3c72fda40b89fe514fdddaccb6051 ""
   "content/tail/biblio.tex" 1779287878.92466 147 3da88521316b9dc9d1360dac743095a4 ""
-  "my_thesis.aux" 1780265019.93325 57563 a488a9205829ce7cb47041492519b7f6 "pdflatex"
-  "my_thesis.bbl" 1780264986.19907 3824 48764ef5e18e27689cfbeeedbeb7c8e4 "bibtex my_thesis"
-  "my_thesis.lof" 1780265019.96325 6075 39510e7ec7cee34fd167199bdedb7c8b "pdflatex"
+  "my_thesis.aux" 1780343699.32789 62648 9c1e5658ffb764597ff16cc2cfd38b3e "pdflatex"
+  "my_thesis.bbl" 1780343649.11559 4040 cba827a80ad4cb61d9f00072ec0270b0 "bibtex my_thesis"
+  "my_thesis.lof" 1780343699.36989 9073 87dcdc11cbe6afc06646e7c39bbcb5c3 "pdflatex"
   "my_thesis.tex" 1778246252.92291 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
-  "my_thesis.toc" 1780265019.96325 6912 b3b42eae3a2246e212df490201f04f25 "pdflatex"
+  "my_thesis.toc" 1780343699.36889 6912 8288f5aeec9de57308831a9ae7b81d4f "pdflatex"
   "settings/settings_custom.tex" 1780236735.88964 748 54e284987c1b862eb536d39b9f26891f ""
   "settings/settings_epfl_template.tex" 1779441847.87598 7873 f4bde8954308c541b67acaf6dfa1b2a1 ""
   (generated)

@@ -13,7 +13,7 @@
 \contentsline {chapter}{\numberline {2}Theoretical background}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Dark matter halos and density profiles}{5}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Virial equilibrium, characteristic timescales, and orbital support}{7}{subsection.2.1.1}%
-\contentsline {section}{\numberline {2.2}Cusp-core behaviour in ultra-faint dwarf galaxies}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Cusp-core behaviour in ultra-faint dwarf galaxies}{7}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Numerical heating and relaxation effects in $N$-body systems}{9}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Gravitational softening: fixed and adaptive formulations}{9}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Gravity solver controls in SWIFT}{10}{section.2.5}%
@@ -51,26 +51,26 @@
 \contentsline {subsection}{\numberline {3.6.11}Caveats and limitations}{27}{subsection.3.6.11}%
 \contentsline {chapter}{\numberline {4}Results and discussion}{28}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Baseline behaviour}{28}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Box size}{30}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Initial halo structure}{32}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Gravitational softening}{34}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Self-gravity settings}{36}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Timestep study}{36}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{37}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{37}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{37}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Summary table of self-gravity parameter variations}{38}{subsection.4.5.5}%
-\contentsline {subsection}{\numberline {4.5.6}Overall interpretation of solver sensitivity}{38}{subsection.4.5.6}%
-\contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{39}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Analytic shell decomposition}{40}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Mass and potential distribution across the halo}{40}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Outer-halo influence as a function of cutoff radius}{41}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}2D outer-fraction map}{42}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Interpretation and implications}{43}{subsection.4.6.5}%
-\contentsline {section}{\numberline {4.7}Truncated NFW}{44}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Conclusions}{45}{chapter.5}%
-\contentsline {section}{\numberline {5.1}One section}{45}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}One subsection}{45}{subsection.5.1.1}%
+\contentsline {section}{\numberline {4.2}Box size}{32}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Initial halo structure}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Gravitational softening}{38}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Self-gravity settings}{40}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Timestep study}{40}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{41}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{41}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{41}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Summary table of self-gravity parameter variations}{42}{subsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.5.6}Overall interpretation of solver sensitivity}{42}{subsection.4.5.6}%
+\contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{43}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Analytic shell decomposition}{44}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Mass and potential distribution across the halo}{44}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Outer-halo influence as a function of cutoff radius}{45}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}2D outer-fraction map}{46}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Interpretation and implications}{47}{subsection.4.6.5}%
+\contentsline {section}{\numberline {4.7}Truncated NFW}{48}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Conclusions}{53}{chapter.5}%
+\contentsline {section}{\numberline {5.1}One section}{53}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}One subsection}{53}{subsection.5.1.1}%
 \vspace {\normalbaselineskip }
-\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{47}{appendix.A}%
-\contentsline {chapter}{Bibliography}{50}{appendix*.24}%
+\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{55}{appendix.A}%
+\contentsline {chapter}{Bibliography}{58}{appendix*.33}%

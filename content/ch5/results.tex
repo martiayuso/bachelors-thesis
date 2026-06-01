@@ -21,6 +21,22 @@ The baseline run shows a clear cusp-to-core transition, but the core does not st
 
 The result is also instructive from the point of view of numerical convergence. Power et al. showed that the inner halo is especially sensitive to the interplay between resolution, force softening, and timestep control \citep{power2003inner}, while Zhang et al. later demonstrated that too aggressive a reduction of the softening length can artificially raise the innermost density \citep{zhang2019optimal}. The reference simulation does not display a simple monotonic dependence on any one of these parameters, which already suggests that the behaviour is not a trivial one-parameter resolution effect.
 
+The first two images below provide a static view of the baseline system at different scales. Figure~\ref{fig:baseline_particle_map} shows how the mass is distributed across the inner halo and its surroundings, while Figure~\ref{fig:baseline_potential_map} illustrates how the gravitational well remains concentrated near the center even as the viewing aperture expands. Taken together, these plots complement the time-evolution diagnostics by showing the same baseline behaviour from a spatial perspective.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/particle_map_3panel.png}
+	\caption{\textbf{Particle distribution of the simulation.} The same system is shown at three increasing apertures $r_{\mathrm{max}}$.}
+	\label{fig:baseline_particle_map}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax.png}
+	\caption{\textbf{Multiscale view of the gravitational potential.} The same particle distribution is shown with progressively increasing aperture size $r_{\mathrm{max}}$, revealing how the potential structure transitions from a strongly centralised well at small radii to a more extended field at larger scales. The deepest regions remain consistently centred, while outer structure becomes increasingly visible as the field of view expands.}
+	\label{fig:baseline_potential_map}
+\end{figure}
+
 The baseline density-evolution plot and the snapshot sequence show the same pattern: the inner profile becomes shallower, but the inner density does not settle. The new gradient plot in Figure~\ref{fig:baseline_gradient} makes this especially clear: the central density drops rapidly at early times, then continues to drift downward more slowly, without ever forming a stable plateau. The companion plot in Figure~\ref{fig:baseline_cusp_short} presents the same evolution and adds the ratio to the initial conditions, which makes the decline easier to read at a glance. In that sense, the evolution resembles a continuing redistribution of mass rather than a completed structural transformation. This is the key point that motivates the rest of the chapter.
 
 \begin{figure}[H]
@@ -61,6 +77,22 @@ In summary, the box-size experiment removes a simple numerical-domain explanatio
 \label{sec:results_initial_structure}
 
 The comparison between cuspy and cored initial conditions is particularly informative because it distinguishes between a cusp-specific instability and a more general process. The core run still exhibits a decline of the central density, but the amplitude is smaller than in the cuspy case. This is a strong result because it means the mechanism is not limited to the special case of an initially steep central profile.
+
+The same pair of spatial diagnostics is repeated for the cored run below so that the two initial-condition setups can be compared directly. Figure~\ref{fig:core_particle_map} highlights the different central concentration of the cored halo, and Figure~\ref{fig:core_potential_map} shows how that difference carries over into a shallower inner well. These figures make it easier to relate the profile evolution to the underlying spatial structure of the system.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/particle_map_3panel_core.png}
+	\caption{\textbf{Particle distribution of the core simulation.} The same system is shown at three increasing apertures $r_{\mathrm{max}}$.}
+	\label{fig:core_particle_map}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax_core.png}
+	\caption{\textbf{Multiscale view of the core gravitational potential.} The same particle distribution is shown with progressively increasing aperture size $r_{\mathrm{max}}$, revealing how the potential structure transitions from a strongly centralised well at small radii to a more extended field at larger scales. The deepest regions remain consistently centred, while outer structure becomes increasingly visible as the field of view expands.}
+	\label{fig:core_potential_map}
+\end{figure}
 
 In physical terms, this suggests that the system is sensitive to the presence of a central potential well, but not exclusively to its initial logarithmic slope. A cored halo has less extreme inner structure and therefore reacts less strongly, yet the evolution remains qualitatively the same. This is particularly important in light of the Errani et al. result that cusp-heating evolution should weaken once the core is established and central dark-matter densities are reduced \citep{errani2026collisional}. In that scenario, a pre-existing core should not continue to lose central density over long timescales; however, this behaviour is observed in the simulations. That mismatch reinforces the conclusion that the persistent decline cannot be explained as a simple cusp-to-core transient and is instead tied to a broader dynamical mechanism.
 
@@ -276,3 +308,27 @@ This section is not yet completed.
 \textbf{[PLACEHOLDER RESULT]} Here we will compare the standard runs against the truncated-NFW hybrid model.
 
 \textbf{[PLACEHOLDER FIGURE]} Baseline versus truncated-NFW central-density evolution.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/particle_map_3panel.png}
+	\caption{\textbf{Particle distribution of the simulation.} The same system is shown at three increasing apertures $r_{\mathrm{max}}$.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax.png}
+	\caption{\textbf{Multiscale view of the gravitational potential.} The same particle distribution is shown with progressively increasing aperture size $r_{\mathrm{max}}$, revealing how the potential structure transitions from a strongly centralised well at small radii to a more extended field at larger scales. The deepest regions remain consistently centred, while outer structure becomes increasingly visible as the field of view expands.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/gradient.png}
+	\caption{\textbf{Baseline density-profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend. The gradient structure is consistent with a secular redistribution rather than a settled core.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/density_evolution_cusp.png}
+	\caption{\textbf{Baseline evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
+\end{figure}
