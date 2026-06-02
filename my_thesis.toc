@@ -47,30 +47,32 @@
 \contentsline {subsection}{\numberline {3.6.7}Centering, cutoff convention and edge cases}{25}{subsection.3.6.7}%
 \contentsline {subsection}{\numberline {3.6.8}Serialization, restart safety and diagnostics}{25}{subsection.3.6.8}%
 \contentsline {subsection}{\numberline {3.6.9}Foreign-particle and MPI consistency}{26}{subsection.3.6.9}%
-\contentsline {subsection}{\numberline {3.6.10}Validation strategy}{26}{subsection.3.6.10}%
-\contentsline {subsection}{\numberline {3.6.11}Caveats and limitations}{27}{subsection.3.6.11}%
+\contentsline {subsection}{\numberline {3.6.10}Caveats and limitations}{26}{subsection.3.6.10}%
 \contentsline {chapter}{\numberline {4}Results and discussion}{28}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Baseline behaviour}{28}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Box size}{32}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Initial halo structure}{34}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Gravitational softening}{38}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Self-gravity settings}{40}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Timestep study}{40}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{41}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{41}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{41}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Summary table of self-gravity parameter variations}{42}{subsection.4.5.5}%
-\contentsline {subsection}{\numberline {4.5.6}Overall interpretation of solver sensitivity}{42}{subsection.4.5.6}%
-\contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{43}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Analytic shell decomposition}{44}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Mass and potential distribution across the halo}{44}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Outer-halo influence as a function of cutoff radius}{45}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}2D outer-fraction map}{46}{subsection.4.6.4}%
-\contentsline {subsection}{\numberline {4.6.5}Interpretation and implications}{47}{subsection.4.6.5}%
+\contentsline {section}{\numberline {4.4}Gravitational softening}{37}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Self-gravity settings}{39}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Timestep study}{39}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{40}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{40}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{40}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Summary table of self-gravity parameter variations}{41}{subsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.5.6}Overall interpretation of solver sensitivity}{41}{subsection.4.5.6}%
+\contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{42}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Analytic shell decomposition}{43}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Mass and potential distribution across the halo}{43}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Outer-halo influence as a function of cutoff radius}{44}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}2D outer-fraction map}{45}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Interpretation and implications}{46}{subsection.4.6.5}%
 \contentsline {section}{\numberline {4.7}Truncated NFW}{48}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Conclusions}{53}{chapter.5}%
-\contentsline {section}{\numberline {5.1}One section}{53}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}One subsection}{53}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {4.7.1}Validation}{48}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Particle distribution and potential structure}{48}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Rcut study}{51}{subsection.4.7.3}%
+\contentsline {chapter}{\numberline {5}Conclusions}{54}{chapter.5}%
+\contentsline {section}{\numberline {5.1}One section}{54}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}One subsection}{54}{subsection.5.1.1}%
 \vspace {\normalbaselineskip }
-\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{55}{appendix.A}%
-\contentsline {chapter}{Bibliography}{58}{appendix*.33}%
+\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{56}{appendix.A}%
+\contentsline {chapter}{Bibliography}{59}{appendix*.35}%

@@ -405,19 +405,6 @@ To preserve exact force symmetry across MPI boundaries, the effective mass seman
 
 Either strategy yields the same physics if used consistently; the implementation enforces a single semantics for local and remote particles so multipole and pairwise forces remain symmetric across rank boundaries.
 
-\subsection{Validation strategy}
-
-The implementation is accompanied by a small validation suite that exercises the key correctness properties:
-
-\begin{itemize}
-\item single-particle checks: place test particles just inside and just outside $R_{\mathrm{cut}}$ and verify that inner particles experience no external acceleration while outer particles feel the analytic NFW acceleration;
-\item self-gravity exclusion: confirm that masked outer particles do not contribute to monopole moments in the tree and that pairwise P2P forces from outer sources are absent (beyond numerical tolerance);
-\item MPI consistency: run identical initial conditions on 1 and on multiple ranks and verify that accelerations and early-time trajectories near the cutoff are numerically identical within roundoff;
-\item restart repeatability: run to a snapshot, restart, and confirm the mask and potential behaviour are unchanged.
-\end{itemize}
-
-These checks are documented and included in the project's validation notes so the truncated-NFW backend can be accepted for experimental use only after passing the suite.
-
 \subsection{Caveats and limitations}
 
 The present implementation aims at a minimal, well-defined numerical experiment and therefore imposes several deliberate limitations:

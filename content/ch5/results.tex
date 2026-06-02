@@ -41,14 +41,14 @@ The baseline density-evolution plot and the snapshot sequence show the same patt
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/gradient.png}
+	\includegraphics[width=0.9\textwidth]{content/ch5/img/gradient.png}
 	\caption{\textbf{Baseline density-profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend. The gradient structure is consistent with a secular redistribution rather than a settled core.}
 	\label{fig:baseline_gradient}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/density_evolution_cusp.png}
+	\includegraphics[width=0.9\textwidth]{content/ch5/img/density_evolution_cusp.png}
 	\caption{\textbf{Baseline evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
 	\label{fig:baseline_cusp_short}
 \end{figure}
@@ -66,7 +66,7 @@ There are two simple physical interpretations of this result. First, long-range 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/box_size_study.png}
+	\includegraphics[width=0.9\textwidth]{content/ch5/img/box_size_study.png}
 	\caption{\textbf{Box-size study.} Comparison of the three tested simulation volumes (small, intermediate, large). The central-density diagnostic (inner radial bin) shows the same secular decline across volumes; changing the box size modifies the depletion rate only modestly.}
 	\label{fig:box_size_study}
 \end{figure}
@@ -78,14 +78,14 @@ In summary, the box-size experiment removes a simple numerical-domain explanatio
 
 The comparison between cuspy and cored initial conditions is particularly informative because it distinguishes between a cusp-specific instability and a more general process. The core run still exhibits a decline of the central density, but the amplitude is smaller than in the cuspy case. This is a strong result because it means the mechanism is not limited to the special case of an initially steep central profile.
 
-The same pair of spatial diagnostics is repeated for the cored run below so that the two initial-condition setups can be compared directly. Figure~\ref{fig:core_particle_map} highlights the different central concentration of the cored halo, and Figure~\ref{fig:core_potential_map} shows how that difference carries over into a shallower inner well. These figures make it easier to relate the profile evolution to the underlying spatial structure of the system.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/particle_map_3panel_core.png}
 	\caption{\textbf{Particle distribution of the core simulation.} The same system is shown at three increasing apertures $r_{\mathrm{max}}$.}
 	\label{fig:core_particle_map}
 \end{figure}
+
+The same pair of spatial diagnostics is repeated for the cored run so that the two initial condition setups can be compared directly. Figure~\ref{fig:core_particle_map} highlights the different central concentration of the cored halo, and Figure~\ref{fig:core_potential_map} shows how that difference carries over into a shallower inner well. These figures make it easier to relate the profile evolution to the underlying spatial structure of the system.
 
 \begin{figure}[H]
 	\centering
@@ -100,14 +100,14 @@ The literature on heating caused by substructure is again relevant here. Stochas
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/gradient_core.png}
+	\includegraphics[width=0.9\textwidth]{content/ch5/img/gradient_core.png}
 	\caption{\textbf{Core initial condition density-profile evolution.} The cored halo also shows a decline in central density, although with a smaller amplitude than the cuspy case. This directly contradicts a simple expectation of core formation followed by stabilization.}
 	\label{fig:baseline_gradient}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/density_evolution_core.png}
+	\includegraphics[width=0.9\textwidth]{content/ch5/img/density_evolution_core.png}
 	\caption{\textbf{Core initial condition evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
 	\label{fig:core_initial_condition}
 \end{figure}
@@ -303,11 +303,9 @@ Therefore, an outer halo potential that accurately matches the mass distribution
 \section{Truncated NFW}
 \label{sec:results_truncated_nfw}
 
-This section is not yet completed.
+\subsection{Validation}
 
-\textbf{[PLACEHOLDER RESULT]} Here we will compare the standard runs against the truncated-NFW hybrid model.
-
-\textbf{[PLACEHOLDER FIGURE]} Baseline versus truncated-NFW central-density evolution.
+\subsection{Particle distribution and potential structure}
 
 \begin{figure}[H]
 	\centering
@@ -319,6 +317,56 @@ This section is not yet completed.
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax.png}
 	\caption{\textbf{Multiscale view of the gravitational potential.} The same particle distribution is shown with progressively increasing aperture size $r_{\mathrm{max}}$, revealing how the potential structure transitions from a strongly centralised well at small radii to a more extended field at larger scales. The deepest regions remain consistently centred, while outer structure becomes increasingly visible as the field of view expands.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    %------------------------------------------------
+    % Row 1
+    %------------------------------------------------
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/baseline_potential.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/01_potential.pdf}
+    \end{minipage}
+
+    \vspace{0.2cm}
+
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/05_potential.pdf}
+    \end{minipage}
+	\hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/10_potential.pdf}
+    \end{minipage}
+
+    \vspace{0.2cm}
+
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/20_potential.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/50_potential.pdf}
+    \end{minipage}
+	\caption{\textbf{Gravitational potential distributions under baseline and truncated interaction ranges.} Left to right, top to bottom: vanilla \textit{SWIFT} (no truncation), and truncated implementations with $R_{\mathrm{cut}} = 50$, $20$, $10$, $5$, and $1$ kpc. The truncation progressively suppresses long-range contributions, leading to increasingly localized potential structures as $R_{\mathrm{cut}}$ decreases.}
+    \label{fig:multifigure_potential_distr}
+\end{figure}
+
+\subsection{Rcut study}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/gradient.png}
+	\caption{\textbf{Rcut study large plot.}}
 \end{figure}
 
 \begin{figure}[H]
