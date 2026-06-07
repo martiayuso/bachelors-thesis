@@ -232,24 +232,46 @@ The conclusion is that the trend is robust against the standard solver controls.
 
 The central density decline observed in the baseline simulation could, in principle, arise from dynamical interactions between the inner halo and the outer shells. To test this hypothesis, we perform an analytic shell-decomposition study using an NFW model \citep{navarro1996structure} to quantify how much of the inner potential depth comes from material at different radii. This analysis then motivates a hybrid numerical experiment: if outer shells are dynamically important, replacing them with an analytic potential while keeping the inner region as particles should produce a measurably different evolution.
 
-\section{Truncated NFW}
-\label{sec:results_truncated_nfw}
-
-\subsection{Validation}
-
-\subsection{Particle distribution and potential structure}
+To determine whether the central density decline is driven purely by local inner-halo physics or by non-local coupling from the broader halo structure, we decompose the halo into radial shells and quantify each shell's contribution to the gravitational potential and dynamics of the innermost region.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/particle_map_3panel.png}
-	\caption{\textbf{Particle distribution of the simulation.} The same system is shown at three increasing apertures $r_{\mathrm{max}}$.}
+	\includegraphics[width=1\textwidth]{content/ch4/img/shells.png}
+	\caption{\textbf{Spherical shell decomposition.} Four renderings of the same sphere, partitioned into 2, 4 and 8 concentric spherical shells.}
+	\label{fig:shells}
 \end{figure}
+
+In a spherically symmetric system, the radial force on a particle at radius $r$ depends only on the enclosed mass $M(<r)$ by the shell theorem. However, the gravitational potential depends on all mass, including material at larger radii. Therefore, outer shells do not change the local force gradient, but they do deepen the potential well and contribute to the escape-speed scale. The shell-based analysis tests whether the central decline is sensitive to the cumulative influence of outer material on the inner potential structure.
+
+\subsection{Analytic shell decomposition}
+
+For an NFW profile with parameters $\rho_s = 10^7 \, M_{\odot}/\mathrm{kpc}^3$, $r_s = 10 \, \mathrm{kpc}$, $r_{\mathrm{vir}} = 100 \, \mathrm{kpc}$, the analysis computes: (i) the enclosed mass $M(<r)$ and shell mass distribution, (ii) the contribution of each shell to the potential depth at the center, (iii) the fraction of potential at arbitrary probe radii originating from material outside a chosen cutoff radius, and (iv) a 2D diagnostic map showing these fractions for all radius combinations. Key diagnostics and results are are given in Appendix~\ref{app:shells}.
+
+The analytic shell study establishes that the outer halo is not dynamically negligible, it contributes substantially to the potential structure experienced by inner particles, even if it does not directly modify the local force field. This has two important consequences:
+
+\begin{enumerate}
+\item \textbf{Motivation for the hybrid model}: A simulation in which the inner region ($r < r_{\mathrm{cut}}$) evolves with particles while the outer region ($r > r_{\mathrm{cut}}$) is represented by an analytic potential can only reproduce the true inner evolution if the outer potential is represented accurately.
+
+\item \textbf{Tests of shell-coupling mechanisms}: If the persistent central density decline arises from global halo coupling, where the outer shells modulate the potential experienced by inner particles, then a hybrid model should produce a noticeably different evolution. Conversely, if the decline persists even in the hybrid setup, the mechanism is either purely inner-region dynamics or depends on structures (e.g., substructure, asymmetries) not captured by a smooth analytic outer potential.
+\end{enumerate}
+
+Therefore, an outer halo potential that accurately matches the mass distribution should preserve roughly 5--10\% of the outer-potential contribution at the cutoff radius. Whether this degree of fidelity is sufficient to maintain the observed central-density decline, or whether further structural complexity is required, is addressed by the hybrid-model simulations discussed in the next section.
+
+\section{Truncated NFW}
+\label{sec:results_truncated_nfw}
+This section introduces the truncated--NFW hybrid experiments used to isolate the role of long-range potential on the inner halo evolution. We first validate the implementation with a small suite of diagnostics (mass-split checks, multiscale potential maps and selected orbit integrations) to ensure the hybrid coupling behaves as intended. After validation, we present a systematic study of the truncation radius $R_{\mathrm{cut}}$ and its impact on the inner density evolution; the results of that Rcut parameter sweep are discussed in the following subsections.
+
+\subsection{Mass and potential structure}
+First, the mass-split produced by the truncation routine is checked visually and quantitatively: the inner and outer mass components sum to the original halo mass and the outer component vanishes beyond the chosen cutoff radius. The mass-split diagnostic is shown in Figure~\ref{fig:tnfw_validation_mass_split} and confirms that mass is correctly assigned to the inner particle region and to the truncated outer component.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax.png}
-	\caption{\textbf{Multiscale view of the gravitational potential.} The same particle distribution is shown with progressively increasing aperture size $r_{\mathrm{max}}$, revealing how the potential structure transitions from a strongly centralised well at small radii to a more extended field at larger scales. The deepest regions remain consistently centred, while outer structure becomes increasingly visible as the field of view expands.}
+	\caption{\textbf{Mass-split diagnostic for the truncated model.} The plot visualises the particle assignment across the truncation boundary and verifies that the inner particle component and the truncated outer mass sum to the original halo mass.}
+	\label{fig:tnfw_validation_mass_split}
 \end{figure}
+
+Second, the set of potential-distribution panels for different truncation radii (Figure~\ref{fig:multifigure_potential_distr}) explicitly shows how decreasing $R_{\mathrm{cut}}$ progressively removes long-range contributions and localises the potential, as designed. The sequence of panels (vanilla SWIFT, $R_{\mathrm{cut}}=50,20,10,5,1$ kpc) matches the theoretical expectation: the potential smoothly approaches the analytic truncated form while remaining similar to the baseline in the inner region for sufficiently large cutoffs.
 
 \begin{figure}[H]
     \centering
@@ -263,35 +285,62 @@ The central density decline observed in the baseline simulation could, in princi
     \hfill
     \begin{minipage}{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{content/ch5/img/01_potential.pdf}
+        \includegraphics[width=\linewidth]{content/ch5/img/potential_01.pdf}
     \end{minipage}
 
     \vspace{0.2cm}
 
     \begin{minipage}{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{content/ch5/img/05_potential.pdf}
+        \includegraphics[width=\linewidth]{content/ch5/img/potential_02.pdf}
     \end{minipage}
 	\hfill
     \begin{minipage}{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{content/ch5/img/10_potential.pdf}
+        \includegraphics[width=\linewidth]{content/ch5/img/potential_03.pdf}
     \end{minipage}
 
     \vspace{0.2cm}
 
     \begin{minipage}{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{content/ch5/img/20_potential.pdf}
+        \includegraphics[width=\linewidth]{content/ch5/img/potential_05.pdf}
     \end{minipage}
     \hfill
     \begin{minipage}{0.49\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{content/ch5/img/50_potential.pdf}
+        \includegraphics[width=\linewidth]{content/ch5/img/potential_10.pdf}
     \end{minipage}
-	\caption{\textbf{Gravitational potential distributions under baseline and truncated interaction ranges.} Left to right, top to bottom: vanilla \textit{SWIFT} (no truncation), and truncated implementations with $R_{\mathrm{cut}} = 50$, $20$, $10$, $5$, and $1$ kpc. The truncation progressively suppresses long-range contributions, leading to increasingly localized potential structures as $R_{\mathrm{cut}}$ decreases.}
+\end{figure}
+
+\begin{figure}[H]
+     \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/potential_25.pdf}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.49\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{content/ch5/img/potential_50.pdf}
+    \end{minipage}
+	\caption{\textbf{Gravitational potential distributions under baseline and truncated interaction ranges.} Left to right, top to bottom: vanilla \textit{SWIFT} (no truncation), and truncated implementations with $R_{\mathrm{cut}} = 50$, $25$, $10$, $5$, $3$, $2$, and $1$ kpc. The truncation progressively suppresses long-range contributions, leading to increasingly localized potential structures as $R_{\mathrm{cut}}$ decreases.}
     \label{fig:multifigure_potential_distr}
 \end{figure}
+
+In summary, the validation diagnostics show that (i) mass is correctly split by the truncation routine (Figure~\ref{fig:tnfw_validation_mass_split}), (ii) the inner potential follows the expected NFW-like shape and tracks the baseline within the inner few kiloparsecs (Figure~\ref{fig:tnfw_validation_potential_multiscale}), and (iii) truncation progressively suppresses long-range contributions as $R_{\mathrm{cut}}$ decreases (Figure~\ref{fig:multifigure_potential_distr}).
+
+\subsection{Orbits crossing the truncation boundary}
+
+Selected test particles that cross the truncation boundary were integrated to check for spurious energy or angular-momentum transfer caused by the hybrid treatment. Example orbits are shown in Figure~\ref{fig:tnfw_validation_orbits} and remain regular and physically plausible, indicating the hybrid coupling does not introduce obvious integration artefacts on the tested timescales.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax.png}
+	\caption{\textbf{Example orbits crossing the truncation boundary.} Selected test particles that cross $R_{\mathrm{cut}}$ are shown to verify the hybrid treatment does not introduce noticeable integration artefacts on the tested timescale.}
+	\label{fig:tnfw_validation_orbits}
+\end{figure}
+
+These outcomes give us confidence that the truncated interaction implementation behaves as intended for the described experiments.
 
 \subsection{Rcut study}
 

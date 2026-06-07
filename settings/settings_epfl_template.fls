@@ -48,6 +48,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/fourier.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/fourier.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
@@ -61,6 +63,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/fourier-orns.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/fourier-orns.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty

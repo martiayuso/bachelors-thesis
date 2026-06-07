@@ -66,7 +66,7 @@ def plot(sim_files, labels):
         r = data['radius']
         rho = data['density']
 
-        rho = 1 * rho
+        rho = 0.2 * rho
 
         ax.plot(
             r,
@@ -123,16 +123,21 @@ def plot(sim_files, labels):
 if __name__ == "__main__":
 
     sims = [
-            "profile_snapshot_0010.hdf5.npz",
-            "profile_snapshot_0020.hdf5.npz",
-            "profile_snapshot_0040.hdf5.npz",
-            "profile_snapshot_0060.hdf5.npz",
-            "profile_snapshot_0080.hdf5.npz",
-            "profile_snapshot_0100.hdf5.npz"
+            "profile_chunk_0100_0104.hdf5.npz",
+            "profile_chunk_0200_0204.hdf5.npz",
+            "profile_chunk_0300_0304.hdf5.npz",
+            "profile_chunk_0400_0404.hdf5.npz",
+            "profile_chunk_0500_0504.hdf5.npz",
+            "profile_chunk_0600_0604.hdf5.npz",
+            "profile_chunk_0700_0704.hdf5.npz",
+            "profile_chunk_0800_0804.hdf5.npz",
+            "profile_chunk_0900_0904.hdf5.npz",
+            "profile_chunk_0995_0999.hdf5.npz"
     ]
 
     labels = [
-        "10 Gyr", "20 Gyr", "40 Gyr", "60 Gyr", "80 Gyr", "100 Gyr"
+        "10 Gyr", "20 Gyr", "30 Gyr", "40 Gyr", "50 Gyr",
+        "60 Gyr", "70 Gyr", "80 Gyr", "90 Gyr", "100 Gyr"
     ]
 
     plot(sims, labels)

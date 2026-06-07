@@ -23,7 +23,7 @@ plt.rcParams.update({
 # ------------------------------------------------------------
 # Load snapshot
 # ------------------------------------------------------------
-snapshot = "snap/centered/snapshot_0100.hdf5"
+snapshot = "snap/centered/rcut_10_deep.hdf5"
 
 nb = Nbody(snapshot)
 
@@ -98,8 +98,8 @@ ax.set_xlabel(r"$r\ [{\rm kpc}]$")
 ax.set_ylabel(r"$\Phi(r)\ [{\rm km}^2\,{\rm s}^{-2}]$")
 
 ax.set_title(
-   # r"Potential distribution for $R_{\rm cut} = 10.0\ \mathrm{kpc}$ at 10 Gyr"
-   "Potential distribution of baseline simulation at 10 Gyr"
+   r"Potential distribution for $R_{\rm cut} = 10.0\ \mathrm{kpc}$ at 10 Gyr"
+   # "Potential distribution of baseline simulation at 10 Gyr"
 )
 
 ax.grid(alpha=0.0)
@@ -116,6 +116,6 @@ plt.savefig(
     bbox_inches="tight"
 )
 
-plt.show()
+#plt.show()
 
 

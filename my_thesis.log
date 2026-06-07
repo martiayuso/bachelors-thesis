@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  7 JUN 2026 12:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  7 JUN 2026 23:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -30,39 +30,53 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
+) (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/inconsolata.sty
+Package: inconsolata 2019/05/17 v1.12
+ `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+ (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks19
+\XKV@tempa@toks=\toks20
+ (/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count196
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\zifour@ocount=\count197
 ) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip50
 \bibsep=\skip51
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count196
+\c@NAT@ctr=\count198
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count197
+\babel@savecnt=\count199
 \U@D=\dimen141
 \l@unhyphenated=\language89
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count198
+\bbl@dirlevel=\count266
  (/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf
 Language: french 2023-12-19 v3.5r French support from the babel system
 Package babel Info: Hyphen rules for 'acadian' set to \l@french
 (babel)             (\language17). Reported on input line 91.
 Package babel Info: Hyphen rules for 'canadien' set to \l@french
 (babel)             (\language17). Reported on input line 92.
-\FB@stdchar=\count199
+\FB@stdchar=\count267
 Package babel Info: Making : an active character on input line 420.
 Package babel Info: Making ; an active character on input line 421.
 Package babel Info: Making ! an active character on input line 422.
 Package babel Info: Making ? an active character on input line 423.
-\FBguill@level=\count266
-\FBold@everypar=\toks19
+\FBguill@level=\count268
+\FBold@everypar=\toks21
 \FB@Mht=\dimen142
-\mc@charclass=\count267
-\mc@charfam=\count268
-\mc@charslot=\count269
-\std@mcc=\count270
-\dec@mcc=\count271
+\mc@charclass=\count269
+\mc@charfam=\count270
+\mc@charslot=\count271
+\std@mcc=\count272
+\dec@mcc=\count273
 \FB@parskip=\dimen143
 \listindentFB=\dimen144
 \descindentFB=\dimen145
@@ -93,15 +107,12 @@ Package babel Info: Importing font and identification data for german
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/fr/babel-french.tex
 Package babel Info: Importing font and identification data for french
 (babel)             from babel-fr.ini. Reported on input line 11.
-) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks20
-) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count272
-\float@exts=\toks21
+\c@float@type=\count274
+\float@exts=\toks22
 \float@box=\box51
-\@float@everytoks=\toks22
+\@float@everytoks=\toks23
 \@floatcapt=\box52
 ) (/usr/share/texlive/texmf-dist/tex/latex/fourier/fourier.sty
 Package: fourier 2022/02/05 2.3 fourier-GUTenberg package
@@ -119,9 +130,7 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 LaTeX Font Info:    Trying to load font information for T1+futs on input line 112.
  (/usr/share/texlive/texmf-dist/tex/latex/fourier/t1futs.fd
 File: t1futs.fd 2004/03/02 Fontinst v1.926 font definitions for T1/futs.
-)) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (/usr/share/texlive/texmf-dist/tex/latex/fourier/fourier-orns.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/fourier/fourier-orns.sty
 Package: fourier-orns 2022/02/05 2.3 fourier-ornaments package
 )
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 63.
@@ -222,9 +231,9 @@ Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count273
-\Gm@cntv=\count274
-\c@Gm@tempcnt=\count275
+\Gm@cnth=\count275
+\Gm@cntv=\count276
+\c@Gm@tempcnt=\count277
 \Gm@bindingoffset=\dimen151
 \Gm@wd@mp=\dimen152
 \Gm@odd@mp=\dimen153
@@ -233,7 +242,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutheight=\dimen156
 \Gm@layouthoffset=\dimen157
 \Gm@layoutvoffset=\dimen158
-\Gm@dimlist=\toks23
+\Gm@dimlist=\toks24
 ) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -284,21 +293,21 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 Package caption Info: Standard document class detected.
 Package caption Info: french babel package is loaded.
 )
-\c@caption@flags=\count276
-\c@continuedfloat=\count277
+\c@caption@flags=\count278
+\c@continuedfloat=\count279
 Package caption Info: float package is loaded.
 )
-\c@KVtest=\count278
+\c@KVtest=\count280
 \sf@farskip=\skip52
 \sf@captopadj=\dimen169
 \sf@capskip=\skip53
 \sf@nearskip=\skip54
-\c@subfigure=\count279
-\c@subfigure@save=\count280
-\c@lofdepth=\count281
-\c@subtable=\count282
-\c@subtable@save=\count283
-\c@lotdepth=\count284
+\c@subfigure=\count281
+\c@subfigure@save=\count282
+\c@lofdepth=\count283
+\c@subtable=\count284
+\c@subtable@save=\count285
+\c@lotdepth=\count286
 \sf@top=\skip55
 \sf@bottom=\skip56
 ) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
@@ -313,43 +322,43 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen177
 \cmidrulekern=\dimen178
 \defaultaddspace=\dimen179
-\@cmidla=\count285
-\@cmidlb=\count286
+\@cmidla=\count287
+\@cmidlb=\count288
 \@aboverulesep=\dimen180
 \@belowrulesep=\dimen181
-\@thisruleclass=\count287
-\@lastruleclass=\count288
+\@thisruleclass=\count289
+\@lastruleclass=\count290
 \@thisrulewidth=\dimen182
 ) (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/share/texlive/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-01-22 L3 programming layer (loader) 
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count289
+\l__color_backend_stack_int=\count291
 \l__pdf_internal_box=\box53
 ))
 Package: l3keys2e 2023-10-10 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count290
-\l__lipsum_a_int=\count291
-\l__lipsum_b_int=\count292
+\g__lipsum_par_int=\count292
+\l__lipsum_a_int=\count293
+\l__lipsum_b_int=\count294
  (/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
  (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count293
+\etb@tempcnta=\count295
 )
-\MT@toks=\toks24
+\MT@toks=\toks25
 \MT@tempbox=\box54
-\MT@count=\count294
+\MT@count=\count296
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
 LaTeX Info: Redefining \leftprotrusion on input line 1060.
-\MT@prot@toks=\toks25
+\MT@prot@toks=\toks26
 LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
 \MT@outer@kern=\dimen183
 LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
-\MT@listname@count=\count295
+\MT@listname@count=\count297
  (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2023/03/13 v3.1a Definitions specific to pdftex (RS)
 LaTeX Info: Redefining \lsstyle on input line 902.
@@ -374,22 +383,22 @@ Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
 \f@nch@O@olf=\skip65
 \f@nch@O@orf=\skip66
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count296
+\lst@mode=\count298
 \lst@gtempboxa=\box55
-\lst@token=\toks26
-\lst@length=\count297
+\lst@token=\toks27
+\lst@length=\count299
 \lst@currlwidth=\dimen184
-\lst@column=\count298
-\lst@pos=\count299
+\lst@column=\count300
+\lst@pos=\count301
 \lst@lostspace=\dimen185
 \lst@width=\dimen186
-\lst@newlines=\count300
-\lst@lineno=\count301
+\lst@newlines=\count302
+\lst@lineno=\count303
 \lst@maxwidth=\dimen187
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
-\c@lstnumber=\count302
-\lst@skipnumbers=\count303
+\c@lstnumber=\count304
+\lst@skipnumbers=\count305
 \lst@framebox=\box56
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2023/02/27 1.9 listings configuration
@@ -446,11 +455,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count304
+\c@section@level=\count306
 )
 \@linkdim=\dimen188
-\Hy@linkcounter=\count305
-\Hy@pagecounter=\count306
+\Hy@linkcounter=\count307
+\Hy@pagecounter=\count308
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -458,7 +467,7 @@ Now handling font encoding PD1 ...
 ) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count307
+\Hy@SavedSpaceFactor=\count309
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -471,7 +480,7 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count308
+\c@Hy@tempcnt=\count310
 LaTeX Info: Redefining \url on input line 4784.
 \XeTeXLinkMargin=\dimen189
  (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
@@ -479,7 +488,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count309
+\Fld@menulength=\count311
 \Field@Width=\dimen190
 \Fld@charsize=\dimen191
 Package hyperref Info: Hyper figures OFF on input line 6063.
@@ -493,9 +502,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count310
-\c@Item=\count311
-\c@Hfootnote=\count312
+\Hy@abspage=\count312
+\c@Item=\count313
+\c@Hfootnote=\count314
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -504,8 +513,8 @@ File: hpdftex.def 2024-01-20 v7.01h Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count313
-\c@bookmark@seq@number=\count314
+\Fld@listcount=\count315
+\c@bookmark@seq@number=\count316
  (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -515,7 +524,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip67
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 110.
+Package hyperref Info: Option `colorlinks' set `true' on input line 111.
  (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
 ) (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
@@ -524,15 +533,15 @@ Package: pdfpages 2024/01/21 v0.5y Insert pages of external PDF documents (AM)
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count315
-\calc@Bcount=\count316
+\calc@Acount=\count317
+\calc@Bcount=\count318
 \calc@Adimen=\dimen192
 \calc@Bdimen=\dimen193
 \calc@Askip=\skip68
 \calc@Bskip=\skip69
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count317
+\calc@Ccount=\count319
 \calc@Cskip=\skip70
 ) (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
@@ -545,21 +554,21 @@ Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
  (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2024/01/21 v0.5y Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count318
+\pdfpages@includegraphics@status=\count320
 \AM@pagebox=\box57
-\AM@global@opts=\toks27
-\AM@pagecnt=\count319
-\AM@toc@title=\toks28
-\AM@lof@heading=\toks29
-\c@AM@survey=\count320
+\AM@global@opts=\toks28
+\AM@pagecnt=\count321
+\AM@toc@title=\toks29
+\AM@lof@heading=\toks30
+\c@AM@survey=\count322
 \AM@templatesizebox=\box58
 ) (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count321
+\BKM@id=\count323
 )) (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks30
+\pgfutil@everybye=\toks31
 \pgfutil@tempdima=\dimen199
 \pgfutil@tempdimb=\dimen256
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -571,10 +580,10 @@ Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
 Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
-\pgfkeys@tmptoks=\toks33
+\pgfkeys@tmptoks=\toks34
 ))
 \pgf@x=\dimen257
 \pgf@y=\dimen258
@@ -588,14 +597,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen266
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count322
-\c@pgf@countb=\count323
-\c@pgf@countc=\count324
-\c@pgf@countd=\count325
-\t@pgf@toka=\toks34
-\t@pgf@tokb=\toks35
-\t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count326
+\c@pgf@counta=\count324
+\c@pgf@countb=\count325
+\c@pgf@countc=\count326
+\c@pgf@countd=\count327
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
+\pgf@sys@id@count=\count328
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -606,21 +615,21 @@ File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count327
-\pgfsyssoftpath@bigbuffer@items=\count328
+\pgfsyssoftpath@smallbuffer@items=\count329
+\pgfsyssoftpath@bigbuffer@items=\count330
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen267
-\pgfmath@count=\count329
+\pgfmath@count=\count331
 \pgfmath@box=\box60
-\pgfmath@toks=\toks37
-\pgfmath@stack@operand=\toks38
-\pgfmath@stack@operation=\toks39
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count330
+\c@pgfmathroundto@lastzeros=\count332
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen268
@@ -650,7 +659,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box61
 \pgf@hbox=\box62
 \pgf@layerbox@main=\box63
-\pgf@picture@serial@count=\count331
+\pgf@picture@serial@count=\count333
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen286
@@ -671,14 +680,15 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen291
-\pgf@sys@shading@range@num=\count332
-\pgf@shadingcount=\count333
+\pgf@sys@shading@range@num=\count334
+\pgf@shadingcount=\count335
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfexternal@startupbox=\box64
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
 File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
 File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -686,8 +696,7 @@ File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
 File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+))) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfnodeparttextbox=\box65
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
@@ -702,13 +711,13 @@ Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
 Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 \pgffor@iter=\dimen294
 \pgffor@skip=\dimen295
-\pgffor@stack=\toks40
-\pgffor@toks=\toks41
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count334
+\pgf@plot@mark@count=\count336
 \pgfplotmarksize=\dimen296
 )
 \tikz@lastx=\dimen297
@@ -723,17 +732,17 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box67
 \tikz@tempbox=\box68
 \tikz@tempbox@bg=\box69
-\tikztreelevel=\count335
-\tikznumberofchildren=\count336
-\tikznumberofcurrentchild=\count337
-\tikz@fig@count=\count338
+\tikztreelevel=\count337
+\tikznumberofchildren=\count338
+\tikznumberofcurrentchild=\count339
+\tikz@fig@count=\count340
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count339
-\pgfmatrixcurrentcolumn=\count340
-\pgf@matrix@numberofcolumns=\count341
+\pgfmatrixcurrentrow=\count341
+\pgfmatrixcurrentcolumn=\count342
+\pgf@matrix@numberofcolumns=\count343
 )
-\tikz@expandcount=\count342
+\tikz@expandcount=\count344
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
@@ -743,12 +752,12 @@ Package: titlesec 2023/10/27 v2.16 Sectioning titles
 \aftertitleunit=\skip72
 \ttl@plus=\dimen305
 \ttl@minus=\dimen306
-\ttl@toksa=\toks42
+\ttl@toksa=\toks43
 \titlewidth=\dimen307
 \titlewidthlast=\dimen308
 \titlewidthfirst=\dimen309
 )
-\c@myparts=\count343
+\c@myparts=\count345
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip73
@@ -758,7 +767,7 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2021/08/26 v2.01 AMS text
  (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks43
+\@emptytoks=\toks44
 \ex@=\dimen310
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
@@ -766,14 +775,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count344
+\inf@bad=\count346
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count345
-\leftroot@=\count346
+\uproot@=\count347
+\leftroot@=\count348
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count347
-\DOTSCASE@=\count348
+\classnum@=\count349
+\DOTSCASE@=\count350
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -786,31 +795,31 @@ LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen312
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count349
+\macc@depth=\count351
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count350
+\c@MaxMatrixCols=\count352
 \dotsspace@=\muskip17
-\c@parentequation=\count351
-\dspbrk@lvl=\count352
-\tag@help=\toks44
-\row@=\count353
-\column@=\count354
-\maxfields@=\count355
-\andhelp@=\toks45
+\c@parentequation=\count353
+\dspbrk@lvl=\count354
+\tag@help=\toks45
+\row@=\count355
+\column@=\count356
+\maxfields@=\count357
+\andhelp@=\toks46
 \eqnshift@=\dimen313
 \alignsep@=\dimen314
 \tagshift@=\dimen315
 \tagwidth@=\dimen316
 \totwidth@=\dimen317
 \lineht@=\dimen318
-\@envbody=\toks46
+\@envbody=\toks47
 \multlinegap=\skip74
 \multlinetaggap=\skip75
-\mathdisplay@stack=\toks47
+\mathdisplay@stack=\toks48
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
@@ -849,7 +858,7 @@ Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
  (/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count356
+\g_MT_multlinerow_int=\count358
 \l_MT_multwidth_dim=\dimen319
 \origjot=\skip76
 \l_MT_shortvdotswithinadjustabove_dim=\dimen320
@@ -915,6 +924,9 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
+ (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
+)
 LaTeX Info: Redefining \degres on input line 18.
 LaTeX Info: Redefining \up on input line 18.
 LaTeX Font Info:    Redeclaring math accent \widehat on input line 18.
@@ -956,26 +968,20 @@ LaTeX Font Info:    Redeclaring math accent \widetilde on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count357
+\scratchcounter=\count359
 \scratchdimen=\dimen327
 \scratchbox=\box74
-\nofMPsegments=\count358
-\nofMParguments=\count359
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count360
+\nofMPsegments=\count360
+\nofMParguments=\count361
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count362
 \MPscratchDim=\dimen328
-\MPnumerator=\count361
-\makeMPintoPDFobject=\count362
-\everyMPtoPDFconversion=\toks49
+\MPnumerator=\count363
+\makeMPintoPDFobject=\count364
+\everyMPtoPDFconversion=\toks50
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
@@ -1004,7 +1010,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `futs' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\c@lstlisting=\count363
+\c@lstlisting=\count365
 Package hyperref Info: Link coloring ON on input line 18.
  (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
@@ -1015,138 +1021,158 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 18.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 18.
+ (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
+File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
+(microtype)             `zi4' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/m/scsl' undefined
-(Font)              using `T1/cmtt/m/sc' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/b/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/m/sl' undefined
+(Font)              using `T1/zi4/m/it' instead on input line 18.
+
+LaTeX Font Info:    Font shape `T1/zi4/m/it' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/m/scit' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+
+LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
+(Font)              using `T1/zi4/b/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/b/it' undefined
-(Font)              using `T1/cmtt/b/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/b/sl' undefined
+(Font)              using `T1/zi4/b/it' instead on input line 18.
+
+LaTeX Font Info:    Font shape `T1/zi4/b/it' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/b/scit' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/zi4/b/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+
+LaTeX Font Warning: Font shape `T1/zi4/bx/it' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/b/sl' undefined
-(Font)              using `T1/cmtt/b/it' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/bx/sl' undefined
+(Font)              using `T1/zi4/bx/it' instead on input line 18.
+
+LaTeX Font Info:    Font shape `T1/zi4/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/zi4/b/n' tried instead on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/bx/scit' in size <10.95> not available
+(Font)              Font shape `T1/zi4/b/scit' tried instead on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/b/scit' will be
+(Font)              scaled to size 10.95pt on input line 18.
+
+LaTeX Font Warning: Font shape `T1/zi4/sbx/scit' undefined
+(Font)              using `T1/zi4/sb/scit' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/b/scit' undefined
-(Font)              using `T1/cmtt/b/sc' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/sb/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/b/sc' undefined
-(Font)              using `T1/cmtt/b/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/sb/it' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 18.
 
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 18.
-LaTeX Font Info:    Font shape `T1/cmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/it' tried instead on input line 18.
+LaTeX Font Info:    Font shape `T1/zi4/sb/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
 
-LaTeX Font Warning: Font shape `T1/cmtt/bx/sl' undefined
-(Font)              using `T1/cmtt/bx/it' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/sb/sl' undefined
+(Font)              using `T1/zi4/sb/it' instead on input line 18.
 
+LaTeX Font Info:    Font shape `T1/zi4/sb/it' will be
+(Font)              scaled to size 10.95pt on input line 18.
 
-LaTeX Font Warning: Font shape `T1/cmtt/bx/scit' undefined
-(Font)              using `T1/cmtt/bx/sc' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/bx/sc' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/sb/scit' undefined
+(Font)              using `T1/zi4/sb/sc' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/sbx/sc' undefined
-(Font)              using `T1/cmtt/sb/sc' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/sb/sc' undefined
+(Font)              using `T1/zi4/sb/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/sb/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/sbc/sc' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/sb/it' undefined
-(Font)              using `T1/cmtt/sb/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/c/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/sb/sl' undefined
-(Font)              using `T1/cmtt/sb/it' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/c/it' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 18.
+
+LaTeX Font Info:    Font shape `T1/zi4/c/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+
+LaTeX Font Warning: Font shape `T1/zi4/c/sl' undefined
+(Font)              using `T1/zi4/c/it' instead on input line 18.
+
+LaTeX Font Info:    Font shape `T1/zi4/c/it' will be
+(Font)              scaled to size 10.95pt on input line 18.
+
+LaTeX Font Warning: Font shape `T1/zi4/c/scit' undefined
+(Font)              using `T1/zi4/c/sc' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/sb/scit' undefined
-(Font)              using `T1/cmtt/sb/sc' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/c/sc' undefined
+(Font)              using `T1/zi4/c/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/sb/sc' undefined
-(Font)              using `T1/cmtt/sb/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/lc/sc' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/sbc/sc' undefined
-(Font)              using `T1/cmtt/c/sc' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/l/n' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/c/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/l/it' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 18.
+
+LaTeX Font Info:    Font shape `T1/zi4/l/n' will be
+(Font)              scaled to size 10.95pt on input line 18.
+
+LaTeX Font Warning: Font shape `T1/zi4/l/sl' undefined
+(Font)              using `T1/zi4/l/it' instead on input line 18.
+
+LaTeX Font Info:    Font shape `T1/zi4/l/it' will be
+(Font)              scaled to size 10.95pt on input line 18.
+
+LaTeX Font Warning: Font shape `T1/zi4/l/scit' undefined
+(Font)              using `T1/zi4/l/sc' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/c/it' undefined
-(Font)              using `T1/cmtt/c/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/l/sc' undefined
+(Font)              using `T1/zi4/l/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/c/sl' undefined
-(Font)              using `T1/cmtt/c/it' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/m/ui' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/c/scit' undefined
-(Font)              using `T1/cmtt/c/sc' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/bx/ui' undefined
+(Font)              using `T1/zi4/bx/n' instead on input line 18.
 
 
-LaTeX Font Warning: Font shape `T1/cmtt/c/sc' undefined
-(Font)              using `T1/cmtt/c/n' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/lc/sc' undefined
-(Font)              using `T1/cmtt/l/sc' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/l/n' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/l/it' undefined
-(Font)              using `T1/cmtt/l/n' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/l/sl' undefined
-(Font)              using `T1/cmtt/l/it' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/l/scit' undefined
-(Font)              using `T1/cmtt/l/sc' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/l/sc' undefined
-(Font)              using `T1/cmtt/l/n' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/m/ui' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/bx/ui' undefined
-(Font)              using `T1/cmtt/bx/n' instead on input line 18.
-
-
-LaTeX Font Warning: Font shape `T1/cmtt/m/In' undefined
-(Font)              using `T1/cmtt/m/n' instead on input line 18.
+LaTeX Font Warning: Font shape `T1/zi4/m/In' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 18.
 
 (./content/head/titlepage.tex
 Package epstopdf Info: Source file: <assets/epfl.eps>
@@ -1238,7 +1264,20 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 \tf@toc=\write4
 \openout4 = `my_thesis.toc'.
 
- [5] (./my_thesis.lof [6
+ [5] (./my_thesis.lof
+
+Package natbib Warning: Citation `aasnova2024' on page vi undefined on input line 7.
+
+
+Package natbib Warning: Citation `boylan2009millennium2' on page vi undefined on input line 9.
+
+
+Package natbib Warning: Citation `crnojevic2021dwarf' on page vi undefined on input line 10.
+
+
+Package natbib Warning: Citation `swiftgallery2024' on page vi undefined on input line 11.
+
+[6
 
 
 ] [7])
@@ -1247,17 +1286,36 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
  [8] (./content/ch1/introduction.tex
 Chapter 1.
+
+Package natbib Warning: Citation `power2003inner' on page 1 undefined on input line 12.
+
+
+Package natbib Warning: Citation `zhang2019optimal' on page 1 undefined on input line 12.
+
+
+Package natbib Warning: Citation `penarrubia2017fluctuations' on page 1 undefined on input line 14.
+
+
+Package natbib Warning: Citation `penarrubia2019stochastic' on page 1 undefined on input line 14.
+
 [1
 
 
 
 ]
-<content/ch1/img/cuspvcore.png, id=350, 792.9625pt x 710.655pt>
+<content/ch1/img/cuspvcore.png, id=321, 792.9625pt x 710.655pt>
 File: content/ch1/img/cuspvcore.png Graphic file (type png)
 <use content/ch1/img/cuspvcore.png>
 Package pdftex.def Info: content/ch1/img/cuspvcore.png  used on input line 18.
 (pdftex.def)             Requested size: 355.09175pt x 318.24113pt.
- [2 <./content/ch1/img/cuspvcore.png (PNG copy)>]
+
+
+Package natbib Warning: Citation `aasnova2024' on page 2 undefined on input line 19.
+
+
+Package natbib Warning: Citation `aasnova2024' on page 2 undefined on input line 19.
+
+[2 <./content/ch1/img/cuspvcore.png (PNG copy)>]
 Overfull \hbox (2.28375pt too wide) in paragraph at lines 43--44
 []\T1/futs/b/n/10.95 (-20) Distinguish mass re-dis-tri-bu-tion from heat-ing\T1/futs/m/n/10.95 (-20) : Use cumulative-mass and angular-momentum
  []
@@ -1270,21 +1328,50 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8.3> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 8.
+
+Package natbib Warning: Citation `binney2008galactic' on page 5 undefined on input line 8.
+
+
+Package natbib Warning: Citation `power2003inner' on page 5 undefined on input line 20.
+
+
+Package natbib Warning: Citation `zhang2019optimal' on page 5 undefined on input line 20.
+
 [5
 
 ]
-<content/ch3/img/millennium2zoom_paper.jpg, id=389, 1319.93124pt x 1319.93124pt>
+<content/ch3/img/millennium2zoom_paper.jpg, id=348, 1319.93124pt x 1319.93124pt>
 File: content/ch3/img/millennium2zoom_paper.jpg Graphic file (type jpg)
 <use content/ch3/img/millennium2zoom_paper.jpg>
 Package pdftex.def Info: content/ch3/img/millennium2zoom_paper.jpg  used on input line 32.
 (pdftex.def)             Requested size: 399.47398pt x 399.46674pt.
- [6 <./content/ch3/img/millennium2zoom_paper.jpg>]
-<content/ch3/img/dwarf_galaxies.png, id=401, 1204.5pt x 1204.5pt>
+
+
+Package natbib Warning: Citation `boylan2009millennium2' on page 6 undefined on input line 33.
+
+
+Package natbib Warning: Citation `boylan2009millennium2' on page 6 undefined on input line 33.
+
+[6 <./content/ch3/img/millennium2zoom_paper.jpg>]
+
+Package natbib Warning: Citation `salamin2026origin' on page 7 undefined on input line 68.
+
+<content/ch3/img/dwarf_galaxies.png, id=354, 1204.5pt x 1204.5pt>
 File: content/ch3/img/dwarf_galaxies.png Graphic file (type png)
 <use content/ch3/img/dwarf_galaxies.png>
 Package pdftex.def Info: content/ch3/img/dwarf_galaxies.png  used on input line 72.
 (pdftex.def)             Requested size: 399.47398pt x 399.47118pt.
- [7] [8 <./content/ch3/img/dwarf_galaxies.png (PNG copy)>]
+
+Package natbib Warning: Citation `crnojevic2021dwarf' on page 7 undefined on input line 73.
+
+
+Package natbib Warning: Citation `crnojevic2021dwarf' on page 7 undefined on input line 73.
+
+[7]
+
+Package natbib Warning: Citation `salamin2026origin' on page 8 undefined on input line 77.
+
+[8 <./content/ch3/img/dwarf_galaxies.png (PNG copy)>]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
 (Font)              scaled to size 13.24796pt on input line 83.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -1299,4 +1386,22 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 83.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 13.24796pt on input line 83.
-LaTeX Font Info:    Font shape `U/fu
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 9.19998pt on input line 83.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 83.
+
+
+Package natbib Warning: Citation `binney2008galactic' on page 9 undefined on input line 86.
+
+
+Package natbib Warning: Citation `power2003inner' on page 9 undefined on input line 86.
+
+
+Package natbib Warning: Citation `binney2008galactic' on page 9 undefined on input line 92.
+
+
+Package natbib Warning: Citation `power2003inner' on page 9 undefined on input line 96.
+
+
+Package natbib Warning: Ci

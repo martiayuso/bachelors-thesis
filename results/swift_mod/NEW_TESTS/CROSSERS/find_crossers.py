@@ -4,8 +4,8 @@ Scan a set of HDF5 snapshots, find particles that move from r<Rcut to r>Rcut,
 and extract time-series for those particles into a CSV.
 
 Usage:
-  find_crossers.py --snap-glob "orig/snapshot_*.hdf5" --rcut 10.0 --halo-center 100 100 100 \
-    --ptype 1 --out-cross crossings.csv --out-ts particles_timeseries.csv
+  find_crossers.py --snap-glob "snap_deep/snapshot_*.hdf5" --rcut 10.0 --halo-center 100 100 100 \
+    --ptype 1 --out-cross deep_crossings.csv --out-ts deep_particles_timeseries.csv
 
 """
 import argparse

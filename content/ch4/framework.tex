@@ -62,6 +62,49 @@ Across the broader thesis campaign, the most relevant controlled parameters are:
 
 The practical philosophy is to keep one baseline run and modify one parameter family at a time, so each subsection in the results can be interpreted as a direct hypothesis test rather than a multi-parameter confounded comparison.
 
+\subsection{Simulation campaign summary}
+\label{sec:framework_simulation_summary}
+
+Rather than repeating the qualitative run descriptions from Chapter~5, this subsection defines the campaign as a technical design matrix. The baseline control vector is
+\begin{equation}
+\mathbf{p}_0 = \{\eta=2\times10^{-3},\ \mathrm{MAC}=\mathrm{geometric},\ \theta_{\mathrm{cr}}=0.7,\ \epsilon_{\mathrm{fmm}}=10^{-3},\ \epsilon_{\mathrm{soft}}=0.01\,\mathrm{kpc}\},
+\end{equation}
+and each run family perturbs exactly one component (or one model block) relative to $\mathbf{p}_0$.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Technical campaign matrix written as perturbations of the baseline control vector $\mathbf{p}_0$. $N_{\mathrm{lev}}$ is the number of tested levels in each sweep; ``range factor'' denotes the span between minimum and maximum tested numeric values.}
+\label{tab:simulation_campaign_summary}
+{\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{p{0.21\textwidth} p{0.14\textwidth} p{0.35\textwidth} p{0.11\textwidth} p{0.11\textwidth}}
+\hline
+\textbf{Control family} & \textbf{IC} & \textbf{Control-vector form} & \textbf{$N_{\mathrm{lev}}$} & \textbf{Range factor} \\
+\hline
+Baseline reference & Cuspy & $\mathbf{p}=\mathbf{p}_0$, baseline box & 1 & -- \\
+
+Box-size & Cuspy & $\mathbf{p}=\mathbf{p}_0$, $L_{\mathrm{box}}\in\{L_{\mathrm{s}},L_{\mathrm{m}},L_{\mathrm{l}}\}$ & 3 & n/a \\
+
+Initial structure & Cuspy, core & $\mathbf{p}=\mathbf{p}_0$, IC$\in\{$cuspy, core$\}$ & 2 & n/a \\
+
+Softening & Cuspy & $\mathbf{p}=\mathbf{p}_0$, $\epsilon\in\{1,5,10,50,100\}$ pc & 5 & 100 \\
+
+Solver: timestep & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with $\eta\in\{2\times10^{-4},2\times10^{-3},2\times10^{-2}\}$ & 3 & $10^2$ \\
+
+Solver: MAC & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with MAC$\in\{$geometric, adaptive$\}$ & 2 & n/a \\
+
+Solver: opening angle & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with $\theta_{\mathrm{cr}}\in\{0.5,0.6,0.7\}$ (geometric MAC) & 3 & 1.4 \\
+
+Solver: FMM tolerance & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with $\epsilon_{\mathrm{fmm}}\in\{10^{-4},10^{-3},10^{-2},10^{-1}\}$ & 4 & $10^3$ \\
+
+Hybrid truncated-NFW & Cuspy & $\mathbf{p}=\mathbf{p}_0$, model$\rightarrow$hybrid, $R_{\mathrm{cut}}\in\{50,25,10,5,3,2,1\}$ kpc + vanilla & 8 & 50 \\
+\hline
+\end{tabular}
+}
+\end{table}
+
+This representation makes the campaign auditable at a glance: all families are written as controlled perturbations of $\mathbf{p}_0$, with sweep spans of $10^2$ in $\eta$, $10^3$ in $\epsilon_{\mathrm{fmm}}$, $10^2$ in softening around the baseline $\epsilon_{\mathrm{soft}}=0.01\,\mathrm{kpc}$ (1--100 pc), and 50 in $R_{\mathrm{cut}}$. A persistent trend across these families is therefore difficult to attribute to a narrow parameter-tuning artefact.
+
 \section{Density, shell, and mass diagnostics}
 \label{sec:framework_diagnostics}
 
@@ -118,107 +161,10 @@ Centering is handled independently from the density estimation. Each snapshot is
 
 Using the shrinking-sphere center ensures that the innermost bins of the density profile are measured relative to a dynamically meaningful origin. In practice, this removes one of the most obvious numerical artefacts that could otherwise be mistaken for a central density decline. A formal description of the algorithm and the exact analysis implementation are given in Appendix~\ref{app:shrinking_sphere}.
 
-\section{Shell-based analysis framework}
-\label{sec:framework_shells}
-
-To determine whether the central density decline is driven purely by local inner-halo physics or by non-local coupling from the broader halo structure, we decompose the halo into radial shells and quantify each shell's contribution to the gravitational potential and dynamics of the innermost region.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{content/ch4/img/shells.png}
-	\caption{\textbf{Spherical shell decomposition.} Four renderings of the same sphere, partitioned into 2, 4 and 8 concentric spherical shells.}
-	\label{fig:shells}
-\end{figure}
-
-\subsection{Motivation and design principle}
-
-In a spherically symmetric system, the radial force on a particle at radius $r$ depends only on the enclosed mass $M(<r)$ by the shell theorem. However, the gravitational potential depends on all mass, including material at larger radii. This distinction is crucial: outer shells do not change the local force gradient, but they do deepen the potential well and contribute to the escape-speed scale. The shell-based analysis tests whether the central decline is sensitive to the cumulative influence of outer material on the inner potential structure.
-
-The analysis addresses a specific question: if outer shells contribute substantially to the inner potential depth, then a hybrid model that replaces the outer halo ($r > r_{\mathrm{cut}}$) with an analytic potential while retaining the inner region ($r < r_{\mathrm{cut}}$) as particles should reproduce similar evolutionary trends. Conversely, if the central decline persists even when the outer dynamics is replaced by a smooth analytic model, then the effect is either driven by inner-region physics or by the potential structure rather than by dynamical interactions with individual outer particles.
-
-\subsection{NFW truncated-halo model}
-
-The analysis uses a spherically symmetric Navarro--Frenk--White (NFW) halo model \citep{navarro1996structure}, which is a standard benchmark for dark matter halos:
-
-\begin{equation}
-\rho(r) = \frac{\rho_s}{(r/r_s)(1 + r/r_s)^2},
-\end{equation}
-
-where $\rho_s$ is the characteristic density and $r_s$ is the scale radius. The enclosed mass within radius $r$ is:
-
-\begin{equation}
-M(<r) = 4\pi \rho_s r_s^3 \left[ \ln(1+x) - \frac{x}{1+x} \right], \quad x = \frac{r}{r_s}.
-\end{equation}
-
-The halo is truncated at a virial radius $r_{\mathrm{vir}}$. The gravitational potential including the truncation is:
-
-\begin{equation}
-\Phi(r) = -\frac{G M(<r)}{r} - 4\pi G \rho_s r_s^2 \left[ \frac{1}{1 + r/r_s} - \frac{1}{1 + r_{\mathrm{vir}}/r_s} \right],
-\end{equation}
-
-and the radial acceleration (force per unit mass) is:
-
-\begin{equation}
-a(r) = \frac{G M(<r)}{r^2}.
-\end{equation}
-
-\subsection{Key diagnostics and definitions}
-
-The analysis is built around four central diagnostic quantities, each addressing a different aspect of halo structure:
-
-\begin{description}
-
-\item[\textbf{Enclosed mass and shell mass fraction}]
-The enclosed mass $M(<r)$ tracks how the total mass budget grows with radius. The shell mass fraction is the mass in a radial shell divided by the total halo mass, showing the radial distribution of the mass budget. For an NFW profile, the enclosed mass grows steeply near the center but the shell mass fraction increases toward larger radii, indicating that the outer halo contains a substantial fraction of the total mass.
-
-\item[\textbf{Central potential depth from individual shells}]
-For each shell at radius range $[r_i, r_{i+1}]$, we calculate its contribution to the gravitational potential at the center ($r = 0$). This is given exactly by:
-
-\begin{equation}
-\Delta\Phi_{\rm shell}(0) = -4\pi G \rho_s r_s^2 \left[ \frac{1}{1 + r_i/r_s} - \frac{1}{1 + r_{i+1}/r_s} \right].
-\end{equation}
-
-Shells well outside the center still make sizeable contributions to the potential depth at $r = 0$ (and therefore to the escape-speed scale $v_{\rm esc} \propto \sqrt{-2\Phi}$). The fractional contribution of each shell quantifies this effect.
-
-\item[\textbf{Outer-potential fraction}]
-For a given probe radius $r_{\mathrm{probe}}$ and cutoff radius $r_{\mathrm{cut}}$, the outer-potential fraction is defined as:
-
-\begin{equation}
-f_{\mathrm{outer}}(r_{\mathrm{probe}}, r_{\mathrm{cut}}) = \frac{\left|\Phi_{>r_{\mathrm{cut}}}(r_{\mathrm{probe}})\right|}{\left|\Phi_{\mathrm{total}}(r_{\mathrm{probe}})\right|},
-\end{equation}
-
-where $\Phi_{>r_{\mathrm{cut}}}$ is the potential contribution from material outside the cutoff and $\Phi_{\mathrm{total}}$ is the total potential at that radius. This measures how strongly the outer halo influences the local potential at the probe radius. By varying $r_{\mathrm{cut}}$, we can determine the radius beyond which the outer halo becomes a small correction.
-
-\item[\textbf{Force contribution by shell}]
-The radial force (acceleration) at a probe radius $r_{\mathrm{probe}}$ is:
-
-\begin{equation}
-a(r_{\mathrm{probe}}) = \frac{G M(<r_{\mathrm{probe}})}{r_{\mathrm{probe}}^2}.
-\end{equation}
-
-Under spherical symmetry, only mass interior to $r_{\mathrm{probe}}$ contributes. This diagnostic confirms that outer shells, despite deepening the potential, do not directly modify the local force field---a consistency check on the shell-theorem interpretation.
-
-\end{description}
-
-\subsection{Implementation: analytical NFW shell decomposition}
-
-Rather than relying on a numerical computation of the integrals, the shell analysis uses exact analytic formulas for a truncated NFW profile. The halo is decomposed into logarithmically spaced spherical shells:
-
-\begin{equation}
-r_i = r_{\mathrm{min}} \left(\frac{r_{\mathrm{vir}}}{r_{\mathrm{min}}}\right)^{i / N_{\rm shells}}, \quad i = 0, 1, \ldots, N_{\rm shells},
-\end{equation}
-
-where typically $N_{\rm shells} = 80$ and $r_{\mathrm{min}} \approx 0.02$ kpc.
-
-For each shell $[r_i, r_{i+1}]$, exact closed-form expressions compute: (1) shell mass $M_{\rm shell} = M(<r_{i+1}) - M(<r_i)$, (2) shell contribution to potential at any radius, and (3) cumulative potential contributions for integration over shells.
-
-The analytical approach avoids numerical-integration noise and ensures all diagnostics are computed to high precision. The Python implementation uses these formulas to generate diagnostic plots showing: (i) enclosed mass and shell mass-fraction distribution, (ii) shell contributions to the central potential depth, (iii) outer-potential fraction as a function of cutoff radius, and (iv) a 2D map of outer-fraction versus both probe and cutoff radii.
-
-
 \section{Numerical implementation of the hybrid model}
 \label{sec:framework_hybrid}
 
-Motivated by the shell results, a dedicated hybrid gravity model was implemented and tested on a custom SWIFT branch (\texttt{truncated-NFW}). The model enforces a hard radial split at a cutoff radius $R_{\mathrm{cut}}$:
+A dedicated hybrid gravity model was implemented and tested on a custom SWIFT branch (\texttt{truncated-NFW}). The model enforces a hard radial split at a cutoff radius $R_{\mathrm{cut}}$:
 \begin{itemize}
 \item inner region ($r \le R_{\mathrm{cut}}$): standard self-gravity, no external NFW potential,
 \item outer region ($r > R_{\mathrm{cut}}$): external NFW potential applied, with optional masking of dark-matter self-gravity sourcing outside the cutoff.
@@ -307,19 +253,16 @@ while all non-dark-matter species retain their original masses. The target-side 
 
 \subsection{Two-layer masking logic}
 
-The gravity split is enforced through two complementary mechanisms.
+The gravity split is enforced through two complementary mechanisms: source-side masking (particles outside the cutoff contribute negligibly to resolved sources) and target-side suppression (outer particles do not receive resolved write-backs). The final repository implementation follows a conservative, low‑overhead strategy that differs slightly from an earlier interaction-time-only design.
 
-\textbf{Source-side masking.} Dark-matter particles outside the cutoff use an effective gravitational source mass of zero through \texttt{gravity\_get\_effective\_mass\_from\_position()}. Operationally this corresponds to \texttt{grav\_mass\_factor}=0 for outer DM and \texttt{grav\_mass\_factor}=1 otherwise. The effective mass is then consumed consistently by pairwise interactions, gravity caches, multipole construction, and no-cache pair loops (including \texttt{runner\_doiact\_grav.c}), so outer DM does not source resolved self-gravity.
+\textbf{Source-side masking.} To avoid expensive per-step global rewrites, the code now performs a one-time startup/restart masking sweep that sets the stored particle mass for eligible dark-matter particles to a tiny non-zero value. Concretely, a \texttt{mass\_initial} field was added to the \texttt{gpart} layout (see \texttt{src/gravity/*/gravity\_part.h}), and the helper
+\texttt{gravity\_sync\_truncated\_nfw\_masses(struct gpart *gparts, size\_t)} is invoked at initialization and after restart (see \texttt{src/engine.c}). This helper uses the same geometric cutoff test implemented by
+\texttt{gravity\_is\_outside\_truncated\_nfw\_cutoff(const double x[3])} and applies
+\(m_{\rm stored} = m_{\rm initial}\times\varepsilon_m\) for dark‑matter particles with $r>R_{\rm cut}$, where $\varepsilon_m\approx10^{-10}$. After this one-time pass, the gravity code reads the stored \texttt{gp->mass} (and packed/foreign mass fields) directly during multipole builds, pair interactions and mesh depositions.
 
-\textbf{Target-side suppression.} Outer particles are also prevented from receiving resolved self-gravity updates. This ensures that the outer domain is analytic-only not only as a source prescription but also at the level of target acceleration/potential write-back.
+Note: the earlier helper \texttt{gravity\_get\_effective\_mass\_from\_position()} still exists in the codebase for diagnostic and transitional purposes, but the production runtime uses the stored masked mass following the one‑time initialization sweep. Attempts to restore or resync masses every step (or per drift) were investigated but removed because they produced unacceptable O(N) costs in typical runs.
 
-To implement this, a common geometric helper
-\texttt{gravity\_is\_outside\_truncated\_nfw\_cutoff(const double x[3])}
-was added in both gravity variants:
-\texttt{src/gravity/Default/gravity.h} and
-\texttt{src/gravity/MultiSoftening/gravity.h}.
-
-This helper is then used to gate resolved-gravity write-back paths:
+\textbf{Target-side suppression.} The implementation still prevents outer particles from receiving resolved write-backs: the geometric predicate \texttt{gravity\_is\_outside\_truncated\_nfw\_cutoff(...)} is used to gate the write-back paths so that, for targets with $r>R_{\rm cut}$, tree/pair/mesh contributions are not added to the particle acceleration or potential. This predicate is used in the same places as originally designed:
 
 \begin{itemize}
 \item \texttt{src/gravity\_cache.h}: in \texttt{gravity\_cache\_write\_back(...)} a guard skips adding cached pair/tree acceleration and potential to outer targets;
@@ -328,34 +271,102 @@ This helper is then used to gate resolved-gravity write-back paths:
 \item \texttt{src/mesh\_gravity\_mpi.c}: in \texttt{mesh\_patch\_to\_gparts\_CIC(...)} an early return suppresses MPI PM interpolation for outer particles.
 \end{itemize}
 
-Operationally, for any target with $r>R_{\mathrm{cut}}$, resolved pair/tree/mesh contributions are not written to the particle state. Outer particles therefore evolve only under analytic external potential terms.
+Operationally, outer particles therefore evolve only under the analytic external potential terms, while inner particles continue to use the fully resolved self-gravity solver.
 
-The same predicate is used in both local and MPI-distributed mesh paths, avoiding rank-dependent behaviour at the cutoff surface.
+The behaviour above can be expressed in a more detailed, step‑by‑step pseudocode that mirrors the actual runtime flow and clarifies the interactions between local data, packed/foreign frames, and the external backend.
 
-The same logic can be written in compact pseudocode as follows, where the source and target operators are separated explicitly:
-
+\begin{enumerate}
+\item \textbf{Startup / restart initialization (single sweep)}
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
-for each particle p:
-	x_p = position(p)
-	if type(p) == DM and DM_masking_enabled and |x_p - x_c|^2 > R_cut^2:
-		m_eff(p) = epsilon_m * m(p)
-	else:
-		m_eff(p) = m(p)
+# parameters read from YAML / external backend
+R_cut = config.cutoff_radius
+centre = config.position
+epsilon_m = 1e-10   # masked mass fraction
 
-for each gravity target t:
-	x_t = position(t)
-	if |x_t - x_c|^2 > R_cut^2:
-		suppress resolved write-back: a_res(t) = 0, Phi_res(t) = 0
-		a_ext(t) = a_NFW(x_t - x_c)
-		Phi_ext(t) = Phi_NFW(x_t - x_c) + C_cut
+# one-time pass over local particle array (invoked from src/engine.c)
+for i in 0..nr_gparts-1:
+	gp = gparts[i]
+	if gp.type == DM and DM_masking_enabled and |gp.x - centre|^2 > R_cut^2:
+		gp.mass_initial = gp.mass          # store original mass for bookkeeping
+		gp.mass = epsilon_m * gp.mass_initial  # overwrite stored mass (cheap at runtime)
 	else:
-		a_ext(t) = 0, Phi_ext(t) = 0
-		keep resolved self-gravity only
-
-diagnostics:
-	E_pot,self = sum_i m_i * Phi_res(x_i)
-	E_pot,ext  = sum_i m_i * Phi_ext(x_i)
+		gp.mass_initial = gp.mass  # ensure mass_initial is set consistently
+end
 \end{lstlisting}
+
+Explanation: this sweep replaces the earlier idea of recomputing effective mass at every interaction with a single, explicit overwrite of the stored mass for outer DM particles. It is cheap to read later (no per-step writes) but is an O(N) operation performed only at startup or after a restart.
+
+\item \textbf{MPI packing / foreign consistency}
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
+# when creating the MPI packed structure for a particle:
+packed.mass = gp.mass   # export the stored (possibly masked) mass directly
+# receiver uses packed.mass directly when building multipoles / pair lists
+\end{lstlisting}
+
+Explanation: exporting the stored mass (not a mask factor) guarantees identical multipole/source semantics on all ranks and avoids branch divergence or reconstruction logic on the receiver.
+
+\item \textbf{Per-step gravity workflow (reads stored mass only)}
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
+# Tree / multipole build (local + imported foreign particles)
+for each node or leaf in the tree:
+	use constituent particle masses (stored) to form multipole moments
+
+# Mesh (PM) deposition: use stored mass for depositor particles
+for each mesh cell patch:
+	for each source particle s in patch:
+		deposit s.mass (stored) to grid
+
+# Pairwise / short-range loops use stored source masses too
+for each active pair (i,j):
+	use mass_i (stored) and mass_j (stored) as source factors in kernel
+
+# Cache & write-back (target-side suppression)
+for each cached target t when writing back cached contributions:
+	if gravity_is_outside_truncated_nfw_cutoff(t.x):
+		# gate the write-back: do not add resolved contributions for outer targets
+		continue  # a_res and Phi_res remain zero for this target
+	else:
+		add cached pair/tree contributions to a_res(t), Phi_res(t)
+\end{lstlisting}
+
+Explanation: the short‑range kernels and multipole builders see the masked masses for outer sources. Targets that lie outside the cutoff are excluded from write-back in the cache and from multipole-to-particle updates (see \texttt{src/multipole.h} early return), so they do not accumulate resolved accelerations or potentials.
+
+\item \textbf{External potential injection for outer targets}
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
+for each particle t being advanced:
+	if |t.x - centre|^2 > R_cut^2:
+		a_res = 0, Phi_res = 0  # resolved contributions suppressed
+		a_ext, Phi_ext = truncated_NFW_acc_and_pot(t.x - centre)
+		a_total = a_ext + a_other_external_backends
+	else:
+		a_total = a_res + a_other_external_backends
+\end{lstlisting}
+
+Notes: the external backend computes analytic acceleration and potential for outer particles; an additive potential constant may be applied to keep the potential continuous at $R_{\rm cut}$ (this only affects reported energies, not the force).
+
+\item \textbf{Diagnostics and energy bookkeeping}
+\begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
+E_pot_res = sum_i gparts[i].mass * Phi_res(gparts[i].x)
+E_pot_ext = sum_i gparts[i].mass * Phi_ext(gparts[i].x)
+# report both channels separately and the expected non-conservative term
+\end{lstlisting}
+
+This separation allows validation of the hybrid split: inner resolved energy vs outer analytic energy.
+
+\end{enumerate}
+
+File cross-references: the runtime pieces described above live in the following locations in the repository:
+\begin{itemize}
+\item startup masking: \texttt{src/engine.c} calls \texttt{gravity\_sync\_truncated\_nfw\_masses(...)}
+\item mass storage: \texttt{src/gravity/*/gravity\_part.h} (\texttt{mass\_initial} field)
+\item effective-mass helpers (diagnostic): \texttt{src/gravity/*/gravity.h} (\texttt{gravity\_get\_effective\_mass\_from\_position})
+\item cache write-back gating: \texttt{src/gravity\_cache.h}
+\item multipole L2P gating: \texttt{src/multipole.h}
+\item mesh deposition gating: \texttt{src/mesh\_gravity.c}, \texttt{src/mesh\_gravity\_mpi.c}
+\item IO bookkeeping (mass\_initial set during IO/space sync): \texttt{src/common\_io.c}, \texttt{src/space.c}
+\end{itemize}
+
+Final remark: this expanded pseudocode clarifies why the implementation produces the observed split in particle behaviour. Sources outside $R_{\rm cut}$ contribute negligibly to resolved forces (their stored mass is tiny), and outer targets are advanced only by the analytic field. Whether an individual particle remains bound after crossing depends on its instantaneous energy relative to the analytic potential at the crossing moment and is therefore a physical outcome of the hybrid model rather than an implementation artifact.
 
 \subsection{External potential behaviour and timestep coupling}
 
@@ -388,7 +399,8 @@ We adopt the hard-step convention: particles at exactly $r=R_{\mathrm{cut}}$ are
 
 \subsection{Serialization, restart safety and diagnostics}
 
-All runtime parameters are recorded in the standard external-potential state so that restarts reproduce the mask and potential choices. On startup the backend prints a compact diagnostics summary that includes backend name, chosen center, $r_{\mathrm{cut}}$, and whether DM masking is active. The initialization path that sets masking state and effective masses is executed at fresh start and restart, and is refreshed at the gravity update cadence (per step or per tree/domain rebuild, depending on run configuration).
+All runtime parameters are recorded in the standard external-potential state so that restarts reproduce the mask and potential choices. On startup the backend prints a compact diagnostics summary that includes backend name, chosen center, $r_{\mathrm{cut}}$, and whether DM masking is active. In the current repository the masking initialization is performed at fresh start and after restart via a single call to
+\texttt{gravity\_sync\_truncated\_nfw\_masses(...)} (see \texttt{src/engine.c}), which applies the one-time stored-mass mask described above. To preserve runtime performance this sweep is not re-executed every gravity update; earlier designs that refreshed the stored mass per step (or per drift) were reverted because they introduced significant O(N) costs.
 
 Because the modification changes the effective source mass (and therefore total self-gravity source) the global energy bookkeeping routines are instrumented to report the expected non-conservative terms and to show the separation between particle-sourced and analytic-potential contributions to the total potential energy. These diagnostics are intended for validation and are not enabled in tight production runs by default.
 
@@ -396,14 +408,7 @@ The resulting bookkeeping is best viewed as a three-part decomposition of the to
 
 \subsection{Foreign-particle and MPI consistency}
 
-To preserve exact force symmetry across MPI boundaries, the effective mass semantics must be identical for both local and foreign particles. The implementation therefore applies one of two consistent strategies when packing remote particles:
-
-\begin{enumerate}
-\item export the effective mass (\(m_{\rm eff}\)) directly in the packed structure, or
-\item export both the raw mass and the mask-factor, and reconstruct \(m_{\rm eff}\) on the receiving side.
-\end{enumerate}
-
-Either strategy yields the same physics if used consistently; the implementation enforces a single semantics for local and remote particles so multipole and pairwise forces remain symmetric across rank boundaries.
+To preserve exact force symmetry across MPI boundaries, the effective mass semantics must be identical for both local and foreign particles. In the current implementation the packed/foreign particle structures carry the stored particle mass directly (i.e. the code exports `packed->mass = gp->mass`, which will be the masked tiny value for outer DM after the startup sweep). This ensures identical multipole and pairwise force construction on all ranks without reconstructing mask factors on the receiver side.
 
 \subsection{Caveats and limitations}
 
@@ -414,6 +419,7 @@ The present implementation aims at a minimal, well-defined numerical experiment 
 \item only dark-matter particles are eligible for masking; gas, stars and sink/BH particles keep their full source mass, and their coupling to the external potential is unchanged,
 \item using a fixed centre for the external potential while the particle distribution drifts can create a mismatch; the user must therefore choose the centre carefully (e.g. by using a shrinking-sphere centre estimate before launching a hybrid run),
 \item energy is not strictly conserved across the particle/analytic split because masked particle mass is removed from the self-gravity source and replaced by an analytic potential; diagnostics are provided to quantify this effect,
+\item masking is performed as a one-time startup/restart sweep that overwrites stored particle masses for outer DM; particles that start outside $R_{\mathrm{cut}}$ therefore remain masked even if they later move inward. Restoring full stored mass on re-entry was considered but intentionally not implemented because the required frequent global or per-drift synchronization caused unacceptable runtime overhead.
 \item for strict energy continuity diagnostics, a constant potential offset at $R_{\mathrm{cut}}$ may still be desirable in the external backend (forces are unaffected by this constant, but reported potential energies can shift).
 \end{itemize}
 

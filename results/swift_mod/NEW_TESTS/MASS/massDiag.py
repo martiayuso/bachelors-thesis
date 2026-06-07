@@ -8,10 +8,8 @@ This script is designed to help detect a sharp change in particle mass
 Features
 --------
 1. Scatter plot: particle radius vs particle mass
-2. Radial median mass profile
-3. Particle count histogram
-4. Optional vertical RCUT line
-5. Supports SWIFT snapshots
+2. Optional vertical RCUT line
+3. Supports SWIFT snapshots
 
 Example
 -------
@@ -117,31 +115,6 @@ def compute_center(pos, mass, mode):
     return np.average(pos, axis=0, weights=mass)
 
 
-def radial_mass_profile(r, mass, bins):
-
-    edges = np.linspace(r.min(), r.max(), bins + 1)
-
-    centers = 0.5 * (edges[:-1] + edges[1:])
-
-    median_mass = np.zeros(bins)
-    mean_mass = np.zeros(bins)
-    count = np.zeros(bins)
-
-    for i in range(bins):
-
-        mask = (r >= edges[i]) & (r < edges[i + 1])
-
-        if np.any(mask):
-            median_mass[i] = np.median(mass[mask])
-            mean_mass[i] = np.mean(mass[mask])
-            count[i] = np.sum(mask)
-        else:
-            median_mass[i] = np.nan
-            mean_mass[i] = np.nan
-
-    return centers, median_mass, mean_mass, count
-
-
 def main():
 
     args = parse_args()
@@ -181,29 +154,15 @@ def main():
         mass_plot = mass
 
     #
-    # RADIAL MASS PROFILE
-    #
-    rc, median_mass, mean_mass, count = radial_mass_profile(
-        r,
-        mass,
-        args.bins
-    )
-
-    #
     # FIGURE
     #
-    fig, axes = plt.subplots(
-        3,
-        1,
-        figsize=(10, 12),
-        sharex=True
+    fig, ax = plt.subplots(
+        figsize=(10, 6)
     )
 
     #
-    # 1. SCATTER
+    # SCATTER
     #
-    ax = axes[0]
-
     ax.scatter(
         r_plot,
         mass_plot,
@@ -214,67 +173,28 @@ def main():
     ax.set_yscale("log")
 
     ax.set_ylabel("Particle Mass")
-
-    ax.set_title("Radius vs Particle Mass")
-
-    #
-    # 2. MEDIAN PROFILE
-    #
-    ax = axes[1]
-
-    ax.plot(
-        rc,
-        median_mass,
-        label="Median mass"
-    )
-
-    ax.plot(
-        rc,
-        mean_mass,
-        label="Mean mass",
-        linestyle="--"
-    )
-
-    ax.set_yscale("log")
-
-    ax.set_ylabel("Mass")
-
-    ax.legend()
-
-    ax.set_title("Radial Mass Profile")
-
-    #
-    # 3. COUNTS
-    #
-    ax = axes[2]
-
-    ax.plot(rc, count)
-
-    ax.set_ylabel("Particle Count")
-
     ax.set_xlabel("Radius")
 
-    ax.set_title("Particles per Radial Bin")
+    ax.set_title("Radius vs Particle Mass")
 
     #
     # RCUT LINE
     #
     if args.rcut is not None:
 
-        for ax in axes:
+        ax.axvline(
+            args.rcut,
+            color="red",
+            linestyle="--",
+            label="RCUT"
+        )
 
-            ax.axvline(
-                args.rcut,
-                color="red",
-                linestyle="--",
-                label="RCUT"
-            )
+        ax.legend()
 
     #
     # CLEANUP
     #
-    for ax in axes:
-        ax.grid(alpha=0.3)
+    ax.grid(alpha=0.3)
 
     plt.tight_layout()
 

@@ -18,7 +18,7 @@ mkdir -p "$CENTERED_DIR"
 # Step 1: Center snapshots
 # ----------------------------
 echo "Centering snapshots..."
-snapshots_exec ${INPUT_DIR}/snapshot_*.hdf5 \
+snapshots_exec ${INPUT_DIR}/rcut_*.hdf5 \
 	--exec "nb.cmcenter()" \
     -o "$CENTERED_DIR"
 

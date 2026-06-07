@@ -16,7 +16,7 @@ mkdir -p "$DEST"
 FILES=($(seq -f "snapshot_%04g.hdf5" 0 100))
 
 # Remote base path
-REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/orig/snap"
+REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/swift_mod/truetest15/snap"
 
 # Sequentially transfer files
 for FILE in "${FILES[@]}"; do
