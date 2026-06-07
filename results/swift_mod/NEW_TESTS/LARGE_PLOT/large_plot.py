@@ -63,7 +63,7 @@ def plot_density_panel(ax, sim_files, labels, r_cutoff, title):
         r = data["radius"]
         rho = data["density"]
 
-        rho = 0.2 * rho
+        rho = 1 * rho
 
         ax.plot(
             r,
@@ -246,247 +246,246 @@ def make_figure(all_runs, labels):
 if __name__ == "__main__":
 
     labels = [
-        "10 Gyr",
-        "20 Gyr",
-        "30 Gyr",
-        "40 Gyr",
-        "50 Gyr",
-        "60 Gyr",
-        "70 Gyr",
-        "80 Gyr",
-        "90 Gyr",
-        "100 Gyr"
+        "1 Gyr",
+        "2 Gyr",
+        "3 Gyr",
+        "4 Gyr",
+        "5 Gyr",
+        "6 Gyr",
+        "7 Gyr",
+        "8 Gyr",
+        "9 Gyr",
+        "10 Gyr"
     ]
 
-    # -------------------------------------------------------------
-    # Each entry = one subplot
-    # -------------------------------------------------------------
-    all_runs = [
+# -------------------------------------------------------------
+# Each entry = one subplot
+# -------------------------------------------------------------
+all_runs = [
 
-        {
-            "Rcut": 1.0,
-            "files": [
-                "Rcut5/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut5/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut5/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut5/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut5/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut5/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut5/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut5/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut5/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut5/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
+    {
+        "Rcut": 1.0,
+        "files": [
+            "Rcut1/profile_snapshot_0010.hdf5.npz",
+            "Rcut1/profile_snapshot_0020.hdf5.npz",
+            "Rcut1/profile_snapshot_0030.hdf5.npz",
+            "Rcut1/profile_snapshot_0040.hdf5.npz",
+            "Rcut1/profile_snapshot_0050.hdf5.npz",
+            "Rcut1/profile_snapshot_0060.hdf5.npz",
+            "Rcut1/profile_snapshot_0070.hdf5.npz",
+            "Rcut1/profile_snapshot_0080.hdf5.npz",
+            "Rcut1/profile_snapshot_0090.hdf5.npz",
+            "Rcut1/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
 
-        {
-            "Rcut": 2.0,
-            "files": [
-                "Rcut10/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut10/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut10/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut10/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut10/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut10/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut10/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut10/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut10/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut10/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
+    {
+        "Rcut": 2.0,
+        "files": [
+            "Rcut2/profile_snapshot_0010.hdf5.npz",
+            "Rcut2/profile_snapshot_0020.hdf5.npz",
+            "Rcut2/profile_snapshot_0030.hdf5.npz",
+            "Rcut2/profile_snapshot_0040.hdf5.npz",
+            "Rcut2/profile_snapshot_0050.hdf5.npz",
+            "Rcut2/profile_snapshot_0060.hdf5.npz",
+            "Rcut2/profile_snapshot_0070.hdf5.npz",
+            "Rcut2/profile_snapshot_0080.hdf5.npz",
+            "Rcut2/profile_snapshot_0090.hdf5.npz",
+            "Rcut2/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
 
-        {
-            "Rcut": 3.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 4.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 5.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 6.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 7.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 8.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 9.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 10.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 15.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 20.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 25.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
-        
-        {
-            "Rcut": 50.0,
-            "files": [
-                "Rcut20/profile_chunk_0100_0104.hdf5.npz",
-                "Rcut20/profile_chunk_0200_0204.hdf5.npz",
-                "Rcut20/profile_chunk_0300_0304.hdf5.npz",
-                "Rcut20/profile_chunk_0400_0404.hdf5.npz",
-                "Rcut20/profile_chunk_0500_0504.hdf5.npz",
-                "Rcut20/profile_chunk_0600_0604.hdf5.npz",
-                "Rcut20/profile_chunk_0700_0704.hdf5.npz",
-                "Rcut20/profile_chunk_0800_0804.hdf5.npz",
-                "Rcut20/profile_chunk_0900_0904.hdf5.npz",
-                "Rcut20/profile_chunk_0995_0999.hdf5.npz",
-            ]
-        },
+    {
+        "Rcut": 3.0,
+        "files": [
+            "Rcut3/profile_snapshot_0010.hdf5.npz",
+            "Rcut3/profile_snapshot_0020.hdf5.npz",
+            "Rcut3/profile_snapshot_0030.hdf5.npz",
+            "Rcut3/profile_snapshot_0040.hdf5.npz",
+            "Rcut3/profile_snapshot_0050.hdf5.npz",
+            "Rcut3/profile_snapshot_0060.hdf5.npz",
+            "Rcut3/profile_snapshot_0070.hdf5.npz",
+            "Rcut3/profile_snapshot_0080.hdf5.npz",
+            "Rcut3/profile_snapshot_0090.hdf5.npz",
+            "Rcut3/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
 
-    ]
+    {
+        "Rcut": 4.0,
+        "files": [
+            "Rcut4/profile_snapshot_0010.hdf5.npz",
+            "Rcut4/profile_snapshot_0020.hdf5.npz",
+            "Rcut4/profile_snapshot_0030.hdf5.npz",
+            "Rcut4/profile_snapshot_0040.hdf5.npz",
+            "Rcut4/profile_snapshot_0050.hdf5.npz",
+            "Rcut4/profile_snapshot_0060.hdf5.npz",
+            "Rcut4/profile_snapshot_0070.hdf5.npz",
+            "Rcut4/profile_snapshot_0080.hdf5.npz",
+            "Rcut4/profile_snapshot_0090.hdf5.npz",
+            "Rcut4/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
 
-    make_figure(all_runs, labels)
+    {
+        "Rcut": 5.0,
+        "files": [
+            "Rcut5/profile_snapshot_0010.hdf5.npz",
+            "Rcut5/profile_snapshot_0020.hdf5.npz",
+            "Rcut5/profile_snapshot_0030.hdf5.npz",
+            "Rcut5/profile_snapshot_0040.hdf5.npz",
+            "Rcut5/profile_snapshot_0050.hdf5.npz",
+            "Rcut5/profile_snapshot_0060.hdf5.npz",
+            "Rcut5/profile_snapshot_0070.hdf5.npz",
+            "Rcut5/profile_snapshot_0080.hdf5.npz",
+            "Rcut5/profile_snapshot_0090.hdf5.npz",
+            "Rcut5/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 6.0,
+        "files": [
+            "Rcut6/profile_snapshot_0010.hdf5.npz",
+            "Rcut6/profile_snapshot_0020.hdf5.npz",
+            "Rcut6/profile_snapshot_0030.hdf5.npz",
+            "Rcut6/profile_snapshot_0040.hdf5.npz",
+            "Rcut6/profile_snapshot_0050.hdf5.npz",
+            "Rcut6/profile_snapshot_0060.hdf5.npz",
+            "Rcut6/profile_snapshot_0070.hdf5.npz",
+            "Rcut6/profile_snapshot_0080.hdf5.npz",
+            "Rcut6/profile_snapshot_0090.hdf5.npz",
+            "Rcut6/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 7.0,
+        "files": [
+            "Rcut7/profile_snapshot_0010.hdf5.npz",
+            "Rcut7/profile_snapshot_0020.hdf5.npz",
+            "Rcut7/profile_snapshot_0030.hdf5.npz",
+            "Rcut7/profile_snapshot_0040.hdf5.npz",
+            "Rcut7/profile_snapshot_0050.hdf5.npz",
+            "Rcut7/profile_snapshot_0060.hdf5.npz",
+            "Rcut7/profile_snapshot_0070.hdf5.npz",
+            "Rcut7/profile_snapshot_0080.hdf5.npz",
+            "Rcut7/profile_snapshot_0090.hdf5.npz",
+            "Rcut7/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 8.0,
+        "files": [
+            "Rcut8/profile_snapshot_0010.hdf5.npz",
+            "Rcut8/profile_snapshot_0020.hdf5.npz",
+            "Rcut8/profile_snapshot_0030.hdf5.npz",
+            "Rcut8/profile_snapshot_0040.hdf5.npz",
+            "Rcut8/profile_snapshot_0050.hdf5.npz",
+            "Rcut8/profile_snapshot_0060.hdf5.npz",
+            "Rcut8/profile_snapshot_0070.hdf5.npz",
+            "Rcut8/profile_snapshot_0080.hdf5.npz",
+            "Rcut8/profile_snapshot_0090.hdf5.npz",
+            "Rcut8/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 9.0,
+        "files": [
+            "Rcut9/profile_snapshot_0010.hdf5.npz",
+            "Rcut9/profile_snapshot_0020.hdf5.npz",
+            "Rcut9/profile_snapshot_0030.hdf5.npz",
+            "Rcut9/profile_snapshot_0040.hdf5.npz",
+            "Rcut9/profile_snapshot_0050.hdf5.npz",
+            "Rcut9/profile_snapshot_0060.hdf5.npz",
+            "Rcut9/profile_snapshot_0070.hdf5.npz",
+            "Rcut9/profile_snapshot_0080.hdf5.npz",
+            "Rcut9/profile_snapshot_0090.hdf5.npz",
+            "Rcut9/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 10.0,
+        "files": [
+            "Rcut10/profile_snapshot_0010.hdf5.npz",
+            "Rcut10/profile_snapshot_0020.hdf5.npz",
+            "Rcut10/profile_snapshot_0030.hdf5.npz",
+            "Rcut10/profile_snapshot_0040.hdf5.npz",
+            "Rcut10/profile_snapshot_0050.hdf5.npz",
+            "Rcut10/profile_snapshot_0060.hdf5.npz",
+            "Rcut10/profile_snapshot_0070.hdf5.npz",
+            "Rcut10/profile_snapshot_0080.hdf5.npz",
+            "Rcut10/profile_snapshot_0090.hdf5.npz",
+            "Rcut10/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 15.0,
+        "files": [
+            "Rcut15/profile_snapshot_0010.hdf5.npz",
+            "Rcut15/profile_snapshot_0020.hdf5.npz",
+            "Rcut15/profile_snapshot_0030.hdf5.npz",
+            "Rcut15/profile_snapshot_0040.hdf5.npz",
+            "Rcut15/profile_snapshot_0050.hdf5.npz",
+            "Rcut15/profile_snapshot_0060.hdf5.npz",
+            "Rcut15/profile_snapshot_0070.hdf5.npz",
+            "Rcut15/profile_snapshot_0080.hdf5.npz",
+            "Rcut15/profile_snapshot_0090.hdf5.npz",
+            "Rcut15/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 20.0,
+        "files": [
+            "Rcut20/profile_snapshot_0010.hdf5.npz",
+            "Rcut20/profile_snapshot_0020.hdf5.npz",
+            "Rcut20/profile_snapshot_0030.hdf5.npz",
+            "Rcut20/profile_snapshot_0040.hdf5.npz",
+            "Rcut20/profile_snapshot_0050.hdf5.npz",
+            "Rcut20/profile_snapshot_0060.hdf5.npz",
+            "Rcut20/profile_snapshot_0070.hdf5.npz",
+            "Rcut20/profile_snapshot_0080.hdf5.npz",
+            "Rcut20/profile_snapshot_0090.hdf5.npz",
+            "Rcut20/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 25.0,
+        "files": [
+            "Rcut25/profile_snapshot_0010.hdf5.npz",
+            "Rcut25/profile_snapshot_0020.hdf5.npz",
+            "Rcut25/profile_snapshot_0030.hdf5.npz",
+            "Rcut25/profile_snapshot_0040.hdf5.npz",
+            "Rcut25/profile_snapshot_0050.hdf5.npz",
+            "Rcut25/profile_snapshot_0060.hdf5.npz",
+            "Rcut25/profile_snapshot_0070.hdf5.npz",
+            "Rcut25/profile_snapshot_0080.hdf5.npz",
+            "Rcut25/profile_snapshot_0090.hdf5.npz",
+            "Rcut25/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+
+    {
+        "Rcut": 50.0,
+        "files": [
+            "Rcut50/profile_snapshot_0010.hdf5.npz",
+            "Rcut50/profile_snapshot_0020.hdf5.npz",
+            "Rcut50/profile_snapshot_0030.hdf5.npz",
+            "Rcut50/profile_snapshot_0040.hdf5.npz",
+            "Rcut50/profile_snapshot_0050.hdf5.npz",
+            "Rcut50/profile_snapshot_0060.hdf5.npz",
+            "Rcut50/profile_snapshot_0070.hdf5.npz",
+            "Rcut50/profile_snapshot_0080.hdf5.npz",
+            "Rcut50/profile_snapshot_0090.hdf5.npz",
+            "Rcut50/profile_snapshot_0100.hdf5.npz",
+        ]
+    },
+]
+
+make_figure(all_runs, labels)

@@ -13,10 +13,10 @@ DEST="/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/
 mkdir -p "$DEST"
 
 # List of files to transfer
-FILES=($(printf "snapshot_%04d.hdf5 " {0..1000}))
+FILES=($(seq -f "snapshot_%04g.hdf5" 0 100))
 
 # Remote base path
-REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/swift_mod/gravtest/snap"
+REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/orig/snap"
 
 # Sequentially transfer files
 for FILE in "${FILES[@]}"; do

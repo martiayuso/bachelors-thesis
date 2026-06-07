@@ -4,10 +4,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+from matplotlib.colors import LogNorm
+from scipy.ndimage import gaussian_filter
+
 
 
 R_CUT = 1.0
-BINS = 200
+BINS = 800
 
 
 # -----------------------------
@@ -25,10 +28,37 @@ def safe_hist2d(ax, x, y, title, xlabel, ylabel):
         ax.set_title(title + " (no data)")
         return
 
-    ax.hist2d(x, y, bins=BINS, cmap="magma")
+    # Compute histogram manually
+    H, xedges, yedges = np.histogram2d(
+        x,
+        y,
+        bins=BINS
+    )
+
+    # Smooth the histogram
+    H = gaussian_filter(H, sigma=2.5)
+    
+    H = np.clip(H, 1, None)
+
+    # Render smoothly
+    im = ax.imshow(
+        H.T,
+        origin='lower',
+        aspect='auto',
+        extent=[
+            xedges[0], xedges[-1],
+            yedges[0], yedges[-1]
+        ],
+        cmap='magma',
+        norm=LogNorm(),
+        interpolation='bilinear'
+    )
+
     ax.set_title(title)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
+
+    plt.colorbar(im, ax=ax, label='counts')
 
 
 # -----------------------------
@@ -74,14 +104,14 @@ def main():
             axs[2],
             df["time"],
             df["potential"],
-            "Potential vs time (may be invalid)",
+            "Potential vs time",
             "time",
             "Φ"
         )
     else:
         axs[2].set_title("Potential missing")
 
-    plt.suptitle("SWIFT hybrid diagnostics: time evolution")
+    plt.suptitle("time evolution")
     plt.tight_layout(rect=[0, 0, 1, 0.96])
 
     fig1.savefig("output/time_evolution.png", dpi=200)

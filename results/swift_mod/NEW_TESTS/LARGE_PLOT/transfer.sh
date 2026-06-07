@@ -18,31 +18,23 @@ mkdir -p "$DEST_BASE"
 # Simulation folders
 # ------------------------------------------------------------------
 SIMS=(
-    "gravtest"
-    "gravtest2"
-    "gravtest4"
-    "gravtest6"
-    "gravtest7"
-    "gravtest8"
-    "gravtest9"
-    "gravtest10"
-    "gravtest11"
+    "truetest5"
 )
 
 # ------------------------------------------------------------------
 # Files to transfer
 # ------------------------------------------------------------------
 FILES=(
-    "chunk_0010_0014.hdf5"
-    "chunk_0020_0024.hdf5"
-    "chunk_0030_0034.hdf5"
-    "chunk_0040_0044.hdf5"
-    "chunk_0050_0054.hdf5"
-    "chunk_0060_0064.hdf5"
-    "chunk_0070_0074.hdf5"
-    "chunk_0080_0084.hdf5"
-    "chunk_0090_0094.hdf5"
-    "chunk_0095_0099.hdf5"
+            "snapshot_0010.hdf5"
+            "snapshot_0020.hdf5"
+            "snapshot_0030.hdf5"
+            "snapshot_0040.hdf5"
+            "snapshot_0050.hdf5"
+            "snapshot_0060.hdf5"
+            "snapshot_0070.hdf5"
+            "snapshot_0080.hdf5"
+            "snapshot_0090.hdf5"
+            "snapshot_0100.hdf5"
 )
 
 # ------------------------------------------------------------------
@@ -59,7 +51,7 @@ for SIM in "${SIMS[@]}"; do
     mkdir -p "$DEST"
 
     # Remote base path for this simulation
-    REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/swift_mod/${SIM}/snap/chunks"
+    REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/swift_mod/${SIM}/snap"
 
     # Transfer files
     for FILE in "${FILES[@]}"; do

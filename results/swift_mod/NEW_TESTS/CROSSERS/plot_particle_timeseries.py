@@ -7,7 +7,7 @@ import numpy as np
 
 
 MAX_POINTS_PER_PARTICLE = 300   # subsampling cap
-BASE_ALPHA = 0.6                # will be reduced automatically if many particles
+BASE_ALPHA = 1                # will be reduced automatically if many particles
 
 
 def subsample(x, y, max_points):
@@ -33,7 +33,8 @@ def main():
     n_particles = len(particles)
 
     # Reduce alpha automatically when many particles
-    alpha = min(BASE_ALPHA, 5.0 / max(n_particles, 1))
+    # alpha = max(0.0025, min(BASE_ALPHA, 50.0 / max(n_particles, 1)))
+    alpha = BASE_ALPHA
 
     fig, axs = plt.subplots(3, 1, figsize=(10, 10), sharex=True)
 

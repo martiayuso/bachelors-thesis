@@ -23,7 +23,7 @@ plt.rcParams.update({
 # ------------------------------------------------------------
 # Load snapshot
 # ------------------------------------------------------------
-snapshot = "baseline/centered/snapshot_0010.hdf5"
+snapshot = "fix/centered/snapshot_0010.hdf5"
 
 nb = Nbody(snapshot)
 
