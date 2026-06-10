@@ -117,7 +117,7 @@ def plot(sim_files, labels):
     ax1.grid(alpha=0.2)
 
     ax1.set_title(
-        r"Density Profile Evolution for $\epsilon = 0.01\ \mathrm{kpc}$"
+        r"Density Profile Evolution for $\epsilon = 0.01\ \mathrm{kpc}$ and $R_{\rm cut}=5.0\ \mathrm{kpc}$"
     )
 
     # ------------------------------------------------------------------
