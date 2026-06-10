@@ -37,7 +37,7 @@ Examples:
 --------
 
 # density profile
-python3 plotSphericalProfile2.py -y density --xmin 0.01 --xmax 100 --rmax 100 --nr 200 --log xy snapshot_1000.hdf5
+python3 plotSphericalProfile2.py -y density --xmin 0.01 --xmax 10 --rmax 10 --nr 500 --log xy snapshot_0000.hdf5
 
 
 plotSphericalProfile -y density  --xmax 10 --rmax 10 --nr 64  --log xy  snapshot.hdf5  
@@ -250,7 +250,7 @@ def MakePlot(opt):
     nb = plot.apply_arguments_reduc(nb, opt)
     nb = plot.apply_arguments_select(nb, opt)
     nb = plot.apply_arguments_center(nb, opt)
-    nb.pos -= np.array([100.0, 100.0, 100.0])
+    # nb.pos -= np.array([100.0, 100.0, 100.0])
     nb = plot.apply_arguments_cmd(nb, opt)
     nb = plot.apply_arguments_info(nb, opt)
     nb = plot.apply_arguments_display(nb, opt)

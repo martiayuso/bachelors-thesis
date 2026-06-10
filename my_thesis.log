@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  7 JUN 2026 23:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  8 JUN 2026 20:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1264,20 +1264,7 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 \tf@toc=\write4
 \openout4 = `my_thesis.toc'.
 
- [5] (./my_thesis.lof
-
-Package natbib Warning: Citation `aasnova2024' on page vi undefined on input line 7.
-
-
-Package natbib Warning: Citation `boylan2009millennium2' on page vi undefined on input line 9.
-
-
-Package natbib Warning: Citation `crnojevic2021dwarf' on page vi undefined on input line 10.
-
-
-Package natbib Warning: Citation `swiftgallery2024' on page vi undefined on input line 11.
-
-[6
+ [5] (./my_thesis.lof [6
 
 
 ] [7])
@@ -1286,36 +1273,17 @@ Package natbib Warning: Citation `swiftgallery2024' on page vi undefined on inpu
 
  [8] (./content/ch1/introduction.tex
 Chapter 1.
-
-Package natbib Warning: Citation `power2003inner' on page 1 undefined on input line 12.
-
-
-Package natbib Warning: Citation `zhang2019optimal' on page 1 undefined on input line 12.
-
-
-Package natbib Warning: Citation `penarrubia2017fluctuations' on page 1 undefined on input line 14.
-
-
-Package natbib Warning: Citation `penarrubia2019stochastic' on page 1 undefined on input line 14.
-
 [1
 
 
 
 ]
-<content/ch1/img/cuspvcore.png, id=321, 792.9625pt x 710.655pt>
+<content/ch1/img/cuspvcore.png, id=348, 792.9625pt x 710.655pt>
 File: content/ch1/img/cuspvcore.png Graphic file (type png)
 <use content/ch1/img/cuspvcore.png>
 Package pdftex.def Info: content/ch1/img/cuspvcore.png  used on input line 18.
 (pdftex.def)             Requested size: 355.09175pt x 318.24113pt.
-
-
-Package natbib Warning: Citation `aasnova2024' on page 2 undefined on input line 19.
-
-
-Package natbib Warning: Citation `aasnova2024' on page 2 undefined on input line 19.
-
-[2 <./content/ch1/img/cuspvcore.png (PNG copy)>]
+ [2 <./content/ch1/img/cuspvcore.png (PNG copy)>]
 Overfull \hbox (2.28375pt too wide) in paragraph at lines 43--44
 []\T1/futs/b/n/10.95 (-20) Distinguish mass re-dis-tri-bu-tion from heat-ing\T1/futs/m/n/10.95 (-20) : Use cumulative-mass and angular-momentum
  []
@@ -1328,50 +1296,21 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <8.3> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 8.
-
-Package natbib Warning: Citation `binney2008galactic' on page 5 undefined on input line 8.
-
-
-Package natbib Warning: Citation `power2003inner' on page 5 undefined on input line 20.
-
-
-Package natbib Warning: Citation `zhang2019optimal' on page 5 undefined on input line 20.
-
 [5
 
 ]
-<content/ch3/img/millennium2zoom_paper.jpg, id=348, 1319.93124pt x 1319.93124pt>
+<content/ch3/img/millennium2zoom_paper.jpg, id=387, 1319.93124pt x 1319.93124pt>
 File: content/ch3/img/millennium2zoom_paper.jpg Graphic file (type jpg)
 <use content/ch3/img/millennium2zoom_paper.jpg>
 Package pdftex.def Info: content/ch3/img/millennium2zoom_paper.jpg  used on input line 32.
 (pdftex.def)             Requested size: 399.47398pt x 399.46674pt.
-
-
-Package natbib Warning: Citation `boylan2009millennium2' on page 6 undefined on input line 33.
-
-
-Package natbib Warning: Citation `boylan2009millennium2' on page 6 undefined on input line 33.
-
-[6 <./content/ch3/img/millennium2zoom_paper.jpg>]
-
-Package natbib Warning: Citation `salamin2026origin' on page 7 undefined on input line 68.
-
-<content/ch3/img/dwarf_galaxies.png, id=354, 1204.5pt x 1204.5pt>
+ [6 <./content/ch3/img/millennium2zoom_paper.jpg>]
+<content/ch3/img/dwarf_galaxies.png, id=399, 1204.5pt x 1204.5pt>
 File: content/ch3/img/dwarf_galaxies.png Graphic file (type png)
 <use content/ch3/img/dwarf_galaxies.png>
 Package pdftex.def Info: content/ch3/img/dwarf_galaxies.png  used on input line 72.
 (pdftex.def)             Requested size: 399.47398pt x 399.47118pt.
-
-Package natbib Warning: Citation `crnojevic2021dwarf' on page 7 undefined on input line 73.
-
-
-Package natbib Warning: Citation `crnojevic2021dwarf' on page 7 undefined on input line 73.
-
-[7]
-
-Package natbib Warning: Citation `salamin2026origin' on page 8 undefined on input line 77.
-
-[8 <./content/ch3/img/dwarf_galaxies.png (PNG copy)>]
+ [7] [8 <./content/ch3/img/dwarf_galaxies.png (PNG copy)>]
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
 (Font)              scaled to size 13.24796pt on input line 83.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -1390,18 +1329,336 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 9.19998pt on input line 83.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 7.35999pt on input line 83.
+ [9] [10]
+<content/ch3/img/agora_gear_revaz.png, id=454, 1027.84pt x 1027.84pt>
+File: content/ch3/img/agora_gear_revaz.png Graphic file (type png)
+<use content/ch3/img/agora_gear_revaz.png>
+Package pdftex.def Info: content/ch3/img/agora_gear_revaz.png  used on input line 134.
+(pdftex.def)             Requested size: 213.05234pt x 213.04541pt.
+<content/ch3/img/santa_barbara_borrow.png, id=455, 578.16pt x 578.16pt>
+File: content/ch3/img/santa_barbara_borrow.png Graphic file (type png)
+<use content/ch3/img/santa_barbara_borrow.png>
+Package pdftex.def Info: content/ch3/img/santa_barbara_borrow.png  used on input line 139.
+(pdftex.def)             Requested size: 213.05234pt x 213.05128pt.
+ [11 <./content/ch3/img/agora_gear_revaz.png (PNG copy)> <./content/ch3/img/santa_barbara_borrow.png>]) (./content/ch4/framework.tex [12]
+Chapter 3.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 1.
+[13
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+LaTeX Font Info:    Trying to load font information for TS1+futs on input line 57.
+ (/usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
+File: ts1futs.fd 2003/09/14 Fontinst v1.801 font definitions for TS1/futs.
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `futs' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [14]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 80.
+LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <7.6> not available
+(Font)              Font shape `T1/futs/b/n' tried instead on input line 80.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 80.
+
+Underfull \hbox (badness 6927) in paragraph at lines 82--83
+[]\T1/futs/b/n/10 (+20) Range fac-
+ []
 
 
-Package natbib Warning: Citation `binney2008galactic' on page 9 undefined on input line 86.
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+[]$\T1/futs/b/n/10 (+20) p \FMS/futm/m/n/10 Å \T1/futs/b/n/10 (+20) p[]$ \T1/futs/m/n/10 (+20) with MAC$\FMS/futm/m/n/10 2 f$\T1/futs/m/n/10 (+20) geometric,
+ []
 
 
-Package natbib Warning: Citation `power2003inner' on page 9 undefined on input line 86.
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+[]$\T1/futs/b/n/10 (+20) p \FMS/futm/m/n/10 Å \T1/futs/b/n/10 (+20) p[]$ \T1/futs/m/n/10 (+20) with $\FML/futmi/m/it/10 ^^O[] \FMS/futm/m/n/10 2
+ []
 
 
-Package natbib Warning: Citation `binney2008galactic' on page 9 undefined on input line 92.
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+[]\T1/futs/m/n/10 (+20) Hybrid truncated-
+ []
 
 
-Package natbib Warning: Citation `power2003inner' on page 9 undefined on input line 96.
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+[]$\T1/futs/b/n/10 (+20) p \FMS/futm/m/n/10 Å \T1/futs/b/n/10 (+20) p[]$\T1/futs/m/n/10 (+20) , model$\FMS/futm/m/n/10 !$\T1/futs/m/n/10 (+20) hybrid, $\FML/futmi/m/it/10 R[] \FMS/futm/m/n/10 2
+ []
 
 
-Package natbib Warning: Ci
+Overfull \hbox (24.49689pt too wide) in paragraph at lines 80--104
+ [][] 
+ []
+
+[15] [16]
+Overfull \hbox (9.21901pt too wide) in paragraph at lines 167--168
+\T1/futs/m/n/10.95 (-20) A ded-i-cated hy-brid grav-ity model was im-ple-mented and tested on a cus-tom SWIFT branch (\T1/zi4/l/it/10.95 truncated-
+ []
+
+[17]
+<content/ch4/img/truncated_nfw_technical.png, id=510, 1424.32124pt x 1467.4825pt>
+File: content/ch4/img/truncated_nfw_technical.png Graphic file (type png)
+<use content/ch4/img/truncated_nfw_technical.png>
+Package pdftex.def Info: content/ch4/img/truncated_nfw_technical.png  used on input line 193.
+(pdftex.def)             Requested size: 443.863pt x 457.31082pt.
+ [18] [19 <./content/ch4/img/truncated_nfw_technical.png (PNG copy)>] [20] [21]
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 9.0pt on input line 280.
+ [22] [23] [24] [25] [26]) (./content/ch5/results.tex
+Overfull \hbox (5.0396pt too wide) in paragraph at lines 426--1
+\T1/zi4/l/it/10.95 NFW \T1/futs/m/n/10.95 (-20) (see \T1/zi4/l/it/10.95 swift-sim/s-r-c/po-ten-tial/trun-cated_-nfw/po-ten-tial.h \T1/futs/m/n/10.95 (-20) and the as-so-ci-ated grav-ity hooks).
+ []
+
+[27]
+Chapter 4.
+[28
+
+]
+<content/ch5/img/particle_map_3panel.png, id=635, 1084.05pt x 1084.05pt>
+File: content/ch5/img/particle_map_3panel.png Graphic file (type png)
+<use content/ch5/img/particle_map_3panel.png>
+Package pdftex.def Info: content/ch5/img/particle_map_3panel.png  used on input line 28.
+(pdftex.def)             Requested size: 443.863pt x 443.86789pt.
+<content/ch5/img/potential_map_multi_rmax.png, id=636, 722.7pt x 722.7pt>
+File: content/ch5/img/potential_map_multi_rmax.png Graphic file (type png)
+<use content/ch5/img/potential_map_multi_rmax.png>
+Package pdftex.def Info: content/ch5/img/potential_map_multi_rmax.png  used on input line 35.
+(pdftex.def)             Requested size: 443.863pt x 443.86789pt.
+ [29 <./content/ch5/img/particle_map_3panel.png>] [30 <./content/ch5/img/potential_map_multi_rmax.png>]
+<content/ch5/img/gradient.png, id=649, 722.7pt x 578.16pt>
+File: content/ch5/img/gradient.png Graphic file (type png)
+<use content/ch5/img/gradient.png>
+Package pdftex.def Info: content/ch5/img/gradient.png  used on input line 44.
+(pdftex.def)             Requested size: 399.47398pt x 319.57693pt.
+<content/ch5/img/density_evolution_cusp.png, id=650, 705.5961pt x 553.1064pt>
+File: content/ch5/img/density_evolution_cusp.png Graphic file (type png)
+<use content/ch5/img/density_evolution_cusp.png>
+Package pdftex.def Info: content/ch5/img/density_evolution_cusp.png  used on input line 51.
+(pdftex.def)             Requested size: 399.47398pt x 313.13867pt.
+ [31 <./content/ch5/img/gradient.png>]
+
+LaTeX Warning: Reference `sec:framework_shells' on page 32 undefined on input line 65.
+
+[32 <./content/ch5/img/density_evolution_cusp.png>]
+<content/ch5/img/box_size_study.png, id=671, 705.5961pt x 553.1064pt>
+File: content/ch5/img/box_size_study.png Graphic file (type png)
+<use content/ch5/img/box_size_study.png>
+Package pdftex.def Info: content/ch5/img/box_size_study.png  used on input line 69.
+(pdftex.def)             Requested size: 399.47398pt x 313.13867pt.
+ [33 <./content/ch5/img/box_size_study.png>]
+<content/ch5/img/gradient_core.png, id=682, 722.7pt x 578.16pt>
+File: content/ch5/img/gradient_core.png Graphic file (type png)
+<use content/ch5/img/gradient_core.png>
+Package pdftex.def Info: content/ch5/img/gradient_core.png  used on input line 103.
+(pdftex.def)             Requested size: 399.47398pt x 319.57693pt.
+ [34]
+<content/ch5/img/density_evolution_core.png, id=687, 686.8059pt x 547.3248pt>
+File: content/ch5/img/density_evolution_core.png Graphic file (type png)
+<use content/ch5/img/density_evolution_core.png>
+Package pdftex.def Info: content/ch5/img/density_evolution_core.png  used on input line 110.
+(pdftex.def)             Requested size: 399.47398pt x 318.35056pt.
+ [35 <./content/ch5/img/gradient_core.png>] [36 <./content/ch5/img/density_evolution_core.png>]
+<content/ch5/img/grav_soft_study_50.png, id=706, 645.1302pt x 908.4339pt>
+File: content/ch5/img/grav_soft_study_50.png Graphic file (type png)
+<use content/ch5/img/grav_soft_study_50.png>
+Package pdftex.def Info: content/ch5/img/grav_soft_study_50.png  used on input line 128.
+(pdftex.def)             Requested size: 221.9315pt x 312.50903pt.
+<content/ch5/img/grav_soft_study_100.png, id=707, 645.1302pt x 908.4339pt>
+File: content/ch5/img/grav_soft_study_100.png Graphic file (type png)
+<use content/ch5/img/grav_soft_study_100.png>
+Package pdftex.def Info: content/ch5/img/grav_soft_study_100.png  used on input line 132.
+(pdftex.def)             Requested size: 221.9315pt x 312.50903pt.
+ [37 <./content/ch5/img/grav_soft_study_50.png> <./content/ch5/img/grav_soft_study_100.png>] [38] [39]
+<content/ch5/img/eta_study.png, id=727, 707.2824pt x 554.3109pt>
+File: content/ch5/img/eta_study.png Graphic file (type png)
+<use content/ch5/img/eta_study.png>
+Package pdftex.def Info: content/ch5/img/eta_study.png  used on input line 207.
+(pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
+<content/ch5/img/mac_study.png, id=728, 707.2824pt x 554.3109pt>
+File: content/ch5/img/mac_study.png Graphic file (type png)
+<use content/ch5/img/mac_study.png>
+Package pdftex.def Info: content/ch5/img/mac_study.png  used on input line 212.
+(pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
+<content/ch5/img/theta_cr_study.png, id=729, 707.2824pt x 554.3109pt>
+File: content/ch5/img/theta_cr_study.png Graphic file (type png)
+<use content/ch5/img/theta_cr_study.png>
+Package pdftex.def Info: content/ch5/img/theta_cr_study.png  used on input line 216.
+(pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
+<content/ch5/img/epsilon_fmm_study.png, id=730, 707.2824pt x 554.3109pt>
+File: content/ch5/img/epsilon_fmm_study.png Graphic file (type png)
+<use content/ch5/img/epsilon_fmm_study.png>
+Package pdftex.def Info: content/ch5/img/epsilon_fmm_study.png  used on input line 221.
+(pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
+ [40] [41 <./content/ch5/img/eta_study.png> <./content/ch5/img/mac_study.png> <./content/ch5/img/theta_cr_study.png> <./content/ch5/img/epsilon_fmm_study.png>]
+<content/ch4/img/shells.png, id=747, 849.8952pt x 265.9536pt>
+File: content/ch4/img/shells.png Graphic file (type png)
+<use content/ch4/img/shells.png>
+Package pdftex.def Info: content/ch4/img/shells.png  used on input line 239.
+(pdftex.def)             Requested size: 443.863pt x 138.89726pt.
+ [42 <./content/ch4/img/shells.png>]
+File: content/ch5/img/potential_map_multi_rmax.png Graphic file (type png)
+<use content/ch5/img/potential_map_multi_rmax.png>
+Package pdftex.def Info: content/ch5/img/potential_map_multi_rmax.png  used on input line 269.
+(pdftex.def)             Requested size: 443.863pt x 443.86789pt.
+ [43]
+<content/ch5/img/baseline_potential.pdf, id=762, 481.31819pt x 409.04819pt>
+File: content/ch5/img/baseline_potential.pdf Graphic file (type pdf)
+<use content/ch5/img/baseline_potential.pdf>
+Package pdftex.def Info: content/ch5/img/baseline_potential.pdf  used on input line 283.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+<content/ch5/img/potential_01.pdf, id=763, 481.31819pt x 409.04819pt>
+File: content/ch5/img/potential_01.pdf Graphic file (type pdf)
+<use content/ch5/img/potential_01.pdf>
+Package pdftex.def Info: content/ch5/img/potential_01.pdf  used on input line 288.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+<content/ch5/img/potential_02.pdf, id=764, 481.31819pt x 409.04819pt>
+File: content/ch5/img/potential_02.pdf Graphic file (type pdf)
+<use content/ch5/img/potential_02.pdf>
+Package pdftex.def Info: content/ch5/img/potential_02.pdf  used on input line 295.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+<content/ch5/img/potential_03.pdf, id=765, 481.31819pt x 409.04819pt>
+File: content/ch5/img/potential_03.pdf Graphic file (type pdf)
+<use content/ch5/img/potential_03.pdf>
+Package pdftex.def Info: content/ch5/img/potential_03.pdf  used on input line 300.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+<content/ch5/img/potential_05.pdf, id=766, 481.31819pt x 409.04819pt>
+File: content/ch5/img/potential_05.pdf Graphic file (type pdf)
+<use content/ch5/img/potential_05.pdf>
+Package pdftex.def Info: content/ch5/img/potential_05.pdf  used on input line 307.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+<content/ch5/img/potential_10.pdf, id=767, 481.31819pt x 409.04819pt>
+File: content/ch5/img/potential_10.pdf Graphic file (type pdf)
+<use content/ch5/img/potential_10.pdf>
+Package pdftex.def Info: content/ch5/img/potential_10.pdf  used on input line 312.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+ [44]
+<content/ch5/img/potential_25.pdf, id=772, 481.31819pt x 409.04819pt>
+File: content/ch5/img/potential_25.pdf Graphic file (type pdf)
+<use content/ch5/img/potential_25.pdf>
+Package pdftex.def Info: content/ch5/img/potential_25.pdf  used on input line 319.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+<content/ch5/img/potential_50.pdf, id=773, 481.31819pt x 409.04819pt>
+File: content/ch5/img/potential_50.pdf Graphic file (type pdf)
+<use content/ch5/img/potential_50.pdf>
+Package pdftex.def Info: content/ch5/img/potential_50.pdf  used on input line 324.
+(pdftex.def)             Requested size: 217.4953pt x 184.83769pt.
+ [45 <./content/ch5/img/baseline_potential.pdf> <./content/ch5/img/potential_01.pdf> <./content/ch5/img/potential_02.pdf> <./content/ch5/img/potential_03.pdf> <./content/ch5/img/potential_05.pdf> <./content/ch5/img/potential_10.pdf>]
+
+LaTeX Warning: Reference `fig:tnfw_validation_potential_multiscale' on page 46 undefined on input line 330.
+
+File: content/ch5/img/potential_map_multi_rmax.png Graphic file (type png)
+<use content/ch5/img/potential_map_multi_rmax.png>
+Package pdftex.def Info: content/ch5/img/potential_map_multi_rmax.png  used on input line 338.
+(pdftex.def)             Requested size: 443.863pt x 443.86789pt.
+[46 <./content/ch5/img/potential_25.pdf> <./content/ch5/img/potential_50.pdf>]
+File: content/ch5/img/gradient.png Graphic file (type png)
+<use content/ch5/img/gradient.png>
+Package pdftex.def Info: content/ch5/img/gradient.png  used on input line 349.
+(pdftex.def)             Requested size: 443.863pt x 355.09431pt.
+ [47]
+File: content/ch5/img/gradient.png Graphic file (type png)
+<use content/ch5/img/gradient.png>
+Package pdftex.def Info: content/ch5/img/gradient.png  used on input line 355.
+(pdftex.def)             Requested size: 443.863pt x 355.09431pt.
+ [48]
+File: content/ch5/img/density_evolution_cusp.png Graphic file (type png)
+<use content/ch5/img/density_evolution_cusp.png>
+Package pdftex.def Info: content/ch5/img/density_evolution_cusp.png  used on input line 361.
+(pdftex.def)             Requested size: 443.863pt x 347.93561pt.
+) (./content/ch6/conclusions.tex [49] [50]
+Chapter 5.
+) [51
+
+] [52] (./content/tail/appendix.tex
+Appendix A.
+[53
+
+
+] [54]
+Appendix B.
+[55
+
+] [56]
+<content/ch5/img/01_mass_profile_and_shell_fraction.png, id=1035, 610.6815pt x 436.5765pt>
+File: content/ch5/img/01_mass_profile_and_shell_fraction.png Graphic file (type png)
+<use content/ch5/img/01_mass_profile_and_shell_fraction.png>
+Package pdftex.def Info: content/ch5/img/01_mass_profile_and_shell_fraction.png  used on input line 137.
+(pdftex.def)             Requested size: 377.28625pt x 269.72867pt.
+ [57 <./content/ch5/img/01_mass_profile_and_shell_fraction.png>]
+<content/ch5/img/02_central_potential_shell_contribution.png, id=1043, 612.6525pt x 438.219pt>
+File: content/ch5/img/02_central_potential_shell_contribution.png Graphic file (type png)
+<use content/ch5/img/02_central_potential_shell_contribution.png>
+Package pdftex.def Info: content/ch5/img/02_central_potential_shell_contribution.png  used on input line 148.
+(pdftex.def)             Requested size: 377.28625pt x 269.87419pt.
+<content/ch5/img/03_outer_fraction_vs_cutoff.png, id=1045, 611.3385pt x 436.5765pt>
+File: content/ch5/img/03_outer_fraction_vs_cutoff.png Graphic file (type png)
+<use content/ch5/img/03_outer_fraction_vs_cutoff.png>
+Package pdftex.def Info: content/ch5/img/03_outer_fraction_vs_cutoff.png  used on input line 161.
+(pdftex.def)             Requested size: 377.28625pt x 269.44223pt.
+ [58 <./content/ch5/img/02_central_potential_shell_contribution.png>]
+<content/ch5/img/04_outer_fraction_map.png, id=1052, 599.184pt x 451.0305pt>
+File: content/ch5/img/04_outer_fraction_map.png Graphic file (type png)
+<use content/ch5/img/04_outer_fraction_map.png>
+Package pdftex.def Info: content/ch5/img/04_outer_fraction_map.png  used on input line 174.
+(pdftex.def)             Requested size: 377.28625pt x 284.00618pt.
+ [59 <./content/ch5/img/03_outer_fraction_vs_cutoff.png>] [60 <./content/ch5/img/04_outer_fraction_map.png>]
+Appendix C.
+) [61
+
+] (./content/tail/biblio.tex (./my_thesis.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+[]\T1/futs/m/n/10.95 (+20) AAS Nova (2024).  Down to the core: Dark mat-ter de-vi-a-tions
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--8
+\T1/futs/m/n/10.95 (+20) in ultra-faint dwarf galax-ies.  [][]$https : / / aasnova . org / 2024 / 11 / 01 /
+ []
+
+
+Underfull \hbox (badness 1448) in paragraph at lines 4--8
+\T1/futs/m/n/10.95 (+20) down-[]to-[]the-[]core-[]dark-[]matter-[]deviations-[]in-[]ultra-[]faint-[]dwarf-[]galaxies / #prettyPhoto$[][].  Ac-
+ []
+
+[62
+
+
+
+])) [63] (./my_thesis.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 34633 strings out of 474222
+ 617199 string characters out of 5748733
+ 2178975 words of memory out of 5000000
+ 55368 multiletter control sequences out of 15000+600000
+ 767084 words of font info for 544 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 90i,13n,136p,1375b,2424s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb>
+Output written on my_thesis.pdf (73 pages, 23792550 bytes).
+PDF statistics:
+ 1447 PDF objects out of 1728 (max. 8388607)
+ 1246 compressed objects within 13 object streams
+ 310 named destinations out of 1000 (max. 500000)
+ 142586 words of extra memory for PDF output out of 154059 (max. 10000000)
+

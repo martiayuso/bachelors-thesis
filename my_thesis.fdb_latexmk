@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex my_thesis"] 1780869360.137 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1780869360.53402 2
+["bibtex my_thesis"] 1780944257.88899 "my_thesis.aux" "my_thesis.bbl" "my_thesis" 1780944300.01317 0
   "./content/tail/bibliography.bib" 1780306347.06397 4843 68f78f5e6151eb74fb07bf38602a4244 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "my_thesis.aux" 1780869360.11525 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "my_thesis.aux" 1780944298.84614 64473 2c6812632d455bea4cd4d38de4227859 "pdflatex"
   (generated)
   "my_thesis.bbl"
   "my_thesis.blg"
   (rewritten before read)
-["pdflatex"] 1780869318.10563 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1780869359.57128 2
+["pdflatex"] 1780944258.17967 "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" "my_thesis.pdf" "my_thesis" 1780944300.01391 0
   "/etc/texmf/web2c/texmf.cnf" 1770803612.9779 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" 1780828448.45367 2571 614a3b1e924538a79a29b8ade86d158b ""
+  "/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/my_thesis.tex" 1780944156.23956 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1558214095 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -65,7 +65,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb" 1136849748 14981 0a68017b66294a0c7d78935574145a1c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb" 1136849748 13137 9cf0e1f3fa8b74ec708377d745022d53 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb" 1575236847 22238 87e9c1bfb269d3da7d96d9f4df8849d2 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb" 1558214095 80472 80293bde06887d309938fd1de50ad188 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb" 1558214095 55526 184de5d68af8c544d6d1653244a2b006 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futb8t.vf" 1136768653 2168 d2ac693e07cd79dbc2b914caee3e8df0 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futmi.vf" 1136768653 1164 c0b9e6c7779f90485c7374d946ab21ae ""
@@ -281,7 +280,7 @@
   "content/ch3/img/dwarf_galaxies.png" 1780306103.57622 2481347 de2904337141a002cd93d84a586c01ba ""
   "content/ch3/img/millennium2zoom_paper.jpg" 1779379122.57211 393792 31715b76114ae66f50c4f7706b766dce ""
   "content/ch3/img/santa_barbara_borrow.png" 1779377833.32121 4027793 83e6ff16a6de05f03933c65469e2c424 ""
-  "content/ch4/framework.tex" 1780869317.49273 33541 f982181c1c3c5a5faef2e30fca5e3e44 ""
+  "content/ch4/framework.tex" 1780870637.42593 33554 7e343b48e5a9e55f5454ae11615efbf8 ""
   "content/ch4/img/shells.png" 1780264708.52367 1704916 2ea1c5389ee2627d375288c10f60299f ""
   "content/ch4/img/truncated_nfw_technical.png" 1779891666.42532 142737 a0d619fb30ab0de5649f67d23fa93369 ""
   "content/ch5/img/01_mass_profile_and_shell_fraction.png" 1777910986.34906 288077 f56e28fa2bc22379d402e9d3724fce31 ""
@@ -314,14 +313,13 @@
   "content/head/abstracts.tex" 1779287878.92777 444 d897aaf0a067a69b9e1784bcf0d5ff5c ""
   "content/head/dedication.tex" 1779287878.92724 258 5bef0ee746ec05406c1c33b3c980ccdd ""
   "content/head/titlepage.tex" 1779391828.95493 1678 b39a8c6fc5271b82e834ddaf86fe4312 ""
-  "content/tail/appendix.tex" 1780828380.13269 1790 bbb3c72fda40b89fe514fdddaccb6051 ""
-  "content/tail/appendix_2.tex" 1780829592.26189 9658 49607b43f411b9b94dcd4bc0a31d8a26 ""
+  "content/tail/appendix.tex" 1780944129.64768 11460 12e2b045aae01e4f589ebfffc45d7be0 ""
   "content/tail/biblio.tex" 1779287878.92466 147 3da88521316b9dc9d1360dac743095a4 ""
-  "my_thesis.aux" 1780869360.11525 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "my_thesis.bbl" 1780869360.52825 0 d41d8cd98f00b204e9800998ecf8427e "bibtex my_thesis"
-  "my_thesis.lof" 0 -1 0 "pdflatex"
-  "my_thesis.tex" 1780828448.45367 2571 614a3b1e924538a79a29b8ade86d158b ""
-  "my_thesis.toc" 0 -1 0 "pdflatex"
+  "my_thesis.aux" 1780944298.84614 64473 2c6812632d455bea4cd4d38de4227859 "pdflatex"
+  "my_thesis.bbl" 1780944258.16402 4040 cba827a80ad4cb61d9f00072ec0270b0 "bibtex my_thesis"
+  "my_thesis.lof" 1780944298.87914 8906 495d91c739464237c001a6ca790c1add "pdflatex"
+  "my_thesis.tex" 1780944156.23956 2539 1a057cf27f53ed42c83ed1cd4f258f24 ""
+  "my_thesis.toc" 1780944298.87914 7023 ef83093ff698696d440f95a5e53fd566 "pdflatex"
   "settings/settings_custom.tex" 1780236735.88964 748 54e284987c1b862eb536d39b9f26891f ""
   "settings/settings_epfl_template.tex" 1780868608.45394 7898 5a9064ff035f344d0a1c36f35ce7c346 ""
   (generated)

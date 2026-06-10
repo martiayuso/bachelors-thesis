@@ -7,7 +7,7 @@ set -e
 source ~/swift-venv/bin/activate
 
 # Destination directory
-DEST="/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/NEW_TESTS"
+DEST="/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/NEW_TESTS/box_test"
 
 # Create destination directory if it doesn't exist
 mkdir -p "$DEST"
@@ -17,10 +17,13 @@ FILES=(
     "snapshot_0100.hdf5"
     "snapshot_0200.hdf5"
     "snapshot_0400.hdf5"
+    "snapshot_0600.hdf5"
+    "snapshot_0800.hdf5"
+    "snapshot_1000.hdf5"
 )
 
 # Remote base path
-REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/swift_mod/truetest15/snap"
+REMOTE_BASE="ayuso@jed.hpc.epfl.ch:/scratch/ayuso/sims/swift_mod/truetest16/snap"
 
 # Sequentially transfer files
 for FILE in "${FILES[@]}"; do

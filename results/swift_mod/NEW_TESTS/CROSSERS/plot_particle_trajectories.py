@@ -137,6 +137,11 @@ def main():
         )
 
         g = g[mask]
+        
+        # Normalize coordinates so halo center is at (0,0,0)
+        g["x"] = g["x"] - XC
+        g["y"] = g["y"] - YC
+        g["z"] = g["z"] - ZC
 
         if len(g) < 2:
             print(f"Skipping particle {pid}: insufficient data")
@@ -160,8 +165,8 @@ def main():
         )
 
         ax.scatter(
-            XC,
-            YC,
+            0,
+            0,
             marker="+",
             s=220,
             linewidths=2.5
@@ -208,8 +213,8 @@ def main():
         )
 
         center_marker = ax.scatter(
-            XC,
-            ZC,
+            0,
+            0,
             marker="+",
             s=220,
             linewidths=2.5
@@ -256,8 +261,8 @@ def main():
         )
 
         ax.scatter(
-            YC,
-            ZC,
+            0,
+            0,
             marker="+",
             s=220,
             linewidths=2.5
@@ -346,7 +351,7 @@ def main():
             [
                 "Start",
                 "End",
-                "Galaxy center"
+                "Halo center"
             ],
             fontsize=LEGEND_SIZE,
             frameon=False,          # removes legend box
@@ -384,6 +389,86 @@ def main():
 
         print("Wrote:", out)
 
+
+    # =====================================================
+    # Combined r vs time figure for all selected particles
+    # =====================================================
+    fig, ax = plt.subplots(figsize=(10, 5))
+
+    for pid in selected_ids:
+
+        g = df[df["id"] == pid].copy()
+
+        g = g.sort_values("time")
+
+        mask = (
+            np.isfinite(g["r"]) &
+            np.isfinite(g["time"])
+        )
+
+        g = g[mask]
+
+        if len(g) < 2:
+            continue
+
+        ax.plot(
+            g["time"],
+            g["r"],
+            linewidth=1.5,
+            label=f"Particle {int(pid)}"
+        )
+
+        # Start marker
+        ax.scatter(
+            g["time"].iloc[0],
+            g["r"].iloc[0],
+            marker="o",
+            s=40
+        )
+
+        # End marker
+        ax.scatter(
+            g["time"].iloc[-1],
+            g["r"].iloc[-1],
+            marker="x",
+            s=40
+        )
+
+    ax.set_xlabel(
+        "time",
+        fontsize=LABEL_SIZE
+    )
+
+    ax.set_ylabel(
+        "r",
+        fontsize=LABEL_SIZE
+    )
+
+    ax.set_title(
+        f"r vs time for {len(selected_ids)} selected particles",
+        fontsize=TITLE_SIZE
+    )
+
+    ax.tick_params(
+        axis='both',
+        labelsize=TICK_SIZE
+    )
+
+    plt.tight_layout()
+
+    out = os.path.join(
+        OUTPUT_DIR,
+        "combined_r_vs_time.png"
+    )
+
+    plt.savefig(
+        out,
+        dpi=200
+    )
+
+    plt.close(fig)
+
+    print("Wrote:", out)
 
 if __name__ == "__main__":
     main()

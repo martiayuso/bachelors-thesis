@@ -14,6 +14,9 @@ FILES=(
     "snapshot_0100.hdf5"
     "snapshot_0200.hdf5"
     "snapshot_0400.hdf5"
+    "snapshot_0600.hdf5"
+    "snapshot_0800.hdf5"
+    "snapshot_1000.hdf5"
 )
 
 # Run the plotting command sequentially
