@@ -26,10 +26,10 @@ plt.rcParams.update({
 # ------------------------------------------------------------
 # Load snapshots
 # ------------------------------------------------------------
-snapshot = "snap/centered/rcut_10_mod.hdf5"
+snapshot = "baseline/centered/snapshot_0001.hdf5"
 snapshot_baseline = "baseline/centered/snapshot_0001.hdf5"
 
-rcut = 10.0
+rcut = 50.0
 
 nb = Nbody(snapshot)
 nb_base = Nbody(snapshot_baseline)
@@ -98,7 +98,7 @@ def phi_ic(r, rho0, rs, r_cutoff, power_cutoff, G=4.30091e-6):
 # ------------------------------------------------------------
 # Analytical curve
 # ------------------------------------------------------------
-r_grid = np.linspace(1e-3, 55.0, 1000)
+r_grid = np.linspace(1e-3, 75.0, 1000)
 
 phi_ic_curve = phi_ic(
     r_grid,
@@ -223,7 +223,7 @@ ax_ratio.axhline(1.0, color="black", linestyle="--", linewidth=1.2)
 
 ax_ratio.set_xlabel(r"$r\ [{\rm kpc}]$")
 ax_ratio.set_ylabel(r"$\Phi_{\rm sim}/\Phi_{\rm ana}$")
-#ax_ratio.set_ylim(0.8, 1.2)
+ax_ratio.set_ylim(0.8, 1.2)
 ax_ratio.grid(False)
 
 

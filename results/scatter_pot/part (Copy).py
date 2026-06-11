@@ -7,17 +7,49 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from pNbody import Nbody
 
+# ========================================================
+# GLOBAL MATPLOTLIB STYLE
+# ========================================================
 
-# --------------------------------------------------------
-# Argument parser
-# --------------------------------------------------------
+plt.rcParams.update({
+
+    # overall text
+    "font.size": 16,
+
+    # axis labels
+    "axes.labelsize": 18,
+
+    # subplot titles
+    "axes.titlesize": 18,
+
+    # figure title
+    "figure.titlesize": 22,
+
+    # tick labels
+    "xtick.labelsize": 14,
+    "ytick.labelsize": 14,
+
+    # legend
+    "legend.fontsize": 14,
+
+    # colorbar tick labels
+    "figure.labelsize": 18
+
+})
+
+
+# ========================================================
+# ARGUMENT PARSER
+# ========================================================
 
 parser = argparse.ArgumentParser(
     description="Potential + selection plot from SWIFT snapshots using pNbody"
 )
 
 parser.add_argument("snapshot", type=str)
+
 parser.add_argument("--output", default="potential_selection.png")
+
 parser.add_argument("--rmax", type=float, default=50.0)
 
 parser.add_argument(
@@ -37,28 +69,34 @@ parser.add_argument(
     "--ptype",
     type=int,
     nargs="+",
-    default=None
+    default=None,
+    help="Particle types to keep"
 )
 
 parser.add_argument("--s", type=float, default=1.0)
 parser.add_argument("--s-selected", type=float, default=5.0)
 
-# NEW: performance control
-parser.add_argument("--stride", type=int, default=5, help="Downsampling factor")
+
+parser.add_argument(
+    "--reduction-factor",
+    type=float,
+    default=3.1,
+    help="Global particle reduction factor"
+)
 
 args = parser.parse_args()
 
 
-# --------------------------------------------------------
-# Load snapshot
-# --------------------------------------------------------
+# ========================================================
+# LOAD SNAPSHOT
+# ========================================================
 
 nb = Nbody(args.snapshot)
 
 
-# --------------------------------------------------------
-# Potential units
-# --------------------------------------------------------
+# ========================================================
+# POTENTIAL UNITS
+# ========================================================
 
 try:
     potential_unit = nb.localsystem_of_units['phi']
@@ -71,22 +109,26 @@ except:
 print("Potential units:", potential_unit)
 
 
-# --------------------------------------------------------
-# Select particle types
-# --------------------------------------------------------
+# ========================================================
+# SELECT PARTICLE TYPES
+# ========================================================
 
 if args.ptype is not None:
+
     mask = np.isin(nb.tpe, args.ptype)
+
     pos = nb.pos[mask]
     pot = nb.pot[mask]
+
 else:
+
     pos = nb.pos
     pot = nb.pot
 
 
-# --------------------------------------------------------
-# Convert to kpc
-# --------------------------------------------------------
+# ========================================================
+# CONVERT TO KPC
+# ========================================================
 
 try:
     pos = nb.Pos(units="kpc")[mask] if args.ptype is not None else nb.Pos(units="kpc")
@@ -94,17 +136,23 @@ except:
     pos = pos
 
 
-# --------------------------------------------------------
-# Centering
-# --------------------------------------------------------
+# ========================================================
+# CENTERING
+# ========================================================
 
 if args.center == "potential":
+
     idx = np.argmin(pot)
     center = pos[idx]
+
 elif args.center == "com":
+
     center = np.mean(pos, axis=0)
+
 else:
+
     center = np.zeros(3)
+
 
 pos = pos - center
 
@@ -114,29 +162,45 @@ z = pos[:, 2]
 
 r = np.sqrt(x*x + y*y + z*z)
 
-
 print("Particles:", len(pos))
 print("Potential min/max:", np.min(pot), np.max(pot))
 print("Center:", center)
 
 
-# --------------------------------------------------------
-# Selection
-# --------------------------------------------------------
+# ========================================================
+# SELECTION
+# ========================================================
 
 selected = r < args.select_radius
+
 print("Selected particles:", np.sum(selected))
 
 
-# --------------------------------------------------------
-# GLOBAL DOWN-SAMPLING (IMPORTANT OPTIMIZATION)
-# --------------------------------------------------------
+# ========================================================
+# GLOBAL PARTICLE REDUCTION
+# ========================================================
 
-stride = args.stride
-x_plot = x[::stride]
-y_plot = y[::stride]
-pot_plot = pot[::stride]
+reduction = args.reduction_factor
 
+# fraction of particles to KEEP
+keep_fraction = 1.0 / reduction
+
+Ntot = len(x)
+
+rng = np.random.default_rng(42)
+
+keep = rng.random(Ntot) < keep_fraction
+
+x_plot = x[keep]
+y_plot = y[keep]
+pot_plot = pot[keep]
+r_plot = r[keep]
+
+selected_plot = selected[keep]
+
+print("Reduction factor:", reduction)
+print("Keeping fraction:", keep_fraction)
+print("Reduced particle count:", len(x_plot))
 
 
 
@@ -144,18 +208,18 @@ pot_plot = pot[::stride]
 # 3-PANEL PARTICLE MAP (FULL RESOLUTION, selection style)
 # ========================================================
 
-N = 3
+N = 4
 
 fig, axes = plt.subplots(
-    1, 3,
-    figsize=(15, 5),
+    2, 2,
+    figsize=(15, 15),
     sharex=False,
     sharey=False
 )
 
 axes = np.array(axes).flatten()
 
-rmax_values = [5, 10, 50]
+rmax_values = [5, 10, 20, 50]
 
 # --------------------------------------------------------
 # SHELL SELECTION PARAMETERS
@@ -182,8 +246,8 @@ for i in range(N):
 
     # background particles
     ax.scatter(
-        x,
-        y,
+        x_plot,
+        y_plot,
         s=s_i,
         color="black",
         alpha=alpha_i,
@@ -209,10 +273,10 @@ for i in range(N):
     ax.set_xlabel("x [kpc]")
     ax.set_ylabel("y [kpc]")
 
-fig.suptitle("Particle Distribution at Different Scales", fontsize=14)
+fig.suptitle("Particle Distribution at Different Scales", fontsize=20)
 
 fig.tight_layout()
-fig.subplots_adjust(bottom=0.125)
+#fig.subplots_adjust(bottom=0.125)
 
 fig.savefig("particle_map_3panel.png", dpi=200)
 print("Saved: particle_map_3panel.png")

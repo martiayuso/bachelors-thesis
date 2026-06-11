@@ -417,22 +417,14 @@ def main():
             linewidth=1.5,
             label=f"Particle {int(pid)}"
         )
-
-        # Start marker
-        ax.scatter(
-            g["time"].iloc[0],
-            g["r"].iloc[0],
-            marker="o",
-            s=40
-        )
-
-        # End marker
-        ax.scatter(
-            g["time"].iloc[-1],
-            g["r"].iloc[-1],
-            marker="x",
-            s=40
-        )
+        
+    ax.axhline(
+        y=10,
+        color="black",
+        linestyle="--",
+        linewidth=1.0,
+        alpha=0.5
+    )
 
     ax.set_xlabel(
         "time",

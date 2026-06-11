@@ -3,7 +3,6 @@
 import argparse
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 from pNbody import Nbody
 
@@ -13,44 +12,51 @@ from pNbody import Nbody
 
 plt.rcParams.update({
 
-    # overall text
+    # dark theme
+    "figure.facecolor": "black",
+    "axes.facecolor": "black",
+    "savefig.facecolor": "black",
+    "savefig.edgecolor": "black",
+
+    # text colors
+    "text.color": "white",
+    "axes.labelcolor": "white",
+    "axes.edgecolor": "white",
+    "axes.titlecolor": "white",
+    "xtick.color": "white",
+    "ytick.color": "white",
+
+    # fonts
     "font.size": 16,
-
-    # axis labels
     "axes.labelsize": 18,
-
-    # subplot titles
     "axes.titlesize": 18,
-
-    # figure title
     "figure.titlesize": 22,
-
-    # tick labels
     "xtick.labelsize": 14,
     "ytick.labelsize": 14,
-
-    # legend
-    "legend.fontsize": 14,
-
-    # colorbar tick labels
-    "figure.labelsize": 18
+    "legend.fontsize": 14
 
 })
-
 
 # ========================================================
 # ARGUMENT PARSER
 # ========================================================
 
 parser = argparse.ArgumentParser(
-    description="Potential + selection plot from SWIFT snapshots using pNbody"
+    description="Artistic particle distribution plot"
 )
 
 parser.add_argument("snapshot", type=str)
 
-parser.add_argument("--output", default="potential_selection.png")
+parser.add_argument(
+    "--output",
+    default="particle_map_3panel.png"
+)
 
-parser.add_argument("--rmax", type=float, default=50.0)
+parser.add_argument(
+    "--rmax",
+    type=float,
+    default=50.0
+)
 
 parser.add_argument(
     "--center",
@@ -73,9 +79,17 @@ parser.add_argument(
     help="Particle types to keep"
 )
 
-parser.add_argument("--s", type=float, default=1.0)
-parser.add_argument("--s-selected", type=float, default=5.0)
+parser.add_argument(
+    "--s",
+    type=float,
+    default=1.0
+)
 
+parser.add_argument(
+    "--s-selected",
+    type=float,
+    default=5.0
+)
 
 parser.add_argument(
     "--reduction-factor",
@@ -86,28 +100,25 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-
 # ========================================================
 # LOAD SNAPSHOT
 # ========================================================
 
 nb = Nbody(args.snapshot)
 
-
 # ========================================================
 # POTENTIAL UNITS
 # ========================================================
 
 try:
-    potential_unit = nb.localsystem_of_units['phi']
+    potential_unit = nb.localsystem_of_units["phi"]
 except:
     try:
-        potential_unit = nb.localsystem_of_units['pot']
+        potential_unit = nb.localsystem_of_units["pot"]
     except:
         potential_unit = r"(km/s)$^2$"
 
 print("Potential units:", potential_unit)
-
 
 # ========================================================
 # SELECT PARTICLE TYPES
@@ -125,16 +136,20 @@ else:
     pos = nb.pos
     pot = nb.pot
 
-
 # ========================================================
 # CONVERT TO KPC
 # ========================================================
 
 try:
-    pos = nb.Pos(units="kpc")[mask] if args.ptype is not None else nb.Pos(units="kpc")
-except:
-    pos = pos
 
+    if args.ptype is not None:
+        pos = nb.Pos(units="kpc")[mask]
+    else:
+        pos = nb.Pos(units="kpc")
+
+except:
+
+    pos = pos
 
 # ========================================================
 # CENTERING
@@ -153,7 +168,6 @@ else:
 
     center = np.zeros(3)
 
-
 pos = pos - center
 
 x = pos[:, 0]
@@ -166,7 +180,6 @@ print("Particles:", len(pos))
 print("Potential min/max:", np.min(pot), np.max(pot))
 print("Center:", center)
 
-
 # ========================================================
 # SELECTION
 # ========================================================
@@ -175,21 +188,15 @@ selected = r < args.select_radius
 
 print("Selected particles:", np.sum(selected))
 
-
 # ========================================================
 # GLOBAL PARTICLE REDUCTION
 # ========================================================
 
-reduction = args.reduction_factor
-
-# fraction of particles to KEEP
-keep_fraction = 1.0 / reduction
-
-Ntot = len(x)
+keep_fraction = 1.0 / args.reduction_factor
 
 rng = np.random.default_rng(42)
 
-keep = rng.random(Ntot) < keep_fraction
+keep = rng.random(len(x)) < keep_fraction
 
 x_plot = x[keep]
 y_plot = y[keep]
@@ -198,34 +205,15 @@ r_plot = r[keep]
 
 selected_plot = selected[keep]
 
-print("Reduction factor:", reduction)
+print("Reduction factor:", args.reduction_factor)
 print("Keeping fraction:", keep_fraction)
 print("Reduced particle count:", len(x_plot))
 
-
-
 # ========================================================
-# 3-PANEL PARTICLE MAP (FULL RESOLUTION, selection style)
+# SHELL SELECTION
 # ========================================================
 
-N = 4
-
-fig, axes = plt.subplots(
-    2, 2,
-    figsize=(15, 15),
-    sharex=False,
-    sharey=False
-)
-
-axes = np.array(axes).flatten()
-
-rmax_values = [5, 10, 20, 50]
-
-# --------------------------------------------------------
-# SHELL SELECTION PARAMETERS
-# --------------------------------------------------------
-
-dr = 0.0 * args.select_radius  # shell thickness (adjust if needed)
+dr = 0.0 * args.select_radius
 
 r_inner = args.select_radius - dr
 r_outer = args.select_radius + dr
@@ -234,49 +222,168 @@ Rproj = np.sqrt(x*x + y*y)
 
 shell = (Rproj > r_inner) & (Rproj < r_outer)
 
-for i in range(N):
-    ax = axes[i]
+# ========================================================
+# COLOR MAPPING
+# ========================================================
+
+#
+# OPTION A: color by radius
+#
+cvals = r_plot
+
+#
+# OPTION B: color by potential
+#
+# cvals = -pot_plot
+
+norm = plt.Normalize(
+    vmin=np.percentile(cvals, 1),
+    vmax=np.percentile(cvals, 99)
+)
+
+cmap = plt.cm.magma
+
+# ========================================================
+# MULTI-SCALE PLOT
+# ========================================================
+
+fig, axes = plt.subplots(
+    2,
+    2,
+    figsize=(15, 15),
+    facecolor="black"
+)
+
+axes = np.array(axes).flatten()
+
+rmax_values = [5, 10, 20, 50]
+
+for i, ax in enumerate(axes):
 
     rmax_i = rmax_values[i]
-    
+
     scale = args.rmax / rmax_i
 
     s_i = args.s * scale**0.7
-    alpha_i = min(0.03 * scale**0.5, 0.2)
 
-    # background particles
+    glow_alpha = min(
+        0.03 * scale**0.5,
+        0.15
+    )
+
+    particle_alpha = min(
+        0.25 * scale**0.3,
+        0.55
+    )
+
+    ax.set_facecolor("black")
+
+    # ----------------------------------------------------
+    # glow layer
+    # ----------------------------------------------------
+
     ax.scatter(
         x_plot,
         y_plot,
-        s=s_i,
-        color="black",
-        alpha=alpha_i,
-        linewidths=0
+        c=cvals,
+        cmap=cmap,
+        norm=norm,
+        s=s_i * 8,
+        alpha=glow_alpha,
+        linewidths=0,
+        rasterized=True
     )
 
-    # shell selection
+    # ----------------------------------------------------
+    # main particle layer
+    # ----------------------------------------------------
+
+    sc = ax.scatter(
+        x_plot,
+        y_plot,
+        c=cvals,
+        cmap=cmap,
+        norm=norm,
+        s=s_i,
+        alpha=particle_alpha,
+        linewidths=0,
+        rasterized=True
+    )
+
+    # ----------------------------------------------------
+    # highlighted shell
+    # ----------------------------------------------------
+
     ax.scatter(
         x[shell],
         y[shell],
         s=args.s_selected * scale**0.5,
-        color="red",
-        linewidths=0,
-        alpha=0.8
+        color="#00E5FF",
+        alpha=0.95,
+        linewidths=0
     )
+
+    # ----------------------------------------------------
+    # axis formatting
+    # ----------------------------------------------------
 
     ax.set_xlim(-rmax_i, rmax_i)
     ax.set_ylim(-rmax_i, rmax_i)
+
     ax.set_aspect("equal")
 
-    ax.set_title(rf"$R_{{\mathrm{{max}}}} = {rmax_i:.1f}\,\mathrm{{kpc}}$")
+    ax.set_title(
+        f"Rmax = {rmax_i:.0f} kpc"
+    )
 
     ax.set_xlabel("x [kpc]")
     ax.set_ylabel("y [kpc]")
 
-fig.suptitle("Particle Distribution at Different Scales", fontsize=20)
+    ax.tick_params(colors="white")
+
+    for spine in ax.spines.values():
+        spine.set_color("white")
+
+# ========================================================
+# COLORBAR
+# ========================================================
+
+cbar = fig.colorbar(
+    sc,
+    ax=axes.tolist(),
+    shrink=0.8,
+    pad=0.02
+)
+
+cbar.ax.tick_params(colors="white")
+cbar.outline.set_edgecolor("white")
+
+cbar.set_label(
+    "Radius [kpc]",
+    color="white"
+)
+
+# ========================================================
+# TITLE
+# ========================================================
+
+fig.suptitle(
+    "Dark Matter Halo Structure",
+    fontsize=24,
+    color="white"
+)
 
 fig.tight_layout()
-#fig.subplots_adjust(bottom=0.125)
 
-fig.savefig("particle_map_3panel.png", dpi=200)
-print("Saved: particle_map_3panel.png")
+# ========================================================
+# SAVE
+# ========================================================
+
+fig.savefig(
+    args.output,
+    dpi=300,
+    bbox_inches="tight",
+    facecolor=fig.get_facecolor()
+)
+
+print(f"Saved: {args.output}")

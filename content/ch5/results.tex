@@ -264,13 +264,6 @@ This section introduces the truncated--NFW hybrid experiments used to isolate th
 \subsection{Mass and potential structure}
 First, the mass-split produced by the truncation routine is checked visually and quantitatively: the inner and outer mass components sum to the original halo mass and the outer component vanishes beyond the chosen cutoff radius. The mass-split diagnostic is shown in Figure~\ref{fig:tnfw_validation_mass_split} and confirms that mass is correctly assigned to the inner particle region and to the truncated outer component.
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax.png}
-	\caption{\textbf{Mass-split diagnostic for the truncated model.} The plot visualises the particle assignment across the truncation boundary and verifies that the inner particle component and the truncated outer mass sum to the original halo mass.}
-	\label{fig:tnfw_validation_mass_split}
-\end{figure}
-
 Second, the set of potential-distribution panels for different truncation radii (Figure~\ref{fig:multifigure_potential_distr}) explicitly shows how decreasing $R_{\mathrm{cut}}$ progressively removes long-range contributions and localises the potential, as designed. The sequence of panels (vanilla SWIFT, $R_{\mathrm{cut}}=50,20,10,5,1$ kpc) matches the theoretical expectation: the potential smoothly approaches the analytic truncated form while remaining similar to the baseline in the inner region for sufficiently large cutoffs.
 
 \begin{figure}[H]
@@ -335,29 +328,53 @@ Selected test particles that cross the truncation boundary were integrated to ch
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/potential_map_multi_rmax.png}
+	\includegraphics[width=1\textwidth]{content/ch5/img/orbit_01.png}
 	\caption{\textbf{Example orbits crossing the truncation boundary.} Selected test particles that cross $R_{\mathrm{cut}}$ are shown to verify the hybrid treatment does not introduce noticeable integration artefacts on the tested timescale.}
 	\label{fig:tnfw_validation_orbits}
 \end{figure}
 
-These outcomes give us confidence that the truncated interaction implementation behaves as intended for the described experiments.
-
-\subsection{Rcut study}
+More orbit plots can be found in the annex Section~\ref{app:tnfw_orbits}. Though we can summarize a larger number of orbits in the following plot. In all of the cases, the orbit remains regular, and notably has no inconsistencies when crossing the truncation boundary.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/gradient.png}
-	\caption{\textbf{Rcut study large plot.}}
+	\includegraphics[width=0.75\textwidth]{content/ch5/img/summary_orbits.png}
+	\caption{\textbf{Summary of selected orbits}}
+	\label{fig:summary_orbits}
 \end{figure}
 
+These outcomes give us confidence that the truncated interaction implementation behaves as intended for the described experiments.
+
+\subsection{Density profile}
+We first plot a complete 100 Gyr run of the density evolution for Rcut = 10 kpcs. The plot shows an evolution paralel to the baseline featured in section \ref{sec:results_baseline}, with a similar secular decline in the central density. This is a key result because it suggests that the mechanism behind the decline does not require the full long-range potential structure of the halo, and that truncating interactions beyond 10 kpc does not eliminate the effect.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/gradient.png}
+	\includegraphics[width=1\textwidth]{content/ch5/img/truncated_10.png}
 	\caption{\textbf{Baseline density-profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend. The gradient structure is consistent with a secular redistribution rather than a settled core.}
 \end{figure}
 
+This motivates further analysis of smaller Rcut values, which we carry out in the following plot.
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/density_evolution_cusp.png}
-	\caption{\textbf{Baseline evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
+	\includegraphics[width=1\textwidth]{content/ch5/img/large_plot.png}
+	\caption{\textbf{Rcut study large plot.}}
+\end{figure}
+
+The figure above provides an overview of simulations with small $R_{\rm cut}$ values. For $R_{\rm cut} \gtrsim 0.1\,\mathrm{kpc}$, the system evolves very similarly to the reference (vanilla SWIFT) run. However, as $R_{\rm cut}$ approaches the softening length value, the cusp-to-core transition does not extend to large times.
+
+This behaviour is clearly illustrated in the following figures: while the simulation with $R_{\rm cut}=5\,\mathrm{kpc}$ exhibits continued core growth up to $100\,\mathrm{Gyr}$, progressively smaller values of $R_{\rm cut}$ lead to increasingly limited core evolution, eventually resulting in a density profile that does not decrease.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/density_ratio_grid.png}
+	\caption{\textbf{Density ratio comparison}}
+\end{figure}
+
+Complete plots can be found in the annex Section~\ref{app:tnfw_density_profiles}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{content/ch5/img/truncated_10.png}
+	\caption{\textbf{Rcut comparison.}}
 \end{figure}
