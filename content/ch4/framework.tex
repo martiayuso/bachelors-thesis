@@ -105,62 +105,6 @@ Hybrid truncated-NFW & Cuspy & $\mathbf{p}=\mathbf{p}_0$, model$\rightarrow$hybr
 
 This representation makes the campaign auditable at a glance: all families are written as controlled perturbations of $\mathbf{p}_0$, with sweep spans of $10^2$ in $\eta$, $10^3$ in $\epsilon_{\mathrm{fmm}}$, $10^2$ in softening around the baseline $\epsilon_{\mathrm{soft}}=0.01\,\mathrm{kpc}$ (1--100 pc), and 50 in $R_{\mathrm{cut}}$. A persistent trend across these families is therefore difficult to attribute to a narrow parameter-tuning artefact.
 
-\section{Density, shell, and mass diagnostics}
-\label{sec:framework_diagnostics}
-
-This section defines the observables used throughout the thesis.
-
-\subsection{Spherically averaged density profiles}
-
-Density profiles are extracted from snapshots with a radial grid up to a user-defined $r_{\max}$ and $N_r$ bins. In practice, the analysis scripts use both moderate and high radial resolutions, including $N_r=500$ in the inner-region-focused runs.
-
-For shell $i$ with mass $\Delta M_i$ and boundaries $(r_{i,\mathrm{in}},r_{i,\mathrm{out}})$, the estimator is
-\begin{equation}
-\rho_i = \frac{\Delta M_i}{\frac{4\pi}{3}\left(r_{i,\mathrm{out}}^3-r_{i,\mathrm{in}}^3\right)}.
-\end{equation}
-Profiles are then compared to the initial state using ratio curves $\rho(r,t)/\rho(r,t_0)$, which makes secular flattening or depletion immediately visible.
-
-\subsection{Softening-scale marker in profile plots}
-
-To separate physically interpretable radii from numerically delicate scales, profile plots include a vertical reference at
-\begin{equation}
-r_{\mathrm{ref}} = 2.8\,\epsilon,
-\end{equation}
-with $\epsilon$ the run softening length.
-
-\subsection{Cumulative mass profiles}
-
-Cumulative mass diagnostics are computed via
-\begin{equation}
-M(<r) = \sum_{r_j < r} m_j,
-\end{equation}
-including optional decomposition by particle type when needed. The implementation supports multiple centering modes (center of mass, median, manual center, and shrinking-sphere center), with shrinking-sphere used in the dedicated cumulative-mass tests because of its robustness to asymmetries and mild off-centering.
-
-\subsection{Velocity and anisotropy diagnostics}
-
-Using the same radial binning, the analysis computes velocity moments and anisotropy indicators, including
-\begin{equation}
-\beta(r) = 1 - \frac{\sigma_t^2}{2\sigma_r^2},
-\end{equation}
-as complementary diagnostics for identifying orbital heating and redistribution mechanisms.
-
-\section{Post-processing pipeline and centering}
-\label{sec:framework_pipeline}
-
-The post-processing pipeline is designed to keep the density measurements stable against two common sources of noise: snapshot-to-snapshot variance and small centering offsets. These steps are essential for ensuring that the measured trends reflect the simulation rather than the extraction procedure.
-
-\subsection{Snapshot concatenation}
-
-To reduce stochastic noise in the density-evolution curves, consecutive snapshots are concatenated into larger time blocks before the profile comparison is made. This averaging procedure smooths out short-timescale fluctuations that appear in individual outputs, while preserving the secular evolution of the halo.
-
-The key point is that concatenation changes the visual smoothness of the curves, but not the underlying behaviour: the declining inner-density trend remains present after the time blocks are combined. For that reason, concatenation is used only as a noise-reduction step, not as a way of altering the physical interpretation.
-
-\subsection{Shrinking-sphere centering}
-
-Centering is handled independently from the density estimation. Each snapshot is recentered using a shrinking-sphere algorithm, which iteratively refines the halo center by repeatedly restricting the particle set to smaller radii around the current estimate. This method is robust against mild asymmetries and against the gradual drift that can occur in long collisionless runs.
-
-Using the shrinking-sphere center ensures that the innermost bins of the density profile are measured relative to a dynamically meaningful origin. In practice, this removes one of the most obvious numerical artefacts that could otherwise be mistaken for a central density decline. A formal description of the algorithm and the exact analysis implementation are given in Appendix~\ref{app:shrinking_sphere}.
-
 \section{Numerical implementation of the hybrid model}
 \label{sec:framework_hybrid}
 

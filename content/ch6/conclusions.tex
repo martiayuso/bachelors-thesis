@@ -1,11 +1,15 @@
 \chapter{Conclusions}
 
-\lipsum[7]
+The central result of this thesis is that the persistent decline of the inner density in the isolated dark matter halo is not well explained by a single implementation detail or by a simple post-processing artefact. Across the full set of tests, the core continues to evolve after its initial formation rather than settling into a stable inner configuration. This behaviour remains visible when the box size is changed, when the initial halo structure is modified, when the gravitational softening length is varied, and when the self-gravity solver parameters are tightened or relaxed. The overall picture is therefore one of a robust secular trend rather than a narrow numerical accident.
 
-\section{One section}
+In summary, the persistent inner decline in our collisionless halo is most naturally explained by residual numerical heating. Both theory and simulations indicate that finite-$N$ two-body relaxation (and related shot-noise modes) should secularly flatten cuspy profiles unless $N$ is astronomically large or $\varepsilon$ is very coarse. Our tests (force truncation, softening scans, and timestepping) largely rule out algorithmic bugs or centering bias, leaving discreteness-induced diffusion as the leading explanation. Notably, removing long-range forces had only a small impact until we cut to scales $\sim \varepsilon$, in line with these papers' predictions. We therefore conclude that the decline is a numerical artifact of collisional relaxation: we expect it to weaken only as $N \rightarrow \infty$ or as $\varepsilon$ increases, consistent with standard relaxation scalings.
 
-\lipsum[3]
+The kinematic diagnostics reinforce this interpretation. The rise in central velocity dispersion together with the evolution toward more tangential orbits is consistent with secular heating rather than adiabatic expansion. Likewise, the persistence of the trend in both cuspy and cored initial conditions suggests that the mechanism is not limited to a particular inner slope. The shell-based analysis and the truncated-NFW experiments show that the outer halo can modulate the rate of evolution, but that suppressing long-range contributions does not remove the effect unless the cutoff is pushed to scales comparable to the softening length.
 
-\subsection{One subsection}
+\section{Future work}
 
-\lipsum[3]
+Several extensions would improve the robustness and interpretability of these results. The most direct next step is a resolution study with substantially larger particle numbers, because the relaxation interpretation predicts a measurable reduction of the effect as $N$ increases. A second useful direction is to explore a broader range of softening lengths and alternative softening prescriptions, so that the transition between physical small-scale structure and numerical regularisation can be mapped more cleanly.
+
+On the modelling side, it would be valuable to test whether the same secular decline appears in fully self-consistent cosmological runs, where accretion, substructure, and external tides are present. That would clarify whether the isolated-halo behaviour found here is amplified or suppressed in a more realistic setting. Additional experiments could also vary the centering and profile-extraction pipeline independently, to confirm that the remaining trend is not sensitive to any single post-processing choice.
+
+Finally, the truncated-NFW framework provides a natural platform for deeper investigations of how local relaxation couples to the broader potential. Extending that model to include controlled asymmetries, time-dependent perturbations, or explicit substructure would help separate pure discreteness heating from genuine global halo coupling. In that sense, the present thesis isolates the dominant numerical explanation, but it also defines a clear path toward identifying the regime in which the result becomes physical rather than numerical.

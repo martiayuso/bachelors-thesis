@@ -9,7 +9,7 @@ source ~/swift-venv/bin/activate
 # ------------------------------------------------------------------
 # Local destination base directory
 # ------------------------------------------------------------------
-DEST_BASE="/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/NEW_TESTS/LARGE_PLOT"
+DEST_BASE="/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/NEW_TESTS/inner_results"
 
 # Create base destination directory
 mkdir -p "$DEST_BASE"
@@ -18,14 +18,12 @@ mkdir -p "$DEST_BASE"
 # Simulation folders
 # ------------------------------------------------------------------
 SIMS=(
-    "test4"
-    "test5"
-    "test6"
-    "test7"
-    "test8"
-    "test9"
-    "test10"
-    "test11"
+    "test13"
+    "test14"
+    "test15"
+    "test16"
+    "test17"
+    "test18"
 )
 
 # ------------------------------------------------------------------

@@ -10,7 +10,7 @@ source ~/swift-venv/bin/activate
 BASE_DIR="/home/marti-ayuso/uni/bachelors_thesis/bachelors-thesis/results/swift_mod/NEW_TESTS/inner_results"
 
 # Loop through all subfolders
-for DIR in "$BASE_DIR"/test*/; do
+for DIR in "$BASE_DIR"/ttest*/; do
 
     # Skip if not a directory
     [ -d "$DIR" ] || continue

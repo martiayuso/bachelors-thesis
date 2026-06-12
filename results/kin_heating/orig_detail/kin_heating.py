@@ -211,7 +211,7 @@ def make_plots(results, output_prefix):
     axes[1].grid(alpha=0.2)
 
     axes[0].set_title(
-        r"Kinematic Profile Evolution for $\epsilon = 0.01\ \mathrm{kpc}$"
+        r"Velocity Dispersion ($\sigma_{\rm{1D}}$) and Orbital Anisotropy ($\beta$) for $\epsilon = 0.01\ \mathrm{kpc}$"
     )
 
     axes[0].legend(loc="best", frameon=True, ncol=2)
