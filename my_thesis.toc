@@ -17,59 +17,52 @@
 \contentsline {section}{\numberline {2.3}Numerical heating and relaxation effects in $N$-body systems}{9}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Gravitational softening: fixed and adaptive formulations}{9}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Gravity solver controls in SWIFT}{10}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Why shell structure and mass redistribution matter}{11}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Global coupling through the halo potential}{12}{subsection.2.6.1}%
-\contentsline {chapter}{\numberline {3}Simulation model and implementation}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}SWIFT simulation setup}{13}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Baseline gravity and time integration choices}{14}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Output cadence and bookkeeping}{14}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Halo initial conditions and parameter choices}{14}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Simulation campaign summary}{15}{subsection.3.2.1}%
-\contentsline {section}{\numberline {3.3}Numerical implementation of the hybrid model}{15}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Implementation objectives and design choices}{16}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Implementation overview}{16}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Build-time wiring and backend selection}{17}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Runtime parameters and YAML configuration}{18}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Two-layer masking logic}{19}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}External potential behaviour and timestep coupling}{22}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}Centering, cutoff convention and edge cases}{22}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Serialization, restart safety and diagnostics}{23}{subsection.3.3.8}%
-\contentsline {subsection}{\numberline {3.3.9}Foreign-particle and MPI consistency}{23}{subsection.3.3.9}%
-\contentsline {subsection}{\numberline {3.3.10}Caveats and limitations}{24}{subsection.3.3.10}%
-\contentsline {chapter}{\numberline {4}Results and discussion}{25}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Baseline behaviour}{25}{section.4.1}%
-\contentsline {paragraph}{Radial binning scheme.}{26}{equation.4.1.3}%
-\contentsline {paragraph}{Density profile.}{26}{equation.4.1.5}%
-\contentsline {subsection}{\numberline {4.1.1}Snaphot centering}{29}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Kinematic heating analysis}{30}{subsection.4.1.2}%
-\contentsline {paragraph}{Kinematic diagnostics of heating.}{30}{subsection.4.1.2}%
-\contentsline {paragraph}{Profile smoothing.}{31}{equation.4.1.21}%
-\contentsline {section}{\numberline {4.2}Box size}{33}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Initial halo structure}{34}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Gravitational softening}{37}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Self-gravity settings}{39}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Timestep study}{40}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{40}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{41}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{41}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Results of solver sensitivity}{41}{subsection.4.5.5}%
-\contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{43}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Shell diagnostics}{43}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Analytic shell decomposition}{44}{subsection.4.6.2}%
-\contentsline {section}{\numberline {4.7}Truncated NFW}{45}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Mass and potential structure}{45}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Orbits crossing the truncation boundary}{47}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Density profile}{50}{subsection.4.7.3}%
-\contentsline {chapter}{\numberline {5}Conclusions}{56}{chapter.5}%
+\contentsline {section}{\numberline {2.6}Shell structure and mass redistribution}{11}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Simulation model and implementation}{12}{chapter.3}%
+\contentsline {section}{\numberline {3.1}SWIFT simulation setup}{12}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Baseline gravity and time integration choices}{13}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Output cadence and bookkeeping}{13}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Halo initial conditions and parameter choices}{13}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Simulation campaign summary}{14}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Numerical implementation of the hybrid model}{14}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Implementation objectives and design choices}{15}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Implementation overview}{15}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Build-time wiring and backend selection}{16}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Runtime parameters and YAML configuration}{17}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Two-layer masking logic}{18}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}External potential behaviour and timestep coupling}{21}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Centering, cutoff convention and edge cases}{21}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Serialization, restart safety and diagnostics}{22}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}Foreign particle and MPI consistency}{22}{subsection.3.3.9}%
+\contentsline {subsection}{\numberline {3.3.10}Caveats and limitations}{23}{subsection.3.3.10}%
+\contentsline {chapter}{\numberline {4}Results and discussion}{24}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Baseline behaviour}{24}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Snapshot centering}{27}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Kinematic heating analysis}{28}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Box size}{31}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Initial halo structure}{32}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Gravitational softening}{34}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Self-gravity settings}{35}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Timestep study}{36}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Multipole acceptance criterion study}{36}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{36}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{37}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Outer halo influence on inner potential}{39}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Shell diagnostics and decomposition}{39}{subsection.4.6.1}%
+\contentsline {section}{\numberline {4.7}Truncated NFW}{40}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Mass and potential structure}{40}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Orbits crossing the truncation boundary}{42}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Density profile}{45}{subsection.4.7.3}%
+\contentsline {chapter}{\numberline {5}Conclusions}{51}{chapter.5}%
 \vspace {\normalbaselineskip }
-\contentsline {chapter}{Bibliography}{58}{chapter*.32}%
-\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{59}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Analytic shell decomposition}{61}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Key diagnostics and definitions}{61}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Implementation: analytical NFW shell decomposition}{62}{section.B.2}%
-\contentsline {section}{\numberline {B.3}Results}{63}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}Mass and potential distribution across the halo}{63}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}Outer-halo influence as a function of cutoff radius}{64}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}2D outer-fraction map}{65}{subsection.B.3.3}%
-\contentsline {chapter}{\numberline {C}Orbits}{67}{appendix.C}%
-\contentsline {chapter}{\numberline {D}Truncated-NFW density profile evolution}{70}{appendix.D}%
+\contentsline {chapter}{Bibliography}{53}{chapter*.31}%
+\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{54}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Analytic shell decomposition}{56}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Key diagnostics and definitions}{56}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Implementation: analytical NFW shell decomposition}{57}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Results}{58}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}Mass and potential distribution across the halo}{58}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}Outer-halo influence as a function of cutoff radius}{59}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}2D outer-fraction map}{60}{subsection.B.3.3}%
+\contentsline {chapter}{\numberline {C}Orbits}{62}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Truncated-NFW density profile evolution}{65}{appendix.D}%

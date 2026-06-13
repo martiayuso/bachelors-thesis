@@ -3,7 +3,7 @@
 %\markboth{Introduction}{Introduction}
 %\addcontentsline{toc}{chapter}{Introduction}
 
-Dark matter is believed to constitute approximately 85\% of the matter in the universe and plays a crucial role in shaping cosmic structure. Despite decades of observational and theoretical effort, its fundamental nature remains one of the outstanding questions in physics and astronomy. At cosmological scales, dark matter halos form through gravitational collapse and hierarchical assembly, producing characteristic density profiles that encode information about the underlying dark matter model, assembly history, and internal dynamics.
+Dark matter makes up most of the mass in galaxies and galaxy clusters and plays a crucial role in shaping cosmic structure. Despite decades of observational and theoretical effort, its fundamental nature remains one of the outstanding questions in physics and astronomy. At cosmological scales, dark matter halos form through gravitational collapse and hierarchical assembly, producing characteristic density profiles that encode information about the underlying dark matter model, assembly history, and internal dynamics.
 
 Numerical simulations provide a controlled setting in which these processes can be studied. Interpreting the results requires care, because subtle trends may reflect genuine physics or arise from modelling choices and post-processing. The chapters that follow develop the theoretical background, describe the computational framework, and present the diagnostics and experiments used throughout this thesis.
 
@@ -24,29 +24,27 @@ One promising explanation for core formation involves non-adiabatic perturbation
 
 The persistent inner-density decline observed in controlled, dark-matter-only simulations of relaxed halos presents a puzzle. In such runs, there are no baryonic processes (supernovae, AGN feedback) and no time-dependent external perturbations. Gravity is purely Newtonian, computed with modern adaptive algorithms. Yet the simulated halos still exhibit a gradual flattening of their central profiles over time. This raises a critical question: is this decline a reflection of genuine collisionless dynamics, an artifact of numerical approximations in the gravity solver, or a side effect of the post-processing analysis pipeline?
 
-The question is not merely academic. If the observed density decline is primarily a numerical artifact, then the apparent core in simulations is unreliable and informs little about real galaxy evolution. If it is a genuine dynamical feature, then understanding its mechanism opens a window into collisionless relaxation and the role of global halo coupling.
+If the observed density decline is primarily a numerical artifact, then the apparent core in simulations is unreliable and informs little about real galaxy evolution. If it is a genuine dynamical feature, then understanding its mechanism opens a window into collisionless relaxation and the role of global halo coupling.
 
 This thesis focuses on determining which of these possibilities explains the persistent central-density decline observed in a reference SWIFT simulation of a dark matter halo evolved in isolation over 100 Gyr.
 
 \section{Aims and objectives}
 
-The main goal of this work is to investigate the origin of the central-density decline through controlled parameter studies, diagnostic validation, and mechanistic tests. The specific objectives are:
+The main goal of this work is to investigate the origin of the central-density decline through controlled parameter studies and tests. The specific objectives are:
 
 \begin{enumerate}
 
 \item \textbf{Characterize the baseline behavior}: Establish what the reference simulation produces in terms of density-profile evolution, and verify that the trend is robust against simple post-processing variations (centering method, snapshot noise reduction).
 
-\item \textbf{Rule out trivial numerical explanations}: Test whether changes to numerical parameters (gravitational softening length, timestep factor, force-solver accuracy settings) significantly alter the observed decline. If numerical parameters prove insensitive, a more fundamental physical or structural process becomes more likely.
+\item \textbf{Rule out trivial numerical explanations}: Test whether changes to numerical parameters significantly alter the observed decline. If numerical parameters prove insensitive, a more fundamental physical or structural process becomes more likely.
 
-\item \textbf{Assess global and local influences}: Investigate whether the inner-density trend reflects purely local collapse-scale physics or depends on the larger-scale halo environment. Shell-based diagnostics will quantify how outer layers couple to the center.
+\item \textbf{Assess global and local influences}: Investigate whether the inner density trend reflects purely local physics or depends on the larger-scale halo environment.
 
-\item \textbf{Distinguish mass redistribution from heating}: Use cumulative-mass and angular-momentum diagnostics to determine whether particles are being heated into more eccentric orbits, or whether mass is being systematically transported outward.
-
-\item \textbf{Evaluate the robustness of the effect}: Test whether the decline persists for different initial halo structures (cusps versus cores) and different simulation volumes, to establish whether the mechanism is universal or tuning-dependent.
+\item \textbf{Evaluate the robustness of the effect}: Test whether the decline persists for different initial halo structures and different simulation volumes, to establish whether the mechanism is universal or tuning-dependent.
 
 \end{enumerate}
 
-The cumulative outcome will be either a validated mechanism (if the trend survives all tests and correlates with a specific physical process) or a ruled-out category of explanations (if specific numerical or methodological factors prove decisive).
+The cumulative outcome will be either a validated mechanism (if the trend survives all tests and correlates with a specific physical process) or a ruled-out category of explanations.
 
 \section{Thesis outline}
 
@@ -54,13 +52,13 @@ The thesis is organized as follows:
 
 \begin{description}
 
-\item[\textbf{Chapter 1: Theoretical Background}] introduces the collisionless framework governing dark matter halos, defines the cusp-core phenomenology, and reviews the numerical considerations that affect halo simulations. This chapter establishes the theoretical minimum needed to interpret the results. We discuss the collisionless Boltzmann equation, the role of gravitational softening and force-solver accuracy, and the importance of shell-to-shell coupling in global halo dynamics.
+\item[\textbf{Chapter 1: Theoretical background}] introduces the collisionless framework governing dark matter halos, defines the cusp-core phenomenology, and reviews the numerical considerations that affect halo simulations. This chapter establishes the theoretical minimum needed to interpret the results.
 
-\item[\textbf{Chapter 2: Simulation Setup, Framework and Implementation}] documents the numerical setup in detail. We describe the SWIFT configuration, initial-condition generation, halo parameter choices, diagnostic definitions (density profiles, cumulative mass, shell contributions), and the centering and snapshot concatenation procedures used in post-processing. This chapter is designed for reproducibility: a reader should be able to replicate the simulations and analysis from the information provided.
+\item[\textbf{Chapter 2: Simulation model and implementation}] documents the numerical setup in detail. The SWIFT configuration, initial condition generation, halo parameter choices, and implementation details of the truncated-NFW model are described. This chapter is designed for reproducibility, a reader should be able to replicate the simulations and analysis from the information provided.
 
-\item[\textbf{Chapter 3: Results and Discussion}] presents the parameter studies and sensitivity analyses. The chapter progresses through six main tests: (i) the baseline evolution, (ii) analysis pipeline robustness, (iii) box-size sensitivity, (iv) initial-condition dependence (cusp versus core), (v) softening-length variations, and (vi) self-gravity solver parameter sensitivity. Each test is framed as a mechanistic hypothesis to either support or eliminate candidate explanations. Later sections address cumulative mass evolution, shell contributions, hybrid models, and synthesis of the findings.
+\item[\textbf{Chapter 3: Results and discussion}] presents the parameter studies and sensitivity analyses. The chapter progresses through five main tests: (i) the baseline evolution, (ii) box-size sensitivity, (iii) initial-condition dependence (cusp versus core), (iv) softening-length variations, and (v) self-gravity solver parameter sensitivity. Each test is framed as a hypothesis to either support or eliminate candidate explanations. Later sections address shell contributions and hybrid models.
 
-\item[\textbf{Chapter 4: Conclusions}] summarizes which explanations have been ruled out and which remain plausible, discuss the implications for collisionless halo dynamics, and outline suggestions for future work.
+\item[\textbf{Chapter 4: Conclusions}] summarizes which explanations have been ruled out and which remain plausible, and outline suggestions for future work.
 
 \end{description}
 
