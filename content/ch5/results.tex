@@ -332,24 +332,113 @@ Therefore, the solver settings are not the principal explanation; their influenc
 
 The central density decline observed in the baseline simulation could, in principle, arise from dynamical interactions between the inner halo and the outer shells. To test this hypothesis, an analytic shell decomposition study using an NFW model \citep{navarro1996structure} is performed to quantify how much of the inner potential depth comes from material at different radii. This analysis then motivates a hybrid numerical experiment: if outer shells are dynamically important, replacing them with an analytic potential while keeping the inner region as particles should produce a different evolution.
 
+\subsection{Key diagnostics and definitions}
+
+The analysis is built around four central diagnostic quantities, each addressing a different aspect of halo structure:
+
+\begin{description}
+
+\item[\textbf{Enclosed mass and shell mass fraction}]
+The enclosed mass $M(<r)$ tracks how the total mass budget grows with radius. The shell mass fraction is the mass in a radial shell divided by the total halo mass, showing the radial distribution of the mass budget.
+
+\item[\textbf{Central potential depth from individual shells}]
+For each shell at radius range $[r_i, r_{i+1}]$, its contribution to the gravitational potential at the center ($r = 0$) is calculated. This is given exactly by:
+
+\begin{equation}
+\Delta\Phi_{\rm shell}(0) = -4\pi G \rho_s r_s^2 \left[ \frac{1}{1 + r_i/r_s} - \frac{1}{1 + r_{i+1}/r_s} \right].
+\end{equation}
+
+Shells well outside the center still make sizeable contributions to the potential depth at $r = 0$ (and therefore to the escape-speed scale $v_{\rm esc} \propto \sqrt{-2\Phi}$). The fractional contribution of each shell quantifies this effect.
+
+\item[\textbf{Outer-potential fraction}]
+For a given probe radius $r_{\mathrm{probe}}$ and cutoff radius $r_{\mathrm{cut}}$, the outer potential fraction is defined as:
+
+\begin{equation}
+f_{\mathrm{outer}}(r_{\mathrm{probe}}, r_{\mathrm{cut}}) = \frac{\left|\Phi_{>r_{\mathrm{cut}}}(r_{\mathrm{probe}})\right|}{\left|\Phi_{\mathrm{total}}(r_{\mathrm{probe}})\right|},
+\end{equation}
+
+where $\Phi_{>r_{\mathrm{cut}}}$ is the potential contribution from material outside the cutoff and $\Phi_{\mathrm{total}}$ is the total potential at that radius. This measures how strongly the outer halo influences the local potential at the probe radius. By varying $r_{\mathrm{cut}}$, the radius beyond which the outer halo becomes a small correction can be determined.
+
+\end{description}
+
 \subsection{Shell diagnostics and decomposition}
 
-The halo is partitioned into concentric spherical shells and each shell's mass contribution and its influence on the central potential are computed. For shell $i$ with mass $\Delta M_i$ and representative radius $\bar r_i$, the shell contributes approximately
+%The halo is partitioned into concentric spherical shells and each shell's mass contribution and its influence on the central potential are computed. For shell $i$ with mass $\Delta M_i$ and representative radius $\bar r_i$, the shell contributes approximately
+%\begin{equation}
+%\Phi_i(0) \approx -G\,\frac{\Delta M_i}{\bar r_i}
+%\end{equation}
+%to the potential at the origin. By contrast, the radial force at a radius $r$ depends only on the enclosed mass $M(<r)$ by the shell theorem, so outer shells do not change the local force gradient but they do deepen the potential well and therefore the escape speed scale. The shell diagnostics therefore track both $M(<r)$ and the cumulative potential contribution which is useful to quantify non-local coupling between outer mass and inner dynamics.
+
+Since the analysis uses a spherically symmetric Navarro--Frenk--White (NFW) halo model \citep{navarro1996structure}, which is a standard benchmark for dark matter halos:
+
 \begin{equation}
-\Phi_i(0) \approx -G\,\frac{\Delta M_i}{\bar r_i}
+\rho(r) = \frac{\rho_s}{(r/r_s)(1 + r/r_s)^2},
 \end{equation}
-to the potential at the origin. By contrast, the radial force at a radius $r$ depends only on the enclosed mass $M(<r)$ by the shell theorem, so outer shells do not change the local force gradient but they do deepen the potential well and therefore the escape speed scale. The shell diagnostics therefore track both $M(<r)$ and the cumulative potential contribution which is useful to quantify non-local coupling between outer mass and inner dynamics.
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=1\textwidth]{content/ch4/img/shells.png}
-%	\caption{\textbf{Spherical shell decomposition.} Four renderings of the same sphere, partitioned into 2, 4 and 8 concentric spherical shells.}
-%	\label{fig:shells}
-%\end{figure}
+where $\rho_s$ is the characteristic density and $r_s$ is the scale radius. The enclosed mass within radius $r$ is:
 
-For an NFW profile with parameters $\rho_s = 10^7 \, M_{\odot}/\mathrm{kpc}^3$, $r_s = 10 \, \mathrm{kpc}$, $r_{\mathrm{vir}} = 100 \, \mathrm{kpc}$, the analysis computes: (i) the enclosed mass $M(<r)$ and shell mass distribution, (ii) the contribution of each shell to the potential depth at the center, and (iii) the fraction of potential at arbitrary probe radii originating from material outside a chosen cutoff radius. Key diagnostics and results are are given in Appendix~\ref{app:shells}.
+\begin{equation}
+M(<r) = 4\pi \rho_s r_s^3 \left[ \ln(1+x) - \frac{x}{1+x} \right], \quad x = \frac{r}{r_s}.
+\end{equation}
 
-The analytic shell study establishes that the outer halo is not dynamically negligible, it contributes substantially to the potential structure experienced by inner particles, even if it does not directly modify the local force field. This has two important consequences:
+The halo is truncated at a virial radius $r_{\mathrm{vir}}$. The gravitational potential including the truncation is:
+
+\begin{equation}
+\Phi(r) = -\frac{G M(<r)}{r} - 4\pi G \rho_s r_s^2 \left[ \frac{1}{1 + r/r_s} - \frac{1}{1 + r_{\mathrm{vir}}/r_s} \right],
+\end{equation}
+
+and the radial acceleration (force per unit mass) is:
+
+\begin{equation}
+a(r) = \frac{G M(<r)}{r^2}.
+\end{equation}
+
+Rather than relying on a numerical computation of the integrals, the shell analysis uses exact analytic formulas for a truncated NFW profile. The halo is decomposed into logarithmically spaced spherical shells:
+
+\begin{equation}
+r_i = r_{\mathrm{min}} \left(\frac{r_{\mathrm{vir}}}{r_{\mathrm{min}}}\right)^{i / N_{\rm shells}}, \quad i = 0, 1, \ldots, N_{\rm shells},
+\end{equation}
+
+where typically $N_{\rm shells} = 80$ and $r_{\mathrm{min}} \approx 0.02$ kpc.
+
+For each shell $[r_i, r_{i+1}]$, exact closed form expressions compute: (i) shell mass $M_{\rm shell} = M(<r_{i+1}) - M(<r_i)$, (ii) shell contribution to potential at any radius, and (iii) cumulative potential contributions for integration over shells.
+
+For an NFW profile with parameters $\rho_s = 10^7 \, M_{\odot}/\mathrm{kpc}^3$, $r_s = 10 \, \mathrm{kpc}$, $r_{\mathrm{vir}} = 100 \, \mathrm{kpc}$, the results are presented in the following subsections.
+
+\subsection{Mass and potential distribution across the halo}
+
+The first two diagnostics establish the overall radial structure of the halo. Figure \ref{fig:results_shell_mass} shows the enclosed mass profile and the fractional mass distribution per shell. The enclosed mass profile follows the expected NFW form, steep near the center and flattening at larger radii.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{content/ch5/img/01_mass_profile_and_shell_fraction.png}
+	\caption{\textbf{NFW enclosed mass and shell mass fraction.} Left axis: monotonically increasing enclosed mass $M(<r)$ with radius. Right axis: shell mass fraction per logarithmic shell.}
+	\label{fig:results_shell_mass}
+\end{figure}
+
+Figure \ref{fig:results_shell_potential} shows the contribution of each shell to the gravitational potential at the center and the cumulative contribution from all shells outside a given radius.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{content/ch5/img/02_central_potential_shell_contribution.png}
+	\caption{\textbf{Shell contributions to the central potential depth.} Individual shells (blue points with error bars) contribute to the total potential depth $|\Phi(0)|$. The cumulative contribution (orange line) from all shells beyond a given radius shows that shells at radii beyond the scale radius $r_s$ still make substantial contributions to the escape-speed scale.}
+	\label{fig:results_shell_potential}
+\end{figure}
+
+The key finding here is that shells well outside the center, at radii several times the scale radius, still contribute visibly to the potential depth. The fractional contribution decreases with radius but remains non-negligible up to $r \sim 3 r_s$.
+
+\subsection{Outer halo influence as a function of cutoff radius}
+
+The most critical diagnostic for the hybrid model design is the outer potential fraction. The fraction of the total potential at a given probe radius that arises from material beyond a chosen cutoff radius. Figure \ref{fig:results_shell_cutoff} shows this quantity for several probe radii as the cutoff radius is increased.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{content/ch5/img/03_outer_fraction_vs_cutoff.png}
+	\caption{\textbf{Outer-potential fraction versus cutoff radius.} For probe radii ranging from the center to $r = 5 r_s$, the fraction of the potential originating from material beyond the cutoff radius $r_{\mathrm{cut}}$ is plotted against the cutoff. As the cutoff moves outward, the outer contribution drops sharply initially, then plateaus. For the central region ($r_{\mathrm{probe}} < r_s$), a cutoff at $r_{\mathrm{cut}} \approx 10$ kpc retains roughly 5--10\% of the potential from the outer halo; at $r_{\mathrm{cut}} \approx 30$ kpc, this drops below 1\%. Thus, if the outer halo contributes significantly to the potential at the radii of interest (e.g., $r < 1$ kpc for the central density), then the outer region must be represented accurately.}
+	\label{fig:results_shell_cutoff}
+\end{figure}
+
+The curves in this figure answer the central question: how large must $r_{\mathrm{cut}}$ be to capture the essential potential structure? For the central region, a cutoff at $r_{\mathrm{cut}} = 10$ kpc retains the majority of the potential at small radii while excluding the outermost, kinematically less important material. This has two important consequences:
 
 \begin{enumerate}
 \item \textbf{Motivation for the hybrid model}: A simulation in which the inner region ($r < r_{\mathrm{cut}}$) evolves with particles while the outer region ($r > r_{\mathrm{cut}}$) is represented by an analytic potential can only reproduce the true inner evolution if the outer potential is represented accurately.
@@ -424,19 +513,19 @@ A second validation concerns the resulting gravitational potential (Figure~\ref{
 
 \subsection{Orbits crossing the truncation boundary}
 
-Selected test particles that cross the truncation boundary were integrated to check for energy or angular momentum transfer caused by the hybrid partition. An example orbit is shown in Figure~\ref{fig:tnfw_validation_orbits} and remains regular and physically plausible, indicating the hybrid coupling does not introduce obvious integration artefacts on the tested timescales.
+Selected test particles that cross the truncation boundary were integrated to check for energy or angular momentum transfer caused by the hybrid partition. An example orbit with $R_{\rm cut} = 10$ kpc is shown in Figure~\ref{fig:tnfw_validation_orbits} and remains regular and physically plausible, indicating the hybrid coupling does not introduce obvious integration artefacts on the tested timescales.
 
-We identify particles that move from the inner region, $r < R_{\rm cut}$, to the outer region, $r > R_{\rm cut}$, between two consecutive simulation snapshots. Let the snapshots be indexed by $i=0,\dots,N_{\rm snap}-1$, with snapshot time $t_i$. For each particle $p$ present in a given snapshot, we denote its position by
+Particles that move from the inner region, $r < R_{\rm cut}$, to the outer region, $r > R_{\rm cut}$, between two consecutive simulation snapshots are identified as follows. Let the snapshots be indexed by $i=0,\dots,N_{\rm snap}-1$, with snapshot time $t_i$. For each particle $p$ present in a given snapshot, its position is denoted by
 \begin{equation}
 \mathbf{x}_{p}^{(i)} = \bigl(x_p^{(i)}, y_p^{(i)}, z_p^{(i)}\bigr),
 \end{equation}
-and define the radius relative to the galaxy centre $\mathbf{x}_{\rm c}$ as
+and the radius relative to the galaxy centre $\mathbf{x}_{\rm c}$ is defined as
 \begin{equation}
 r_p^{(i)} = \left\lVert \mathbf{x}_{p}^{(i)} - \mathbf{x}_{\rm c} \right\rVert
 = \sqrt{(x_p^{(i)}-x_{\rm c})^2 + (y_p^{(i)}-y_{\rm c})^2 + (z_p^{(i)}-z_{\rm c})^2}.
 \end{equation}
 
-We define an indicator function for whether particle $p$ is inside the cut radius at snapshot $i$:
+An indicator function for whether particle $p$ is inside the cut radius at snapshot $i$ is defined as:
 \begin{equation}
 I_p^{(i)} =
 \begin{cases}
@@ -451,9 +540,9 @@ I_p^{(i-1)} = 1
 \qquad \text{and} \qquad
 I_p^{(i)} = 0,
 \end{equation}
-for at least one snapshot pair $(i-1,i)$. In other words, we detect the first discrete time interval in which the particle changes from the inner to the outer regime.
+for at least one snapshot pair $(i-1,i)$. In other words, the first discrete time interval in which the particle changes from the inner to the outer regime is detected.
 
-To reduce contamination from particles that are not close to the transition boundary, we optionally apply a radial preselection window. Specifically, a particle is only considered a valid crosser if, at the previous snapshot, its radius lies in the interval
+To reduce contamination from particles that are not close to the transition boundary, a radial preselection window is applied. Specifically, a particle is only considered a valid crosser if, at the previous snapshot, its radius lies in the interval
 \begin{equation}
 R_{\rm cut} - \alpha \le r_p^{(i-1)} < R_{\rm cut},
 \end{equation}
@@ -477,7 +566,7 @@ t_{\rm cross} \approx t_{i-1}
 \end{equation}
 but this interpolation is not required for the present selection procedure.
 
-Once the set of crossing particle IDs has been determined, we perform a second pass over all snapshots and extract the full time series for each selected particle. For each recorded particle $p$ and snapshot $i$, we store
+Once the set of crossing particle IDs has been determined, a second pass is performed over all snapshots and the full time series for each selected particle is extracted. For each recorded particle $p$ and snapshot $i$, store
 \begin{equation}
 \bigl(t_i,\; x_p^{(i)},\; y_p^{(i)},\; z_p^{(i)},\; r_p^{(i)},\;
 v_{x,p}^{(i)},\; v_{y,p}^{(i)},\; v_{z,p}^{(i)},\; |\mathbf{v}_p^{(i)}|,\; \Phi_p^{(i)}\bigr),
@@ -488,56 +577,63 @@ where
 \end{equation}
 and $\Phi_p^{(i)}$ is the particle potential when available in the snapshot output.
 
-This produces a compact particle-level data set containing only trajectories relevant to the boundary-crossing test. The resulting time series are then used for post-processing diagnostics, including trajectory visualisation, radius evolution, velocity evolution, and potential checks around $R_{\rm cut}$.
+This produces a compact data set containing only trajectories relevant to the boundary crossing test. The resulting time series are then used for post-processing diagnostics.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/orbit_01.png}
-	\caption{\textbf{Example orbits crossing the truncation boundary.} Selected test particles that cross $R_{\mathrm{cut}}$ are shown to verify the hybrid treatment does not introduce noticeable integration artefacts on the tested timescale.}
+	\caption{Orbit of example particle crossing the truncation boundary of $R_{\rm cut} = 10$ kpc.}
 	\label{fig:tnfw_validation_orbits}
 \end{figure}
 
-More orbit plots can be found in the annex Section~\ref{app:tnfw_orbits}. A larger number of orbits is summarized in the following plot. In all cases, the orbits remain regular and show no inconsistencies when crossing the truncation boundary.
+The following figure summarizes a larger sample of trajectories. In all cases, the orbits remain smooth and dynamically consistent, with no evidence of discontinuities arising from crossings of the truncation boundary. Additional orbit examples are provided in Appendix~\ref{app:tnfw_orbits}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{content/ch5/img/summary_orbits.png}
-	\caption{\textbf{Summary of selected orbits}}
+	\caption{Summary of multiple selected orbits crossing the truncation boundary. The vertical dashed line indicates the truncation radius $R_{\rm cut}$.}
 	\label{fig:summary_orbits}
 \end{figure}
 
-In summary, the validation diagnostics show that (i) mass is correctly split by the truncation routine, (ii) the inner potential follows the expected NFW-like shape and tracks the baseline within the inner few kiloparsecs (Figure~\ref{fig:multifigure_potential_distr}), and (iii) orbits are not affected by the truncation (Figure~\ref{fig:summary_orbits}). These outcomes indicate that the truncated interaction implementation behaves as intended for the described experiments.
+In summary, the validation diagnostics show that (i) mass is correctly split by the truncation routine, (ii) the inner potential follows the expected NFW shape (Figure~\ref{fig:multifigure_potential_distr}), and (iii) orbits are not affected by the truncation (Figure~\ref{fig:summary_orbits}). These outcomes indicate that the truncated interaction implementation behaves as intended for the described experiments.
 
 \subsection{Density profile}
-A complete 100 Gyr run of the density evolution for Rcut = 10 kpcs is shown here. The plot shows an evolution parallel to the baseline featured in section \ref{sec:results_baseline}, with a similar secular decline in the central density. This is a key result because it suggests that the mechanism behind the decline does not require the full long-range potential structure of the halo, and that truncating interactions beyond 10 kpc does not eliminate the effect.
+Following the validation tests, a full 100~Gyr simulation was performed for the hybrid truncated model with $R_{\rm cut}=10$~kpc. The resulting density evolution is shown in Figure~\ref{fig:truncated_10}. The overall behaviour closely follows that of the baseline simulation presented in Section~\ref{sec:results_baseline}, featuring the same decrease in the central density over time.
+
+This result is significant because it demonstrates that the observed central density decline persists even when interactions beyond 10~kpc are removed from the particle-based representation. The mechanism driving the evolution therefore does not appear to depend on the full long range structure of the halo potential, indicating that the relevant dynamics are predominantly governed by processes operating on smaller spatial scales.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{content/ch5/img/truncated_10.png}
-	\caption{\textbf{Baseline density-profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend. The gradient structure is consistent with a secular redistribution rather than a settled core.}
+	\caption{\textbf{Hybrid model density profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend.}
+	\label{fig:truncated_10}
 \end{figure}
 
-This motivates further analysis of smaller Rcut values, which is carried out in the following plot.
+This motivates further analysis of smaller $R_{\rm cut}$ values, which is carried out in the following plot.
+
+This finding motivates further analysis of smaller $R_{\rm cut}$ values, the results of which are presented in Figure~\ref{fig:large_plot}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/large_plot.png}
-	\caption{\textbf{Rcut study large plot.}}
+	\caption{\textbf{$R_{\rm cut}$ study large plot.}}
+	\label{fig:large_plot}
 \end{figure}
 
-The figure above provides an overview of simulations with small $R_{\rm cut}$ values. For $R_{\rm cut} \gtrsim 0.1\,\mathrm{kpc}$, the system evolves very similarly to the reference (vanilla SWIFT) run. However, as $R_{\rm cut}$ approaches the softening length value, the cusp-to-core transition does not extend to large times.
+The figure above summarizes the density evolution obtained for a range of small truncation radii. For $R_{\rm cut} \gtrsim 0.1\,\mathrm{kpc}$, the evolution remains qualitatively similar to that of the reference (vanilla SWIFT) simulation, with a comparable reduction of the central density over time. However, as $R_{\rm cut}$ approaches the gravitational softening scale, the cusp-to-core transition becomes progressively weaker and no longer persists over the full duration of the simulation.
 
-This behaviour is clearly illustrated in the following figures: while the simulation with $R_{\rm cut}=5\,\mathrm{kpc}$ exhibits continued core growth up to $100\,\mathrm{Gyr}$, progressively smaller values of $R_{\rm cut}$ lead to increasingly limited core evolution, eventually resulting in a density profile that does not decrease.
+This trend is illustrated more clearly in the density ratio evolution shown below (Figure~\ref{fig:density_ratio}). While the model with $R_{\rm cut}=5\,\mathrm{kpc}$ continues to exhibit sustained core growth throughout the $100\,\mathrm{Gyr}$ integration, decreasing the truncation radius reduces the effect. For sufficiently small $R_{\rm cut}$, the evolution becomes negligible, and the central density profile remains essentially unchanged.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/density_ratio_grid.png}
 	\caption{\textbf{Density ratio comparison}}
+	\label{fig:density_ratio}
 \end{figure}
 
-Complete plots can be found in the annex Section~\ref{app:tnfw_density_profiles}.
+Complete density profile plots can be found in the annex Section~\ref{app:tnfw_density_profiles}.
 
-Finally, the results are summarized in Figure~\ref{fig:r_cut_comparison}, which compares the density evolution for multiple $R_{\rm cut}$ values at 50 Gyr and 100 Gyr. The left panel shows that at 50 Gyr, the runs with $R_{\rm cut} \gtrsim 0.1\,\mathrm{kpc}$ are nearly indistinguishable from the baseline, while smaller cutoffs show a more limited decline. The right panel confirms that by 100 Gyr, the same hierarchy persists.
+Finally, the results are summarized in Figure~\ref{fig:r_cut_comparison}, which compares the density evolution for multiple $R_{\rm cut}$ values at 50 Gyr and 100 Gyr. The left panel shows that at 50 Gyr, the runs with $R_{\rm cut} \gtrsim 0.1\,\mathrm{kpc}$ behave very similarly to the baseline, while smaller cutoffs show a more limited decline. The right panel confirms that by 100 Gyr, the same hierarchy persists.
 
 \begin{figure}[H]
 	\centering
@@ -553,10 +649,6 @@ Finally, the results are summarized in Figure~\ref{fig:r_cut_comparison}, which 
 	\label{fig:r_cut_comparison}
 \end{figure}
 
-These results indicate that the central density decline is driven by a mechanism that does not require the full long-range potential structure of the halo, and that truncating interactions beyond 10 kpc does not eliminate the effect. However, as the cutoff radius approaches the softening length, the core evolution becomes increasingly limited, suggesting that the mechanism is sensitive to interactions at scales comparable to the softening length.
+These results indicate that the central density decline is driven by a mechanism that does not require the full long range potential structure of the halo, and that truncating interactions beyond 10 kpc does not eliminate the effect. However, as the cutoff radius approaches the softening length, the core evolution becomes increasingly limited, suggesting that the mechanism is sensitive to interactions at scales comparable to the softening length.
 
-The result indicates that the late evolution requires a sufficiently extended self-gravitating environment, but it does not show that the outer halo is directly heating the center. It may simply be acting as the reservoir that sustains the discreteness noise or orbital diffusion.
-
-Artificial two-body relaxation and force softening appear to be driving the persistent core formation in the halo simulations. Studies of high-resolution CDM halos show that even $10^{6}$--$10^{8}$ particles have relaxation times short enough to flatten cusps in a few dynamical times. In particular, \cite{diemand2004relaxation} demonstrated that simulated halos suffer central heating that declines only as $\sim N^{-0.25}$ with particle number, rather than $N^{-1}$, implying that large $N$ ($\gg 10^{8}$) or substantial softening are needed to prevent cusp erosion. Similarly, \cite{elzant2006relaxation} finds that $t_{\mathrm{relax}} \propto r^{2}$ and that a $10^{6}$-particle halo is already ``noise-dominated'' in the inner $\sim 1\%$, requiring $N \gg 10^{8}$ for the inner profile to remain collisionless. These works predict that truncating outer mass alone cannot halt inner relaxation: removing long-range forces beyond $\sim 10$--$20\,\mathrm{kpc}$ still leaves the small-$N$ central cusp relaxationally unstable. In contrast, the softening length must be large enough to suppress close-encounter scattering. In short, the balance of evidence is that numerical discreteness (two-body scattering and shot noise), rather than algorithmic bias or mis-centering, is the primary culprit.
-
-
+Therefore, artificial two-body relaxation and force softening appear to be driving the persistent core formation in the halo simulations. Studies of high-resolution CDM halos show that even $10^{6}$--$10^{8}$ particles have relaxation times short enough to flatten cusps in a few dynamical times. In particular, \cite{diemand2004relaxation} demonstrated that simulated halos suffer central heating that declines only as $\sim N^{-0.25}$ with particle number, rather than $N^{-1}$, implying that large $N$ ($\gg 10^{8}$) or substantial softening are needed to prevent cusp erosion. Similarly, \cite{elzant2006relaxation} finds that $t_{\mathrm{relax}} \propto r^{2}$ and that a $10^{6}$-particle halo is already noise dominated in the inner $\sim 1\%$, requiring $N \gg 10^{8}$ for the inner profile to remain collisionless. These works predict that truncating outer mass alone cannot halt inner relaxation; removing long range forces beyond 10 kpc still leaves the small-$N$ central cusp relaxationally unstable. In short, the balance of evidence is that numerical discreteness (two-body scattering and shot noise), rather than algorithmic bias or mis-centering, is the primary culprit.

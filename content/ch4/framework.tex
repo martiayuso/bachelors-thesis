@@ -52,24 +52,51 @@ ic_gen_2_slopes --alpha 1 --beta 3 --Rmin 1e-3 --Rmax 50 --r_cutoff 50 \
 \end{verbatim}
 which corresponds to a two-slope halo with tunable inner structure and an outer truncation radius.
 
-The most relevant controlled parameters are:
-\begin{itemize}
-\item halo type: cusp and core initial conditions,
-\item box-size variants for finite-volume sensitivity checks,
-\item gravitational softening variants,
-\item self-gravity solver parameters ($\eta$, MAC, $\theta_{\mathrm{cr}}$, $\epsilon_{\mathrm{fmm}}$).
-\end{itemize}
+\begin{table}[H]
+\centering
+\caption{Initial conditions for the SWIFT simulation generated with \texttt{ic\_gen\_2\_slopes}. Parameters are split into explicitly specified values and defaults inherited from the generator.}
+\label{tab:ic_swift_full}
+\begin{tabular}{lll}
+\hline
+\textbf{Category} & \textbf{Parameter} & \textbf{Value} \\
+\hline
+\\
+\multicolumn{3}{l}{\textbf{Profile parameters}} \\
+Profile & $\alpha$ & 1 \\
+Profile & $\beta$ & 3 \\
+Profile & $\rho_0$ & $2.7658297046461644\times10^{-3}$ \\
+Profile & $r_s$ & $0.828177997155062$ \\
+Profile & $R_{\min}$ & $10^{-3}$ \\
+Profile & $R_{\max}$ & $50$ \\
+Profile & $R_{\mathrm{cut}}$ & $50$ \\
+\\
+\multicolumn{3}{l}{\textbf{Numerical realisation}} \\
+Particles & $N$ & $10^5$ \\
+Particles & $m_{\rm p}$ & $6.1664\times10^4\,M_\odot$ \\
+Particles & type (\texttt{ptype}) & 1 \\
+\\
+\multicolumn{3}{l}{\textbf{Generator defaults}} \\
+Random seed & \texttt{irand} & 0 \\
+Energy bins & \texttt{NE} & $10^4$ \\
+Radius bins & \texttt{NR} & $10^4$ \\
+Sampling batch & \texttt{Ndraw} & $10^6$ \\
+Concentration & $c$ & -- (not used) \\
+Virial mass & $M_{200}$ & -- (not used) \\
+Virial radius & $r_{200}$ & -- (not used) \\
+\hline
+\end{tabular}
+\end{table}
 
-The practical philosophy is to keep one baseline run and modify one parameter family at a time, so each subsection in the results can be interpreted as a direct hypothesis test rather than a multi-parameter confounded comparison.
+% The practical philosophy is to keep one baseline run and modify one parameter family at a time, so each subsection in the results can be interpreted as a direct hypothesis test rather than a multi-parameter confounded comparison.
 
-\subsection{Simulation campaign summary}
+\subsection{Simulation runs summary}
 \label{sec:framework_simulation_summary}
 
-Rather than repeating the qualitative run descriptions from Chapter~5, this subsection defines the campaign as a technical design matrix. The baseline control vector is
+This subsection defines the simulation runs as a technical design matrix. The baseline control vector is
 \begin{equation}
-\mathbf{p}_0 = \{\eta=2\times10^{-3},\ \mathrm{MAC}=\mathrm{geometric},\ \theta_{\mathrm{cr}}=0.7,\ \epsilon_{\mathrm{fmm}}=10^{-3},\ \epsilon_{\mathrm{soft}}=0.01\,\mathrm{kpc}\},
+\mathbf{p}_0 = \{\eta=2\times10^{-3},\ \mathrm{MAC}=\mathrm{geometric},\ \theta_{\mathrm{cr}}=0.7,\ \epsilon_{\mathrm{fmm}}=10^{-3},\ \epsilon=0.01\,\mathrm{kpc}\},
 \end{equation}
-and each run family perturbs exactly one component (or one model block) relative to $\mathbf{p}_0$.
+and each run family changes exactly one component (or one model block) relative to $\mathbf{p}_0$.
 
 \begin{table}[H]
 \centering
@@ -79,31 +106,29 @@ and each run family perturbs exactly one component (or one model block) relative
 {\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{p{0.21\textwidth} p{0.14\textwidth} p{0.35\textwidth} p{0.11\textwidth} p{0.11\textwidth}}
 \hline
-\textbf{Control family} & \textbf{IC} & \textbf{Control-vector form} & \textbf{$N_{\mathrm{lev}}$} & \textbf{Range factor} \\
+\textbf{Control family} & \textbf{IC} & \textbf{Control vector form} & \textbf{$N_{\mathrm{lev}}$} & \textbf{Range factor} \\
 \hline
-Baseline reference & Cuspy & $\mathbf{p}=\mathbf{p}_0$, baseline box & 1 & -- \\
+Baseline reference & Cusp & $\mathbf{p}=\mathbf{p}_0$ & 1 & n/a \\
 
-Box-size & Cuspy & $\mathbf{p}=\mathbf{p}_0$, $L_{\mathrm{box}}\in\{L_{\mathrm{s}},L_{\mathrm{m}},L_{\mathrm{l}}\}$ & 3 & n/a \\
+Box size & Cusp & $\mathbf{p}=\mathbf{p}_0$, $L_{\mathrm{box}}\in\{L_{\mathrm{100}},L_{\mathrm{200}},L_{\mathrm{500}}\}$ & 3 & n/a \\
 
-Initial structure & Cuspy, core & $\mathbf{p}=\mathbf{p}_0$, IC$\in\{$cuspy, core$\}$ & 2 & n/a \\
+Initial structure & Core & $\mathbf{p}=\mathbf{p}_0$, IC$\in\{$core$\}$ & 1 & n/a \\
 
-Softening & Cuspy & $\mathbf{p}=\mathbf{p}_0$, $\epsilon\in\{1,5,10,50,100\}$ pc & 5 & 100 \\
+Softening & Cusp & $\mathbf{p}=\mathbf{p}_0$, $\epsilon\in\{1,5,10,50,100\}$ pc & 5 & 100 \\
 
-Solver: timestep & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with $\eta\in\{2\times10^{-4},2\times10^{-3},2\times10^{-2}\}$ & 3 & $10^2$ \\
+Solver: timestep & Cusp & $\mathbf{p}=\mathbf{p}_0$, $\eta\in\{2\times10^{-4},2\times10^{-3},2\times10^{-2}\}$ & 3 & $10^2$ \\
 
-Solver: MAC & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with MAC$\in\{$geometric, adaptive$\}$ & 2 & n/a \\
+Solver: MAC & Cusp & $\mathbf{p}=\mathbf{p}_0$, MAC$\in\{$geometric, adaptive$\}$ & 2 & n/a \\
 
-Solver: opening angle & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with $\theta_{\mathrm{cr}}\in\{0.5,0.6,0.7\}$ (geometric MAC) & 3 & 1.4 \\
+Solver: opening angle & Cusp & $\mathbf{p}=\mathbf{p}_0$, $\theta_{\mathrm{cr}}\in\{0.5,0.6,0.7\}$ & 3 & 1.4 \\
 
-Solver: FMM tolerance & Cuspy & $\mathbf{p}=\mathbf{p}_0$ with $\epsilon_{\mathrm{fmm}}\in\{10^{-4},10^{-3},10^{-2},10^{-1}\}$ & 4 & $10^3$ \\
+Solver: FMM tolerance & Cusp & $\mathbf{p}=\mathbf{p}_0$, $\epsilon_{\mathrm{fmm}}\in\{10^{-4},10^{-3},10^{-2},10^{-1}\}$ & 4 & $10^3$ \\
 
-Hybrid truncated-NFW & Cuspy & $\mathbf{p}=\mathbf{p}_0$, model$\rightarrow$hybrid, $R_{\mathrm{cut}}\in\{50,25,10,5,3,2,1\}$ kpc + vanilla & 8 & 50 \\
+Hybrid model & Cusp & $\mathbf{p}=\mathbf{p}_0$, $R_{\mathrm{cut}}\in\{50,25,10,[5,\,0.01]\}$ kpc & 20 & $5 \times 10^3$ \\
 \hline
 \end{tabular}
 }
 \end{table}
-
-This representation makes the campaign auditable at a glance: all families are written as controlled perturbations of $\mathbf{p}_0$, with sweep spans of $10^2$ in $\eta$, $10^3$ in $\epsilon_{\mathrm{fmm}}$, $10^2$ in softening around the baseline $\epsilon_{\mathrm{soft}}=0.01\,\mathrm{kpc}$ (1--100 pc), and 50 in $R_{\mathrm{cut}}$. A persistent trend across these families is therefore difficult to attribute to a narrow parameter-tuning artefact.
 
 \section{Numerical implementation of the hybrid model}
 \label{sec:framework_hybrid}
