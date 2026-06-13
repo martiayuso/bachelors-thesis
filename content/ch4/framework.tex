@@ -114,7 +114,7 @@ A dedicated hybrid gravity model was implemented and tested on a custom SWIFT br
 \item outer region ($r > R_{\mathrm{cut}}$): external NFW potential applied, with optional masking of dark-matter self-gravity sourcing outside the cutoff.
 \end{itemize}
 
-The design goal is not to claim a final physical model, but to construct a targeted numerical experiment: if outer-halo coupling is a major driver of central evolution, changing how the outer region sources gravity should produce a measurable response in inner-density trends.
+The design goal is to construct a targeted numerical experiment: if outer-halo coupling is a major driver of central evolution, changing how the outer region sources gravity should produce a measurable response in inner-density trends.
 
 \subsection{Implementation objectives and design choices}
 
@@ -176,20 +176,18 @@ w_{\mathrm{src}}(\mathbf{x}) = \chi_{\mathrm{in}}(\mathbf{x}) + \varepsilon_m\,\
 \qquad
 w_{\mathrm{tgt}}(\mathbf{x}) = \chi_{\mathrm{in}}(\mathbf{x}),
 \end{equation}
-with $\varepsilon_m=10^{-10}$ for masked dark-matter sources.
+with $\varepsilon_m=10^{-25}$ for masked dark-matter sources.
 
 The operational logic can therefore be summarized compactly as
 \begin{equation}
 \mathbf{a}(\mathbf{x}_t) = w_{\mathrm{tgt}}(\mathbf{x}_t)\,\mathbf{a}_{\mathrm{res}}(\mathbf{x}_t)
 + \chi_{\mathrm{out}}(\mathbf{x}_t)\,\mathbf{a}_{\mathrm{ext}}(\mathbf{x}_t),
 \end{equation}
-where $\mathbf{a}_{\mathrm{res}}$ is the resolved tree/pair/mesh contribution and $\mathbf{a}_{\mathrm{ext}}$ is the analytic truncated-NFW acceleration. In parallel, the source term entering the gravity solver is replaced by
+where $\mathbf{a}_{\mathrm{res}}$ is the resolved contribution and $\mathbf{a}_{\mathrm{ext}}$ is the analytic truncated-NFW acceleration. In parallel, the source term entering the gravity solver is replaced by
 \begin{equation}
 m_{\mathrm{eff}}(\mathbf{x}_s) = m_s\,w_{\mathrm{src}}(\mathbf{x}_s),
 \end{equation}
-so the tree and multipole moments are built from the masked mass field rather than from the raw particle masses.
-
-This notation captures the key implementation detail that the pseudocode notes explicitly: masked dark-matter particles are not assigned exactly zero weight, but a tiny non-zero factor $\varepsilon_m=10^{-10}$ to avoid degeneracies in the tree and multipole code paths. Thus, for a dark-matter particle $p$ one may write
+so the tree and multipole moments are built from the masked mass field rather than from the raw particle masses. Thus, for a dark-matter particle $p$ one may write
 \begin{equation}
 m_{\mathrm{eff},p} = m_p\left[\chi_{\mathrm{in}}(\mathbf{x}_p) + \varepsilon_m\,\chi_{\mathrm{out}}(\mathbf{x}_p)\right],
 \end{equation}
@@ -197,16 +195,16 @@ while all non-dark-matter species retain their original masses. The target-side 
 
 \subsection{Two-layer masking logic}
 
-The gravity split is enforced through two complementary mechanisms: source-side masking (particles outside the cutoff contribute negligibly to resolved sources) and target-side suppression (outer particles do not receive resolved write-backs). The final repository implementation follows a conservative, low‑overhead strategy that differs slightly from an earlier interaction-time-only design.
+The gravity split is enforced through two complementary mechanisms: source-side masking (particles outside the cutoff contribute negligibly to resolved sources) and target-side suppression (outer particles do not receive resolved write-backs).
 
-\textbf{Source-side masking.} To avoid expensive per-step global rewrites, the code now performs a one-time startup/restart masking sweep that sets the stored particle mass for eligible dark-matter particles to a tiny non-zero value. Concretely, a \texttt{mass\_initial} field was added to the \texttt{gpart} layout (see \texttt{src/gravity/*/gravity\_part.h}), and the helper
+\textbf{Source-side masking.} To avoid expensive per-step global rewrites, the code now performs a one-time startup masking sweep that sets the stored particle mass for eligible dark-matter particles to a tiny non-zero value. Concretely, a \texttt{mass\_initial} field was added to the \texttt{gpart} layout (see \texttt{src/gravity/*/gravity\_part.h}), and the helper
 \texttt{gravity\_sync\_truncated\_nfw\_masses(struct gpart *gparts, size\_t)} is invoked at initialization and after restart (see \texttt{src/engine.c}). This helper uses the same geometric cutoff test implemented by
 \texttt{gravity\_is\_outside\_truncated\_nfw\_cutoff(const double x[3])} and applies
-\(m_{\rm stored} = m_{\rm initial}\times\varepsilon_m\) for dark‑matter particles with $r>R_{\rm cut}$, where $\varepsilon_m\approx10^{-10}$. After this one-time pass, the gravity code reads the stored \texttt{gp->mass} (and packed/foreign mass fields) directly during multipole builds, pair interactions and mesh depositions.
+\(m_{\rm stored} = m_{\rm initial}\times\varepsilon_m\) for dark‑matter particles with $r>R_{\rm cut}$, where $\varepsilon_m\approx10^{-25}$. After this one-time pass, the gravity code reads the stored \texttt{gp->mass} (and packed/foreign mass fields) directly during multipole builds, pair interactions and mesh depositions.
 
-Note: the earlier helper \texttt{gravity\_get\_effective\_mass\_from\_position()} still exists in the codebase for diagnostic and transitional purposes, but the production runtime uses the stored masked mass following the one‑time initialization sweep. Attempts to restore or resync masses every step (or per drift) were investigated but removed because they produced unacceptable O(N) costs in typical runs.
+Note: attempts to restore or resync masses every step (or per drift) were investigated but removed because they produced unacceptable O(N) costs in typical runs.
 
-\textbf{Target-side suppression.} The implementation still prevents outer particles from receiving resolved write-backs: the geometric predicate \texttt{gravity\_is\_outside\_truncated\_nfw\_cutoff(...)} is used to gate the write-back paths so that, for targets with $r>R_{\rm cut}$, tree/pair/mesh contributions are not added to the particle acceleration or potential. This predicate is used in the same places as originally designed:
+\textbf{Target-side suppression.} The implementation still prevents outer particles from receiving resolved write-backs: the geometric predicate \texttt{gravity\_is\_outside\_truncated\_nfw\_cutoff(...)} is used to gate the write-back paths so that, for targets with $r>R_{\rm cut}$, tree/pair/mesh contributions are not added to the particle acceleration or potential. This predicate is used in the following places:
 
 \begin{itemize}
 \item \texttt{src/gravity\_cache.h}: in \texttt{gravity\_cache\_write\_back(...)} a guard skips adding cached pair/tree acceleration and potential to outer targets;
@@ -217,7 +215,7 @@ Note: the earlier helper \texttt{gravity\_get\_effective\_mass\_from\_position()
 
 Operationally, outer particles therefore evolve only under the analytic external potential terms, while inner particles continue to use the fully resolved self-gravity solver.
 
-The behaviour above can be expressed in a more detailed, step‑by‑step pseudocode that mirrors the actual runtime flow and clarifies the interactions between local data, packed/foreign frames, and the external backend.
+The behaviour above can be expressed in a more detailed pseudocode that mirrors the actual runtime flow and clarifies the interactions between local data, packed/foreign frames, and the external backend.
 
 \begin{enumerate}
 \item \textbf{Startup / restart initialization (single sweep)}
@@ -225,7 +223,7 @@ The behaviour above can be expressed in a more detailed, step‑by‑step pseudo
 # parameters read from YAML / external backend
 R_cut = config.cutoff_radius
 centre = config.position
-epsilon_m = 1e-10   # masked mass fraction
+epsilon_m = 1e-25   # masked mass fraction
 
 # one-time pass over local particle array (invoked from src/engine.c)
 for i in 0..nr_gparts-1:
@@ -237,17 +235,6 @@ for i in 0..nr_gparts-1:
 		gp.mass_initial = gp.mass  # ensure mass_initial is set consistently
 end
 \end{lstlisting}
-
-Explanation: this sweep replaces the earlier idea of recomputing effective mass at every interaction with a single, explicit overwrite of the stored mass for outer DM particles. It is cheap to read later (no per-step writes) but is an O(N) operation performed only at startup or after a restart.
-
-\item \textbf{MPI packing / foreign consistency}
-\begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
-# when creating the MPI packed structure for a particle:
-packed.mass = gp.mass   # export the stored (possibly masked) mass directly
-# receiver uses packed.mass directly when building multipoles / pair lists
-\end{lstlisting}
-
-Explanation: exporting the stored mass (not a mask factor) guarantees identical multipole/source semantics on all ranks and avoids branch divergence or reconstruction logic on the receiver.
 
 \item \textbf{Per-step gravity workflow (reads stored mass only)}
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
@@ -273,7 +260,7 @@ for each cached target t when writing back cached contributions:
 		add cached pair/tree contributions to a_res(t), Phi_res(t)
 \end{lstlisting}
 
-Explanation: the short‑range kernels and multipole builders see the masked masses for outer sources. Targets that lie outside the cutoff are excluded from write-back in the cache and from multipole-to-particle updates (see \texttt{src/multipole.h} early return), so they do not accumulate resolved accelerations or potentials.
+The short‑range kernels and multipole builders see the masked masses for outer sources. Targets that lie outside the cutoff are excluded from write-back in the cache and from multipole-to-particle updates (see \texttt{src/multipole.h} early return), so they do not accumulate resolved accelerations or potentials.
 
 \item \textbf{External potential injection for outer targets}
 \begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
@@ -286,16 +273,7 @@ for each particle t being advanced:
 		a_total = a_res + a_other_external_backends
 \end{lstlisting}
 
-Notes: the external backend computes analytic acceleration and potential for outer particles; an additive potential constant may be applied to keep the potential continuous at $R_{\rm cut}$ (this only affects reported energies, not the force).
-
-\item \textbf{Diagnostics and energy bookkeeping}
-\begin{lstlisting}[basicstyle=\footnotesize\ttfamily,breaklines=true]
-E_pot_res = sum_i gparts[i].mass * Phi_res(gparts[i].x)
-E_pot_ext = sum_i gparts[i].mass * Phi_ext(gparts[i].x)
-# report both channels separately and the expected non-conservative term
-\end{lstlisting}
-
-This separation allows validation of the hybrid split: inner resolved energy vs outer analytic energy.
+The external backend computes analytic acceleration and potential for outer particles; an additive potential constant may be applied to keep the potential continuous at $R_{\rm cut}$ (this only affects reported energies, not the force).
 
 \end{enumerate}
 
@@ -310,7 +288,7 @@ File cross-references: the runtime pieces described above live in the following 
 \item IO bookkeeping (mass\_initial set during IO/space sync): \texttt{src/common\_io.c}, \texttt{src/space.c}
 \end{itemize}
 
-Final remark: this expanded pseudocode clarifies why the implementation produces the observed split in particle behaviour. Sources outside $R_{\rm cut}$ contribute negligibly to resolved forces (their stored mass is tiny), and outer targets are advanced only by the analytic field. Whether an individual particle remains bound after crossing depends on its instantaneous energy relative to the analytic potential at the crossing moment and is therefore a physical outcome of the hybrid model rather than an implementation artifact.
+This pseudocode clarifies why the implementation produces the observed split in particle behaviour. Sources outside $R_{\rm cut}$ contribute negligibly to resolved forces (their stored mass is tiny), and outer targets are advanced only by the analytic field. Whether an individual particle remains bound after crossing depends on its instantaneous energy relative to the analytic potential at the crossing moment and is therefore a physical outcome of the hybrid model rather than an implementation artifact.
 
 \subsection{External potential behaviour and timestep coupling}
 
@@ -323,9 +301,9 @@ The external-potential API is responsible for returning three quantities for eac
 
 The analytic potential/acceleration are injected through the standard external-potential hooks (including \texttt{gravity\_add\_comoving\_potential(...)}), while resolved-gravity suppression is handled in gravity and mesh write-back paths.
 
-This separation clarifies potential bookkeeping: outer particles no longer accumulate resolved self-potential from tree/pair/mesh, but they still receive the analytic external contribution via the external backend and enter \(E_{\rm pot,ext}\) diagnostics through \texttt{external\_gravity\_get\_potential\_energy(...)}.
+This separation clarifies potential bookkeeping. Outer particles no longer accumulate resolved self-potential from tree/pair/mesh, but they still receive the analytic external contribution via the external backend and enter \(E_{\rm pot,ext}\) diagnostics through \texttt{external\_gravity\_get\_potential\_energy(...)}.
 
-For diagnostics, the implementation effectively tracks two energy-like sums,
+For diagnostics, the implementation effectively tracks two energy sums,
 \begin{equation}
 E_{\mathrm{pot,self}} = \sum_i m_i\,\Phi_{\mathrm{res}}(\mathbf{x}_i),
 \qquad

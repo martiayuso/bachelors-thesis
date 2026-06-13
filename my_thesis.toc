@@ -4,7 +4,7 @@
 \contentsline {chapter}{Abstract}{i}{chapter*.1}%
 \babel@toc {french}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Figures}{vi}{section*.4}%
+\contentsline {chapter}{List of Figures}{v}{section*.4}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}The cusp-core problem}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Motivating question}{2}{section.1.2}%
@@ -32,48 +32,44 @@
 \contentsline {subsection}{\numberline {3.3.4}Runtime parameters and YAML configuration}{18}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}Two-layer masking logic}{19}{subsection.3.3.5}%
 \contentsline {subsection}{\numberline {3.3.6}External potential behaviour and timestep coupling}{22}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}Centering, cutoff convention and edge cases}{23}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.7}Centering, cutoff convention and edge cases}{22}{subsection.3.3.7}%
 \contentsline {subsection}{\numberline {3.3.8}Serialization, restart safety and diagnostics}{23}{subsection.3.3.8}%
-\contentsline {subsection}{\numberline {3.3.9}Foreign-particle and MPI consistency}{24}{subsection.3.3.9}%
+\contentsline {subsection}{\numberline {3.3.9}Foreign-particle and MPI consistency}{23}{subsection.3.3.9}%
 \contentsline {subsection}{\numberline {3.3.10}Caveats and limitations}{24}{subsection.3.3.10}%
-\contentsline {chapter}{\numberline {4}Results and discussion}{26}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Baseline behaviour}{26}{section.4.1}%
-\contentsline {paragraph}{Radial binning scheme.}{27}{equation.4.1.3}%
-\contentsline {paragraph}{Density profile.}{27}{equation.4.1.5}%
-\contentsline {subsection}{\numberline {4.1.1}Density diagnostics}{30}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Kinematic}{30}{subsection.4.1.2}%
-\contentsline {paragraph}{Kinematic diagnostics of heating.}{31}{subsection.4.1.2}%
-\contentsline {paragraph}{Temporal evolution and interpretation.}{32}{equation.4.1.21}%
-\contentsline {paragraph}{Profile smoothing.}{32}{equation.4.1.21}%
-\contentsline {section}{\numberline {4.2}Box size}{35}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Initial halo structure}{36}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Gravitational softening}{38}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Self-gravity settings}{40}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Timestep study}{41}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{41}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{42}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{42}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Summary table of self-gravity parameter variations}{42}{subsection.4.5.5}%
-\contentsline {subsection}{\numberline {4.5.6}Overall interpretation of solver sensitivity}{42}{subsection.4.5.6}%
-\contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{44}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Shell diagnostics}{44}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Analytic shell decomposition}{45}{subsection.4.6.2}%
-\contentsline {section}{\numberline {4.7}Truncated NFW}{46}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Mass and potential structure}{46}{subsection.4.7.1}%
-\contentsline {subsubsection}{Cumulative-mass diagnostics}{46}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Orbits crossing the truncation boundary}{48}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Density profile}{51}{subsection.4.7.3}%
-\contentsline {chapter}{\numberline {5}Conclusions}{57}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Future work}{58}{section.5.1}%
+\contentsline {chapter}{\numberline {4}Results and discussion}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Baseline behaviour}{25}{section.4.1}%
+\contentsline {paragraph}{Radial binning scheme.}{26}{equation.4.1.3}%
+\contentsline {paragraph}{Density profile.}{26}{equation.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.1}Snaphot centering}{29}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Kinematic heating analysis}{30}{subsection.4.1.2}%
+\contentsline {paragraph}{Kinematic diagnostics of heating.}{30}{subsection.4.1.2}%
+\contentsline {paragraph}{Profile smoothing.}{31}{equation.4.1.21}%
+\contentsline {section}{\numberline {4.2}Box size}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Initial halo structure}{34}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Gravitational softening}{37}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Self-gravity settings}{39}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Timestep study}{40}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Multipole Acceptance Criterion study}{40}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{41}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{41}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Results of solver sensitivity}{41}{subsection.4.5.5}%
+\contentsline {section}{\numberline {4.6}Shell study: outer-halo influence on inner potential}{43}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Shell diagnostics}{43}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Analytic shell decomposition}{44}{subsection.4.6.2}%
+\contentsline {section}{\numberline {4.7}Truncated NFW}{45}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Mass and potential structure}{45}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Orbits crossing the truncation boundary}{47}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Density profile}{50}{subsection.4.7.3}%
+\contentsline {chapter}{\numberline {5}Conclusions}{56}{chapter.5}%
 \vspace {\normalbaselineskip }
-\contentsline {chapter}{Bibliography}{60}{chapter*.31}%
-\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{61}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Analytic shell decomposition}{63}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Key diagnostics and definitions}{63}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Implementation: analytical NFW shell decomposition}{64}{section.B.2}%
-\contentsline {section}{\numberline {B.3}Results}{65}{section.B.3}%
-\contentsline {subsection}{\numberline {B.3.1}Mass and potential distribution across the halo}{65}{subsection.B.3.1}%
-\contentsline {subsection}{\numberline {B.3.2}Outer-halo influence as a function of cutoff radius}{66}{subsection.B.3.2}%
-\contentsline {subsection}{\numberline {B.3.3}2D outer-fraction map}{67}{subsection.B.3.3}%
-\contentsline {chapter}{\numberline {C}Orbits}{69}{appendix.C}%
-\contentsline {chapter}{\numberline {D}Truncated-NFW density profile evolution}{72}{appendix.D}%
+\contentsline {chapter}{Bibliography}{58}{chapter*.32}%
+\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{59}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Analytic shell decomposition}{61}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Key diagnostics and definitions}{61}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Implementation: analytical NFW shell decomposition}{62}{section.B.2}%
+\contentsline {section}{\numberline {B.3}Results}{63}{section.B.3}%
+\contentsline {subsection}{\numberline {B.3.1}Mass and potential distribution across the halo}{63}{subsection.B.3.1}%
+\contentsline {subsection}{\numberline {B.3.2}Outer-halo influence as a function of cutoff radius}{64}{subsection.B.3.2}%
+\contentsline {subsection}{\numberline {B.3.3}2D outer-fraction map}{65}{subsection.B.3.3}%
+\contentsline {chapter}{\numberline {C}Orbits}{67}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Truncated-NFW density profile evolution}{70}{appendix.D}%
