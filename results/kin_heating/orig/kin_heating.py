@@ -190,8 +190,8 @@ def make_plots(results, output_prefix):
     for i, (label, data) in enumerate(results.items()):
         r = data["radius"]
         
-        axes[0].plot(r, data["sigma_1d"], label=label, color=colors[i], linewidth=2.5)
-        axes[1].plot(r, data["beta"], label=label, color=colors[i], linewidth=2.5)
+        axes[0].plot(r, data["sigma_1d"], label=label, color=colors[i], linewidth=1.5)
+        axes[1].plot(r, data["beta"], label=label, color=colors[i], linewidth=1.5)
 
     # Formatting and Math LaTeX Labels
     axes[0].set_ylabel(r'$\sigma_{\rm{1D}}\ [\rm{km/s}]$')

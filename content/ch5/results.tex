@@ -59,7 +59,7 @@ where $\epsilon$ is the run softening length; this helps separate physically int
 %	\label{fig:baseline_potential_map}
 %\end{figure}
 
-In the plot in Figure~\ref{fig:baseline_gradient} the central density drops rapidly at early times, then continues to drift downward more slowly, without ever forming a stable plateau. The companion plot in Figure~\ref{fig:baseline_cusp_short} presents the same evolution and adds the ratio to the initial conditions, which makes the decline easier to read at a glance. In that sense, the evolution resembles a continuing redistribution of mass rather than a completed structural transformation. This is the key point that motivates the rest of the chapter.
+In the plot in Figure~\ref{fig:baseline_gradient} the central density drops rapidly at early times, then continues to drift downward more slowly, without ever forming a stable plateau. In the ratio to the initial conditions, the decline is easier to read at a glance. In that sense, the evolution resembles a continuing redistribution of mass rather than a completed structural transformation. This is the key point that motivates the rest of the chapter.
 
 \begin{figure}[H]
 	\centering
@@ -68,12 +68,12 @@ In the plot in Figure~\ref{fig:baseline_gradient} the central density drops rapi
 	\label{fig:baseline_gradient}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{content/ch5/img/density_evolution_cusp.png}
-	\caption{\textbf{Baseline evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
-	\label{fig:baseline_cusp_short}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{content/ch5/img/density_evolution_cusp.png}
+%	\caption{\textbf{Baseline evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
+%	\label{fig:baseline_cusp_short}
+%\end{figure}
 
 \subsection{Snapshot centering}
 Centering is handled independently from the density estimation. Each snapshot is recentered using a shrinking-sphere algorithm, which iteratively refines the halo center by repeatedly restricting the particle set to smaller radii around the current estimate. If the particle positions are $\mathbf{x}_i$ and masses are $m_i$, the mass-weighted centroid of a selected set $S_k$ is
@@ -154,12 +154,12 @@ Because the kinematic profiles are measured from finite particle numbers, the ra
 \end{equation}
 where $h$ is the smoothing length. In practice, $h$ is chosen to be comparable to one radial bin width, so that the filter suppresses shot noise without erasing genuine radial trends. The same procedure is applied consistently to $\sigma_r(r)$, $\sigma_t(r)$, and $\beta(r)$ when comparing different epochs.
 
-For a collisionless stellar system in steady-state, spherical hydrostatic equilibrium, the velocity dispersion profiles and the spatial density distribution $\rho(r)$ must satisfy the spherical Jeans equation:
-\begin{equation}
-    \frac{\mathrm{d}}{\mathrm{d}r}\left[\rho(r) \sigma_r^2(r)\right] + \frac{2\beta(r)}{r}\rho(r) \sigma_r^2(r) = -\rho(r)\frac{\mathrm{d}\Phi}{\mathrm{d}r} = -\frac{G M(<r)\rho(r)}{r^2},
-    \label{eq:spherical_jeans}
-\end{equation}
-where $\beta(r)$ is the stellar anisotropy parameter defined previously, $\Phi(r)$ is the global gravitational potential, and $M(<r)$ represents the cumulative halo mass contained within a sphere of radius $r$. 
+%For a collisionless stellar system in steady-state, spherical hydrostatic equilibrium, the velocity dispersion profiles and the spatial density distribution $\rho(r)$ must satisfy the spherical Jeans equation:
+%\begin{equation}
+%   \frac{\mathrm{d}}{\mathrm{d}r}\left[\rho(r) \sigma_r^2(r)\right] + \frac{2\beta(r)}{r}\rho(r) \sigma_r^2(r) = -\rho(r)\frac{\mathrm{d}\Phi}{\mathrm{d}r} = -\frac{G M(<r)\rho(r)}{r^2},
+%    \label{eq:spherical_jeans}
+%\end{equation}
+%where $\beta(r)$ is the stellar anisotropy parameter defined previously, $\Phi(r)$ is the global gravitational potential, and $M(<r)$ represents the cumulative halo mass contained within a sphere of radius $r$. 
 
 The above diagnostics are computed at multiple simulation times, and the resulting profiles $\sigma_{\mathrm{1D}}(r)$ and $\beta(r,t)$ are compared between the initial state and late-time snapshots in Figure~\ref{fig:baseline_kinematics}.
 
@@ -193,7 +193,7 @@ There are two simple physical interpretations of this result. First, long-range 
 \section{Initial halo structure}
 \label{sec:results_initial_structure}
 
-The comparison between cuspy and cored initial conditions is particularly informative because it distinguishes between a cusp specific instability and a more general process. The core run still exhibits a decline of the central density, but the amplitude is smaller than in the cuspy case. Shown in Figures~\ref{fig:core_gradient} and \ref{fig:core_initial_condition}, this is a strong result because it means the mechanism is not limited to the special case of an initially steep central profile.
+The comparison between cuspy and cored initial conditions is particularly informative because it distinguishes between a cusp specific instability and a more general process. The core run still exhibits a decline of the central density, but the amplitude is smaller than in the cuspy case. Shown in Figure~\ref{fig:core_gradient}, this is a strong result because it means the mechanism is not limited to the special case of an initially steep central profile.
 
 %\begin{figure}[H]
 %	\centering
@@ -218,16 +218,16 @@ The literature on heating caused by substructure is again relevant here. Stochas
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{content/ch5/img/gradient_core.png}
-	\caption{\textbf{Core initial condition density-profile evolution.} The cored halo also shows a decline in central density, although with a smaller amplitude than the cuspy case. This directly contradicts a simple expectation of core formation followed by stabilization.}
+	\caption{\textbf{Core initial condition density-profile evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
 	\label{fig:core_gradient}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.9\textwidth]{content/ch5/img/density_evolution_core.png}
-	\caption{\textbf{Core initial condition evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
-	\label{fig:core_initial_condition}
-\end{figure}
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=0.9\textwidth]{content/ch5/img/density_evolution_core.png}
+%	\caption{\textbf{Core initial condition evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
+%	\label{fig:core_initial_condition}
+%\end{figure}
 
 \section{Gravitational softening}
 \label{sec:results_softening}
@@ -387,12 +387,6 @@ The halo is truncated at a virial radius $r_{\mathrm{vir}}$. The gravitational p
 \Phi(r) = -\frac{G M(<r)}{r} - 4\pi G \rho_s r_s^2 \left[ \frac{1}{1 + r/r_s} - \frac{1}{1 + r_{\mathrm{vir}}/r_s} \right],
 \end{equation}
 
-and the radial acceleration (force per unit mass) is:
-
-\begin{equation}
-a(r) = \frac{G M(<r)}{r^2}.
-\end{equation}
-
 Rather than relying on a numerical computation of the integrals, the shell analysis uses exact analytic formulas for a truncated NFW profile. The halo is decomposed into logarithmically spaced spherical shells:
 
 \begin{equation}
@@ -401,31 +395,27 @@ r_i = r_{\mathrm{min}} \left(\frac{r_{\mathrm{vir}}}{r_{\mathrm{min}}}\right)^{i
 
 where typically $N_{\rm shells} = 80$ and $r_{\mathrm{min}} \approx 0.02$ kpc.
 
-For each shell $[r_i, r_{i+1}]$, exact closed form expressions compute: (i) shell mass $M_{\rm shell} = M(<r_{i+1}) - M(<r_i)$, (ii) shell contribution to potential at any radius, and (iii) cumulative potential contributions for integration over shells.
-
-For an NFW profile with parameters $\rho_s = 10^7 \, M_{\odot}/\mathrm{kpc}^3$, $r_s = 10 \, \mathrm{kpc}$, $r_{\mathrm{vir}} = 100 \, \mathrm{kpc}$, the results are presented in the following subsections.
+For each shell $[r_i, r_{i+1}]$, exact closed form expressions compute: (i) shell mass $M_{\rm shell} = M(<r_{i+1}) - M(<r_i)$, (ii) shell contribution to potential at any radius, and (iii) cumulative potential contributions for integration over shells. For an NFW profile with parameters $\rho_s = 10^7 \, M_{\odot}/\mathrm{kpc}^3$, $r_s = 10 \, \mathrm{kpc}$, $r_{\mathrm{vir}} = 100 \, \mathrm{kpc}$, the results are presented in the following subsections.
 
 \subsection{Mass and potential distribution across the halo}
 
-The first two diagnostics establish the overall radial structure of the halo. Figure \ref{fig:results_shell_mass} shows the enclosed mass profile and the fractional mass distribution per shell. The enclosed mass profile follows the expected NFW form, steep near the center and flattening at larger radii.
+The first two diagnostics establish the overall radial structure of the halo. Figure \ref{fig:results_shell_mass} shows the enclosed mass profile and the fractional mass distribution per shell. While Figure \ref{fig:results_shell_potential} shows the contribution of each shell to the gravitational potential at the center and the cumulative contribution from all shells outside a given radius. The enclosed mass profile follows the expected NFW form, steep near the center and flattening at larger radii.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{content/ch5/img/01_mass_profile_and_shell_fraction.png}
-	\caption{\textbf{NFW enclosed mass and shell mass fraction.} Left axis: monotonically increasing enclosed mass $M(<r)$ with radius. Right axis: shell mass fraction per logarithmic shell.}
+	\includegraphics[width=0.80\textwidth]{content/ch5/img/01_mass_profile_and_shell_fraction.png}
+	\caption{\textbf{NFW enclosed mass and shell mass fraction.} Left axis: increasing enclosed mass $M(<r)$ with radius. Right axis: shell mass fraction per logarithmic shell.}
 	\label{fig:results_shell_mass}
 \end{figure}
 
-Figure \ref{fig:results_shell_potential} shows the contribution of each shell to the gravitational potential at the center and the cumulative contribution from all shells outside a given radius.
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{content/ch5/img/02_central_potential_shell_contribution.png}
-	\caption{\textbf{Shell contributions to the central potential depth.} Individual shells (blue points with error bars) contribute to the total potential depth $|\Phi(0)|$. The cumulative contribution (orange line) from all shells beyond a given radius shows that shells at radii beyond the scale radius $r_s$ still make substantial contributions to the escape-speed scale.}
+	\includegraphics[width=0.80\textwidth]{content/ch5/img/02_central_potential_shell_contribution.png}
+	\caption{\textbf{Shell contributions to the central potential depth.} Blue points represent the contribution of each shell to the total potential depth $|\Phi(0)|$. The cumulative contribution from all shells beyond a given radius is plotted in orange.}
 	\label{fig:results_shell_potential}
 \end{figure}
 
-The key finding here is that shells well outside the center, at radii several times the scale radius, still contribute visibly to the potential depth. The fractional contribution decreases with radius but remains non-negligible up to $r \sim 3 r_s$.
+%The key finding here is that shells well outside the center, at radii several times the scale radius, still contribute visibly to the potential depth. The fractional contribution decreases with radius but remains non-negligible up to $r \sim 3 r_s$.
 
 \subsection{Outer halo influence as a function of cutoff radius}
 
@@ -459,9 +449,6 @@ A second validation concerns the resulting gravitational potential (Figure~\ref{
 
 \begin{figure}[H]
     \centering
-    %------------------------------------------------
-    % Row 1
-    %------------------------------------------------
     \begin{minipage}{0.49\textwidth}
         \centering
         \includegraphics[width=\linewidth]{content/ch5/img/baseline_potential.pdf}
@@ -586,14 +573,14 @@ This produces a compact data set containing only trajectories relevant to the bo
 	\label{fig:tnfw_validation_orbits}
 \end{figure}
 
-The following figure summarizes a larger sample of trajectories. In all cases, the orbits remain smooth and dynamically consistent, with no evidence of discontinuities arising from crossings of the truncation boundary. Additional orbit examples are provided in Appendix~\ref{app:tnfw_orbits}.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.75\textwidth]{content/ch5/img/summary_orbits.png}
 	\caption{Summary of multiple selected orbits crossing the truncation boundary. The vertical dashed line indicates the truncation radius $R_{\rm cut}$.}
 	\label{fig:summary_orbits}
 \end{figure}
+
+The figure above (Figure~\ref{fig:summary_orbits}) summarizes a larger sample of trajectories. In all cases, the orbits remain smooth and dynamically consistent, with no evidence of discontinuities arising from crossings of the truncation boundary. Additional orbit examples are provided in Appendix~\ref{app:tnfw_orbits}.
 
 In summary, the validation diagnostics show that (i) mass is correctly split by the truncation routine, (ii) the inner potential follows the expected NFW shape (Figure~\ref{fig:multifigure_potential_distr}), and (iii) orbits are not affected by the truncation (Figure~\ref{fig:summary_orbits}). These outcomes indicate that the truncated interaction implementation behaves as intended for the described experiments.
 
@@ -605,11 +592,9 @@ This result is significant because it demonstrates that the observed central den
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{content/ch5/img/truncated_10.png}
-	\caption{\textbf{Hybrid model density profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend.}
+	\caption{Density profile evolution of the hybrid model.}
 	\label{fig:truncated_10}
 \end{figure}
-
-This motivates further analysis of smaller $R_{\rm cut}$ values, which is carried out in the following plot.
 
 This finding motivates further analysis of smaller $R_{\rm cut}$ values, the results of which are presented in Figure~\ref{fig:large_plot}.
 
@@ -635,6 +620,8 @@ Complete density profile plots can be found in the annex Section~\ref{app:tnfw_d
 
 Finally, the results are summarized in Figure~\ref{fig:r_cut_comparison}, which compares the density evolution for multiple $R_{\rm cut}$ values at 50 Gyr and 100 Gyr. The left panel shows that at 50 Gyr, the runs with $R_{\rm cut} \gtrsim 0.1\,\mathrm{kpc}$ behave very similarly to the baseline, while smaller cutoffs show a more limited decline. The right panel confirms that by 100 Gyr, the same hierarchy persists.
 
+These results indicate that the central density decline is driven by a mechanism that does not require the full long range potential structure of the halo, and that truncating interactions beyond 10 kpc does not eliminate the effect. However, as the cutoff radius approaches the softening length, the core evolution becomes increasingly limited, suggesting that the mechanism is sensitive to interactions at scales comparable to the softening length.
+
 \begin{figure}[H]
 	\centering
 	\begin{minipage}[t]{0.5\textwidth}
@@ -649,6 +636,6 @@ Finally, the results are summarized in Figure~\ref{fig:r_cut_comparison}, which 
 	\label{fig:r_cut_comparison}
 \end{figure}
 
-These results indicate that the central density decline is driven by a mechanism that does not require the full long range potential structure of the halo, and that truncating interactions beyond 10 kpc does not eliminate the effect. However, as the cutoff radius approaches the softening length, the core evolution becomes increasingly limited, suggesting that the mechanism is sensitive to interactions at scales comparable to the softening length.
+Therefore, artificial two-body relaxation and force softening appear to be driving the persistent core formation in the halo simulations. Studies of high-resolution CDM halos show that even $10^{6}$--$10^{8}$ particles have relaxation times short enough to flatten cusps in a few dynamical times. In particular, \cite{diemand2004relaxation} demonstrated that simulated halos suffer central heating that declines only as $\sim N^{-0.25}$ with particle number, rather than $N^{-1}$, implying that large $N$ ($\gg 10^{8}$) or substantial softening are needed to prevent cusp erosion. Similarly, \cite{elzant2006relaxation} finds that $t_{\mathrm{relax}} \propto r^{2}$ and that a $10^{6}$-particle halo is already noise dominated in the inner $\sim 1\%$, requiring $N \gg 10^{8}$ for the inner profile to remain collisionless.
 
-Therefore, artificial two-body relaxation and force softening appear to be driving the persistent core formation in the halo simulations. Studies of high-resolution CDM halos show that even $10^{6}$--$10^{8}$ particles have relaxation times short enough to flatten cusps in a few dynamical times. In particular, \cite{diemand2004relaxation} demonstrated that simulated halos suffer central heating that declines only as $\sim N^{-0.25}$ with particle number, rather than $N^{-1}$, implying that large $N$ ($\gg 10^{8}$) or substantial softening are needed to prevent cusp erosion. Similarly, \cite{elzant2006relaxation} finds that $t_{\mathrm{relax}} \propto r^{2}$ and that a $10^{6}$-particle halo is already noise dominated in the inner $\sim 1\%$, requiring $N \gg 10^{8}$ for the inner profile to remain collisionless. These works predict that truncating outer mass alone cannot halt inner relaxation; removing long range forces beyond 10 kpc still leaves the small-$N$ central cusp relaxationally unstable. In short, the balance of evidence is that numerical discreteness (two-body scattering and shot noise), rather than algorithmic bias or mis-centering, is the primary culprit.
+These works predict that truncating outer mass alone cannot halt inner relaxation; removing long range forces beyond 10 kpc still leaves the small-$N$ central cusp relaxationally unstable. In short, the balance of evidence is that numerical discreteness (two-body scattering and shot noise), rather than algorithmic bias or mis-centering, is the primary culprit.

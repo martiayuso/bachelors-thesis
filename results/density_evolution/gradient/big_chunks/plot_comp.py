@@ -49,7 +49,7 @@ def plot(sim_files, labels):
     rho0 = 0.0027658297046461644 * 1e10
     rs = 0.828177997155062
 
-    alpha = 0.0
+    alpha = 1.0
 
     beta = 3.0
 
@@ -130,7 +130,7 @@ def plot(sim_files, labels):
     )
 
     ax1.set_xlim(1e-2, 10)
-    ax1.set_ylim(1e4, 1e8)
+    ax1.set_ylim(1e4, 1e10)
 
     ax1.grid(alpha=0.2)
 
@@ -151,7 +151,7 @@ def plot(sim_files, labels):
         r'$r\ [\rm{kpc}]$'
     )
 
-    ax2.set_ylim(0.4, 1.2)
+    ax2.set_ylim(0.2, 1.2)
 
     ax2.grid(alpha=0.2)
 

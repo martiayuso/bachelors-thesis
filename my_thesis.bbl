@@ -11,6 +11,11 @@ Binney, J. and Tremaine, S. (2008).
 \newblock {\em Galactic Dynamics}.
 \newblock Princeton University Press, Princeton, NJ, 2nd edition.
 
+\bibitem[Borrow et~al., 2021]{borrow2020sphenix}
+Borrow, J., Schaller, M., Bower, R.~G., and Schaye, J. (2021).
+\newblock Sphenix: Smoothed particle hydrodynamics for the next generation of galaxy formation simulations.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 508:5873--5900.
+
 \bibitem[Boylan-Kolchin et~al., 2009]{boylan2009millennium2}
 Boylan-Kolchin, M., Springel, V., White, S. D.~M., Jenkins, A., and Lemson, G. (2009).
 \newblock Resolving cosmic structure formation with the millennium-ii simulation.
@@ -46,6 +51,17 @@ Hopkins, P.~F., Nadler, E.~O., Grudi\'{c}, M.~Y., Shen, X., Sands, I., and Jiang
 \newblock {\em Monthly Notices of the Royal Astronomical Society}.
 \newblock arXiv:2212.06851v2.
 
+\bibitem[Kegerreis et~al., 2019]{kegerreis2019planetary}
+Kegerreis, J.~A., Eke, V.~R., Gonnet, P.~G., Zuiani, F., Schaller, M., Cremin, A.~E., and Borrow, J. (2019).
+\newblock Planetary giant impacts: Convergence of high-resolution simulations using efficient spherical initial conditions and swift.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 487:5029--5054.
+
+\bibitem[Nasar et~al., 2025]{nasar2025task}
+Nasar, A. M.~A., Rogers, B.~D., Fourtakas, G., Kay, S.~T., and Schaller, M. (2025).
+\newblock Task-parallelism in {SWIFT} for heterogeneous compute architectures.
+\newblock {\em arXiv}.
+\newblock arXiv:2505.14538.
+
 \bibitem[Navarro et~al., 1996]{navarro1996structure}
 Navarro, J.~F., Frenk, C.~S., and White, S. D.~M. (1996).
 \newblock The structure of cold dark matter halos.
@@ -79,6 +95,11 @@ Price, D.~J. and Monaghan, J.~J. (2007).
 Salamin, G. G.~H. (2026).
 \newblock The origin of size growth in ultra-faint dwarf galaxies: a comparison of cold and warm dark matter zoom-in {N}-body simulations.
 \newblock Master's thesis, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne (EPFL), Lausanne, Switzerland.
+
+\bibitem[Schaller et~al., 2024]{schaller2024swift}
+Schaller, M., Borrow, J., Draper, P.~W., Gonnet, P.~G., Kegerreis, J.~A., Kravtsov, A., Luytsilent, A., Marsden, A., and {the SWIFT collaboration} (2024).
+\newblock Swift: A modern highly-parallel gravity and smoothed particle hydrodynamics solver for astrophysical and cosmological applications.
+\newblock {\em Monthly Notices of the Royal Astronomical Society}, 530(2):2378--2419.
 
 \bibitem[{SWIFT Collaboration}, 2024]{swiftgallery2024}
 {SWIFT Collaboration} (2024).

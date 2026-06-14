@@ -112,7 +112,13 @@ From a methodological perspective, adaptive schemes are especially relevant for 
 
 In the context of this thesis, softening is a key control variable which will be studied in detail.
 
-\section{Gravity solver controls in SWIFT}
+\section{The SWIFT simulation code}
+
+SWIFT is a highly-parallel, open-source astrophysics and cosmology simulation code specifically designed to exploit modern high-performance computing (HPC) and cluster architectures \citep{schaller2024swift}. Unlike traditional simulation codes that distribute workloads by strictly decomposing spatial data across processors, SWIFT relies on a hybrid shared- and distributed-memory task-based parallelism model \citep{schaller2024swift}. This architecture utilizes asynchronous communications and advanced domain-decomposition algorithms that dynamically balance the computational workload rather than the data footprint. This approach minimizes synchronization bottlenecks and ensures excellent weak-scaling performance, allowing the code to efficiently handle simulations involving hundreds of billions of particles \citep{nasar2025task,schaller2024swift}.
+
+To evolve collisionless dark matter and handle self-gravity, SWIFT employs a Fast Multipole Method (FMM) gravity solver \citep{schaller2024swift}. For periodic cosmological volumes, this FMM solver is optionally coupled to a Particle-Mesh (PM) solver operating in Fourier space, allowing for the efficient computation of long-range gravitational forces while precisely resolving short-range, particle-to-particle interactions within the local neighborhoods \citep{schaller2024swift}.
+
+\subsection{Gravity solver controls in SWIFT}
 \label{sec:bg_solver_controls}
 
 Beyond softening, force computation in modern cosmological codes depends on hierarchical gravity solvers (tree and fast multipole expansions) and their acceptance criteria. These methods accelerate long range gravity by replacing exact pairwise summation with controlled approximations, whose errors depend on opening criteria and expansion tolerances.
@@ -136,6 +142,12 @@ In practical terms, parameters such as the multipole acceptance criterion (MAC),
 	\caption{Simulation examples from the SWIFT gallery \citep{swiftgallery2024}.}
 	\label{fig:swift_gallery_examples}
 \end{figure}
+
+\subsection{Smoothed particle hydrodynamics (SPH) and the SPHENIX scheme}
+
+While this thesis primarily investigates the dynamics of collisionless dark matter halos, a complete theoretical overview of SWIFT requires acknowledging its capacity to model baryonic physics through hydrodynamics. SWIFT accomplishes this using Smoothed Particle Hydrodynamics (SPH), a Lagrangian (particle-based) method that discretizes fluids into individual elements that move naturally with the flow \citep{kegerreis2019planetary,nasar2025task}. SPH is highly favored in cosmology due to its intrinsic spatial adaptivity; it effortlessly clusters resolution elements into high-density regions, seamlessly capturing the extreme density contrasts inherent to structure formation without the need for complex adaptive mesh refinement algorithms \citep{nasar2025task}.
+
+SWIFT features multiple flavors of SPH, but its default and most advanced scheme is SPHENIX \citep{borrow2020sphenix,schaller2024swift}. SPHENIX is a density-energy based SPH formulation engineered to overcome the historical integration errors and mixing limitations associated with traditional pressure-entropy SPH methods \citep{borrow2020sphenix}. To achieve this, SPHENIX introduces a novel artificial conduction scheme alongside standard artificial viscosity. This addition significantly reduces errors at contact discontinuities and dramatically improves both the conservation of vorticity and the mixing of fluids \citep{borrow2020sphenix}. By combining robust task-based gravity with the high-fidelity SPHENIX hydrodynamics scheme, SWIFT provides an optimal numerical framework for executing the next generation of highly accurate galaxy formation simulations \citep{borrow2020sphenix,schaller2024swift}.
 
 \section{Shell structure and mass redistribution}
 \label{sec:bg_shells}
