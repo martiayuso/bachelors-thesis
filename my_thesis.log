@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  14 JUN 2026 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.2.11)  14 JUN 2026 19:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1288,7 +1288,7 @@ Chapter 1.
 
 
 ]
-<content/ch1/img/cuspvcore.png, id=296, 792.9625pt x 710.655pt>
+<content/ch1/img/cuspvcore.png, id=297, 792.9625pt x 710.655pt>
 File: content/ch1/img/cuspvcore.png Graphic file (type png)
 <use content/ch1/img/cuspvcore.png>
 Package pdftex.def Info: content/ch1/img/cuspvcore.png  used on input line 18.
@@ -1304,13 +1304,13 @@ LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <6> not available
 [5
 
 ]
-<content/ch3/img/millennium2zoom_paper.jpg, id=335, 1319.93124pt x 1319.93124pt>
+<content/ch3/img/millennium2zoom_paper.jpg, id=336, 1319.93124pt x 1319.93124pt>
 File: content/ch3/img/millennium2zoom_paper.jpg Graphic file (type jpg)
 <use content/ch3/img/millennium2zoom_paper.jpg>
 Package pdftex.def Info: content/ch3/img/millennium2zoom_paper.jpg  used on input line 32.
 (pdftex.def)             Requested size: 399.47398pt x 399.46674pt.
  [6 <./content/ch3/img/millennium2zoom_paper.jpg>]
-<content/ch3/img/dwarf_galaxies.png, id=352, 1204.5pt x 1204.5pt>
+<content/ch3/img/dwarf_galaxies.png, id=353, 1204.5pt x 1204.5pt>
 File: content/ch3/img/dwarf_galaxies.png Graphic file (type png)
 <use content/ch3/img/dwarf_galaxies.png>
 Package pdftex.def Info: content/ch3/img/dwarf_galaxies.png  used on input line 72.
@@ -1335,12 +1335,12 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 7.35999pt on input line 83.
  [9]
-<content/ch3/img/agora_gear_revaz.png, id=406, 1027.84pt x 1027.84pt>
+<content/ch3/img/agora_gear_revaz.png, id=407, 1027.84pt x 1027.84pt>
 File: content/ch3/img/agora_gear_revaz.png Graphic file (type png)
 <use content/ch3/img/agora_gear_revaz.png>
 Package pdftex.def Info: content/ch3/img/agora_gear_revaz.png  used on input line 132.
 (pdftex.def)             Requested size: 213.05234pt x 213.04541pt.
-<content/ch3/img/santa_barbara_borrow.png, id=407, 578.16pt x 578.16pt>
+<content/ch3/img/santa_barbara_borrow.png, id=408, 578.16pt x 578.16pt>
 File: content/ch3/img/santa_barbara_borrow.png Graphic file (type png)
 <use content/ch3/img/santa_barbara_borrow.png>
 Package pdftex.def Info: content/ch3/img/santa_barbara_borrow.png  used on input line 137.
@@ -1386,7 +1386,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [16]
-<content/ch4/img/truncated_nfw_technical.png, id=465, 1424.32124pt x 1467.4825pt>
+<content/ch4/img/truncated_nfw_technical.png, id=466, 1424.32124pt x 1467.4825pt>
 File: content/ch4/img/truncated_nfw_technical.png Graphic file (type png)
 <use content/ch4/img/truncated_nfw_technical.png>
 Package pdftex.def Info: content/ch4/img/truncated_nfw_technical.png  used on input line 160.
@@ -1404,181 +1404,171 @@ Chapter 4.
 [25
 
 ]
-<content/ch5/img/gradient.png, id=571, 691.1421pt x 547.3248pt>
+<content/ch5/img/gradient.png, id=572, 691.1421pt x 547.3248pt>
 File: content/ch5/img/gradient.png Graphic file (type png)
 <use content/ch5/img/gradient.png>
-Package pdftex.def Info: content/ch5/img/gradient.png  used on input line 66.
+Package pdftex.def Info: content/ch5/img/gradient.png  used on input line 60.
 (pdftex.def)             Requested size: 399.47398pt x 316.35455pt.
  [26] [27 <./content/ch5/img/gradient.png>] [28] [29]
 <content/ch5/img/baseline_kinematics.png, id=630, 722.7pt x 505.89pt>
 File: content/ch5/img/baseline_kinematics.png Graphic file (type png)
 <use content/ch5/img/baseline_kinematics.png>
-Package pdftex.def Info: content/ch5/img/baseline_kinematics.png  used on input line 170.
+Package pdftex.def Info: content/ch5/img/baseline_kinematics.png  used on input line 164.
 (pdftex.def)             Requested size: 399.47398pt x 279.6298pt.
  [30 <./content/ch5/img/baseline_kinematics.png>]
 <content/ch5/img/box_size_study.png, id=646, 705.5961pt x 553.1064pt>
 File: content/ch5/img/box_size_study.png Graphic file (type png)
 <use content/ch5/img/box_size_study.png>
-Package pdftex.def Info: content/ch5/img/box_size_study.png  used on input line 190.
+Package pdftex.def Info: content/ch5/img/box_size_study.png  used on input line 184.
 (pdftex.def)             Requested size: 399.47398pt x 313.13867pt.
  [31] [32 <./content/ch5/img/box_size_study.png>]
 <content/ch5/img/gradient_core.png, id=663, 686.8059pt x 547.3248pt>
 File: content/ch5/img/gradient_core.png Graphic file (type png)
 <use content/ch5/img/gradient_core.png>
-Package pdftex.def Info: content/ch5/img/gradient_core.png  used on input line 222.
+Package pdftex.def Info: content/ch5/img/gradient_core.png  used on input line 216.
 (pdftex.def)             Requested size: 399.47398pt x 318.35056pt.
  [33 <./content/ch5/img/gradient_core.png>]
 <content/ch5/img/grav_soft_study_50.png, id=680, 645.1302pt x 908.4339pt>
 File: content/ch5/img/grav_soft_study_50.png Graphic file (type png)
 <use content/ch5/img/grav_soft_study_50.png>
-Package pdftex.def Info: content/ch5/img/grav_soft_study_50.png  used on input line 245.
+Package pdftex.def Info: content/ch5/img/grav_soft_study_50.png  used on input line 239.
 (pdftex.def)             Requested size: 221.9315pt x 312.50903pt.
 <content/ch5/img/grav_soft_study_100.png, id=681, 645.1302pt x 908.4339pt>
 File: content/ch5/img/grav_soft_study_100.png Graphic file (type png)
 <use content/ch5/img/grav_soft_study_100.png>
-Package pdftex.def Info: content/ch5/img/grav_soft_study_100.png  used on input line 249.
+Package pdftex.def Info: content/ch5/img/grav_soft_study_100.png  used on input line 243.
 (pdftex.def)             Requested size: 221.9315pt x 312.50903pt.
  [34 <./content/ch5/img/grav_soft_study_50.png> <./content/ch5/img/grav_soft_study_100.png>] [35]
 <content/ch5/img/eta_study.png, id=695, 707.2824pt x 554.3109pt>
 File: content/ch5/img/eta_study.png Graphic file (type png)
 <use content/ch5/img/eta_study.png>
-Package pdftex.def Info: content/ch5/img/eta_study.png  used on input line 308.
+Package pdftex.def Info: content/ch5/img/eta_study.png  used on input line 304.
 (pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
 <content/ch5/img/mac_study.png, id=696, 707.2824pt x 554.3109pt>
 File: content/ch5/img/mac_study.png Graphic file (type png)
 <use content/ch5/img/mac_study.png>
-Package pdftex.def Info: content/ch5/img/mac_study.png  used on input line 313.
+Package pdftex.def Info: content/ch5/img/mac_study.png  used on input line 309.
 (pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
 <content/ch5/img/theta_cr_study.png, id=697, 707.2824pt x 554.3109pt>
 File: content/ch5/img/theta_cr_study.png Graphic file (type png)
 <use content/ch5/img/theta_cr_study.png>
-Package pdftex.def Info: content/ch5/img/theta_cr_study.png  used on input line 317.
+Package pdftex.def Info: content/ch5/img/theta_cr_study.png  used on input line 313.
 (pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
 <content/ch5/img/epsilon_fmm_study.png, id=698, 707.2824pt x 554.3109pt>
 File: content/ch5/img/epsilon_fmm_study.png Graphic file (type png)
 <use content/ch5/img/epsilon_fmm_study.png>
-Package pdftex.def Info: content/ch5/img/epsilon_fmm_study.png  used on input line 322.
+Package pdftex.def Info: content/ch5/img/epsilon_fmm_study.png  used on input line 318.
 (pdftex.def)             Requested size: 221.9315pt x 173.9322pt.
  [36] [37 <./content/ch5/img/eta_study.png> <./content/ch5/img/mac_study.png> <./content/ch5/img/theta_cr_study.png> <./content/ch5/img/epsilon_fmm_study.png>] [38]
 <content/ch5/img/01_mass_profile_and_shell_fraction.png, id=727, 610.6815pt x 436.5765pt>
 File: content/ch5/img/01_mass_profile_and_shell_fraction.png Graphic file (type png)
 <use content/ch5/img/01_mass_profile_and_shell_fraction.png>
-Package pdftex.def Info: content/ch5/img/01_mass_profile_and_shell_fraction.png  used on input line 408.
+Package pdftex.def Info: content/ch5/img/01_mass_profile_and_shell_fraction.png  used on input line 404.
 (pdftex.def)             Requested size: 355.09175pt x 253.86072pt.
  [39]
-<content/ch5/img/02_central_potential_shell_contribution.png, id=737, 612.6525pt x 438.219pt>
+<content/ch5/img/02_central_potential_shell_contribution.png, id=736, 612.6525pt x 438.219pt>
 File: content/ch5/img/02_central_potential_shell_contribution.png Graphic file (type png)
 <use content/ch5/img/02_central_potential_shell_contribution.png>
-Package pdftex.def Info: content/ch5/img/02_central_potential_shell_contribution.png  used on input line 415.
+Package pdftex.def Info: content/ch5/img/02_central_potential_shell_contribution.png  used on input line 411.
 (pdftex.def)             Requested size: 355.09175pt x 254.00003pt.
  [40 <./content/ch5/img/01_mass_profile_and_shell_fraction.png> <./content/ch5/img/02_central_potential_shell_contribution.png>]
-<content/ch5/img/03_outer_fraction_vs_cutoff.png, id=745, 611.3385pt x 436.5765pt>
+<content/ch5/img/03_outer_fraction_vs_cutoff.png, id=744, 611.3385pt x 436.5765pt>
 File: content/ch5/img/03_outer_fraction_vs_cutoff.png Graphic file (type png)
 <use content/ch5/img/03_outer_fraction_vs_cutoff.png>
-Package pdftex.def Info: content/ch5/img/03_outer_fraction_vs_cutoff.png  used on input line 428.
+Package pdftex.def Info: content/ch5/img/03_outer_fraction_vs_cutoff.png  used on input line 424.
 (pdftex.def)             Requested size: 377.28625pt x 269.44223pt.
  [41 <./content/ch5/img/03_outer_fraction_vs_cutoff.png>]
-<content/ch5/img/baseline_potential.pdf, id=755, 481.30737pt x 464.00981pt>
+<content/ch5/img/baseline_potential.pdf, id=752, 481.30737pt x 464.00981pt>
 File: content/ch5/img/baseline_potential.pdf Graphic file (type pdf)
 <use content/ch5/img/baseline_potential.pdf>
-Package pdftex.def Info: content/ch5/img/baseline_potential.pdf  used on input line 456.
+Package pdftex.def Info: content/ch5/img/baseline_potential.pdf  used on input line 454.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
-<content/ch5/img/potential_01.pdf, id=756, 481.30737pt x 464.00981pt>
+<content/ch5/img/potential_01.pdf, id=753, 481.30737pt x 464.00981pt>
 File: content/ch5/img/potential_01.pdf Graphic file (type pdf)
 <use content/ch5/img/potential_01.pdf>
-Package pdftex.def Info: content/ch5/img/potential_01.pdf  used on input line 461.
+Package pdftex.def Info: content/ch5/img/potential_01.pdf  used on input line 459.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
-<content/ch5/img/potential_02.pdf, id=757, 481.30737pt x 464.00981pt>
+<content/ch5/img/potential_02.pdf, id=754, 481.30737pt x 464.00981pt>
 File: content/ch5/img/potential_02.pdf Graphic file (type pdf)
 <use content/ch5/img/potential_02.pdf>
-Package pdftex.def Info: content/ch5/img/potential_02.pdf  used on input line 468.
+Package pdftex.def Info: content/ch5/img/potential_02.pdf  used on input line 466.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
-<content/ch5/img/potential_03.pdf, id=758, 481.30737pt x 464.00981pt>
+<content/ch5/img/potential_03.pdf, id=755, 481.30737pt x 464.00981pt>
 File: content/ch5/img/potential_03.pdf Graphic file (type pdf)
 <use content/ch5/img/potential_03.pdf>
-Package pdftex.def Info: content/ch5/img/potential_03.pdf  used on input line 473.
+Package pdftex.def Info: content/ch5/img/potential_03.pdf  used on input line 471.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
-<content/ch5/img/potential_05.pdf, id=759, 481.30737pt x 464.00981pt>
+<content/ch5/img/potential_05.pdf, id=756, 481.30737pt x 464.00981pt>
 File: content/ch5/img/potential_05.pdf Graphic file (type pdf)
 <use content/ch5/img/potential_05.pdf>
-Package pdftex.def Info: content/ch5/img/potential_05.pdf  used on input line 480.
+Package pdftex.def Info: content/ch5/img/potential_05.pdf  used on input line 478.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
-<content/ch5/img/potential_10.pdf, id=760, 481.30737pt x 464.00981pt>
+<content/ch5/img/potential_10.pdf, id=757, 481.30737pt x 464.00981pt>
 File: content/ch5/img/potential_10.pdf Graphic file (type pdf)
 <use content/ch5/img/potential_10.pdf>
-Package pdftex.def Info: content/ch5/img/potential_10.pdf  used on input line 485.
+Package pdftex.def Info: content/ch5/img/potential_10.pdf  used on input line 483.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
  [42]
 Overfull \vbox (16.0475pt too high) has occurred while \output is active []
 
  [43 <./content/ch5/img/baseline_potential.pdf> <./content/ch5/img/potential_01.pdf> <./content/ch5/img/potential_02.pdf> <./content/ch5/img/potential_03.pdf> <./content/ch5/img/potential_05.pdf> <./content/ch5/img/potential_10.pdf>]
-<content/ch5/img/potential_25.pdf, id=901, 481.30737pt x 464.00981pt>
+<content/ch5/img/potential_25.pdf, id=900, 481.30737pt x 464.00981pt>
 File: content/ch5/img/potential_25.pdf Graphic file (type pdf)
 <use content/ch5/img/potential_25.pdf>
-Package pdftex.def Info: content/ch5/img/potential_25.pdf  used on input line 492.
+Package pdftex.def Info: content/ch5/img/potential_25.pdf  used on input line 490.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
-<content/ch5/img/potential_50.pdf, id=902, 481.30737pt x 464.00981pt>
+<content/ch5/img/potential_50.pdf, id=901, 481.30737pt x 464.00981pt>
 File: content/ch5/img/potential_50.pdf Graphic file (type pdf)
 <use content/ch5/img/potential_50.pdf>
-Package pdftex.def Info: content/ch5/img/potential_50.pdf  used on input line 497.
+Package pdftex.def Info: content/ch5/img/potential_50.pdf  used on input line 495.
 (pdftex.def)             Requested size: 217.4953pt x 209.68042pt.
  [44 <./content/ch5/img/potential_25.pdf> <./content/ch5/img/potential_50.pdf>]
-<content/ch5/img/orbit_01.png, id=952, 939.51pt x 794.97pt>
+<content/ch5/img/orbit_01.png, id=951, 939.51pt x 794.97pt>
 File: content/ch5/img/orbit_01.png Graphic file (type png)
 <use content/ch5/img/orbit_01.png>
-Package pdftex.def Info: content/ch5/img/orbit_01.png  used on input line 573.
-(pdftex.def)             Requested size: 443.863pt x 375.5768pt.
+Package pdftex.def Info: content/ch5/img/orbit_01.png  used on input line 571.
+(pdftex.def)             Requested size: 434.98384pt x 368.05603pt.
  [45]
-<content/ch5/img/summary_orbits.png, id=964, 722.7pt x 361.35pt>
+<content/ch5/img/summary_orbits.png, id=963, 722.7pt x 361.35pt>
 File: content/ch5/img/summary_orbits.png Graphic file (type png)
 <use content/ch5/img/summary_orbits.png>
-Package pdftex.def Info: content/ch5/img/summary_orbits.png  used on input line 580.
-(pdftex.def)             Requested size: 332.89725pt x 166.44908pt.
+Package pdftex.def Info: content/ch5/img/summary_orbits.png  used on input line 578.
+(pdftex.def)             Requested size: 324.0181pt x 162.01051pt.
  [46 <./content/ch5/img/orbit_01.png> <./content/ch5/img/summary_orbits.png>]
-<content/ch5/img/truncated_10.png, id=977, 722.7pt x 578.16pt>
+<content/ch5/img/truncated_10.png, id=976, 722.7pt x 578.16pt>
 File: content/ch5/img/truncated_10.png Graphic file (type png)
 <use content/ch5/img/truncated_10.png>
-Package pdftex.def Info: content/ch5/img/truncated_10.png  used on input line 596.
+Package pdftex.def Info: content/ch5/img/truncated_10.png  used on input line 594.
 (pdftex.def)             Requested size: 355.09175pt x 284.07721pt.
  [47 <./content/ch5/img/truncated_10.png>]
-<content/ch5/img/large_plot.png, id=985, 1127.1711pt x 934.9329pt>
+<content/ch5/img/large_plot.png, id=984, 1127.1711pt x 934.9329pt>
 File: content/ch5/img/large_plot.png Graphic file (type png)
 <use content/ch5/img/large_plot.png>
-Package pdftex.def Info: content/ch5/img/large_plot.png  used on input line 605.
+Package pdftex.def Info: content/ch5/img/large_plot.png  used on input line 603.
 (pdftex.def)             Requested size: 443.863pt x 368.16031pt.
-<content/ch5/img/density_ratio_grid.png, id=987, 847.0044pt x 578.8827pt>
+<content/ch5/img/density_ratio_grid.png, id=986, 847.0044pt x 578.8827pt>
 File: content/ch5/img/density_ratio_grid.png Graphic file (type png)
 <use content/ch5/img/density_ratio_grid.png>
-Package pdftex.def Info: content/ch5/img/density_ratio_grid.png  used on input line 616.
+Package pdftex.def Info: content/ch5/img/density_ratio_grid.png  used on input line 614.
 (pdftex.def)             Requested size: 443.863pt x 303.35266pt.
  [48 <./content/ch5/img/large_plot.png>]
-<content/ch5/img/final_50.png, id=995, 666.3294pt x 946.737pt>
+<content/ch5/img/final_50.png, id=994, 666.3294pt x 946.737pt>
 File: content/ch5/img/final_50.png Graphic file (type png)
 <use content/ch5/img/final_50.png>
-Package pdftex.def Info: content/ch5/img/final_50.png  used on input line 631.
+Package pdftex.def Info: content/ch5/img/final_50.png  used on input line 629.
 (pdftex.def)             Requested size: 221.9315pt x 315.32782pt.
-<content/ch5/img/final_100.png, id=996, 671.8701pt x 946.737pt>
+<content/ch5/img/final_100.png, id=995, 671.8701pt x 946.737pt>
 File: content/ch5/img/final_100.png Graphic file (type png)
 <use content/ch5/img/final_100.png>
-Package pdftex.def Info: content/ch5/img/final_100.png  used on input line 635.
+Package pdftex.def Info: content/ch5/img/final_100.png  used on input line 633.
 (pdftex.def)             Requested size: 221.9315pt x 312.72754pt.
  [49 <./content/ch5/img/density_ratio_grid.png>]) (./content/ch6/conclusions.tex [50 <./content/ch5/img/final_50.png> <./content/ch5/img/final_100.png>]
 Chapter 5.
 [51
 
 ]) [52] (./content/tail/biblio.tex (./my_thesis.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 4--8
-[]\T1/futs/m/n/10.95 (+20) AAS Nova (2024).  Down to the core: Dark mat-ter de-vi-a-tions
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--8
-\T1/futs/m/n/10.95 (+20) in ultra-faint dwarf galax-ies.  [][]$https : / / aasnova . org / 2024 / 11 / 01 /
- []
-
-
-Underfull \hbox (badness 1448) in paragraph at lines 4--8
-\T1/futs/m/n/10.95 (+20) down-[]to-[]the-[]core-[]dark-[]matter-[]deviations-[]in-[]ultra-[]faint-[]dwarf-[]galaxies / #prettyPhoto$[][].  Ac-
+Underfull \hbox (badness 1264) in paragraph at lines 4--7
+[]\T1/futs/m/n/10.95 (+20) AAS Nova (2024).  Down to the core: Dark mat-ter de-vi-a-tions in ultra-faint dwarf galax-
  []
 
 [53
@@ -1595,7 +1585,7 @@ File: content/ch5/img/orbit_01.png Graphic file (type png)
 <use content/ch5/img/orbit_01.png>
 Package pdftex.def Info: content/ch5/img/orbit_01.png  used on input line 57.
 (pdftex.def)             Requested size: 310.70274pt x 262.8989pt.
-<content/ch5/img/orbit_02.png, id=1065, 939.51pt x 794.97pt>
+<content/ch5/img/orbit_02.png, id=1061, 939.51pt x 794.97pt>
 File: content/ch5/img/orbit_02.png Graphic file (type png)
 <use content/ch5/img/orbit_02.png>
 Package pdftex.def Info: content/ch5/img/orbit_02.png  used on input line 64.
@@ -1603,24 +1593,24 @@ Package pdftex.def Info: content/ch5/img/orbit_02.png  used on input line 64.
 [57
 
 ]
-<content/ch5/img/orbit_03.png, id=1070, 939.51pt x 794.97pt>
+<content/ch5/img/orbit_03.png, id=1066, 939.51pt x 794.97pt>
 File: content/ch5/img/orbit_03.png Graphic file (type png)
 <use content/ch5/img/orbit_03.png>
 Package pdftex.def Info: content/ch5/img/orbit_03.png  used on input line 71.
 (pdftex.def)             Requested size: 310.70274pt x 262.8989pt.
-<content/ch5/img/orbit_04.png, id=1071, 939.51pt x 794.97pt>
+<content/ch5/img/orbit_04.png, id=1067, 939.51pt x 794.97pt>
 File: content/ch5/img/orbit_04.png Graphic file (type png)
 <use content/ch5/img/orbit_04.png>
 Package pdftex.def Info: content/ch5/img/orbit_04.png  used on input line 78.
 (pdftex.def)             Requested size: 310.70274pt x 262.8989pt.
  [58 <./content/ch5/img/orbit_02.png> <./content/ch5/img/orbit_03.png>] [59 <./content/ch5/img/orbit_04.png>]
 Appendix C.
-<content/ch5/img/5.png, id=1084, 705.5961pt x 553.1064pt>
+<content/ch5/img/5.png, id=1080, 705.5961pt x 553.1064pt>
 File: content/ch5/img/5.png Graphic file (type png)
 <use content/ch5/img/5.png>
 Package pdftex.def Info: content/ch5/img/5.png  used on input line 91.
 (pdftex.def)             Requested size: 355.09175pt x 278.35017pt.
-<content/ch5/img/0.5.png, id=1085, 705.5961pt x 553.1064pt>
+<content/ch5/img/0.5.png, id=1081, 705.5961pt x 553.1064pt>
 File: content/ch5/img/0.5.png Graphic file (type png)
 <use content/ch5/img/0.5.png>
 Package pdftex.def Info: content/ch5/img/0.5.png  used on input line 97.
@@ -1628,18 +1618,18 @@ Package pdftex.def Info: content/ch5/img/0.5.png  used on input line 97.
 [60
 
  <./content/ch5/img/5.png>]
-<content/ch5/img/0.05.png, id=1091, 705.5961pt x 553.1064pt>
+<content/ch5/img/0.05.png, id=1087, 705.5961pt x 553.1064pt>
 File: content/ch5/img/0.05.png Graphic file (type png)
 <use content/ch5/img/0.05.png>
 Package pdftex.def Info: content/ch5/img/0.05.png  used on input line 103.
 (pdftex.def)             Requested size: 355.09175pt x 278.35017pt.
-<content/ch5/img/0.03.png, id=1092, 705.5961pt x 553.1064pt>
+<content/ch5/img/0.03.png, id=1088, 705.5961pt x 553.1064pt>
 File: content/ch5/img/0.03.png Graphic file (type png)
 <use content/ch5/img/0.03.png>
 Package pdftex.def Info: content/ch5/img/0.03.png  used on input line 109.
 (pdftex.def)             Requested size: 355.09175pt x 278.35017pt.
  [61 <./content/ch5/img/0.5.png> <./content/ch5/img/0.05.png>]
-<content/ch5/img/0.02.png, id=1099, 705.5961pt x 553.1064pt>
+<content/ch5/img/0.02.png, id=1095, 705.5961pt x 553.1064pt>
 File: content/ch5/img/0.02.png Graphic file (type png)
 <use content/ch5/img/0.02.png>
 Package pdftex.def Info: content/ch5/img/0.02.png  used on input line 115.
@@ -1655,18 +1645,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 34696 strings out of 474222
- 619728 string characters out of 5748733
+ 34699 strings out of 474222
+ 619755 string characters out of 5748733
  2129975 words of memory out of 5000000
  55438 multiletter control sequences out of 15000+600000
- 773313 words of font info for 539 fonts, out of 8000000 for 9000
+ 773343 words of font info for 542 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  90i,13n,136p,1358b,2424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mcl.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1440.pfb>
-Output written on my_thesis.pdf (70 pages, 16317108 bytes).
+Output written on my_thesis.pdf (70 pages, 16318531 bytes).
 PDF statistics:
- 1452 PDF objects out of 1728 (max. 8388607)
- 1228 compressed objects within 13 object streams
- 316 named destinations out of 1000 (max. 500000)
+ 1448 PDF objects out of 1728 (max. 8388607)
+ 1224 compressed objects within 13 object streams
+ 315 named destinations out of 1000 (max. 500000)
  142548 words of extra memory for PDF output out of 154059 (max. 10000000)
 

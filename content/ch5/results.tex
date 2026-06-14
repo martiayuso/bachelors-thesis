@@ -35,13 +35,7 @@ where the shell volume is
 r_{k+1}^3-r_k^3
 \right).
 \end{equation}
-The resulting profile $\rho(r)$ provides the primary diagnostic for identifying the formation of a central core or other structural changes within the halo.
-
-Profiles are compared to the initial state using ratio curves $\rho(r,t)/\rho(r,t_0)$, which makes secular flattening or depletion immediately visible. Profile plots also include a vertical reference marking the softening-related radius
-\begin{equation}
-r_{\mathrm{ref}} = 2.8\,\epsilon,
-\end{equation}
-where $\epsilon$ is the run softening length; this helps separate physically interpretable radii from numerically delicate scales.
+The resulting profile $\rho(r)$ provides the primary diagnostic for identifying the formation of a central core or other structural changes within the halo. Profiles are compared to the initial state using ratio curves $\rho(r,t)/\rho(r,t_0)$, which makes the central flattening immediately clear.
 
 %The first two images below provide a static view of the baseline system at different scales. Figure~\ref{fig:baseline_particle_map} shows how the mass is distributed across the inner halo and its surroundings, while Figure~\ref{fig:baseline_potential_map} illustrates how the gravitational well remains concentrated near the center even as the viewing aperture expands. Taken together, these plots complement the time-evolution diagnostics by showing the same baseline behaviour from a spatial perspective.
 
@@ -64,7 +58,7 @@ In the plot in Figure~\ref{fig:baseline_gradient} the central density drops rapi
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{content/ch5/img/gradient.png}
-	\caption{\textbf{Baseline density-profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend. The gradient structure is consistent with a secular redistribution rather than a settled core.}
+	\caption{\textbf{Baseline density profile evolution.} The central density decreases steadily over time, with the steepest change occurring early and the later evolution approaching a shallower, but still declining, trend. The vertical dashed line indicates the softening reference radius $r_{\rm ref} = 2.8\,\epsilon$. The lower panel shows the density ratio relative to the initial conditions.}
 	\label{fig:baseline_gradient}
 \end{figure}
 
@@ -163,12 +157,12 @@ where $h$ is the smoothing length. In practice, $h$ is chosen to be comparable t
 %\end{equation}
 %where $\beta(r)$ is the stellar anisotropy parameter defined previously, $\Phi(r)$ is the global gravitational potential, and $M(<r)$ represents the cumulative halo mass contained within a sphere of radius $r$. 
 
-The above diagnostics are computed at multiple simulation times, and the resulting profiles $\sigma_{\mathrm{1D}}(r)$ and $\beta(r,t)$ are compared between the initial state and late-time snapshots in Figure~\ref{fig:baseline_kinematics}.
+The above diagnostics are computed at multiple simulation times, and the resulting profiles $\sigma_{\mathrm{1D}}(r)$ and $\beta(r)$ are compared between the initial state and late-time snapshots in Figure~\ref{fig:baseline_kinematics}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{content/ch5/img/baseline_kinematics.png}
-	\caption{Velocity dispersion and orbital anisotropy evolution up to 100 Gyr for a softening length value of $\epsilon = 0.01$ kpc.}
+	\caption{Velocity dispersion $\sigma_{\mathrm{1D}}(r)$ and orbital anisotropy $\beta(r)$ evolution up to 100 Gyr for a softening length value of $\epsilon = 0.01$ kpc.}
 	\label{fig:baseline_kinematics}
 \end{figure}
 
@@ -188,7 +182,7 @@ There are two simple physical interpretations of this result. First, long range 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{content/ch5/img/box_size_study.png}
-	\caption{\textbf{Box-size study.} Comparison of the three tested simulation volumes (small, intermediate, large). The central-density diagnostic (inner radial bin) shows the same secular decline across volumes; changing the box size modifies the depletion rate only modestly.}
+	\caption{\textbf{Box size study.} Comparison of the three tested simulation volumes (100, 200, 500 $kpc^3$). The central density diagnostic shows the same secular decline across volumes.}
 	\label{fig:box_size_study}
 \end{figure}
 
@@ -220,7 +214,7 @@ The literature on heating caused by substructure is again relevant here. Stochas
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{content/ch5/img/gradient_core.png}
-	\caption{\textbf{Core initial condition density-profile evolution with ratio to the initial state.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
+	\caption{\textbf{Core initial condition density profile evolution.} The upper panel shows the density evolution over time. The lower panel shows the density ratio relative to the initial conditions.}
 	\label{fig:core_gradient}
 \end{figure}
 
@@ -248,9 +242,11 @@ This is an important negative result. If softening were the primary cause, the c
 	\centering
 	\includegraphics[width=\linewidth]{content/ch5/img/grav_soft_study_100.png}
 	\end{minipage}
-	\caption{\textbf{Softening study.} Comparison of the same set of tested softening lengths ($\epsilon = 1$, $5$, $10$, $50$, and $100\,\mathrm{pc}$) at 50 Gyr (left) and 100 Gyr (right).}
+	\caption{\textbf{Softening length study.} Comparison of the set of tested softening lengths ($\epsilon = 1$, $5$, $10$, $50$, and $100\,\mathrm{pc}$) at 50 Gyr (left) and 100 Gyr (right).}
 	\label{fig:results_softening}
 \end{figure}
+
+\newpage
 
 \section{Self-gravity settings}
 \label{sec:results_solver}
@@ -321,7 +317,7 @@ Some runs with modified $\epsilon_{\mathrm{fmm}}$ exhibit slightly improved earl
 \centering
 \includegraphics[width=\linewidth]{content/ch5/img/epsilon_fmm_study.png}
 \end{minipage}
-\caption{\textbf{Self-gravity parameter study.} Panels show the central-density evolution for the tested solver settings: top-left -- timestep factor $\eta$; top-right -- MAC choice; bottom-left -- geometric opening angle $\theta_{\mathrm{cr}}$; bottom-right -- FMM tolerance $\epsilon_{\mathrm{fmm}}$. In each panel blue curves correspond to 10 Gyr and red curves to 100 Gyr.}
+\caption{\textbf{Self-gravity parameter study.} Panels show the central density evolution for the tested solver settings: timestep factor $\eta$ (top left); MAC choice (top right); geometric opening angle $\theta_{\mathrm{cr}}$ (bottom left); FMM tolerance $\epsilon_{\mathrm{fmm}}$ (bottom right). In each panel blue curves correspond to 10 Gyr and red curves to 100 Gyr.}
 \label{fig:results_solver}
 \end{figure}
 
@@ -424,13 +420,15 @@ The first two diagnostics establish the overall radial structure of the halo. Fi
 The most critical diagnostic for the hybrid model design is the outer potential fraction. The fraction of the total potential at a given probe radius that arises from material beyond a chosen cutoff radius. Figure \ref{fig:results_shell_cutoff} shows this quantity for several probe radii as the cutoff radius is increased.
 
 \begin{figure}[H]
-	\centering
-	\includegraphics[width=0.85\textwidth]{content/ch5/img/03_outer_fraction_vs_cutoff.png}
-	\caption{\textbf{Outer-potential fraction versus cutoff radius.} For probe radii ranging from the center to $r = 5 r_s$, the fraction of the potential originating from material beyond the cutoff radius $r_{\mathrm{cut}}$ is plotted against the cutoff. As the cutoff moves outward, the outer contribution drops sharply initially, then plateaus. For the central region ($r_{\mathrm{probe}} < r_s$), a cutoff at $r_{\mathrm{cut}} \approx 10$ kpc retains roughly 5--10\% of the potential from the outer halo; at $r_{\mathrm{cut}} \approx 30$ kpc, this drops below 1\%. Thus, if the outer halo contributes significantly to the potential at the radii of interest (e.g., $r < 1$ kpc for the central density), then the outer region must be represented accurately.}
-	\label{fig:results_shell_cutoff}
+    \centering
+    \includegraphics[width=0.85\textwidth]{content/ch5/img/03_outer_fraction_vs_cutoff.png}
+    \caption{\textbf{Outer-potential fraction versus cutoff radius.} For probe radii ranging from the center to $r = 5 r_s$, the fraction of the potential originating from material beyond the cutoff radius $r_{\mathrm{cut}}$ is plotted against the cutoff. As the cutoff moves outward, the outer contribution remains constant initially before dropping sharply as it approaches the outer edge of the system.}
+    \label{fig:results_shell_cutoff}
 \end{figure}
 
-The curves in this figure answer the central question: how large must $r_{\mathrm{cut}}$ be to capture the essential potential structure? For the central region, a cutoff at $r_{\mathrm{cut}} = 10$ kpc retains the majority of the potential at small radii while excluding the outermost, kinematically less important material. This has two important consequences:
+For the central region ($r_{\mathrm{probe}} < r_s$), setting a cutoff at $r_{\mathrm{cut}} \approx 10$ kpc means the outer halo still contributes roughly 40--60\% of the potential. At $r_{\mathrm{cut}} \approx 30$ kpc, this contribution is still roughly 10--20\%, only dropping below 1\% as the cutoff nears 80--100 kpc. Because the outer halo contributes so significantly to the potential at the inner radii of interest (e.g., $r < 1$ kpc for the central density), the outer region must be represented accurately.
+
+The figure directly addresses the question of how large $r_{\mathrm{cut}}$ must be to capture the essential structure of the potential. Were the outer halo dynamically irrelevant, changes to its structure would produce little or no effect on the inner halo. Even when the cutoff is set to $r_{\mathrm{cut}} = 10\,\mathrm{kpc}$, material lying outside this radius contributes approximately 40--60\% of the potential in the central region. The contribution measured here demonstrates that the outer halo exerts a significant influence on the central potential, making an accurate treatment of the outermost mass distribution essential. This result has two important implications:
 
 \begin{enumerate}
 \item \textbf{Motivation for the hybrid model}: A simulation in which the inner region ($r < r_{\mathrm{cut}}$) evolves with particles while the outer region ($r > r_{\mathrm{cut}}$) is represented by an analytic potential can only reproduce the true inner evolution if the outer potential is represented accurately.
@@ -496,7 +494,7 @@ A second validation concerns the resulting gravitational potential (Figure~\ref{
         \centering
         \includegraphics[width=\linewidth]{content/ch5/img/potential_50.pdf}
     \end{minipage}
-	\caption{\textbf{Gravitational potential distributions under baseline and truncated interaction ranges.} Left to right, top to bottom: vanilla \textit{SWIFT} (no truncation), and truncated implementations with $R_{\mathrm{cut}} = 50$, $25$, $10$, $5$, $3$, $2$, and $1$ kpc.}
+	\caption{\textbf{Gravitational potential distributions under baseline and truncated interaction ranges.} Left to right, top to bottom: vanilla \textit{SWIFT} (no truncation), and truncated implementations with $R_{\mathrm{cut}} = 1$, $2$, $3$, $5$, $10$, $25$, and $50$ kpc.}
     \label{fig:multifigure_potential_distr}
 \end{figure}
 
@@ -570,14 +568,14 @@ This produces a compact data set containing only trajectories relevant to the bo
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{content/ch5/img/orbit_01.png}
-	\caption{Orbit of example particle crossing the truncation boundary of $R_{\rm cut} = 10$ kpc.}
+	\includegraphics[width=0.98\textwidth]{content/ch5/img/orbit_01.png}
+	\caption{Orbit of example particle crossing the truncation boundary of $R_{\rm cut} = 10$ kpc. Left to right, top to bottom: $x$ vs $y$, $x$ vs $z$, $y$ vs $z$, and $r$ vs $t$ projections.}
 	\label{fig:tnfw_validation_orbits}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\textwidth]{content/ch5/img/summary_orbits.png}
+	\includegraphics[width=0.73\textwidth]{content/ch5/img/summary_orbits.png}
 	\caption{Summary of multiple selected orbits crossing the truncation boundary. The vertical dashed line indicates the truncation radius $R_{\rm cut}$.}
 	\label{fig:summary_orbits}
 \end{figure}
@@ -594,16 +592,16 @@ This result is significant because it demonstrates that the observed central den
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{content/ch5/img/truncated_10.png}
-	\caption{Density profile evolution of the hybrid model.}
+	\caption{Density profile evolution of the hybrid model with a cutoff of $R_{\rm cut} = 10$ kpc.}
 	\label{fig:truncated_10}
 \end{figure}
 
-This finding motivates further analysis of smaller $R_{\rm cut}$ values, the results of which are presented in Figure~\ref{fig:large_plot}.
+This finding motivates further analysis of smaller $R_{\rm cut}$ values, the results of which is presented in Figure~\ref{fig:large_plot}.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/large_plot.png}
-	\caption{\textbf{$R_{\rm cut}$ study large plot.}}
+	\caption{Study of smaller $R_{\rm cut}$ values. From left to right, top to bottom: $R_{\rm cut} = 5$, $3$, $2$, $1$, $0.5$, $0.3$, $0.2$, $0.1$, $0.05$, $0.03$, $0.02$ and $0.01$ kpc.}
 	\label{fig:large_plot}
 \end{figure}
 
@@ -614,7 +612,7 @@ This trend is illustrated more clearly in the density ratio evolution shown belo
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{content/ch5/img/density_ratio_grid.png}
-	\caption{\textbf{Density ratio comparison}}
+	\caption{\textbf{Density ratio comparison.} Each panel shows the ratio of the density profile for a given $R_{\rm cut}$ value. The top left panel corresponds to $R_{\rm cut} = 5$ kpc, and subsequent panels show progressively smaller truncation radii down to $R_{\rm cut} = 0.02$ kpc.}
 	\label{fig:density_ratio}
 \end{figure}
 
@@ -634,7 +632,7 @@ These results indicate that the central density decline is driven by a mechanism
 	\centering
 	\includegraphics[width=\linewidth]{content/ch5/img/final_100.png}
 	\end{minipage}
-	\caption{\textbf{Rcut comparison.}}
+	\caption{Comparison of the set of tested $R_{\rm cut}$ values (from $R_{\rm cut} = 1$ kpc down to $R_{\rm cut} = 0.02$ kpc) at 50 Gyr (left) and 100 Gyr (right).}
 	\label{fig:r_cut_comparison}
 \end{figure}
 
