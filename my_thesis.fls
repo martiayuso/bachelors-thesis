@@ -534,9 +534,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futr8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-alt.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futmi.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/futri8t.tfm
 OUTPUT my_thesis.lof
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futmi.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futmii.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-mlit.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
@@ -675,11 +675,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-ms.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-mcl.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futr8c.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm
-INPUT ./content/ch4/img/truncated_nfw_technical.png
-INPUT ./content/ch4/img/truncated_nfw_technical.png
-INPUT ./content/ch4/img/truncated_nfw_technical.png
-INPUT ./content/ch4/img/truncated_nfw_technical.png
-INPUT ./content/ch4/img/truncated_nfw_technical.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/t1-zi4r-0.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futr8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/futr8r.tfm

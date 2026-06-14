@@ -30,7 +30,7 @@ The parameter-study baseline adopts the self-gravity configuration
 \end{equation}
 with minimum and maximum timesteps typically constrained in the interval
 \begin{equation}
-\Delta t_{\min}=10^{-6}, \qquad \Delta t_{\max}=10^{-2}
+\Delta t_{\min}=10^{-8}, \qquad \Delta t_{\max}=10^{-3}
 \end{equation}
 
 To probe solver sensitivity, each of the following was varied while keeping the others fixed: timestep factor $\eta$, MAC choice (geometric/adaptive), geometric opening threshold $\theta_{\mathrm{cr}}$, and $\epsilon_{\mathrm{fmm}}$.
@@ -149,18 +149,18 @@ The truncated-NFW backend is designed to isolate the dynamical role of the outer
 \item \textbf{Deterministic boundary convention}: the hard boundary is defined as inner for \(r\le R_{\mathrm{cut}}\) and outer for \(r>R_{\mathrm{cut}}\), avoiding ambiguous behaviour at the cutoff.
 \end{itemize}
 
-\subsection{Implementation overview}
+%\subsection{Implementation overview}
 
 The truncated-NFW backend is easiest to interpret as a two stage pipeline. First, the parameter parser establishes the cutoff radius, halo center, and masking state. Second, the gravity kernels combine source side masking with target side write-back suppression, so that inner particles retain the usual resolved self-gravity while outer particles are advanced through the analytic truncated-NFW field.
 
-Figure~\ref{fig:truncated_nfw_overview} summarizes this flow at a glance.
+%Figure~\ref{fig:truncated_nfw_overview} summarizes this flow at a glance.
 
-\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.85\textwidth]{content/ch4/img/truncated_nfw_technical.png}
-		\caption{High-level control-flow schematic of the truncated-NFW implementation. The figure highlights the split between parameter initialization, source-side masking, gravity-kernel evaluation, target-side write-back suppression, and the external analytic field used for outer particles.}
-		\label{fig:truncated_nfw_overview}
-\end{figure}
+%\begin{figure}[H]
+%		\centering
+%		\includegraphics[width=0.85\textwidth]{content/ch4/img/truncated_nfw_technical.png}
+%		\caption{High-level control-flow schematic of the truncated-NFW implementation. The figure highlights the split between parameter initialization, source-side masking, gravity-kernel evaluation, target-side write-back suppression, and the external analytic field used for outer particles.}
+%		\label{fig:truncated_nfw_overview}
+%\end{figure}
 
 \subsection{Build-time wiring and backend selection}
 
