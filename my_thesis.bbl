@@ -6,15 +6,15 @@
 \newblock \url{https://aasnova.org/2024/11/01/down-to-the-core-dark-matter-deviations-in-ultra-faint-dwarf-galaxies/#prettyPhoto}.
 \newblock Accessed: 2026-05-21.
 
+\bibitem[Baushev, 2013]{baushev2013convergence}
+Baushev, A.~N. (2013).
+\newblock The real and apparent convergence of n-body simulations of the dark matter structures: is the navarro-frenk-white profile real?
+\newblock {\em Astroparticle Physics}, 62:47--53.
+
 \bibitem[Binney and Tremaine, 2008]{binney2008galactic}
 Binney, J. and Tremaine, S. (2008).
 \newblock {\em Galactic Dynamics}.
 \newblock Princeton University Press, Princeton, NJ, 2nd edition.
-
-\bibitem[Borrow et~al., 2021]{borrow2020sphenix}
-Borrow, J., Schaller, M., Bower, R.~G., and Schaye, J. (2021).
-\newblock Sphenix: Smoothed particle hydrodynamics for the next generation of galaxy formation simulations.
-\newblock {\em Monthly Notices of the Royal Astronomical Society}, 508:5873--5900.
 
 \bibitem[Boylan-Kolchin et~al., 2009]{boylan2009millennium2}
 Boylan-Kolchin, M., Springel, V., White, S. D.~M., Jenkins, A., and Lemson, G. (2009).
@@ -50,11 +50,6 @@ Hopkins, P.~F., Nadler, E.~O., Grudi\'{c}, M.~Y., Shen, X., Sands, I., and Jiang
 \newblock Novel conservative methods for adaptive force softening in collisionless and multi-species {N}-body simulations.
 \newblock {\em Monthly Notices of the Royal Astronomical Society}.
 \newblock arXiv:2212.06851v2.
-
-\bibitem[Kegerreis et~al., 2019]{kegerreis2019planetary}
-Kegerreis, J.~A., Eke, V.~R., Gonnet, P.~G., Zuiani, F., Schaller, M., Cremin, A.~E., and Borrow, J. (2019).
-\newblock Planetary giant impacts: Convergence of high-resolution simulations using efficient spherical initial conditions and swift.
-\newblock {\em Monthly Notices of the Royal Astronomical Society}, 487:5029--5054.
 
 \bibitem[Nasar et~al., 2025]{nasar2025task}
 Nasar, A. M.~A., Rogers, B.~D., Fourtakas, G., Kay, S.~T., and Schaller, M. (2025).

@@ -17,9 +17,9 @@ with the potential determined by
 \end{equation}
 These equations make clear that halo structure is a phase-space problem: the density profile cannot be understood independently of the velocity distribution and orbital content.
 
-In cosmological simulations, dynamically relaxed halos are commonly described by broken power-law density profiles, where the logarithmic slope changes from inner to outer radii. In this language, the central shape of the profile is the critical diagnostic, a steep rise toward small radii is referred to as a \emph{cusp}, while a flattened inner profile is referred to as a \emph{core}. Since this inner region is also the most demanding numerically, any physical interpretation must be tied to explicit convergence and resolution arguments \citep{power2003inner,zhang2019optimal}.
+In cosmological simulations, dynamically relaxed halos are commonly described by broken power-law density profiles, where the logarithmic slope changes from inner to outer radii. In this language, the central shape of the profile is the critical diagnostic, a steep rise toward small radii is referred to as a \emph{cusp}, while a flattened inner profile is referred to as a \emph{core}. Since this inner region is also the most demanding numerically, any physical interpretation must be tied to explicit convergence and resolution arguments \citep{power2003inner}.
 
-A widely used fitting form for collisionless dark matter haloes is the Navarro--Frenk--White (NFW) profile,
+A widely used fitting form for collisionless dark matter haloes is the Navarro--Frenk--White (NFW) profile \citep{navarro1996structure},
 \begin{equation}
 \rho(r) =
 \frac{\rho_s}
@@ -43,13 +43,13 @@ For a virialized self-gravitating system, the time averaged kinetic and potentia
 \begin{equation}
 2K + U \approx 0,
 \end{equation}
-which provides a useful global characterization of dynamical equilibrium.
+which provides a useful global characterization of dynamical equilibrium \citep{binney2008galactic}.
 
 In that regime, the balance between kinetic and potential energy sets the overall structure of the halo, while the local orbital distribution determines how the inner profile evolves over time. The relevant timescale is the dynamical time,
 \begin{equation}
 t_{\mathrm{dyn}}(r) \sim \left[G\bar{\rho}(<r)\right]^{-1/2},
 \end{equation}
-which becomes short in the dense central regions and therefore makes the inner halo especially sensitive to both physical perturbations and numerical error.
+which becomes short in the dense central regions \citep{binney2008galactic} and therefore makes the inner halo especially sensitive to both physical perturbations and numerical error.
 
 A useful way to connect density structure to orbital support is through the spherical Jeans equation,
 \begin{equation}
@@ -58,14 +58,14 @@ A useful way to connect density structure to orbital support is through the sphe
 =
 -\rho \frac{\mathrm{d}\Phi}{\mathrm{d}r},
 \end{equation}
-where $\sigma_r$ is the radial velocity dispersion and $\beta(r)$ is the anisotropy parameter. This equation shows that the density profile cannot be interpreted independently of the velocity structure: two haloes with similar density profiles may differ substantially in orbital content and stability.
+where $\sigma_r$ is the radial velocity dispersion and $\beta(r)$ is the anisotropy parameter. This equation shows that the density profile cannot be interpreted independently of the velocity structure; two haloes with similar density profiles may differ substantially in orbital content and stability.
 
 Radial anisotropy is particularly important because systems dominated by radial orbits can respond differently to perturbations and secular evolution than more isotropic systems. Changes in orbital anisotropy may therefore accompany or even drive changes in the inner density structure.
 
 \section{Cusp-core behaviour in ultra-faint dwarf galaxies}
 \label{sec:bg_cusp_core}
 
-Ultra-faint dwarf galaxies are particularly valuable for small-scale dark matter studies because they are strongly dark matter dominated and have shallow gravitational potentials. Their internal structure is therefore sensitive both to the underlying dark matter model and to dynamical heating processes that can redistribute mass over time \citep{salamin2026origin}.
+Ultra-faint dwarf galaxies are particularly valuable for small scale dark matter studies because they are strongly dark matter dominated and have shallow gravitational potentials. Their internal structure is therefore sensitive both to the underlying dark matter model and to dynamical heating processes that can redistribute mass over time \citep{salamin2026origin}.
 
 \begin{figure}[H]
 	\centering
@@ -104,7 +104,7 @@ In many implementations, this can be written schematically with a softened pair 
 \end{equation}
 which regularizes the $r^{-2}$ singularity at very short separation \citep{zhang2019optimal}. The interpretation of $\epsilon$ is therefore both a numerical stabilizer and a scale that limits physically meaningful force gradients.
 
-Power et al. established influential convergence criteria linking softening, timestep, and particle number in the inner halo \citep{power2003inner}. Later work showed that these prescriptions may be conservative for some setups, while also emphasizing that excessively small softening can bias the innermost density high \citep{zhang2019optimal}. Taken together, these studies show that softening is not a single best number independent of context.
+\cite{power2003inner} established influential convergence criteria linking softening, timestep, and particle number in the inner halo. Later work showed that these prescriptions may be conservative for some setups, while also emphasizing that excessively small softening can bias the innermost density high \citep{zhang2019optimal}. Taken together, these studies show that softening is not a single best number independent of context.
 
 Adaptive softening addresses this by varying effective force resolution with local conditions. However, straightforward implementations do not preserve conservation laws. The Lagrangian formalism of \cite{price2007energy} demonstrated how to construct adaptive softening with the additional correction terms required for consistent energy and momentum conservation. Modern conservative extensions generalize this framework to multi-species collisionless simulations \citep{hopkins2023novel}.
 
@@ -114,18 +114,16 @@ In the context of this thesis, softening is a key control variable which will be
 
 \section{The SWIFT simulation code}
 
-SWIFT is a highly-parallel, open-source astrophysics and cosmology simulation code specifically designed to exploit modern high-performance computing (HPC) and cluster architectures \citep{schaller2024swift}. Unlike traditional simulation codes that distribute workloads by strictly decomposing spatial data across processors, SWIFT relies on a hybrid shared- and distributed-memory task-based parallelism model \citep{schaller2024swift}. This architecture utilizes asynchronous communications and advanced domain-decomposition algorithms that dynamically balance the computational workload rather than the data footprint. This approach minimizes synchronization bottlenecks and ensures excellent weak-scaling performance, allowing the code to efficiently handle simulations involving hundreds of billions of particles \citep{nasar2025task,schaller2024swift}.
-
-To evolve collisionless dark matter and handle self-gravity, SWIFT employs a Fast Multipole Method (FMM) gravity solver \citep{schaller2024swift}. For periodic cosmological volumes, this FMM solver is optionally coupled to a Particle-Mesh (PM) solver operating in Fourier space, allowing for the efficient computation of long-range gravitational forces while precisely resolving short-range, particle-to-particle interactions within the local neighborhoods \citep{schaller2024swift}.
+SWIFT is a highly parallel, open source astrophysics and cosmology simulation code specifically designed to exploit modern high performance computing (HPC) and cluster architectures. Unlike traditional simulation codes that distribute workloads by strictly decomposing spatial data across processors, SWIFT relies on a hybrid shared and distributed memory task-based parallelism model. This approach allows the code to efficiently handle simulations involving hundreds of billions of particles \citep{schaller2024swift}.
 
 \subsection{Gravity solver controls in SWIFT}
 \label{sec:bg_solver_controls}
 
-Beyond softening, force computation in modern cosmological codes depends on hierarchical gravity solvers (tree and fast multipole expansions) and their acceptance criteria. These methods accelerate long range gravity by replacing exact pairwise summation with controlled approximations, whose errors depend on opening criteria and expansion tolerances.
+Force computation in modern cosmological codes depends on hierarchical gravity solvers (tree and fast multipole expansions) and their acceptance criteria. These methods accelerate long range gravity by replacing exact pairwise summation with controlled approximations, whose errors depend on opening criteria and expansion tolerances.
 
 This introduces a second numerical layer on top of softening. Even with identical initial conditions and identical softening, changes in opening criteria or multipole tolerances can alter force errors in a way that accumulates over many dynamical times.
 
-In practical terms, parameters such as the multipole acceptance criterion (MAC), geometric opening thresholds (e.g. $\theta_{\mathrm{cr}}$), expansion tolerances (e.g. FMM error controls), and timestep factors set the balance between computational cost and force accuracy. Because central density evolution is sensitive to small cumulative force biases, these controls must be included in any sensitivity analysis of cusp/core evolution.
+To evolve collisionless dark matter and handle self-gravity, SWIFT employs a Fast Multipole Method (FMM) gravity solver \citep{schaller2024swift}. For periodic cosmological volumes, this FMM solver is optionally coupled to a Particle-Mesh (PM) solver operating in Fourier space, allowing for the efficient computation of long range gravitational forces while precisely resolving short range, particle-to-particle interactions within the local neighborhoods \citep{schaller2024swift}.
 
 \begin{figure}[H]
 	\centering
@@ -143,15 +141,13 @@ In practical terms, parameters such as the multipole acceptance criterion (MAC),
 	\label{fig:swift_gallery_examples}
 \end{figure}
 
-\subsection{Smoothed particle hydrodynamics (SPH) and the SPHENIX scheme}
+\subsection{Smoothed particle hydrodynamics (SPH)}
 
-While this thesis primarily investigates the dynamics of collisionless dark matter halos, a complete theoretical overview of SWIFT requires acknowledging its capacity to model baryonic physics through hydrodynamics. SWIFT accomplishes this using Smoothed Particle Hydrodynamics (SPH), a Lagrangian (particle-based) method that discretizes fluids into individual elements that move naturally with the flow \citep{kegerreis2019planetary,nasar2025task}. SPH is highly favored in cosmology due to its intrinsic spatial adaptivity; it effortlessly clusters resolution elements into high-density regions, seamlessly capturing the extreme density contrasts inherent to structure formation without the need for complex adaptive mesh refinement algorithms \citep{nasar2025task}.
-
-SWIFT features multiple flavors of SPH, but its default and most advanced scheme is SPHENIX \citep{borrow2020sphenix,schaller2024swift}. SPHENIX is a density-energy based SPH formulation engineered to overcome the historical integration errors and mixing limitations associated with traditional pressure-entropy SPH methods \citep{borrow2020sphenix}. To achieve this, SPHENIX introduces a novel artificial conduction scheme alongside standard artificial viscosity. This addition significantly reduces errors at contact discontinuities and dramatically improves both the conservation of vorticity and the mixing of fluids \citep{borrow2020sphenix}. By combining robust task-based gravity with the high-fidelity SPHENIX hydrodynamics scheme, SWIFT provides an optimal numerical framework for executing the next generation of highly accurate galaxy formation simulations \citep{borrow2020sphenix,schaller2024swift}.
+While this thesis primarily investigates the dynamics of collisionless dark matter halos, a complete theoretical overview of SWIFT requires acknowledging its capacity to model baryonic physics through hydrodynamics. SWIFT accomplishes this using Smoothed Particle Hydrodynamics (SPH), a Lagrangian (particle-based) method that discretizes fluids into individual elements that move naturally with the flow \citep{nasar2025task}. SPH is highly favored in cosmology due to its intrinsic spatial adaptivity; it clusters resolution elements into high density regions, capturing the extreme density contrasts inherent to structure formation without the need for complex adaptive mesh refinement algorithms \citep{nasar2025task}.
 
 \section{Shell structure and mass redistribution}
 \label{sec:bg_shells}
 
-central potential is influenced by mass and orbital structure over a broad radial range. Particle populations at larger radii can contribute to central acceleration fluctuations, angular momentum exchange, and gradual redistribution of enclosed mass. Recent theoretical work on stochastic tidal fields generated by clumpy substructure provides a useful interpretation for this non-local coupling. In these treatments, gravitational fluctuations induce diffusion in orbital integrals and can transfer energy and angular momentum through repeated perturbations rather than through single events \citep{penarrubia2019stochastic,penarrubia2017fluctuations}.
+Central potential is influenced by mass and orbital structure over a broad radial range. Particle populations at larger radii can contribute to central acceleration fluctuations, angular momentum exchange, and gradual redistribution of enclosed mass. Recent theoretical work on stochastic tidal fields generated by clumpy substructure provides a useful interpretation for this non-local coupling. In these treatments, gravitational fluctuations induce diffusion in orbital integrals and can transfer energy and angular momentum through repeated perturbations rather than through single events \citep{penarrubia2019stochastic,penarrubia2017fluctuations}.
 
 An important implication is that central density decline may be driven by the full halo environment, not only by the innermost force law. If true, changing local softening alone may leave a substantial part of the trend unchanged. This non-local perspective is consistent with previous findings in the project context, where persistent central density decline can remain visible across multiple numerical variations \citep{salamin2026origin}.
