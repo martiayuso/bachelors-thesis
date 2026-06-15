@@ -1,13 +1,15 @@
 \chapter{Results and discussion}
 
-This chapter presents the numerical results from the simulation campaign and the accompanying sensitivity studies. The baseline evolution of the reference halo and the principal diagnostics are described first; subsequent sections examine robustness to analysis choices (centering and binning), numerical controls (softening, timestepping and solver tolerances), domain size and initial inner slope. Truncated‑NFW hybrid experiments are used to isolate the influence of long range potential contributions.
+This chapter presents the numerical results from the simulation campaign and the accompanying sensitivity studies. The baseline evolution of the reference halo and the principal diagnostics are described first; subsequent sections examine robustness to analysis choices, numerical controls, domain size and initial inner slope. Truncated‑NFW hybrid experiments are used to isolate the influence of long range potential contributions.
 
 \section{Baseline behaviour}
 \label{sec:results_baseline}
 
-The baseline run shows a clear cusp-to-core transition, but the core does not stabilize. Instead, the inner density continues to decline throughout the simulated time span. This is the central empirical result of the thesis. In the broader context of halo evolution, the literature shows that collisionless systems can display a wide range of inner responses to external perturbations and time-dependent forcing, including stochastic heating by substructure and repeated diffusion in energy angular momentum space \citep{penarrubia2017fluctuations,penarrubia2019stochastic}. Recent controlled $N$-body models by \cite{errani2026collisional} show that collisional star dark matter energy exchange can heat a cusp into a core and that this evolution tends to self-regulate as central dark matter densities drop and binary formation increases, i.e. the contraction/heating rates slow at late times. If that late-time stabilization picture applied directly to our setup, the inner density would be expected to flatten after core formation rather than continue declining. The reference run is therefore notable not because it forms a core, but because the core remains dynamically active rather than approaching a steady inner state.
+The baseline run shows a clear cusp-to-core transition, but the core does not stabilize. Instead, the inner density continues to decline throughout the simulated time span. This is the central empirical result of the thesis. In the broader context of halo evolution, the literature shows that collisionless systems can display a wide range of inner responses to external perturbations and time-dependent forcing, including stochastic heating by substructure and repeated diffusion in energy angular momentum space \citep{penarrubia2017fluctuations,penarrubia2019stochastic}. Recent controlled $N$-body models by \cite{errani2026collisional} show that collisional star dark matter energy exchange can heat a cusp into a core and that this evolution tends to self-regulate as central dark matter densities drop and binary formation increases, i.e. the contraction/heating rates slow at late times.
 
-The result is also instructive from the point of view of numerical convergence. \cite{power2003inner} showed that the inner halo is especially sensitive to the interplay between resolution, force softening, and timestep control, while \cite{zhang2019optimal} later demonstrated that too aggressive a reduction of the softening length can artificially raise the innermost density. The reference simulation does not display a simple monotonic dependence on any one of these parameters, which already suggests that the behaviour is not a trivial one-parameter resolution effect.
+If that late-time stabilization picture applied directly to this setup, the inner density would be expected to flatten after core formation rather than continue declining. The reference run is therefore notable not because it forms a core, but because the core remains dynamically active rather than approaching a steady inner state.
+
+%The result is also instructive from the point of view of numerical convergence. \cite{power2003inner} showed that the inner halo is especially sensitive to the interplay between resolution, force softening, and timestep control, while \cite{zhang2019optimal} later demonstrated that too aggressive a reduction of the softening length can artificially raise the innermost density. The reference simulation does not display a simple monotonic dependence on any one of these parameters, which already suggests that the behaviour is not a trivial one-parameter resolution effect.
 
 To make these statements quantitative a few standard diagnostic definitions are used. All radial profiles are measured in a sequence of spherical shells extending from the halo centre to a maximum radius $r_{\rm max}$. Rather than adopting uniformly spaced bins, a logarithmically compressed coordinate is employed in order to increase the spatial resolution in the central region while maintaining adequate sampling at large radii. The transformation is defined as
 \begin{equation}
@@ -17,7 +19,7 @@ where $r_c$ is a characteristic scale radius. The radial bin boundaries are unif
 \begin{equation}
 r(u)=r_c\left(e^u-1\right).
 \end{equation}
-This construction yields narrow bins near the halo centre and progressively wider bins at larger radii, reducing shot noise while preserving the ability to resolve the inner density structure.
+This construction gives narrow bins near the halo centre and progressively wider bins at larger radii, reducing shot noise while preserving the ability to resolve the inner density structure.
 
 The spherically averaged density profile is obtained by dividing the halo into radial shells and computing the mass enclosed within each shell. If $\Delta M_k$ denotes the mass contained in the shell bounded by radii $r_k$ and $r_{k+1}$, the density is estimated as
 \begin{equation}
@@ -70,7 +72,7 @@ In the plot in Figure~\ref{fig:baseline_gradient} the central density drops rapi
 %\end{figure}
 
 \subsection{Snapshot centering}
-Centering is handled independently from the density estimation. Each snapshot is recentered using a shrinking-sphere algorithm, which iteratively refines the halo center by repeatedly restricting the particle set to smaller radii around the current estimate. If the particle positions are $\mathbf{x}_i$ and masses are $m_i$, the mass-weighted centroid of a selected set $S_k$ is
+Centering is handled independently from the density estimation. Each snapshot is recentered using a shrinking sphere algorithm, which iteratively refines the halo center by repeatedly restricting the particle set to smaller radii around the current estimate. If the particle positions are $\mathbf{x}_i$ and masses are $m_i$, the mass-weighted centroid of a selected set $S_k$ is
 \begin{equation}
 \mathbf{x}_k = \mathbf{C}(S_k) = \frac{\sum_{i\in S_k} m_i\,\mathbf{x}_i}{\sum_{i\in S_k} m_i},
 \end{equation}
@@ -131,8 +133,6 @@ From these quantities, the velocity anisotropy parameter is defined as
 \begin{equation}
 \beta(r_k) = 1 - \frac{\sigma_t^2(r_k)}{2\,\sigma_r^2(r_k)}.
 \end{equation}
-An isotropic velocity distribution corresponds to $\beta = 0$, while $\beta > 0$ indicates radially biased orbits. In the context of core evolution, a sustained increase in $\sigma_r$ and/or a systematic rise in $\beta$ in the innermost shells would signal kinematic heating rather than simple adiabatic expansion.
-
 An isotropic velocity distribution corresponds to $\beta = 0$, while $\beta > 0$ indicates radially biased orbits \citep{binney2008galactic}. In the context of core evolution, a sustained increase in $\sigma_r$ and/or a systematic rise in $\beta$ in the innermost shells would signal kinematic heating rather than simple adiabatic expansion \citep{diemand2004relaxation, elzant2006relaxation}.
 
 To further characterize the system's kinematic state, the one-dimensional velocity dispersion is computed. The total one-dimensional velocity dispersion, $\sigma_{\mathrm{1D}}(r)$, is defined via its radial ($\sigma_r$) and tangential ($\sigma_t$) components as:
@@ -148,7 +148,7 @@ Because the kinematic profiles are measured from finite particle numbers, the ra
 \exp\!\left[-\frac{(r_k-r_j)^2}{2h^2}\right]}
 {\displaystyle \sum_j \exp\!\left[-\frac{(r_k-r_j)^2}{2h^2}\right]},
 \end{equation}
-where $h$ is the smoothing length. In practice, $h$ is chosen to be comparable to one radial bin width, so that the filter suppresses shot noise without erasing genuine radial trends. The same procedure is applied consistently to $\sigma_r(r)$, $\sigma_t(r)$, and $\beta(r)$ when comparing different epochs.
+where $h$ is the smoothing length. In practice, $h$ is chosen to be comparable to one radial bin width, so that the filter suppresses shot noise without erasing genuine radial trends. The same procedure is applied consistently to $\sigma_r(r)$, $\sigma_t(r)$, and $\beta(r)$.
 
 %For a collisionless stellar system in steady-state, spherical hydrostatic equilibrium, the velocity dispersion profiles and the spatial density distribution $\rho(r)$ must satisfy the spherical Jeans equation:
 %\begin{equation}
@@ -207,9 +207,9 @@ The comparison between cuspy and cored initial conditions is particularly inform
 %	\label{fig:core_potential_map}
 %\end{figure}
 
-In physical terms, this suggests that the system is sensitive to the presence of a central potential well, but not exclusively to its initial logarithmic slope. A cored halo has less extreme inner structure and therefore reacts less strongly, yet the evolution remains qualitatively the same. This is particularly important in light of the \cite{errani2026collisional} result that cusp-heating evolution should weaken once the core is established and central dark matter densities are reduced. In that scenario, a pre-existing core should not continue to lose central density over long timescales; however, this behaviour is observed in the simulations. That mismatch reinforces the conclusion that the persistent decline cannot be explained as a simple cusp-to-core transient and is instead tied to a broader dynamical mechanism.
+In physical terms, this suggests that the system is sensitive to the presence of a central potential well, but not exclusively to its initial logarithmic slope. A cored halo has less extreme inner structure and therefore reacts less strongly, yet the evolution remains qualitatively the same. This is particularly important in light of the \cite{errani2026collisional} result that cusp evolution should weaken once the core is established and central dark matter densities are reduced. In that scenario, a pre-existing core should not continue to lose central density over long timescales; however, this behaviour is observed in the simulations. That mismatch reinforces the conclusion that the persistent decline cannot be explained as a simple cusp-to-core transient and is instead tied to a broader dynamical mechanism.
 
-The literature on heating caused by substructure is again relevant here. Stochastic forcing does not require a cusp; it requires a fluctuating potential and a population of perturbers that can exchange energy with the central region \citep{penarrubia2017fluctuations}. The persistence of the effect in the core run is therefore compatible with a non-local heating picture and inconsistent with the idea that the problem is restricted to cuspy initial conditions.
+The literature on heating caused by substructure is again relevant here. Stochastic forcing does not require a cusp; it requires a fluctuating potential and a population of perturbers that can exchange energy with the central region \citep{penarrubia2017fluctuations}. The persistence of the effect in the core run is therefore compatible with a heating picture and inconsistent with the idea that the problem is restricted to cuspy initial conditions.
 
 \begin{figure}[H]
 	\centering
@@ -228,7 +228,7 @@ The literature on heating caused by substructure is again relevant here. Stochas
 \section{Gravitational softening}
 \label{sec:results_softening}
 
-Softening is the most obvious numerical parameter to suspect in any study of the inner halo, because it directly regularizes short-range interactions. The literature makes clear, however, that the role of softening is subtle: too much softening suppresses small scale structure, while too little can artificially increase the density in the innermost region \citep{power2003inner,zhang2019optimal}. In the convergence analysis of \cite{zhang2019optimal}, the optimal softening length is the one that balances force bias against discreteness noise; below that scale, the central profile can become biased high because close encounters are less regularized and the inner region responds more strongly to numerical heating rather than to a genuine improvement in resolution. The present results fit that picture in the sense that the softening length changes the detailed rate of evolution, but not the existence of the decline itself. The tested softening values are $\epsilon = 1$, $5$, $10$, $50$, and $100\ \mathrm{pc}$; shown in Figure~\ref{fig:results_softening} are the 50 Gyr and 100 Gyr snapshots.
+Softening is the most obvious numerical parameter to suspect in any study of the inner halo, because it directly regularizes short range interactions. The literature makes clear, however, that the role of softening is subtle: too much softening suppresses small scale structure, while too little can artificially increase the density in the innermost region \citep{power2003inner,zhang2019optimal}. In the convergence analysis of \cite{zhang2019optimal}, the optimal softening length is the one that balances force bias against discreteness noise; below that scale, the central profile can become biased high because close encounters are less regularized and the inner region responds more strongly to numerical heating rather than to a genuine improvement in resolution. The present results fit that picture in the sense that the softening length changes the detailed rate of evolution, but not the existence of the decline itself. The tested softening values are $\epsilon = 1$, $5$, $10$, $50$, and $100\ \mathrm{pc}$; shown in Figure~\ref{fig:results_softening} are the 50 Gyr and 100 Gyr snapshots.
 
 This is an important negative result. If softening were the primary cause, the central density evolution should have shown a qualitatively different response when the softening length was varied. Instead, the trend persists across the tested range. The smallest tested softening shows an increase in density as one approaches the center, but that should not be interpreted as a real improvement of the physical problem. The more likely explanation is that the reduced softening has allowed stronger numerical heating and a slightly more concentrated inner profile, which is exactly the kind of bias that an under-softened calculation can introduce \citep{power2003inner,zhang2019optimal}.
 
@@ -275,7 +275,7 @@ $\epsilon_{\mathrm{fmm}}$ (FMM tolerance) & 0.001 & 0.0001 & 0.01 & 0.1 \\
 
 \subsection{Timestep study}
 
-The timestep factor $\eta$ determines the frequency of gravity and kinematics updates. Increasing $\eta$ allows larger timesteps and reduces the number of force evaluations per unit time; decreasing $\eta$ enforces finer temporal sampling and can improve phase-space accuracy. The baseline value of $\eta = 0.002$ is typical for high-resolution dark matter studies, but it is instructive to test both more conservative ($\eta = 0.0002$, roughly $10\times$ finer) and more permissive ($\eta = 0.02$, roughly $10\times$ coarser) variants.
+The timestep factor $\eta$ determines the frequency of gravity and kinematics updates. Increasing $\eta$ allows larger timesteps and reduces the number of force evaluations per unit time; decreasing $\eta$ enforces finer temporal sampling and can improve accuracy. The baseline value of $\eta = 0.002$ is typical for high-resolution dark matter studies, but it is instructive to test both more conservative ($\eta = 0.0002$, roughly $10\times$ finer) and more permissive ($\eta = 0.02$, roughly $10\times$ coarser) variants.
 
 If timestep error were the main driver of central decline, the coarser run should exhibit notably faster or more severe depletion, while the finer run might show stabilization. That is not observed.
 
@@ -295,7 +295,7 @@ Lowering $\theta_{\mathrm{cr}}$ should increase computational cost but also incr
 
 The Fast Multipole Method tolerance $\epsilon_{\mathrm{fmm}}$ is a global precision parameter for the multipole expansion. The baseline value is $\epsilon_{\mathrm{fmm}} = 0.001$, and the test suite includes both looser values ($0.01$ and $0.1$, representing $10\times$ and $100\times$ relaxation) and a tighter value ($0.0001$, representing $10\times$ tightening). This range is designed to reveal whether force approximation is a controlling factor.
 
-Some runs with modified $\epsilon_{\mathrm{fmm}}$ exhibit slightly improved early time behaviour, particularly the tighter tolerance, but even those runs exhibit long-term central decline. The change is not enough to alter the qualitative long term trend.
+Some runs with modified $\epsilon_{\mathrm{fmm}}$ exhibit slightly improved early time behaviour, particularly the tighter tolerance, but even those runs exhibit long term central decline. The change is not enough to alter the qualitative long term trend.
 
 \begin{figure}[H]
 \centering
@@ -348,14 +348,14 @@ For each shell at radius range $[r_i, r_{i+1}]$, its contribution to the gravita
 
 Shells well outside the center still make sizeable contributions to the potential depth at $r = 0$ (and therefore to the escape-speed scale $v_{\rm esc} \propto \sqrt{-2\Phi}$). The fractional contribution of each shell quantifies this effect.
 
-\item[\textbf{Outer-potential fraction}]
+\item[\textbf{Outer potential fraction}]
 For a given probe radius $r_{\mathrm{probe}}$ and cutoff radius $r_{\mathrm{cut}}$, the outer potential fraction is defined as:
 
 \begin{equation}
 f_{\mathrm{outer}}(r_{\mathrm{probe}}, r_{\mathrm{cut}}) = \frac{\left|\Phi_{>r_{\mathrm{cut}}}(r_{\mathrm{probe}})\right|}{\left|\Phi_{\mathrm{total}}(r_{\mathrm{probe}})\right|},
 \end{equation}
 
-where $\Phi_{>r_{\mathrm{cut}}}$ is the potential contribution from material outside the cutoff and $\Phi_{\mathrm{total}}$ is the total potential at that radius. This measures how strongly the outer halo influences the local potential at the probe radius. By varying $r_{\mathrm{cut}}$, the radius beyond which the outer halo becomes a small correction can be determined.
+where $\Phi_{>r_{\mathrm{cut}}}$ is the potential contribution from material outside the cutoff and $\Phi_{\mathrm{total}}$ is the total potential at that radius. This measures how strongly the outer halo influences the local potential at the probe radius.
 
 \end{description}
 
@@ -440,7 +440,7 @@ This is addressed by the hybrid model simulations discussed in the next section.
 
 \section{Hybrid model}
 \label{sec:results_truncated_nfw}
-This section introduces the truncated-NFW hybrid experiments used to isolate the role of long range potential on the inner halo evolution. The implementation is first validated with a small suite of diagnostics to ensure the hybrid coupling behaves as intended. After validation, a systematic study of the truncation radius $R_{\mathrm{cut}}$ and its impact on the inner density evolution is presented; the results of that Rcut parameter sweep are discussed in the following subsections.
+This section introduces the truncated-NFW hybrid experiments used to isolate the role of long range potential on the inner halo evolution. The implementation (explained in Section~\ref{sec:framework_hybrid}) is first validated with a small suite of diagnostics to ensure the hybrid coupling behaves as intended. After validation, a systematic study of the truncation radius $R_{\mathrm{cut}}$ and its impact on the inner density evolution is presented; the results of that Rcut parameter sweep are discussed in the following subsections.
 
 \subsection{Mass and potential structure}
 As an initial validation of the truncation procedure, the halo mass partition is verified to be correct. For all values of the truncation radius, the measured mass enclosed within $R_{\mathrm{cut}}$ agrees with the expected particle mass, while the remaining halo mass is consistently represented by the analytic potential.
@@ -500,7 +500,7 @@ A second validation concerns the resulting gravitational potential (Figure~\ref{
 
 \subsection{Orbits crossing the truncation boundary}
 
-Selected test particles that cross the truncation boundary were integrated to check for energy or angular momentum transfer caused by the hybrid partition. An example orbit with $R_{\rm cut} = 10$ kpc is shown in Figure~\ref{fig:tnfw_validation_orbits} and remains regular and physically plausible, indicating the hybrid coupling does not introduce obvious integration artefacts on the tested timescales.
+Selected test particles that cross the truncation boundary were integrated to check for inconsistencies caused by the hybrid partition. An example orbit with $R_{\rm cut} = 10$ kpc is shown in Figure~\ref{fig:tnfw_validation_orbits} and remains regular and physically plausible, indicating the hybrid coupling does not introduce obvious integration artefacts on the tested timescales.
 
 Particles that move from the inner region, $r < R_{\rm cut}$, to the outer region, $r > R_{\rm cut}$, between two consecutive simulation snapshots are identified as follows. Let the snapshots be indexed by $i=0,\dots,N_{\rm snap}-1$, with snapshot time $t_i$. For each particle $p$ present in a given snapshot, its position is denoted by
 \begin{equation}
@@ -582,7 +582,7 @@ This produces a compact data set containing only trajectories relevant to the bo
 
 The figure above (Figure~\ref{fig:summary_orbits}) summarizes a larger sample of trajectories. In all cases, the orbits remain smooth and dynamically consistent, with no evidence of discontinuities arising from crossings of the truncation boundary. Additional orbit examples are provided in Appendix~\ref{app:tnfw_orbits}.
 
-In summary, the validation diagnostics show that (i) mass is correctly split by the truncation routine, (ii) the inner potential follows the expected NFW shape (Figure~\ref{fig:multifigure_potential_distr}), and (iii) orbits are not affected by the truncation (Figure~\ref{fig:summary_orbits}). These outcomes indicate that the truncated interaction implementation behaves as intended for the described experiments.
+In summary, the validation diagnostics show that (i) mass is correctly split by the truncation routine, (ii) the inner potential follows the expected NFW shape (Figure~\ref{fig:multifigure_potential_distr}), and (iii) orbits are not affected by the truncation (Figure~\ref{fig:summary_orbits}). These outcomes indicate that the hybrid model implementation behaves as intended for the described experiments.
 
 \subsection{Density profile}
 Following the validation tests, a full 100~Gyr simulation was performed for the hybrid truncated model with $R_{\rm cut}=10$~kpc. The resulting density evolution is shown in Figure~\ref{fig:truncated_10}. The overall behaviour closely follows that of the baseline simulation presented in Section~\ref{sec:results_baseline}, featuring the same decrease in the central density over time.
@@ -636,6 +636,6 @@ These results indicate that the central density decline is driven by a mechanism
 	\label{fig:r_cut_comparison}
 \end{figure}
 
-Therefore, artificial two-body relaxation and force softening appear to be driving the persistent core formation in the halo simulations. Studies of high-resolution CDM halos show that even $10^{6}$--$10^{8}$ particles have relaxation times short enough to flatten cusps in a few dynamical times. In particular, \cite{diemand2004relaxation} demonstrated that simulated halos suffer central heating that declines only as $\sim N^{-0.25}$ with particle number, rather than $N^{-1}$, implying that large $N$ ($\gg 10^{8}$) or substantial softening are needed to prevent cusp erosion. Similarly, \cite{elzant2006relaxation} finds that $t_{\mathrm{relax}} \propto r^{2}$ and that a $10^{6}$ particle halo is already noise dominated in the inner $\sim 1\%$, requiring $N \gg 10^{8}$ for the inner profile to remain collisionless.
+Studies of high-resolution CDM halos show that even $10^{6}$--$10^{8}$ particles have relaxation times short enough to flatten cusps in a few dynamical times. In particular, \cite{diemand2004relaxation} demonstrated that simulated halos suffer central heating that declines only as $\sim N^{-0.25}$ with particle number, rather than $N^{-1}$, implying that large $N$ ($\gg 10^{8}$) or substantial softening are needed to prevent cusp erosion. Similarly, \cite{elzant2006relaxation} finds that $t_{\mathrm{relax}} \propto r^{2}$ and that a $10^{6}$ particle halo is already noise dominated in the inner $\sim 1\%$, requiring $N \gg 10^{8}$ for the inner profile to remain collisionless.
 
-These works predict that truncating outer mass alone cannot halt inner relaxation; removing long range forces beyond 10 kpc still leaves the small-$N$ central cusp relaxationally unstable. In short, the balance of evidence is that numerical discreteness (two-body scattering and shot noise), rather than algorithmic bias or mis-centering, is the primary culprit.
+These works predict that truncating outer mass alone cannot halt inner relaxation; removing long range forces beyond 10 kpc still leaves the small-$N$ central cusp relaxationally unstable. In short, the balance of evidence is that numerical discreteness (two-body scattering and shot noise) is the primary culprit for the persistent core formation in the halo simulations.

@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {2.5}The SWIFT simulation code}{10}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Gravity solver controls in SWIFT}{10}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Smoothed particle hydrodynamics (SPH)}{11}{subsection.2.5.2}%
-\contentsline {section}{\numberline {2.6}Shell structure and mass redistribution}{11}{section.2.6}%
+\contentsline {section}{\numberline {2.6}Non-local mass redistribution}{11}{section.2.6}%
 \contentsline {chapter}{\numberline {3}Simulation model and implementation}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}SWIFT simulation setup}{13}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Baseline gravity and time integration choices}{14}{subsection.3.1.1}%
@@ -32,35 +32,33 @@
 \contentsline {subsection}{\numberline {3.3.3}Runtime parameters and YAML configuration}{17}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}Two-layer masking logic}{18}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}External potential behaviour and timestep coupling}{21}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}Centering, cutoff convention and edge cases}{22}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}Serialization, restart safety and diagnostics}{22}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Foreign particle and MPI consistency}{23}{subsection.3.3.8}%
-\contentsline {subsection}{\numberline {3.3.9}Caveats and limitations}{23}{subsection.3.3.9}%
-\contentsline {chapter}{\numberline {4}Results and discussion}{24}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Baseline behaviour}{24}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Snapshot centering}{26}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Kinematic heating analysis}{27}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Box size}{30}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Initial halo structure}{31}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Gravitational softening}{32}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Self-gravity settings}{34}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Timestep study}{34}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Multipole acceptance criterion study}{34}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{35}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{35}{subsection.4.5.4}%
-\contentsline {section}{\numberline {4.6}Outer halo influence on inner potential}{37}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Key diagnostics and definitions}{37}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Shell diagnostics and decomposition}{38}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Mass and potential distribution across the halo}{38}{subsection.4.6.3}%
-\contentsline {subsection}{\numberline {4.6.4}Outer halo influence as a function of cutoff radius}{40}{subsection.4.6.4}%
-\contentsline {section}{\numberline {4.7}Hybrid model}{41}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Mass and potential structure}{41}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Orbits crossing the truncation boundary}{43}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Density profile}{46}{subsection.4.7.3}%
-\contentsline {chapter}{\numberline {5}Conclusions}{50}{chapter.5}%
+\contentsline {subsection}{\numberline {3.3.6}Serialization, restart safety and MPI consistency}{21}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Caveats and limitations}{22}{subsection.3.3.7}%
+\contentsline {chapter}{\numberline {4}Results and discussion}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Baseline behaviour}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Snapshot centering}{25}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Kinematic heating analysis}{26}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Box size}{29}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Initial halo structure}{30}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Gravitational softening}{31}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Self-gravity settings}{33}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Timestep study}{33}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Multipole acceptance criterion study}{33}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Geometric opening angle study}{34}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}FMM tolerance study}{34}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Outer halo influence on inner potential}{36}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Key diagnostics and definitions}{36}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Shell diagnostics and decomposition}{36}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Mass and potential distribution across the halo}{37}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Outer halo influence as a function of cutoff radius}{39}{subsection.4.6.4}%
+\contentsline {section}{\numberline {4.7}Hybrid model}{40}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Mass and potential structure}{40}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Orbits crossing the truncation boundary}{42}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Density profile}{45}{subsection.4.7.3}%
+\contentsline {chapter}{\numberline {5}Conclusions}{49}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Future work}{50}{section.5.1}%
 \vspace {\normalbaselineskip }
-\contentsline {chapter}{Bibliography}{53}{chapter*.31}%
-\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{54}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Orbits}{56}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Truncated NFW density profile evolution}{59}{appendix.C}%
+\contentsline {chapter}{Bibliography}{52}{chapter*.31}%
+\contentsline {chapter}{\numberline {A}Shrinking sphere centering method}{53}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Orbits}{55}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Hybrid model density profile evolution}{58}{appendix.C}%
